@@ -4,6 +4,11 @@ Driver Packages Folder：
 * Jetson Orin Nano&NX Devkit  
 
 Driver Package Description：  
+* Jetson-Orin-Nano-DK_IMX390_JP5.1.2_L4TR35.4.1.zip  
+Jetpack 5.1.2  
+Driver For Camera： 
+    * SG2-IMX390C-MIPI-HXXX  
+    https://www.sensing-world.com/en/pd.jsp?recommendFromPid=0&id=37&fromMid=1563  
 * Jetson-Orin-Nano-DK_IMX662_JP6.0_L4TR36.2.zip  
 Jetpack 6.0  
 Driver For Camera：  
