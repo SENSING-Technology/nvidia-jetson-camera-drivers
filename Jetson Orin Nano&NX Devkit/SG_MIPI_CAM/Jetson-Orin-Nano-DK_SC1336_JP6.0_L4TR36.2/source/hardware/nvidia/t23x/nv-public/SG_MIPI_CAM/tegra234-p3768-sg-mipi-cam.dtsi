@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2022, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+#include <dt-bindings/gpio/tegra234-gpio.h>
+
+#define CAM0_PWDN	TEGRA234_MAIN_GPIO(H, 6)
+#define CAM1_PWDN	TEGRA234_MAIN_GPIO(AC, 0)
+#define CAM_I2C_MUX 	TEGRA234_AON_GPIO(CC, 3)
+
+#include "sg-mipi-sc1336-2lane.dtsi"
+
+/ {
+	bus@0{
+		cam_i2cmux {
+			compatible = "i2c-mux-gpio";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			mux-gpios = <&tegra_aon_gpio CAM_I2C_MUX GPIO_ACTIVE_HIGH>;
+			i2c-parent = <&cam_i2c>;
+			i2c@0 {
+				reg = <0>;
+				#address-cells = <1>;
+				#size-cells = <0>;
+			};
+			i2c@1 {
+				reg = <1>;
+				#address-cells = <1>;
+				#size-cells = <0>;
+			};
+		};
+
+		gpio@6000d000 {
+			camera-control-output-low {
+				gpio-hog;
+				output-low;
+				gpios = < CAM1_PWDN 0  CAM0_PWDN 0>;
+				label = "cam1-pwdn", "cam0-pwdn";
+			};
+		};
+
+		// tegra_pinctrl: pinmux@2430000 {
+		// 	// compatible = "nvidia,tegra234-pinmux";
+		// 	// reg = <0x0 0x2430000 0x0 0x19100
+		// 	// 	0x0 0xc300000 0x0 0x4000>;
+		// 	// #gpio-range-cells = <3>;
+		// 	// status = "okay";
+		// };
+
+		tegra_main_gpio: gpio@2200000 {
+			// gpio-ranges =
+			// 	<&tegra_pinctrl 0 0 138>,
+			// 	<&tegra_pinctrl 138 146 26>;
+			// status = "okay";
+		};
+
+		tegra_aon_gpio: gpio@c2f0000 {
+			// gpio-ranges =
+			// 	<&tegra_pinctrl 0 138 8>,
+			// 	<&tegra_pinctrl 8 172 24>;
+			// status = "okay";
+		};
+
+	};	
+};

@@ -1,0 +1,1330 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// SPDX-FileCopyrightText: Copyright (c) 2018-2023, INTEL CORPORATION.  All rights reserved.
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/clock/tegra234-clock.h>
+#include <dt-bindings/gpio/tegra234-gpio.h>
+#include <dt-bindings/tegra234-p3737-0000+p3701-0000.h>
+
+#define CAM_VDD_SYS_EN  TEGRA234_MAIN_GPIO(AC, 7)
+#define DES_0_RESET		TEGRA234_MAIN_GPIO(H, 6)
+#define DES_1_RESET		TEGRA234_MAIN_GPIO(H, 3)
+#define DES_3_RESET		TEGRA234_MAIN_GPIO(AC, 1)
+#define DES_2_RESET		TEGRA234_MAIN_GPIO(AC, 0)
+
+
+#define CAMERA_I2C_MUX_BUS(x) (0x1E + x)
+
+/* camera control gpio definitions */
+/ {
+	overlay-name = "Jetson Sensing OX08DC GMSL2x8";
+    jetson-header-name = "Jetson AGX CSI Connector";
+    compatible = JETSON_COMPATIBLE;
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			tegra-capture-vi {
+				num-channels = <8>;
+				ports {
+					status = "okay";
+					port@0 {
+						reg = <0>;
+						status = "okay";
+                        jetson_vi_in0: endpoint {
+                            status = "okay";
+                            vc-id = <0>;
+                            port-index = <0>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out0>;
+                        };
+					};
+					port@1 {
+						reg = <1>;
+						status = "okay";
+                        jetson_vi_in1: endpoint {
+                            status = "okay";
+                            vc-id = <1>;
+                            port-index = <0>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out1>;
+                        };
+					};
+					port@2 {
+						reg = <2>;
+						status = "okay";
+                        jetson_vi_in2: endpoint {
+                            status = "okay";
+                            vc-id = <0>;
+                            port-index = <2>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out2>;
+                        };
+					};
+					port@3 {
+						reg = <3>;
+						status = "okay";
+                        jetson_vi_in3: endpoint {
+                            status = "okay";
+                            vc-id = <1>;
+                            port-index = <2>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out3>;
+                        };
+					};
+					port@4 {
+						reg = <4>;
+						status = "okay";
+                        jetson_vi_in4: endpoint {
+                            status = "okay";
+                            vc-id = <0>;
+                            port-index = <4>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out4>;
+                        };
+					};
+					port@5 {
+						reg = <5>;
+						status = "okay";
+                        jetson_vi_in5: endpoint {
+                            status = "okay";
+                            vc-id = <1>;
+                            port-index = <4>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out5>;
+                        };
+					};
+					port@6 {
+						reg = <6>;
+						status = "okay";
+                        jetson_vi_in6: endpoint {
+                            status = "okay";
+                            vc-id = <0>;
+                            port-index = <5>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out6>;
+                        };
+					};
+					port@7 {
+						reg = <7>;
+						status = "okay";
+                        jetson_vi_in7: endpoint {
+                            status = "okay";
+                            vc-id = <1>;
+                            port-index = <5>;
+                            bus-width = <4>;
+                            remote-endpoint = <&jetson_csi_out7>;
+                        };
+					};
+				};
+			};
+            
+			tegra-camera-platform {
+				compatible = "nvidia, tegra-camera-platform";
+
+                num_csi_lanes = <16>;
+                max_lane_speed = <4000000>;
+                min_bits_per_pixel = <10>;
+                vi_peak_byte_per_pixel = <2>;
+                vi_bw_margin_pct = <25>;
+                isp_peak_byte_per_pixel = <5>;
+                isp_bw_margin_pct = <25>;
+
+				modules {
+					status = "okay";
+					module0 {
+						status = "okay";
+                        badge = "cam0_bottomleft";
+                        position = "bottomleft";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+                            sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@0/cam_0@1b";
+						};
+					};
+					module1 {
+						status = "okay";
+                        badge = "cam1_bottomright";
+                        position = "bottomright";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@0/cam_1@1c";
+						};
+					};
+					module2 {
+						status = "okay";
+                        badge = "cam2_centerleft";
+                        position = "centerleft";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@1/cam_2@1b";
+						};
+					};
+					module3 {
+						status = "okay";
+                        badge = "cam3_centerright";
+                        position = "centerright";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@1/cam_3@1c";
+					    };
+                    };
+                    module4 {
+						status = "okay";
+                        badge = "cam4_topleft";
+                        position = "topleft";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@2/cam_4@1b";
+						};
+					};
+                    module5 {
+						status = "okay";
+                        badge = "cam5_topright";
+                        position = "topright";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@2/cam_5@1c";
+						};
+					};
+					module6 {
+						status = "okay";
+                        badge = "cam6_front";
+                        position = "front";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_6@1b";
+						};
+					};
+                    module7 {
+						status = "okay";
+                        badge = "cam7_rear";
+                        position = "rear";
+                        orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+					        sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_7@1c";
+						};
+					};
+				};
+			};
+
+			bus@0 {
+				/* set camera gpio direction to output */
+				gpio@2200000 {
+					camera-control-output-low {
+						gpio-hog;
+						output-low;
+                        gpios = <CAM_VDD_SYS_EN 1 DES_0_RESET 1 DES_1_RESET 1 DES_2_RESET 1 DES_3_RESET 1>; 
+                        label = "cam_vdd_sys_en", "cam0_rst", "cam0_pwdn","cam1_rst", "cam1_pwdn";
+					};
+				};
+
+				host1x@13e00000 {
+					nvcsi@15a00000 {
+						num-channels = <8>;
+						channel@0 {
+							reg = <0>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in0: endpoint@0 {
+                                        status = "okay";
+                                        port-index = <0>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out0>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out0: endpoint@1 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in0>;
+                                    };
+								};
+							};
+						};
+						channel@1 {
+							reg = <1>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in1: endpoint@2 {
+                                        status = "okay";
+                                        port-index = <0>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out1>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out1: endpoint@3 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in1>;
+                                    };
+								};
+							};
+						};
+						channel@2 {
+							reg = <2>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in2: endpoint@4 {
+                                        status = "okay";
+                                        port-index = <2>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out2>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out2: endpoint@5 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in2>;
+                                    };
+								};
+							};
+						};
+						channel@3 {
+							reg = <3>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in3: endpoint@6 {
+                                        status = "okay";
+                                        port-index = <2>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out3>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out3: endpoint@7 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in3>;
+                                    };
+								};
+							};
+						};
+						channel@4 {
+							reg = <4>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in4: endpoint@8 {
+                                        status = "okay";
+                                        port-index = <4>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out4>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out4: endpoint@9 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in4>;
+                                    };
+								};
+							};
+						};
+						channel@5 {
+							reg = <5>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in5: endpoint@10 {
+                                        status = "okay";
+                                        port-index = <4>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out5>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out5: endpoint@11 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in5>;
+                                    };
+								};
+							};
+						};
+						channel@6 {
+							reg = <6>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in6: endpoint@12 {
+                                        status = "okay";
+                                        port-index = <6>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out6>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out6: endpoint@13 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in6>;
+                                    };
+								};
+							};
+						};
+						channel@7 {
+							reg = <7>;
+							status = "okay";
+							ports {
+								status = "okay";
+								port@0 {
+									reg = <0>;
+									status = "okay";
+                                    jetson_csi_in7: endpoint@14 {
+                                        status = "okay";
+                                        port-index = <6>;
+                                        bus-width = <4>;
+                                        remote-endpoint = <&sensor_out7>;
+                                    };
+								};
+								port@1 {
+									reg = <1>;
+									status = "okay";
+                                    jetson_csi_out7: endpoint@15 {
+                                        status = "okay";
+                                        remote-endpoint = <&jetson_vi_in7>;
+                                    };
+								};
+							};
+						};
+					};
+				};
+				i2c@3180000 {
+					clock-frequency = <100000>;
+					tca9546@70 {
+						status = "okay";
+						reg = <0x70>;
+						compatible = "nxp,pca9546";
+						#address-cells = <1>;
+						#size-cells = <0>;
+						skip_mux_detect = "yes";
+						vcc-supply = <&vdd_1v8_ls>;
+                        force_bus_start = <CAMERA_I2C_MUX_BUS(0)>;
+
+						i2c@0 {
+                            status = "okay";
+							reg = <0>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <1>;
+							#size-cells = <0>;
+
+							dser_0: max9296_0@48 {
+								status = "okay";
+								reg = <0x48>;
+								compatible = "maxim,max9296_0";
+								csi-mode = "2x4";
+								max-src = <2>;
+								reset-gpios = <&gpio DES_0_RESET GPIO_ACTIVE_HIGH>;
+                                poc-ctrl = <&gpio CAM_VDD_SYS_EN GPIO_ACTIVE_LOW>;
+							};
+							ser_1: max9295_1@62 {
+								status = "okay";
+								compatible = "maxim,max9295_0";
+								reg = <0x62>;
+								sensing,gmsl-dser-device = <&dser_0>;
+							};
+							ser_0: max9295_0@60 {
+								status = "okay";
+								compatible = "maxim,max9295_0";
+								reg = <0x60>;
+								sensing,gmsl-dser-device = <&dser_0>;
+							};
+							ser_prim_0: max9295_prim_0@40 {
+								status = "okay";
+								reg = <0x40>;
+								compatible = "maxim,max9295_0";
+								is-prim-ser;
+							};
+
+							cam_1@1c {
+								status = "okay";
+								compatible = "ov,ox08d-1";
+								reg = <0x1c>;
+                                def-addr = <0x36>;
+
+								devnode = "video1";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_1>;
+						        sensing,gmsl-dser-device = <&dser_0>;
+								
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_a";
+                                    vc_id = "1";
+                                    discontinuous_clk = "no";
+                                    dpcm_enable = "false";
+                                    cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+                                    csi_pixel_bit_depth = "12";
+                                    mode_type = "bayer";
+                                    pixel_phase = "grbg";
+                                    
+                                    active_w = "3840";
+                                    active_h = "2160";
+                                    readout_orientation = "0";
+                                    line_length = "4400";
+                                    inherent_gain = "1";
+                                    pix_clk_hz = "320000000";
+                                    serdes_pix_clk_hz = "600000000";
+
+                                    gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+                                    port@0 {
+                                        reg = <0>;
+                                        sensor_out1: endpoint {
+                                            vc-id = <1>;
+                                            port-index = <0>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in1>;
+                                        };
+                                    };
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "b";
+                                    csi-mode = "1x4";
+                                    st-vc = <1>;
+                                    vc-id = <1>;
+                                    num-lanes = <4>;
+                                    streams =  "ued-u1", "raw12";
+                                };
+							};
+
+							cam_0@1b {
+								status = "okay";
+								compatible = "ov,ox08d-0";
+								reg = <0x1b>;
+                                def-addr = <0x36>;
+								
+								devnode = "video0";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+
+								/* Define any required hw resources needed by driver */
+								/* ie. clocks, io pins, power sources */
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_0>;
+						        sensing,gmsl-dser-device = <&dser_0>;
+
+                                mode0 {/*mode ox08d_3840x2160_crop_30fps*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_a";
+                                    vc_id = "0";
+                                    discontinuous_clk = "no";
+                                    dpcm_enable = "false";
+                                    cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+                                    csi_pixel_bit_depth = "12";
+                                    mode_type = "bayer";
+                                    pixel_phase = "grbg";
+                                    
+                                    active_w = "3840";
+                                    active_h = "2160";
+                                    readout_orientation = "0";
+                                    line_length = "4400";
+                                    inherent_gain = "1";
+                                    pix_clk_hz = "320000000";
+                                    serdes_pix_clk_hz = "600000000";
+
+                                    gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+                                ports {
+                                    #address-cells = <1>;
+                                    #size-cells = <0>;
+                                    port@0 {
+                                        reg = <0>;
+                                        sensor_out0: endpoint {
+                                            vc-id = <0>;
+                                            port-index = <0>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in0>;
+                                        };
+                                    };
+                                };
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "a";
+                                    csi-mode = "1x4";
+                                    st-vc = <0>;
+                                    vc-id = <0>;
+                                    num-lanes = <4>;
+                                    streams = "ued-u1", "raw12";
+                                };
+							};
+
+						};
+						i2c@1 {
+							status = "okay";
+							reg = <1>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <1>;
+							#size-cells = <0>;
+							
+                            dser_1: max9296_1@48 {
+                                status = "okay";
+                                compatible = "maxim,max9296_1";
+                                reg = <0x48>;
+                                csi-mode = "2x4";
+                                max-src = <2>;
+                                reset-gpios = <&gpio DES_1_RESET GPIO_ACTIVE_HIGH>;
+                                poc-ctrl = <&gpio CAM_VDD_SYS_EN GPIO_ACTIVE_LOW>;
+                            };
+                            ser_3: max9295_3@62 {
+                                status = "okay";
+                                compatible = "maxim,max9295_1";
+                                reg = <0x62>;
+                                sensing,gmsl-dser-device = <&dser_1>;
+                            };
+                            ser_2: max9295_2@60 {
+                                status = "okay";
+                                compatible = "maxim,max9295_1";
+                                reg = <0x60>;
+                                sensing,gmsl-dser-device = <&dser_1>;
+                            };
+                            ser_prim_1: max9295_prim_1@40{
+                                status = "okay";
+                                compatible = "maxim,max9295_1";
+                                reg = <0x40>;
+                                is-prim-ser;
+                            };
+
+							cam_3@1c {
+								status = "okay";
+								compatible = "ov,ox08d-3";
+								reg = <0x1c>;
+                                def-addr = <0x36>;
+								
+								devnode = "video3";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_3>;
+                                sensing,gmsl-dser-device = <&dser_1>;
+								
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_c";
+                                    vc_id = "1";
+                                    discontinuous_clk = "no";
+                                    dpcm_enable = "false";
+                                    cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+                                    csi_pixel_bit_depth = "12";
+                                    mode_type = "bayer";
+                                    pixel_phase = "grbg";
+                                    
+                                    active_w = "3840";
+                                    active_h = "2160";
+                                    readout_orientation = "0";
+                                    line_length = "4400";
+                                    inherent_gain = "1";
+                                    pix_clk_hz = "320000000";
+                                    serdes_pix_clk_hz = "600000000";
+
+                                    gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+									port@0 {
+										reg = <0>;
+                                        sensor_out3: endpoint {
+                                            vc-id = <1>;
+                                            port-index = <2>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in3>;
+                                        };
+									};
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "b";
+                                    csi-mode = "1x4";
+                                    st-vc = <1>;
+                                    vc-id = <1>;
+                                    num-lanes = <4>;
+                                    streams = "ued-u1", "raw12";
+                                };
+							};
+
+							cam_2@1b {
+								status = "okay";
+								compatible = "ov,ox08d-2";
+								reg = <0x1b>;
+                                def-addr = <0x36>;
+								
+								devnode = "video2";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+
+								/* Define any required hw resources needed by driver */
+								/* ie. clocks, io pins, power sources */
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_2>;
+                                sensing,gmsl-dser-device = <&dser_1>;
+
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_c";
+									vc_id = "0";
+                                    discontinuous_clk = "no";
+                                    dpcm_enable = "false";
+                                    cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+                                    csi_pixel_bit_depth = "12";
+                                    mode_type = "bayer";
+                                    pixel_phase = "grbg";
+                                    
+                                    active_w = "3840";
+                                    active_h = "2160";
+                                    readout_orientation = "0";
+                                    line_length = "4400";
+                                    inherent_gain = "1";
+                                    pix_clk_hz = "320000000";
+                                    serdes_pix_clk_hz = "600000000";
+
+									gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+									port@0 {
+										reg = <0>;
+                                        sensor_out2: endpoint {
+                                            vc-id = <0>;
+                                            port-index = <2>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in2>;
+                                        };
+									};
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "a";
+                                    csi-mode = "1x4";
+                                    st-vc = <0>;
+                                    vc-id = <0>;
+                                    num-lanes = <4>;
+                                    streams = "ued-u1","raw12";
+                                };                                
+							};
+						};
+						i2c@2 {
+							status = "okay";
+							reg = <2>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <1>;
+							#size-cells = <0>;
+							
+                            dser_2: max9296_2@48 {
+                                status = "okay";
+                                compatible = "maxim,max9296_2";
+                                reg = <0x48>;
+                                csi-mode = "2x4";
+                                max-src = <2>;
+                                reset-gpios = <&gpio DES_2_RESET GPIO_ACTIVE_HIGH>;
+                                poc-ctrl = <&gpio CAM_VDD_SYS_EN GPIO_ACTIVE_LOW>;
+                            };
+                            ser_5: max9295_5@62 {
+                                status = "okay";
+                                compatible = "maxim,max9295_2";
+                                reg = <0x62>;
+                                sensing,gmsl-dser-device = <&dser_2>;
+                            };
+                            ser_4: max9295_4@60 {
+                                status = "okay";
+                                compatible = "maxim,max9295_2";
+                                reg = <0x60>;
+                                sensing,gmsl-dser-device = <&dser_2>;
+                            };
+                            ser_prim_2: max9295_prim_2@40{
+                                status = "okay";
+                                compatible = "maxim,max9295_2";
+                                reg = <0x40>;
+                                is-prim-ser;
+                            };
+
+							cam_5@1c {
+								status = "okay";
+								compatible = "ov,ox08d-5";
+								reg = <0x1c>;
+                                def-addr = <0x36>;
+								
+								devnode = "video5";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+                                
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+						        sensing,gmsl-ser-device = <&ser_5>;
+                                sensing,gmsl-dser-device = <&dser_2>;
+								
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_e";
+                                    vc_id = "1";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+									csi_pixel_bit_depth = "12";
+									mode_type = "bayer";
+									pixel_phase = "grbg";
+
+                                    active_w = "3840";
+                                    active_h = "2160";
+									readout_orientation = "0";
+                                    line_length = "4400";
+									inherent_gain = "1";
+									pix_clk_hz = "320000000";
+									serdes_pix_clk_hz = "600000000";
+
+									gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+									port@0 {
+										reg = <0>;
+                                        sensor_out5: endpoint {
+                                            vc-id = <1>;
+                                            port-index = <4>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in5>;
+                                        };
+									};
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "b";
+                                    csi-mode = "1x4";
+                                    st-vc = <1>;
+                                    vc-id = <1>;
+                                    num-lanes = <4>;
+                                    streams =  "ued-u1", "raw12";
+								};
+							};
+
+							cam_4@1b {
+								status = "okay";
+								compatible = "ov,ox08d-4";
+								reg = <0x1b>;
+                                def-addr = <0x36>;
+								
+								devnode = "video4";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+                                
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+
+								/* Define any required hw resources needed by driver */
+								/* ie. clocks, io pins, power sources */
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_4>;
+                                sensing,gmsl-dser-device = <&dser_2>;
+
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_e";
+                                    vc_id = "0";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+									csi_pixel_bit_depth = "12";
+									mode_type = "bayer";
+									pixel_phase = "grbg";
+
+                                    active_w = "3840";
+                                    active_h = "2160";
+									readout_orientation = "0";
+                                    line_length = "4400";
+									inherent_gain = "1";
+									pix_clk_hz = "320000000";
+									serdes_pix_clk_hz = "600000000";
+
+									gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+									port@0 {
+										reg = <0>;
+                                        sensor_out4: endpoint {
+                                            vc-id = <0>;
+                                            port-index = <4>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in4>;
+                                        };
+									};
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "a";
+                                    csi-mode = "1x4";
+                                    st-vc = <0>;
+                                    vc-id = <0>;
+                                    num-lanes = <4>;
+                                    streams = "ued-u1","raw12";
+                                };                                
+							};
+                            
+						};
+						i2c@3 {
+							status = "okay";
+							reg = <3>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <1>;
+							#size-cells = <0>;
+							
+                            dser_3: max9296_3@48 {
+                                status = "okay";
+                                compatible = "maxim,max9296_3";
+                                reg = <0x48>;
+                                csi-mode = "2x4";
+                                max-src = <2>;
+                                reset-gpios = <&gpio DES_3_RESET GPIO_ACTIVE_HIGH>;
+                                poc-ctrl = <&gpio CAM_VDD_SYS_EN GPIO_ACTIVE_LOW>;
+                            };
+                            ser_7: max9295_7@62 {
+                                status = "okay";
+                                compatible = "maxim,max9295_3";
+                                reg = <0x62>;
+                                sensing,gmsl-dser-device = <&dser_3>;
+                            };
+                            ser_6: max9295_6@60 {
+                                status = "okay";
+                                compatible = "maxim,max9295_3";
+                                reg = <0x60>;
+                                sensing,gmsl-dser-device = <&dser_3>;
+                            };
+                            ser_prim_3: max9295_prim_3@40{
+                                status = "okay";
+                                compatible = "maxim,max9295_3";
+                                reg = <0x40>;
+                                is-prim-ser;
+                            };
+							cam_7@1c {
+								status = "okay";
+								compatible = "ov,ox08d-7";
+								reg = <0x1c>;
+                                def-addr = <0x36>;
+								
+								devnode = "video7";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+                                
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_7>;
+                                sensing,gmsl-dser-device = <&dser_3>;
+								
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_g";
+                                    vc_id = "1";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+									csi_pixel_bit_depth = "12";
+									mode_type = "bayer";
+									pixel_phase = "grbg";
+
+                                    active_w = "3840";
+                                    active_h = "2160";
+									readout_orientation = "0";
+                                    line_length = "4400";
+									inherent_gain = "1";
+									pix_clk_hz = "320000000";
+									serdes_pix_clk_hz = "600000000";
+
+									gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+									port@0 {
+										reg = <0>;
+                                        sensor_out7: endpoint {
+                                            vc-id = <1>;
+                                            port-index = <6>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in7>;
+                                        };
+									};
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "b";
+                                    csi-mode = "1x4";
+                                    st-vc = <1>;
+                                    vc-id = <1>;
+                                    num-lanes = <4>;
+                                    streams = "ued-u1", "raw12";
+								};
+							};
+
+							cam_6@1b {
+								status = "okay";
+								compatible = "ov,ox08d-6";
+								reg = <0x1b>;
+                                def-addr = <0x36>;
+								
+								devnode = "video6";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model ="ox08d";
+
+                                post_crop_frame_drop = "0";
+                                use_decibel_gain = "true";
+
+                                /* enable CID_SENSOR_MODE_ID for sensor modes selection */
+                                use_sensor_mode_id = "true";
+
+								/* Define any required hw resources needed by driver */
+								/* ie. clocks, io pins, power sources */
+								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+								clock-names = "extperiph1", "pllp_grtba";
+								mclk = "extperiph1";
+                                sensing,gmsl-ser-device = <&ser_6>;
+                                sensing,gmsl-dser-device = <&dser_3>;
+
+                                mode0 {/*mode SENSOR_MODE_3840x2160_CROP_30FPS*/
+                                    mclk_khz = "24000";
+                                    num_lanes = "4";
+                                    tegra_sinterface = "serial_g";
+                                    vc_id = "0";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+                                    dynamic_pixel_bit_depth = "12";
+									csi_pixel_bit_depth = "12";
+									mode_type = "bayer";
+									pixel_phase = "grbg";
+
+                                    active_w = "3840";
+                                    active_h = "2160";
+									readout_orientation = "0";
+                                    line_length = "4400";
+									inherent_gain = "1";
+									pix_clk_hz = "320000000";
+									serdes_pix_clk_hz = "600000000";
+
+									gain_factor = "10";
+                                    min_gain_val = "10"; /* dB */
+                                    max_gain_val = "240"; /* dB */
+                                    step_gain_val = "1"; /* 0.3 */
+                                    default_gain = "10";
+                                    min_hdr_ratio = "1";
+                                    max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+                                    min_framerate = "30000000";
+                                    max_framerate = "30000000";
+									step_framerate = "1";
+                                    default_framerate = "30000000";
+									exposure_factor = "1000000";
+                                    min_exp_time = "59"; /*us, 2 lines*/
+                                    max_exp_time = "33333";
+									step_exp_time = "1";
+                                    default_exp_time = "33333";/* us */
+									embedded_metadata_height = "0";
+                                };
+
+								ports {
+									#address-cells = <1>;
+									#size-cells = <0>;
+									port@0 {
+										reg = <0>;
+                                        sensor_out6: endpoint {
+                                            vc-id = <0>;
+                                            port-index = <6>;
+                                            bus-width = <4>;
+                                            remote-endpoint = <&jetson_csi_in6>;
+                                        };
+									};
+								};
+                                gmsl-link {
+                                    src-csi-port = "b";
+                                    dst-csi-port = "a";
+                                    serdes-csi-link = "a";
+                                    csi-mode = "1x4";
+                                    st-vc = <0>;
+                                    vc-id = <0>;
+                                    num-lanes = <4>;
+                                    streams = "ued-u1","raw12";
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
