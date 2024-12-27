@@ -4,7 +4,7 @@
 
 #### Supported SENSING Camera Modules
 
-* G8S-AR0820C-5300-G3ASG2-AR0233C-GMSL2-Hxxx
+* SG8S-AR0820C-5300-G3A-Hxxx
 
   * support max 8 cameras to light up at the same time
 

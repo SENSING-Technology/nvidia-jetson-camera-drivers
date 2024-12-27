@@ -13,15 +13,9 @@
 * SG2-OX03CC-GMSL2-Hxxx
 
   * support max 8 cameras to light up at the same time
-* SG2-OX03CC-GMSL2F-Hxxx
+* SG5-IMX490C-GMSL2-Hxxx
 
   * support max 8 cameras to light up at the same time
-* SG5-IMX490C-GMSL2-HxxxSG3-ISX031C-GMSL2F-Hxxx
-
-  * support max 8 cameras to light up at the same time
-* SG8-AR0820C-GMSL2-Hxxx
-
-  * support max 7 cameras to light up at the same time
 * SG8-AR0820C-G2A-Hxxx
 
   * support max 7 cameras to light up at the same time

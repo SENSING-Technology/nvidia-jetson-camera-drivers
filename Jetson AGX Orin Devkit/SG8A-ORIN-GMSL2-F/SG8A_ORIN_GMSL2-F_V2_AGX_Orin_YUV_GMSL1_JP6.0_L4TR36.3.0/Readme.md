@@ -7,7 +7,7 @@
 * SG1-OX01F10C-GMSL-Hxxx
 
   * support max 8 cameras to light up at the same time
-* SG2-AR0231C-0202-GMSL-HxxxSG2-IMX390C-GMSL2-Hxxx
+* SG2-AR0231C-0202-GMSL-Hxxx
 
   * support max 8 cameras to light up at the same time
 

@@ -4,10 +4,10 @@
 
 #### Supported SENSING Camera Modules
 
-* SG2-IMX390C-5200-GMSL2-Hxxx
+* SG2-IMX390C-5200-G2A-Hxxx
 
   * support max 4 cameras to light up at the same time
-* SG2-AR0233-5300-GMSL2-Hxxx
+* SG2-AR0233-5200-G2A-Hxxx
 
   * support max 4 cameras to light up at the same time
 * SG2-OX03CC-5200-GMSL2F-Hxxx
@@ -19,10 +19,13 @@
 * SG3-ISX031C-GMSL2F-Hxxx
 
   * support max 4 cameras to light up at the same time
-* SG4-IMX490C-5300-GMSL2-Hxxx
+* SG3-OX03JC-G2F-Hxxx
+
+  * support max 4 cameras to light up at the same time
+* SG5-IMX490C-5300-GMSL2-Hxxx
 
   * support max 3 cameras to light up at the same time
-* SG8-AR0820C-5300-GMSL2-Hxxx
+* SG8-AR0820C-5300-G2A-Hxxx
 
   * support max 2 cameras to light up at the same time
 * SG8-OX08BC-5300-GMSL2-Hxxx

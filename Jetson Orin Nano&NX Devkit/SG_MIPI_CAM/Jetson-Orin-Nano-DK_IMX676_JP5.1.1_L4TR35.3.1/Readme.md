@@ -4,7 +4,7 @@
 
 #### Supported SENSING Camera Modules
 
-* SG12-IMX676C-MIPI-HXXX
+* SG12-IMX676C-MIPI-Hxxx
 
   * support max 1 cameras to light up at the same time
 
