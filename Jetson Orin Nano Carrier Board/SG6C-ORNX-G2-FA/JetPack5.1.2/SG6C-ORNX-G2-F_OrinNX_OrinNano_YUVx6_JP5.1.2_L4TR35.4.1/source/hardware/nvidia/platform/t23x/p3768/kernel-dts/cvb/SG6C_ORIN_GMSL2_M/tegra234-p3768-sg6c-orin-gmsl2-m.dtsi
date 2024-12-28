@@ -1,0 +1,155 @@
+/*
+ * Copyright (c) 2018-2021, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms and conditions of the GNU General Public License,
+ * version 2, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "dt-bindings/clock/tegra234-clock.h"
+
+ #include "sgx-yuv-gmsl.dtsi"
+// #include "sg2-ar0234c-gmsl2.dtsi"
+// #include "sg8-imx678c-gmsl2.dtsi"
+// #include "sg8-imx728c-gmsl2.dtsi"
+// #include "sgx-ar0234-imx728-gmsl2.dtsi"
+
+
+//For gpio@2200000
+#define CAM0_RST_L	TEGRA234_MAIN_GPIO(H, 3)   //DER PWDNB
+#define CAM0_PWDN	TEGRA234_MAIN_GPIO(H, 6)
+#define CAM1_RST_L	TEGRA234_MAIN_GPIO(AC, 1)
+#define CAM1_PWDN	TEGRA234_MAIN_GPIO(AC, 0)
+
+#define POC1_EN		    TEGRA234_MAIN_GPIO(Q, 5)  //Camera POC1
+
+//For gpio@c2f0000
+#define POC2_EN		    TEGRA234_AON_GPIO(CC, 3)
+#define POC3_EN		    TEGRA234_AON_GPIO(CC, 1)
+
+#define CAMERA_I2C_MUX_BUS(x) (0x1E + x)
+
+//for syn tirgger
+#define CAM1_FSYNC1	TEGRA234_AON_GPIO(BB, 2)
+#define CAM1_FSYNC2	TEGRA234_MAIN_GPIO(AC, 2)
+#define CAM_FSYNC	TEGRA234_MAIN_GPIO(G, 6)
+
+/* camera control gpio definitions */
+/ {
+    pps0 {
+            gpios = <&tegra_main_gpio TEGRA234_MAIN_GPIO(Q, 6) GPIO_ACTIVE_HIGH>;    //GPIO11
+			
+            compatible = "pps-gpio,0";
+            status = "okay";
+    };
+	pps1 {
+			gpios = <&tegra_main_gpio TEGRA234_MAIN_GPIO(H, 0) GPIO_ACTIVE_HIGH>;    //GPIO13
+			
+            compatible = "pps-gpio,1";
+            status = "okay";
+    };
+
+// 	leds{
+//   		compatible = "gpio-leds";
+// 		status = "okay";
+
+// 		camsync { 
+//     		label = "camsync-gpio"; //生成节点名称 /sys/class/leds/camsync-gpio
+//             gpios = <&tegra_main_gpio CAM_FSYNC GPIO_ACTIVE_HIGH>;
+//             default-state = "off";   //开机默认配置on 表示开机高   off 表示开机低
+//         };
+//    };
+
+	// gpio@2200000 {
+	// 	camera-control-output-low {
+	// 		gpio-hog;
+	// 		output-low;
+	// 		gpios = <CAM0_PWDN 0 CAM1_PWDN 0 POC1_EN 0>;
+	// 		label = "cam0-pwdn", "cam1-pwdn", "poc1-en";
+	// 	};
+	// };
+
+	i2c@3180000 {
+		//U4
+		max9296_0@48 {
+			compatible = "maxim,max9296_0";
+			// reset-gpios = <&tegra_main_gpio CAM1_RST_L GPIO_ACTIVE_HIGH>;
+			// poc-gpios = <&tegra_aon_gpio POC3_EN GPIO_ACTIVE_LOW>;
+			reg = <0x48>;
+		};
+
+		cam_0@1b {
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA234_CLK_EXTPERIPH1>,
+					<&bpmp_clks TEGRA234_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			der_id = <0>;//
+		};
+		cam_1@1c {
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA234_CLK_EXTPERIPH1>,
+					<&bpmp_clks TEGRA234_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			der_id = <0>;//
+		};
+
+		max96712_0@29 {
+			compatible = "maxim,max96712_0";
+			reg = <0x29>;
+			// reset-gpios = <&tegra_main_gpio CAM0_PWDN GPIO_ACTIVE_HIGH>;
+			// poc-gpios = <&tegra_main_gpio POC1_EN GPIO_ACTIVE_LOW>;
+		};
+		cam_2@2a {
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA234_CLK_EXTPERIPH1>,
+					<&bpmp_clks TEGRA234_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			der_id = <0>;//
+			ser_id = <0>;//
+		};
+		cam_3@2b {
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA234_CLK_EXTPERIPH1>,
+					<&bpmp_clks TEGRA234_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			der_id = <0>;//
+			ser_id = <1>;//
+		};
+		cam_4@2c {
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA234_CLK_EXTPERIPH1>,
+					<&bpmp_clks TEGRA234_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			der_id = <0>;//
+			ser_id = <2>;//
+		};
+		cam_5@2d {
+			/* Define any required hw resources needed by driver */
+			/* ie. clocks, io pins, power sources */
+			clocks = <&bpmp_clks TEGRA234_CLK_EXTPERIPH1>,
+					<&bpmp_clks TEGRA234_CLK_EXTPERIPH1>;
+			clock-names = "extperiph1", "pllp_grtba";
+			mclk = "extperiph1";
+			der_id = <0>;//
+			ser_id = <3>;//
+		};
+	};
+};
