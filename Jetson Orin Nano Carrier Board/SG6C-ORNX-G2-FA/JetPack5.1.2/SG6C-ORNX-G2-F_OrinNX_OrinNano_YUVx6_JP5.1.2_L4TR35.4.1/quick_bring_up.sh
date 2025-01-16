@@ -42,7 +42,7 @@ fi
 
 string=(`echo ${camera_array[key]} | tr 'x' ' '`)
 
-if [ $trig_mode == 0 ];then
+if [ $trig_mode == 1 ];then
 	if [ $key == 1 ];then
 		v4l2-ctl -V --set-fmt-video=width=${string[0]},height=${string[1]} --set-ctrl bypass_mode=0,sensor_mode=1,trig_mode=3,trig_pin=0x67 -d /dev/video${port}
 	elif [ $key == 2 ];then

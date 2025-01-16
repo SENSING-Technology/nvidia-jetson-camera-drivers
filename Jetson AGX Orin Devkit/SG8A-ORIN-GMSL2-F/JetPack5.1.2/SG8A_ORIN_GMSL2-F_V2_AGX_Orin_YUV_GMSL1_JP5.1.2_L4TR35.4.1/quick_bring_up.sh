@@ -64,7 +64,8 @@ if [ -f $PWD/camera_type ]; then
 			cam_mode=2
 		elif [ ${camera_array[key]} == sgx-yuv-gmsl1  ];then
 			echo 0:SG1-OX01F10C-GMSL
-			echo 1:SG2-AR0231C-0202-GMSL
+			echo 1:SG1S-OX01F10C-G1G
+			echo 2:SG2-AR0231C-0202-GMSL
 			read yuv_cam_type
 			cam_mode=1
 		fi
@@ -105,6 +106,8 @@ if [ -f $PWD/camera_type ]; then
 				v4l2-ctl -d /dev/video${port} -c sensor_mode=0
 			elif [ ${yuv_cam_type} == 1 ];then
 				v4l2-ctl -d /dev/video${port} -c sensor_mode=1
+			elif [ ${yuv_cam_type} == 2 ];then
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=2
 			fi
 			
 			gst-launch-1.0 v4l2src device=/dev/video${port}  ! xvimagesink -ev

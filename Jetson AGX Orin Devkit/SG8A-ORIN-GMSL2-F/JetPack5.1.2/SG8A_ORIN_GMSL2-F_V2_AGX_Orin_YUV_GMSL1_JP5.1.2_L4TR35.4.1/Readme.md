@@ -58,7 +58,8 @@
    1
    Press select your yuv camera type:
    0:SG1-OX01F10C-GMSL
-   1:SG2-AR0231C-0202-GMSL
+   1:SG1S-OX01F10C-G1G
+   2:SG2-AR0231C-0202-GMSL
    0
    Press select your camera port [0-7]:
    0
