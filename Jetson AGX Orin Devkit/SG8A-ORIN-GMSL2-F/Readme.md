@@ -20,7 +20,7 @@
 | Type | Camera                      | Jetpack 5.1.2 | Jetpack 6.0DP | Jetpack 6.0 |
 | ---- | --------------------------- | ------------- | ------------- | ----------- |
 | YUV  | SG1-OX01F10C-GMSL-Hxxx      | YES           | YES           | YES         |
-| YUV  | SG1S-OX01F10C-G1G-Hxxx      | \             | \             | \           |
+| YUV  | SG1S-OX01F10C-G1G-Hxxx      | YES           | \             | \           |
 | YUV  | SG2-AR0231C-0202-GMSL-Hxxx  | YES           | YES           | YES         |
 | YUV  | SG2-AR0233C-5200-G2A-Hxxx   | YES           | YES           | YES         |
 | YUV  | SG2-IMX390C-5200-G2A-Hxxx   | YES           | YES           | YES         |

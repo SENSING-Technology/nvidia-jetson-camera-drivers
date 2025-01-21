@@ -21,10 +21,10 @@
 | YUV  | SG2-AR0231C-0202-GMSL-Hxxx  | \             |
 | YUV  | SG2-AR0233C-5200-G2A-Hxxx   | YES           |
 | YUV  | SG2-IMX390C-5200-G2A-Hxxx   | YES           |
-| YUV  | SG2-OX03CC-5200-GMSL2F-Hxxx | \             |
-| YUV  | SG3S-ISX031C-GMSL2-Hxxx     | \             |
-| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | \             |
-| YUV  | SG3S-OX03JC-G2F-Hxxx        | \             |
+| YUV  | SG2-OX03CC-5200-GMSL2F-Hxxx | YES           |
+| YUV  | SG3S-ISX031C-GMSL2-Hxxx     | YES           |
+| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | YES           |
+| YUV  | SG3S-OX03JC-G2F-Hxxx        | YES           |
 | YUV  | SG5-IMX490C-5300-GMSL2-Hxxx | YES           |
 | YUV  | SG5-OX05BC-4000-GMSL2-Hxxx  | \             |
 | YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES           |

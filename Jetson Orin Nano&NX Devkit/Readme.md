@@ -15,3 +15,8 @@ SG2A-G3-M4L
 
 * Camera Drivers support for Jetson Orin Nano Developer Kit adapt with SG2A-G3-M4L
   ![atl text](../SENSING%20Deserializer%20Adapt%20Board/SG2A-G3-M4L-F%20with%20Jetson%20Orin%20Nano&NX%20Devkit.png)
+
+SG4A-NONX-G2Y-A1
+
+* Camera Drivers support for Jetson Orin Nano Developer Kit adapt with SG4A-NONX-G2Y-A1
+  ![atl text](../SENSING%20Deserializer%20Adapt%20Board/SG4A-NONX-G2Y-A1%20with%20Jetson%20Orin%20Nano&NX%20Devkit.png)

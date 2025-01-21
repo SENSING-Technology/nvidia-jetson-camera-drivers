@@ -1,0 +1,1256 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// SPDX-FileCopyrightText: Copyright (c) 2023-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+/dts-v1/;
+/plugin/;
+
+#define CAM0_PWDN	TEGRA234_MAIN_GPIO(H, 6)
+#define CAM1_PWDN	TEGRA234_MAIN_GPIO(AC, 0)
+#define CAM_I2C_MUX 	TEGRA234_AON_GPIO(CC, 3)
+
+#include <dt-bindings/tegra234-p3767-0000-common.h>
+#include <dt-bindings/clock/tegra234-clock.h>
+#include <dt-bindings/gpio/tegra234-gpio.h>
+
+/ {
+	overlay-name = "Jetson Sensing YUV GMSLx4";
+	jetson-header-name = "Jetson 24pin CSI Connector";
+	compatible = JETSON_COMPATIBLE_P3768;
+	/*IMX477 connected on cam0 port */
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			tegra-capture-vi  {
+				num-channels = <4>;
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+					port@0 {
+						reg = <0>;
+						jetson_vi_in0: endpoint {
+							vc-id = <0>;
+							port-index = <2>;
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out0>;
+						};
+					};
+					port@1 {
+						reg = <1>;
+						jetson_vi_in1: endpoint {
+							vc-id = <1>;
+							port-index = <2>;
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out1>;
+						};
+					};
+					port@2 {
+						reg = <2>;
+						jetson_vi_in2: endpoint {
+							vc-id = <2>;
+							port-index = <2>;
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out2>;
+						};
+					};
+					port@3 {
+						reg = <3>;
+						jetson_vi_in3: endpoint {
+							vc-id = <3>;
+							port-index = <2>;
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out3>;
+						};
+					};
+				};
+			};
+			tegra-camera-platform {
+				compatible = "nvidia, tegra-camera-platform";
+				/**
+				* Physical settings to calculate max ISO BW
+				*
+				* num_csi_lanes = <>;
+				* Total number of CSI lanes when all cameras are active
+				*
+				* max_lane_speed = <>;
+				* Max lane speed in Kbit/s
+				*
+				* min_bits_per_pixel = <>;
+				* Min bits per pixel
+				*
+				* vi_peak_byte_per_pixel = <>;
+				* Max byte per pixel for the VI ISO case
+				*
+				* vi_bw_margin_pct = <>;
+				* Vi bandwidth margin in percentage
+				*
+				* max_pixel_rate = <>;
+				* Max pixel rate in Kpixel/s for the ISP ISO case
+				*
+				* isp_peak_byte_per_pixel = <>;
+				* Max byte per pixel for the ISP ISO case
+				*
+				* isp_bw_margin_pct = <>;
+				* Isp bandwidth margin in percentage
+				*/
+				num_csi_lanes = <4>;
+				max_lane_speed = <1500000>;
+				min_bits_per_pixel = <10>;
+				vi_peak_byte_per_pixel = <2>;
+				vi_bw_margin_pct = <25>;
+				max_pixel_rate = <7500000>;
+				isp_peak_byte_per_pixel = <5>;
+				isp_bw_margin_pct = <25>;
+				/**
+				 * The general guideline for naming badge_info contains 3 parts, and is as follows,
+				 * The first part is the camera_board_id for the module; if the module is in a FFD
+				 * platform, then use the platform name for this part.
+				 * The second part contains the position of the module, ex. "rear" or "front".
+				 * The third part contains the last 6 characters of a part number which is found
+				 * in the module's specsheet from the vendor.
+				 */
+				modules {
+					module0 {
+						badge = "cam0_position";
+						position = "position";
+						orientation = "1";
+						drivernode0 {
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/cam_i2cmux/i2c@1/cam_0@1a";
+						};
+					};
+					module1 {
+						badge = "cam1_position";
+						position = "position";
+						orientation = "1";
+						drivernode0 {
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/cam_i2cmux/i2c@1/cam_1@1b";
+						};
+					};
+					module2 {
+						badge = "cam2_position";
+						position = "position";
+						orientation = "1";
+						drivernode0 {
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/cam_i2cmux/i2c@1/cam_2@1c";
+						};
+					};
+					module3 {
+						badge = "cam3_position";
+						position = "position";
+						orientation = "1";
+						drivernode0 {
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/cam_i2cmux/i2c@1/cam_3@1d";
+						};
+					};
+				};
+			};
+			bus@0 {
+				host1x@13e00000 {
+					nvcsi@15a00000 {
+						num-channels = <4>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						channel@0 {
+							reg = <0>;
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+								port@0 {
+									reg = <0>;
+									jetson_csi_in0: endpoint@0 {
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&mipi_cam_out0>;
+									};
+								};
+								port@1 {
+									reg = <1>;
+									jetson_csi_out0: endpoint@1 {
+										remote-endpoint = <&jetson_vi_in0>;
+									};
+								};
+							};
+						};
+						channel@1 {
+							reg = <1>;
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+								port@0 {
+									reg = <0>;
+									jetson_csi_in1: endpoint@2 {
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&mipi_cam_out1>;
+									};
+								};
+								port@1 {
+									reg = <1>;
+									jetson_csi_out1: endpoint@3 {
+										remote-endpoint = <&jetson_vi_in1>;
+									};
+								};
+							};
+						};
+						channel@2 {
+							reg = <2>;
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+								port@0 {
+									reg = <0>;
+									jetson_csi_in2: endpoint@4 {
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&mipi_cam_out2>;
+									};
+								};
+								port@1 {
+									reg = <1>;
+									jetson_csi_out2: endpoint@5 {
+										remote-endpoint = <&jetson_vi_in2>;
+									};
+								};
+							};
+						};
+						channel@3 {
+							reg = <3>;
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+								port@0 {
+									reg = <0>;
+									jetson_csi_in3: endpoint@6 {
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&mipi_cam_out3>;
+									};
+								};
+								port@1 {
+									reg = <1>;
+									jetson_csi_out3: endpoint@7 {
+										remote-endpoint = <&jetson_vi_in3>;
+									};
+								};
+							};
+						};
+					};
+				};
+				cam_i2cmux {
+					status = "okay";
+					compatible = "i2c-mux-gpio";
+					#address-cells = <1>;
+					#size-cells = <0>;
+					mux-gpios = <&gpio_aon CAM_I2C_MUX GPIO_ACTIVE_HIGH>;
+					i2c-parent = <&cam_i2c>;
+					i2c@0 {
+						rbpcv2_imx219_a@10 {
+							status = "disabled";
+						};
+					};
+					i2c@1 {
+						status = "okay";
+						reg = <1>;
+						#address-cells = <1>;
+						#size-cells = <0>;
+						rbpcv2_imx219_c@10 {
+							status = "disabled";
+						};
+						max96712_1@6b {
+							status = "okay";
+							compatible = "nvidia,max96712_1";
+							reg = <0x6b>;
+						};
+						cam_3@1d {
+							status = "okay";
+							compatible = "sensing,sgx-yuv-gmsl2-3";
+							reg = <0x1d>;
+							devnode = "video3";
+
+							/* Physical dimensions of sensor */
+							physical_w = "15.0";
+							physical_h = "12.5";
+
+							sensor_model ="sgx-yuv-gmsl2";
+
+							/* Defines number of frames to be dropped by driver internally after applying */
+							/* sensor crop settings. Some sensors send corrupt frames after applying */
+							/* crop co-ordinates */
+							post_crop_frame_drop = "0";
+
+							/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+							use_decibel_gain = "false";
+
+							/* enable CID_SENSOR_MODE_ID for sensor modes selection */
+							use_sensor_mode_id = "true";
+
+							clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+							clock-names = "extperiph1", "pllp_grtba";
+							mclk = "extperiph1";
+							der_id = <1>;//
+							reset-gpios = <&gpio CAM1_PWDN GPIO_ACTIVE_HIGH>;
+
+							mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "3";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1080";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode1 {//sg2-gmsl2-gw5xxx(1920*1536)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "3";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1536";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "200000000";
+								serdes_pix_clk_hz = "350000000";
+
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "28"; /*us, 2 lines*/
+								max_exp_time = "22000";
+								step_exp_time = "1";
+								default_exp_time = "22000";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode2 {//sg2-gmsl2-gw5xxx(2880*1860)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "3";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "2880";
+								active_h = "1860";
+								readout_orientation = "0";
+								line_length = "3200";
+								inherent_gain = "1";
+								pix_clk_hz = "214300000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode3 {//sg2-gmsl2-gw5xxx(3840*2160)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "3";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "3840";
+								active_h = "2160";
+								readout_orientation = "0";
+								line_length = "4200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode4 {/*mode SENSOR_MODE_1280X720_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "3";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1280";
+								active_h = "720";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+
+								port@0 {
+									reg = <0>;
+									mipi_cam_out3: endpoint {
+										vc-id = <3>;
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&jetson_csi_in3>;
+									};
+								};
+							};	
+						};
+						cam_2@1c {
+							status = "okay";
+							compatible = "sensing,sgx-yuv-gmsl2-2";
+							reg = <0x1c>;
+							devnode = "video2";
+
+							/* Physical dimensions of sensor */
+							physical_w = "15.0";
+							physical_h = "12.5";
+
+							sensor_model ="sgx-yuv-gmsl2";
+
+							/* Defines number of frames to be dropped by driver internally after applying */
+							/* sensor crop settings. Some sensors send corrupt frames after applying */
+							/* crop co-ordinates */
+							post_crop_frame_drop = "0";
+
+							/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+							use_decibel_gain = "false";
+
+							/* enable CID_SENSOR_MODE_ID for sensor modes selection */
+							use_sensor_mode_id = "true";
+
+							clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+							clock-names = "extperiph1", "pllp_grtba";
+							mclk = "extperiph1";
+							der_id = <1>;//
+							reset-gpios = <&gpio CAM1_PWDN GPIO_ACTIVE_HIGH>;
+
+							mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "2";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1080";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode1 {//sg2-gmsl2-gw5xxx(1920*1536)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "2";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1536";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "200000000";
+								serdes_pix_clk_hz = "350000000";
+
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "28"; /*us, 2 lines*/
+								max_exp_time = "22000";
+								step_exp_time = "1";
+								default_exp_time = "22000";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode2 {//sg2-gmsl2-gw5xxx(2880*1860)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "2";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "2880";
+								active_h = "1860";
+								readout_orientation = "0";
+								line_length = "3200";
+								inherent_gain = "1";
+								pix_clk_hz = "214300000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode3 {//sg2-gmsl2-gw5xxx(3840*2160)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "2";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "3840";
+								active_h = "2160";
+								readout_orientation = "0";
+								line_length = "4200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode4 {/*mode SENSOR_MODE_1280X720_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "2";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1280";
+								active_h = "720";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+
+								port@0 {
+									reg = <0>;
+									mipi_cam_out2: endpoint {
+										vc-id = <2>;
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&jetson_csi_in2>;
+									};
+								};
+							};	
+						};
+						cam_1@1b {
+							status = "okay";
+							compatible = "sensing,sgx-yuv-gmsl2-1";
+							reg = <0x1b>;
+							devnode = "video1";
+
+							/* Physical dimensions of sensor */
+							physical_w = "15.0";
+							physical_h = "12.5";
+
+							sensor_model ="sgx-yuv-gmsl2";
+
+							/* Defines number of frames to be dropped by driver internally after applying */
+							/* sensor crop settings. Some sensors send corrupt frames after applying */
+							/* crop co-ordinates */
+							post_crop_frame_drop = "0";
+
+							/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+							use_decibel_gain = "false";
+
+							/* enable CID_SENSOR_MODE_ID for sensor modes selection */
+							use_sensor_mode_id = "true";
+
+							clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+							clock-names = "extperiph1", "pllp_grtba";
+							mclk = "extperiph1";
+							der_id = <1>;//
+							reset-gpios = <&gpio CAM1_PWDN GPIO_ACTIVE_HIGH>;
+
+							mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "1";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1080";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode1 {//sg2-gmsl2-gw5xxx(1920*1536)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "1";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1536";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "200000000";
+								serdes_pix_clk_hz = "350000000";
+
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "28"; /*us, 2 lines*/
+								max_exp_time = "22000";
+								step_exp_time = "1";
+								default_exp_time = "22000";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode2 {//sg2-gmsl2-gw5xxx(2880*1860)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "1";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "2880";
+								active_h = "1860";
+								readout_orientation = "0";
+								line_length = "3200";
+								inherent_gain = "1";
+								pix_clk_hz = "214300000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode3 {//sg2-gmsl2-gw5xxx(3840*2160)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "1";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "3840";
+								active_h = "2160";
+								readout_orientation = "0";
+								line_length = "4200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode4 {/*mode SENSOR_MODE_1280X720_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "1";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1280";
+								active_h = "720";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+
+								port@0 {
+									reg = <0>;
+									mipi_cam_out1: endpoint {
+										vc-id = <1>;
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&jetson_csi_in1>;
+									};
+								};
+							};	
+						};
+						cam_0@1a {
+							status = "okay";
+							compatible = "sensing,sgx-yuv-gmsl2-0";
+							reg = <0x1a>;
+							devnode = "video0";
+
+							/* Physical dimensions of sensor */
+							physical_w = "15.0";
+							physical_h = "12.5";
+
+							sensor_model ="sgx-yuv-gmsl2";
+
+							/* Defines number of frames to be dropped by driver internally after applying */
+							/* sensor crop settings. Some sensors send corrupt frames after applying */
+							/* crop co-ordinates */
+							post_crop_frame_drop = "0";
+
+							/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+							use_decibel_gain = "false";
+
+							/* enable CID_SENSOR_MODE_ID for sensor modes selection */
+							use_sensor_mode_id = "true";
+
+							clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
+									<&bpmp TEGRA234_CLK_EXTPERIPH1>;
+							clock-names = "extperiph1", "pllp_grtba";
+							mclk = "extperiph1";
+							der_id = <1>;//
+							reset-gpios = <&gpio CAM1_PWDN GPIO_ACTIVE_HIGH>;
+
+							mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "0";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1080";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode1 {//sg2-gmsl2-gw5xxx(1920*1536)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "0";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1920";
+								active_h = "1536";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "200000000";
+								serdes_pix_clk_hz = "350000000";
+
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "28"; /*us, 2 lines*/
+								max_exp_time = "22000";
+								step_exp_time = "1";
+								default_exp_time = "22000";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode2 {//sg2-gmsl2-gw5xxx(2880*1860)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "0";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "2880";
+								active_h = "1860";
+								readout_orientation = "0";
+								line_length = "3200";
+								inherent_gain = "1";
+								pix_clk_hz = "214300000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode3 {//sg2-gmsl2-gw5xxx(3840*2160)
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "0";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "3840";
+								active_h = "2160";
+								readout_orientation = "0";
+								line_length = "4200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							mode4 {/*mode SENSOR_MODE_1280X720_CROP_30FPS*/
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								vc_id = "0";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+								dynamic_pixel_bit_depth = "16";
+								csi_pixel_bit_depth = "16";
+								mode_type = "yuv";
+								pixel_phase = "uyvy";
+								
+								active_w = "1280";
+								active_h = "720";
+								readout_orientation = "0";
+								line_length = "2200";
+								inherent_gain = "1";
+								pix_clk_hz = "150000000";
+								serdes_pix_clk_hz = "350000000";
+								gain_factor = "16";
+								min_gain_val = "16"; /* 1.00x */
+								max_gain_val = "356"; /* 22x */
+								step_gain_val = "1";
+								default_gain = "16"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "30000000";
+								max_framerate = "30000000";
+								step_framerate = "1";
+								default_framerate = "30000000";
+								exposure_factor = "1000000";
+								min_exp_time = "59"; /*us, 2 lines*/
+								max_exp_time = "33333";
+								step_exp_time = "1";
+								default_exp_time = "33333";/* us */
+								embedded_metadata_height = "0";
+							};
+							ports {
+								#address-cells = <1>;
+								#size-cells = <0>;
+
+								port@0 {
+									reg = <0>;
+									mipi_cam_out0: endpoint {
+										vc-id = <0>;
+										port-index = <2>;
+										bus-width = <4>;
+										remote-endpoint = <&jetson_csi_in0>;
+									};
+								};
+							};
+							gmsl-link {
+								src-csi-port = "b";
+								dst-csi-port = "a";
+								serdes-csi-link = "a";
+								csi-mode = "1x4";
+								st-vc = <0>;
+								vc-id = <0>;
+								num-lanes = <4>;
+								streams = "ued-u1", "yuv16";
+							};	
+						};
+					};
+				};
+
+				gpio@6000d000 {
+					camera-control-output-low {
+						gpio-hog;
+						output-low;
+						gpios = <CAM1_PWDN 0  CAM0_PWDN 0>;
+						label = "cam1-pwdn", "cam0-pwdn";
+					};
+				};
+			};
+		};
+	};
+};
