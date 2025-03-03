@@ -15,7 +15,7 @@ sudo insmod ./ko/g2xx.ko
 sleep 2
 
 #change to max clk
-sudo chmod a+x ../clock_config.sh
+sudo chmod a+x ./clock_config.sh
 sudo ./clock_config.sh
 
 

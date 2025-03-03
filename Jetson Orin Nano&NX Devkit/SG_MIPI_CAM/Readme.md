@@ -10,7 +10,7 @@
 #### Hardware Connect
 
 * Jetson Orin Nano Developer Kit connect up to 2 cameras
-  ![atl text](../../SENSING%20Deserializer%20Adapt%20Board/NVIDIA%20Jetson%20Orin%20Nano.png)
+  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/NVIDIA%20Jetson%20Orin%20Nano.png)
 
 #### Power Supply
 

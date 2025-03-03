@@ -9,7 +9,7 @@
 #### Hardware Connect
 
 * Using adapt board connect up to 8 cameras
-  ![atl text](../../SENSING%20Deserializer%20Adapt%20Board/SG8A-ORIN-GMSL2-F%20with%20Jetson%20AGX%20Orin%20Devkit.png)
+  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-ORIN-GMSL2-F%20with%20Jetson%20AGX%20Orin%20Devkit.png)
 
 #### Power Supply
 
