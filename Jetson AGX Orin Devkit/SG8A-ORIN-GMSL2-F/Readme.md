@@ -33,6 +33,7 @@
 | YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES           | YES           | YES         |
 | YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES           | YES           | YES         |
 | YUV  | SG8S-AR0820C-5300-G3A-Hxxx  | \             | \             | YES         |
+| YUV  | DMSBBFAN                    | YES           | \             | \           |
 | RAW  | SG2-AR0233C-G2A-Hxxx        | YES           | \             | YES         |
 | RAW  | SG2-IMX390C-G2A-Hxxx        | YES           | YES           | YES         |
 | RAW  | SG2-IMX662C-G2A-Hxxx        | \             | \             | YES         |

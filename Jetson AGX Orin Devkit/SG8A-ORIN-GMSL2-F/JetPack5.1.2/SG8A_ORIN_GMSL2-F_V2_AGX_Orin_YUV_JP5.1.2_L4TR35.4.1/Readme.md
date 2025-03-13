@@ -31,6 +31,9 @@
 * SG8-OX08BC-5300-GMSL2-Hxxx
 
   * support max 7 cameras to light up at the same time
+* DMSBBFAN
+
+  * support max 8 cameras to light up at the same time
 
 #### Quick Bring Up
 

@@ -53,7 +53,8 @@ if [ -f $PWD/camera_type ]; then
 			echo 3:SG3-ISX031C-GMSL2F
 			echo 4:SG5-IMX490C-5200-GMSL2
 			echo 5:SG8-AR0820C-5300-GMSL2
-			echo 6:SG8-OX08BC-5300-GMSL2	
+			echo 6:SG8-OX08BC-5300-GMSL2
+			echo 7:DMSBBFAN	
 			read yuv_cam_type
 			cam_mode=2
 		elif [ ${camera_array[key]} == sgx-yuv-gmsl1  ];then
@@ -83,7 +84,7 @@ if [ -f $PWD/camera_type ]; then
 		fi
 
 		if [ ${cam_mode} -eq 2 ];then
-			if [ ${yuv_cam_type} -eq 2 -o ${yuv_cam_type} -eq 3 ];then
+			if [ ${yuv_cam_type} -eq 2 -o ${yuv_cam_type} -eq 3 -o ${yuv_cam_type} -eq 7 ];then
 				sudo insmod ${camera_array[key]}.ko enable_3G=1,1,1,1
 			else
 				sudo insmod ${camera_array[key]}.ko
@@ -121,7 +122,7 @@ if [ -f $PWD/camera_type ]; then
 			elif [ ${yuv_cam_type} == 6 ];then
 				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0008,trig_mode=3
 			elif [ ${yuv_cam_type} == 7 ];then
-				v4l2-ctl -d /dev/video${port} -c sensor_mode=1,trig_pin=0xffff0007
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=6,trig_pin=0xffff0007
 			fi
 			
 			gst-launch-1.0 v4l2src device=/dev/video${port}  ! xvimagesink -ev
