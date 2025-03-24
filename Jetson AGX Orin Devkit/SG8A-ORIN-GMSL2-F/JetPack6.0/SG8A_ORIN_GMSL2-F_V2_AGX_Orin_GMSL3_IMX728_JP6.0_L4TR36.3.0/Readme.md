@@ -47,7 +47,7 @@
 6. Bring up the camera
 
    ```
-   ## CAM0
+    ## CAM0
     argus_camera -d 0
 
     ## CAM1
