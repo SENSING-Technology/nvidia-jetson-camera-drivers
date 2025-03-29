@@ -56,8 +56,8 @@ Users who are using SENSING Cameras can reference the driver to light up cameras
     ![atl text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-AGON-G2Y-A1.png)    
 * **SG8A-ORIN-GMSL3-F**
   * SENSING Deserialzer Adapt Board with Maxim GMSL3 Deserialzer witch can support 8 GMSL3 cameras
-  * [Camera Support List](./Jetson%20AGX%20Orin%20Devkit/SG8A-ORIN-GMSL2-F/Readme.md#camera-version-support)
-  * [Camera Driver Package](./Jetson%20AGX%20Orin%20Devkit/SG8A-ORIN-GMSL2-F/)
+  * [Camera Support List](./Jetson%20AGX%20Orin%20Devkit/SG8A-ORIN-GMSL3-F/Readme.md#camera-version-support)
+  * [Camera Driver Package](./Jetson%20AGX%20Orin%20Devkit/SG8A-ORIN-GMSL3-F/)
   * Adapt to use with Jetson AGX Orin Developer Kit
     ![atl text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-ORIN-GMSL2-F%20with%20Jetson%20AGX%20Orin%20Devkit.png)
 * **SG10A-AGON-G2M-A1** 
