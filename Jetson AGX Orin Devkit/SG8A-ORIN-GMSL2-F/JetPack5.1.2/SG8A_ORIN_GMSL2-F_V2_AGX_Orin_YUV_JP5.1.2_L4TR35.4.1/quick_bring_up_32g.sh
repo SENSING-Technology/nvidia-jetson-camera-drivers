@@ -48,13 +48,17 @@ if [ -f $PWD/camera_type ]; then
 		if [ ${camera_array[key]} == sgx-yuv-gmsl2  ];then
 			green_print "Press select your yuv camera type:" 
 			echo 0:SG2-IMX390C-5200-GMSL2
-			echo 1:SG2-AR0233-5300-GMSL2
+			echo 1:SG2-AR0233-5200-GMSL2
 			echo 2:SG2-OX03CC-5200-GMSL2F
-			echo 3:SG3-ISX031C-GMSL2F
-			echo 4:SG5-IMX490C-5200-GMSL2
-			echo 5:SG8-AR0820C-5300-GMSL2
-			echo 6:SG8-OX08BC-5300-GMSL2
-			echo 7:DMSBBFAN	
+			echo 3:SG3-ISX031C-GMSL2
+			echo 4:SG3-ISX031C-GMSL2F
+			echo 5:SG3S-OX03JC-G2F
+			echo 6:SG5-IMX490C-5300-GMSL2
+			echo 7:SG8-AR0820C-5300-G2A
+			echo 8:SG8-AR0820C-5300-GMSL2
+			echo 9:SG8-OX08BC-5300-G2A
+			echo 10:SG8-OX08BC-5300-GMSL2
+			echo 11:DMSBBFAN	
 			read yuv_cam_type
 			cam_mode=2
 		elif [ ${camera_array[key]} == sgx-yuv-gmsl1  ];then
@@ -84,7 +88,7 @@ if [ -f $PWD/camera_type ]; then
 		fi
 
 		if [ ${cam_mode} -eq 2 ];then
-			if [ ${yuv_cam_type} -eq 2 -o ${yuv_cam_type} -eq 3 -o ${yuv_cam_type} -eq 7 ];then
+			if [ ${yuv_cam_type} -eq 2 -o ${yuv_cam_type} -eq 4 -o ${yuv_cam_type} -eq 5 -o ${yuv_cam_type} -eq 11 ];then
 				sudo insmod ${camera_array[key]}.ko enable_3G=1,1,1,1
 			else
 				sudo insmod ${camera_array[key]}.ko
@@ -116,13 +120,21 @@ if [ -f $PWD/camera_type ]; then
 			elif [ ${yuv_cam_type} == 3 ];then
 				v4l2-ctl -d /dev/video${port} -c sensor_mode=1,trig_pin=0xffff0007
 			elif [ ${yuv_cam_type} == 4 ];then
-				v4l2-ctl -d /dev/video${port} -c sensor_mode=2,trig_pin=0xffff0008,trig_mode=1
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=1,trig_pin=0xffff0007
 			elif [ ${yuv_cam_type} == 5 ];then
-				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0008,trig_mode=3
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=1,trig_pin=0xffff0007
 			elif [ ${yuv_cam_type} == 6 ];then
-				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0008,trig_mode=3
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=2,trig_pin=0xffff0008,trig_mode=1
 			elif [ ${yuv_cam_type} == 7 ];then
-				v4l2-ctl -d /dev/video${port} -c sensor_mode=6,trig_pin=0xffff0007
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0007
+			elif [ ${yuv_cam_type} == 8 ];then
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0008
+			elif [ ${yuv_cam_type} == 9 ];then
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0007
+			elif [ ${yuv_cam_type} == 10 ];then
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0008
+			elif [ ${yuv_cam_type} == 11 ];then
+				v4l2-ctl -d /dev/video${port} -c sensor_mode=6,trig_pin=0xffff0007	
 			fi
 			
 			gst-launch-1.0 v4l2src device=/dev/video${port}  ! xvimagesink -ev

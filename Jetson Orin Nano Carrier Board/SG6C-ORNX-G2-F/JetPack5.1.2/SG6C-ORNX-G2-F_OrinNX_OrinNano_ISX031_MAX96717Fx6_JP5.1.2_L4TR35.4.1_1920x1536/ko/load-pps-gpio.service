@@ -1,0 +1,11 @@
+[Unit]
+Description=Load pps-gpio Kernel Module
+
+[Service]
+ExecStart=/sbin/insmod /lib/modules/5.10.120-tegra/kernel/drivers/pps/clients/pps-gpio.ko
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
