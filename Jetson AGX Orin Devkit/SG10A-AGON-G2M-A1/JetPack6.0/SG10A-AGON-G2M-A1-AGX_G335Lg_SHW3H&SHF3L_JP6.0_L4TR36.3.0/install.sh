@@ -4,7 +4,7 @@ sudo cp boot/Image /boot/Image
 
 sudo cp dtb/SGX_G2XX_SH3/tegra234-p3737-0000+p3701-0000-nv.dtb /boot/dtb/kernel_tegra234-p3737-0000+p3701-0000-nv.dtb
 sudo cp dtb/SGX_G2XX_SH3/tegra234-p3737-0000+p3701-0005-nv.dtb /boot/dtb/kernel_tegra234-p3737-0000+p3701-0005-nv.dtb
-sudo cp dtb/SGX_G2XX_SH3/tegra234-camera-g2xx-sh3-overlay.dtbo /boot/tegra234-camera-g2xx-sh3-overlay.dtbo
+sudo cp dtb/SGX_G2XX_SH3/*-overlay.dtbo /boot/
 
 sudo cp ./ko/tegra-camera.ko /lib/modules/5.15.136-tegra/updates/drivers/media/platform/tegra/camera/
 sudo cp ./ko/nvhost-nvcsi-t194.ko /lib/modules/5.15.136-tegra/updates/drivers/video/tegra/host/nvcsi/
