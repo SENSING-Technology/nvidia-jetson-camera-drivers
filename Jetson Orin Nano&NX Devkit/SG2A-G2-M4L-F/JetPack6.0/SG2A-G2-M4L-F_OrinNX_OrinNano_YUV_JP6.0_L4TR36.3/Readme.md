@@ -66,7 +66,7 @@
 5. Install camera driver
    
    ```
-   cd SG8A_ORIN_GMSL2-F_V2_AGX_Orin_YUV_JP6.0_L4TR36.3.0
+   cd SG2A-G2-M4L-F_OrinNX_OrinNano_YUV_JP6.0_L4TR36.3
    chmod +x quick_bring_up.sh
    ./quick_bring_up.sh
    ```
