@@ -5,6 +5,12 @@
 #
 COMMENT
 
+
+# 初始化变量
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+BOOT_DIR="/boot"
+DTB_DIR="${BOOT_DIR}/dtb"
+
 clear
 Upgrade_flag=0
 backup_flag=0
@@ -36,9 +42,9 @@ echo 4:${camera_array[4]}
 green_print "Press select your camera type:"
 read key
 
-if [ -f $PWD/camera_type ]; then
-	var=$(cat camera_type | grep '')
-	if [ ${camera_array[key]} == $var ];then
+if [ -f "${SCRIPT_DIR}/camera_type" ]; then
+    var=$(cat "${SCRIPT_DIR}/camera_type")
+    if [ "${camera_array[key]}" == "$var" ]; then
 		#for yuv gw5200&5300 camera
 		if [ ${camera_array[key]} == sgx-yuv-gmsl2  ];then
 			green_print "Press select your yuv camera type:" 
