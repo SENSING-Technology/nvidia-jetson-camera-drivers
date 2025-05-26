@@ -6,7 +6,7 @@
 
 * SG8-IMX678C-MIPI-HXXX
 
-  * support max 1 cameras to light up at the same time
+  * support max 2 cameras to light up at the same time
 
 #### Quick Bring Up
 
@@ -105,6 +105,7 @@
    sudo make install
 
    // Bring up the camera
+   argus_camera -d 0
    argus_camera -d 1
    ```
 #### Integration with SENSING Driver Source Code
@@ -168,5 +169,6 @@
 7. Bring up the camera
 
    ```
+   argus_camera -d 0
    argus_camera -d 1
    ```
