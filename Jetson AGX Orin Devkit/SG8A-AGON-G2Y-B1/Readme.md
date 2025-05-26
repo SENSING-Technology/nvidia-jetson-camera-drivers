@@ -1,4 +1,4 @@
-## SENSING Camera Drivers for Jetson AGX Orin Developer Kit adapt with SG8A-AGON-G2Y-A1
+## SENSING Camera Drivers for Jetson AGX Orin Developer Kit adapt with SG8A-AGON-G2Y-B1
 
 #### Supported Jetpack
 
@@ -8,7 +8,7 @@
 #### Hardware Connect
 
 * Using adapt board connect up to 8 cameras
-  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-AGON-G2Y-A1.png)
+  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-AGON-G2Y-B1.png)
 
 #### Power Supply
 

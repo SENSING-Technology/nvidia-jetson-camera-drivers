@@ -34,12 +34,12 @@
 1. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
-   /home/nvidia/SG8A_AGON_G2Y_A1_AGX_Orin_YUVx8_JP5.1.2_L4TR35.4.1
+   /home/nvidia/SG8A_AGON_G2Y_B1_AGX_Orin_YUVx8_JP5.1.2_L4TR35.4.1
    ```
 2. Enter the driver directory
 
    ```
-   cd SG8A_AGON_G2Y_A1_AGX_Orin_YUVx8_JP5.1.2_L4TR35.4.1
+   cd SG8A_AGON_G2Y_B1_AGX_Orin_YUVx8_JP5.1.2_L4TR35.4.1
    ```
 3. Give executable permissions to the script "quick_bring_up.sh" and execute the script
 
@@ -52,7 +52,7 @@
    For example:
 
    ```
-   This package is use for Sensing SG8A_AGON_G2Y_A1 on JetPack-5.1.2-L4T-35.4.1
+   This package is use for Sensing SG8A_AGON_G2Y_B1 on JetPack-5.1.2-L4T-35.4.1
    1.sgx-yuv-gmsl2
    Press select your camera type:
    1
@@ -68,7 +68,7 @@
    and finally enter 0-7 the camera port you are connected to to turn on the camera.
 
    ```
-   This package is use for Sensing SG8A_AGON_G2Y_A1 on JetPack-5.1.2-L4T-35.4.1
+   This package is use for Sensing SG8A_AGON_G2Y_B1 on JetPack-5.1.2-L4T-35.4.1
    1.sgx-yuv-gmsl2
    Press select your camera type:
    1

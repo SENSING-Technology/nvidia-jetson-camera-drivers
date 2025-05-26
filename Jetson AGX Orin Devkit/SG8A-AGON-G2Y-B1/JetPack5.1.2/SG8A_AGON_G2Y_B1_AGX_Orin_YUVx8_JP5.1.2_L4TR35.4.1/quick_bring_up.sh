@@ -22,7 +22,7 @@ green_print(){
     echo -e "\e[1;32m$1\e[0m"
 }
 
-red_print "This package is use for Sensing SG8A_AGON_G2Y_A1 on JetPack-5.1.2-L4T-35.4.1"
+red_print "This package is use for Sensing SG8A_AGON_G2Y_B1 on JetPack-5.1.2-L4T-35.4.1"
 
 if [ -f /boot/dtb/kernel_tegra234-p3701-0000-p3737-0000.dtb ]; then
     platform=tegra234-p3701-0000-p3737-0000
