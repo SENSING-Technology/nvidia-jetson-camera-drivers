@@ -3,13 +3,14 @@
 #### Supported Jetpack
 
 * Jetpack 5.1.2
+* Jetpack 6.2
 
 #### Hardware Connect
 
 * Using one adapt boart connect up to 4 cameras
-  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG4A-ORIN-GMSL2-1%20with%20Jetson%20AGX%20Orin.png)
+  ![alt text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG4A-ORIN-GMSL2-1%20with%20Jetson%20AGX%20Orin.png)
 * Using four adapt board connect up to 16 cameras
-  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG4A-ORIN-GMSL2%20with%20Jetson%20AGX%20Orin%20Devkit.png)
+  ![alt text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG4A-ORIN-GMSL2%20with%20Jetson%20AGX%20Orin%20Devkit.png)
 
 #### Power Supply
 
@@ -17,21 +18,22 @@
 
 #### Camera Version Support
 
-| Type | Camera                      | Jetpack 5.1.2 | Jetpack 6.0DP | Jetpack 6.0 |
+| Type | Camera                      | Jetpack 5.1.2 | Jetpack 6.0DP | Jetpack 6.2 |
 | ---- | --------------------------- | ------------- | ------------- | ----------- |
 | YUV  | SG1-OX01F10C-GMSL-Hxxx      | \             | \             | \           |
 | YUV  | SG1S-OX01F10C-G1G-Hxxx      | \             | \             | \           |
 | YUV  | SG2-AR0231C-0202-GMSL-Hxxx  | \             | \             | \           |
-| YUV  | SG2-AR0233C-5200-G2A-Hxxx   | YES           | \             | \           |
-| YUV  | SG2-IMX390C-5200-G2A-Hxxx   | YES           | \             | \           |
-| YUV  | SG2-OX03CC-5200-GMSL2F-Hxxx | YES           | \             | \           |
-| YUV  | SG3S-ISX031C-GMSL2-Hxxx     | YES           | \             | \           |
-| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | YES           | \             | \           |
-| YUV  | SG3S-OX03JC-G2F-Hxxx        | YES           | \             | \           |
-| YUV  | SG5-IMX490C-5300-GMSL2-Hxxx | YES           | \             | \           |
+| YUV  | SG2-AR0233C-5200-G2A-Hxxx   | YES           | \             | YES         |
+| YUV  | SG2-IMX390C-5200-G2A-Hxxx   | YES           | \             | YES         |
+| YUV  | SG2-OX03CC-5200-GMSL2F-Hxxx | YES           | \             | YES         |
+| YUV  | SG3S-ISX031C-GMSL2-Hxxx     | YES           | \             | YES         |
+| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | YES           | \             | YES         |
+| YUV  | SG3S-OX03JC-G2F-Hxxx        | YES           | \             | YES         |
+| YUV  | SG5-IMX490C-5300-GMSL2-Hxxx | YES           | \             | YES         |
 | YUV  | SG5-OX05BC-4000-GMSL2-Hxxx  | \             | \             | \           |
-| YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES           | \             | \           |
-| YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES           | \             | \           |
+| YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES           | \             | YES         |
+| YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES           | \             | YES         |
+| YUV  | SN2M4EFGD                   | \             | \             | YES         |
 | YUV  | SG8S-AR0820C-5300-G3A-Hxxx  | \             | \             | \           |
 | RAW  | SG2-AR0233C-G2A-Hxxx        | \             | \             | \           |
 | RAW  | SG2-IMX390C-G2A-Hxxx        | \             | \             | \           |

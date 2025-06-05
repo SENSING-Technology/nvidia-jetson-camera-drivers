@@ -7,7 +7,7 @@
 #### Hardware Connect
 
 * Using adapt board connect up to 2 cameras
-  ![atl text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG2A-G3-M4L-F%20with%20Jetson%20Orin%20Nano&NX%20Devkit.png)
+  ![alt text](../../Picture/SENSING%20Deserializer%20Adapt%20Board/SG2A-G3-M4L-F%20with%20Jetson%20Orin%20Nano&NX%20Devkit.png)
 
 #### Power Supply
 

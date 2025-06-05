@@ -7,7 +7,7 @@
 #### Hardware Connect
 
 * Using adapt board connect up to 6 cameras
-  ![atl text](../../Picture/SENSING%20Carrier%20Board/SG6C-ORNX-G2-F.png)
+  ![alt text](../../Picture/SENSING%20Carrier%20Board/SG6C-ORNX-G2-F.png)
 #### Power Supply
 
 * SG6C-ORNX-G2-F carrier board need to be powered by 12V. 
