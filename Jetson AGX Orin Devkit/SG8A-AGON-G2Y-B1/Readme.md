@@ -12,7 +12,7 @@
 
 #### Power Supply
 
-* SG8A-AGON-G2Y-A1 adapt board need to be powered by 12V.
+* SG8A-AGON-G2Y-B1 adapt board need to be powered by 12V.
 
 #### Camera Version Support
 
