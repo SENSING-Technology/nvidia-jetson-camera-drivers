@@ -29,6 +29,11 @@
 4. After the reboot, bring up the camera using the one connected to the CN1 port as an example
 
    ```
-   v4l2-ctl -d /dev/video0 --set-ctrl sensor_mode=2
+   #Trigger sync is not enabled
+   v4l2-ctl -d /dev/video0 --set-ctrl sensor_mode=2,trig_mode=0
+   gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink -ev
+
+   #Trigger sync is enabled
+   v4l2-ctl -d /dev/video0 --set-ctrl sensor_mode=2,trig_mode=2
    gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink -ev
    ``` 
