@@ -22,3 +22,7 @@ SG8A-ORIN-GMSL2-F
 SG10A-AGON-G2M-A1
 * Camera Drivers support for Jetson AGX Orin Developer Kit adapt with SG10A-AGON-G2M-A1
  ![alt text](../Picture/SENSING%20Deserializer%20Adapt%20Board/SG10A-AGON-G2M-A1%20with%20Jetson%20AGX%20Orin%20Devkit.png)
+
+SG12A-AGON-G2M-A1
+* Camera Drivers support for Jetson AGX Orin Developer Kit adapt with SG12A-AGON-G2M-A1
+ ![alt text](../Picture/SENSING%20Deserializer%20Adapt%20Board/SG12A-AGON-G2M-A1.png) 

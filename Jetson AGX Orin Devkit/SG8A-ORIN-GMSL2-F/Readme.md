@@ -34,7 +34,6 @@
 | YUV  | SG5-OX05BC-4000-GMSL2-Hxxx  | YES           | \             | \           | \           | \           |
 | YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES           | YES           | YES         | \           | YES         |
 | YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES           | YES           | YES         | \           | YES         |
-| YUV  | SG8S-AR0820C-5300-G3A-Hxxx  | \             | \             | YES         | \           | \           |
 | YUV  | DMSBBFAN                    | YES           | \             | \           | \           | YES         |
 | RAW  | SG2-AR0233C-G2A-Hxxx        | YES           | \             | YES         | \           | \           |
 | RAW  | SG2-IMX390C-G2A-Hxxx        | YES           | YES           | YES         | \           | \           |
@@ -51,11 +50,6 @@
 | RAW  | SG8-OX08DC-G2A-Hxxx         | \             | \             | YES         | \           | \           |
 | RAW  | SG8-IMX678C-G2A-Hxxx        | \             | \             | \           | YES         | \           |
 | RAW  | SG8-1H1-G2A-Hxxx            | YES           | \             | \           | \           | \           |
-| RAW  | SG8-IMX728C-G3A-Hxxx        | \             | \             | YES         | \           | \           |
-| RAW  | SG8-IMX715C-G3A-Hxxx        | \             | \             | \           | YES         | \           |
-| RAW  | SG12-IMX577C-G3A-Hxxx       | \             | \             | \           | YES         | \           |
-| RAW  | SG17-IMX735C-G3A-Hxxx       | \             | \             | YES         | \           | \           |
-
 
 #### Camera Mapping
 

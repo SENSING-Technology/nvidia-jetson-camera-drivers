@@ -27,7 +27,7 @@
 | YUV  | SG3S-ISX031C-GMSL2-Hxxx     | YES         | YES         | YES         |
 | YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | YES         | YES         | YES         |
 | YUV  | SG5-IMX490C-5300-GMSL2-Hxxx | YES         | YES         | YES         |
-| YUV  | SG8S-AR0820C-5300-G3A-Hxxx  | YES         | YES         | YES         |
+| YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES         | YES         | YES         |
 | YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES         | YES         | YES         |
 
 #### Camera Mapping

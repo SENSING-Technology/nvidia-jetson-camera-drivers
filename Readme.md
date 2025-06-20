@@ -68,6 +68,12 @@ Users of SENSING cameras can refer to these drivers to enable camera functionali
     ![alt text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG10A-AGON-G2M-A1.png) 
   * Installation Video
     [Click to Watch](./Video/SG10A-AGON-G2M-A1%20Installation%20Video.mp4) 
+* **SG12A-AGON-G2M-A1** 
+  * SENSING Deserializer Adapt Board with Maxim GMSL2 Deserializer which can support 12 GMSL/GMSL2 cameras  
+  * [Camera Support List](./Jetson%20AGX%20Orin%20Devkit/SG12A-AGON-G2M-A1/Readme.md#camera-version-support)
+  * [Camera Driver Package](./Jetson%20AGX%20Orin%20Devkit/SG12A-AGON-G2M-A1/)
+  * Adapter Board Image
+    ![alt text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG12A-AGON-G2M-A1.png)   
 
 #### **Supported SENSING Jetson Orin NANO&NX Carrier Board:**
 
