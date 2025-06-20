@@ -1,4 +1,4 @@
-## SENSING Camera Drivers for Jetson AGX Orin Developer Kit adapt with SG10A-AGON-G2M-A1
+## SENSING Camera Drivers for Jetson AGX Orin Developer Kit adapt with SG12A-AGON-G2M-A1
 
 #### Supported Jetpack
 
