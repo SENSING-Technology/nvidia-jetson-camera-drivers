@@ -199,6 +199,7 @@ struct tegracam_ctrl_ops {
 	int (*set_exposure)(struct tegracam_device *tc_dev, s64 val);
 	int (*set_exposure_short)(struct tegracam_device *tc_dev, s64 val);
 	int (*set_frame_rate)(struct tegracam_device *tc_dev, s64 val);
+	int (*set_dgain)(struct tegracam_device *tc_dev, s64 val);
 	int (*set_trig_pin)(struct tegracam_device *tc_dev, u32 val);
 	int (*set_trig_mode)(struct tegracam_device *tc_dev, u32 val);
 	int (*set_mirror)(struct tegracam_device *tc_dev, u32 val);

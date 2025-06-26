@@ -10,31 +10,39 @@
 * SG2-AR0233-5200-G2A-Hxxx
 
   * support max 8 cameras to light up at the same time
-* SG2-OX03CC-5200-GMSL2F-Hxxx
+* SG2-OX03CC-5200-G2F
 
   * support max 8 cameras to light up at the same time
-* SG3-ISX031C-GMSL2-Hxxx
+* SG3S-ISX031C-GMSL2-Hxxx
 
   * support max 8 cameras to light up at the same time
-* SG3-ISX031C-GMSL2F-Hxxx
+* SG3S-ISX031C-GMSL2F-Hxxx
 
   * support max 8 cameras to light up at the same time
-* SG3S-OX03JC-G2F-Hxxx
+* SG3S-OX03JC-G2F
 
-  * support max 8 cameras to light up at the same time
+  * support max 8 cameras to light up at the same time 
 * SG5-IMX490C-5300-GMSL2-Hxxx
 
-  * support max 8 cameras to light up at the same time
+  * support max 5 cameras to light up at the same time
 * SG8S-AR0820C-5300-G2A-Hxxx
 
-  * support max 7 cameras to light up at the same time
+  * support max 4 cameras to light up at the same time
 * SG8-OX08BC-5300-GMSL2-Hxxx
 
-  * support max 7 cameras to light up at the same time
+  * support max 4 cameras to light up at the same time
+* OMSBDAAN-AA
+
+  * support max 4 cameras to light up at the same time
+* OMSBDAAN-AB	
+
+  * support max 4 cameras to light up at the same time
 * DMSBBFAN
 
-  * support max 8 cameras to light up at the same time
+  * support max 4 cameras to light up at the same time
+* SG2-AR0231C-0202-GMSL-1080P
 
+  * support max 8 cameras to light up at the same time 
 #### Quick Bring Up
 
 1. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
@@ -50,52 +58,67 @@
 3. Give executable permissions to the script "quick_bring_up.sh" and execute the script
 
    ```
-   chmod a+x quick_bring_up.sh
-   sudo ./quick_bring_up.sh
+   chmod a+x *.sh
+
+   //If you are using the Jetson AGX Orin 32G version, then execute:
+   sudo ./quick_bring_up_32g.sh
+
+   //If you are using the Jetson AGX Orin 64G version, then execute:
+   sudo ./quick_bring_up_64g.sh
    ```
-4. Select the camera type. This step will install Image and DTB, after the script run complete.
-   You need to reboot the device to let the Image and DTB take effect.
-   For example:
+4. When you run the "quick_bring_up.sh" script for the first time, it will install the Image and DTB. After the script completes, you need to reboot the device for the Image and DTB to take effect.
+
+   ```
+   sudo reboot
+   ```
+5. After the device reboots, first install v4l2-ctl, then enter the driver directory and run the script "quick_bring_up.sh".
+
+   ```
+   //install v4l2-ctl
+   sudo apt update
+   sudo apt install v4l-utils 
+
+   //If you are using the Jetson AGX Orin 32G version, then execute:
+   sudo ./quick_bring_up_32g.sh
+
+   //If you are using the Jetson AGX Orin 64G version, then execute:
+   sudo ./quick_bring_up_64g.sh
+   ```
+6. Select the camera type for each group of channels (cam0 and cam1 as a group, cam2 and cam3 as a group, and so on). For example:
+
+    * cam0, cam1: Two Pilot640 cameras
+    * cam2, cam3: Two SG2-AR0233-5300-GMSL2 cameras
+    * cam4, cam5: Two SG3-ISX031C-GMSL2F cameras
+    * cam6, cam7: Two SG8-AR0820C-5300-GMSL2 cameras
 
    ```
    This package is use for Sensing SG8A-ORING-GMSL on JetPack-5.1.2-L4T-35.4.1
-   1.sgx-yuv-gmsl1
-   2.sgx-yuv-gmsl2
-   Press select your camera type:
+   Press select your first group camera type:(0-GMSL1, 1-GMSL2_6G, 2-GMSL2_3G)
+   0
+   Press select your second group camera type:(0-GMSL1, 1-GMSL2_6G, 2-GMSL2_3G)
+   1
+   Press select your third group camera type:(0-GMSL1, 1-GMSL2_6G, 2-GMSL2_3G)
    2
+   Press select your fourth group camera type:(0-GMSL1, 1-GMSL2_6G, 2-GMSL2_3G)
+   1
    ```
-
-   At this point, you should type 1 to select your camera type and then hit Enter
-5. After the device reboots, enter the driver directory and run the script "quick_bring_up.sh"
-
+7. Then, select any channel and confirm the camera model to start the camera.
    ```
-   sudo ./quick_bring_up.sh
-   ```
-6. Select the camera type. Select the sgx-yuv-gmsl2 camera type, then select SG2-IMX390C-5200-GMSL2,
-   and finally enter 0-7 the camera port you are connected to to turn on the camera.
-
-   ```
-   This package is use for Sensing SG8A-ORING-GMSL on JetPack-5.1.2-L4T-35.4.1
-   1.sgx-yuv-gmsl1
-   2.sgx-yuv-gmsl2
-   Press select your camera type:
-   2
    Press select your yuv camera type:
    0:SG2-IMX390C-5200-GMSL2
    1:SG2-AR0233-5300-GMSL2
-   2.SG2-OX03CC-5200-GMSL2F
-   3.SG3-ISX031C-GMSL2F
-   4.SG5-IMX490C-5200-GMSL2
-   5.SG8-AR0820C-5300-GMSL2
-   6.SG8-OX08BC-5300-GMSL2
-   0
+   2:SG3-ISX031C-GMSL2
+   3:SG3-ISX031C-GMSL2F
+   4:SG5-IMX490C-5200-GMSL2
+   5:OMSBDAAN
+   6:SG8-AR0820C-5300-GMSL2
+   7:SG8-OX08BC-5300-GMSL2
+   8:SG2-AR0231C-0202-GMSL-1080P
+   9:Pilot640
+   1
    Press select your camera port [0-7]:
-   0
-   ready bring up camera
-   Use the following command to light the camera!
-   gst-launch-1.0 v4l2src device=/dev/video0  ! xvimagesink -ev
+   2
    ```
-7. Select one of the commands prompted above to light the camera
 
 #### Integration with SENSING Driver Source Code
 

@@ -16,7 +16,37 @@
 
 #include "dt-bindings/clock/tegra234-clock.h"
 
+#if defined(SGX_YUV_GMSL1)
+#include "sgx-yuv-gmsl1.dtsi"
+#elif defined(SGX_YUV_GMSL2)
 #include "sgx-yuv-gmsl2.dtsi"
+#elif defined(SGX_YUV_GMSL2_ZHURUKA)
+#include "sgx-yuv-gmsl2-zhuruka.dtsi"
+#elif defined(SGX_ZHURUKA_GMSL2)
+#include "sgx-zhuruka-gmsl2.dtsi"
+#elif defined(SG2_AR0233C_GMSL2)
+#include "sg2-ar0233c-gmsl2.dtsi"
+#elif defined(SG8_AR0820C_GMSL2)
+#include "sg8-ar0820c-gmsl2.dtsi"
+#elif defined(SG5_IMX490C_GMSL2)
+#include "sg5-imx490c-gmsl2.dtsi"
+#elif defined(SG8_IMX728C_GMSL2)
+#include "sg8-imx728c-gmsl2.dtsi"
+#elif defined(SG8_OX08BC_GMSL2)
+#include "sg8-ox08bc-gmsl2.dtsi"
+#elif defined(SG2_IMX390C_GMSL2)
+#include "sg2-imx390c-gmsl2.dtsi"
+#elif defined(SG2_IMX390C_2LANE_GMSL2)
+#include "sg2-imx390c-2lane-gmsl2.dtsi"
+#elif defined(SG2_OX03CC_GMSL2)
+#include "sg2-ox03cc-gmsl2.dtsi"
+#elif defined(SG8_S5K1H1SBC_GMSL2)
+#include "sg8-s5k1h1sbc-gmsl2.dtsi"
+#elif defined(SG5_OX05B_9295D_GMSL2)
+#include "sg5-ox05b-9295d-gmsl2.dtsi"
+#elif defined(SG2_AR0234_9295D_GMSL2)
+#include "sg2-ar0234-9295d-gmsl2.dtsi"
+#endif
 
 #define CAM_VDD_SYS_EN	TEGRA234_MAIN_GPIO(AC, 7)
 #define DES_0_RESET		TEGRA234_MAIN_GPIO(H, 6)

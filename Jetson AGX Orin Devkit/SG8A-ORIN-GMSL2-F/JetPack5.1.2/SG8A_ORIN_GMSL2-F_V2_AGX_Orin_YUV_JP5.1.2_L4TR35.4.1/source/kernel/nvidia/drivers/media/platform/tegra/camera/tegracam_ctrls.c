@@ -183,6 +183,17 @@ static struct v4l2_ctrl_config ctrl_cfg_list[] = {
 		.menu_skip_mask = 0,
 		.def = 0,
 		.qmenu_int = switch_ctrl_qmenu,
+	},
+	{
+		.ops = &tegracam_ctrl_ops,
+		.id = TEGRA_CAMERA_CID_SET_DGAIN_ID,
+		.name = "Dgain",
+		.type = V4L2_CTRL_TYPE_INTEGER64,
+		.flags = V4L2_CTRL_FLAG_SLIDER,
+		.min = CTRL_U64_MIN,
+		.max = CTRL_U64_MAX,
+		.def = CTRL_U64_MIN,
+		.step = 1,
 	},//end
 	{
 		.ops = &tegracam_ctrl_ops,
@@ -386,6 +397,11 @@ static int tegracam_set_ctrls(struct tegracam_ctrl_handler *handler,
 		err = ops->set_alternating_exposure(tc_dev,
 			(struct alternating_exposure_cfg *)ctrl->p_new.p);
 		break;
+	// add
+	case TEGRA_CAMERA_CID_SET_DGAIN_ID:
+		err = ops->set_dgain(tc_dev, *ctrl->p_new.p_s64);
+		break;
+	// end
 	default:
 		pr_err("%s: unknown ctrl id.\n", __func__);
 		return -EINVAL;
@@ -462,6 +478,9 @@ static int tegracam_set_ctrls_ex(struct tegracam_ctrl_handler *handler,
 		break;
 	case TEGRA_CAMERA_CID_TRIG_MODE_ID:
 		err = ops->set_trig_mode(tc_dev, *ctrl->p_new.p_u32);
+		break;
+	case TEGRA_CAMERA_CID_SET_DGAIN_ID:
+		err = ops->set_dgain(tc_dev, *ctrl->p_new.p_s64);
 		break;
 	//end
 	case TEGRA_CAMERA_CID_HDR_EN:
@@ -867,6 +886,7 @@ static int tegracam_check_ctrl_ops(
 		/* The below controls are handled by framework */
 		case TEGRA_CAMERA_CID_SENSOR_MODE_ID:
 		//add
+		case TEGRA_CAMERA_CID_SET_DGAIN_ID:
 		case TEGRA_CAMERA_CID_TRIG_PIN_ID:
 		case TEGRA_CAMERA_CID_TRIG_MODE_ID:
 		case TEGRA_CAMERA_CID_HDR_EN:

@@ -14,6 +14,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
+#include "sensing_config.h"
+#if defined(SG8A_ORIN_GMSLX8_V1)
+#include "SG8A_ORIN_GMSLX8_V1/tegra234-p3737-sg8a-orin-gmsl-module.dtsi"
+#elif defined(SG8A_ORIN_GMSLX8_V2)
 #include "SG8A_ORIN_GMSLX8_V2/tegra234-p3737-sg8a-orin-gmsl-module.dtsi"
-
+#elif defined(SG8A_ORIN_GMSLX1_V1)
+#include "SG8A_ORIN_GMSLX1_V1/tegra234-p3737-sg8a-orin-gmsl-module.dtsi"
+#elif defined(SG8A_ORIN_GMSLX1_V2)
+#include "SG8A_ORIN_GMSLX1_V2/tegra234-p3737-sg8a-orin-gmsl-module.dtsi"
+#elif defined(SG4A_ORIN_GMSL)
+#include "SG4A_ORIN_GMSL/tegra234-p3737-sg4a-orin-gmsl-module.dtsi"
+#elif defined(SG12A_ORIN_GMSL2)
+#include "SG12A_ORIN_GMSL2/tegra234-p3737-sg12a-orin-gmsl2-module.dtsi"
+#endif
