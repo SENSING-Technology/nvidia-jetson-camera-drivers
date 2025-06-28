@@ -24,16 +24,22 @@
   * support max 8 cameras to bring up at the same time
 * SG5-IMX490C-5300-GMSL2-Hxxx
 
-  * support max 8 cameras to bring up at the same time
+  * support max 5 cameras to bring up at the same time
 * SG8S-AR0820C-5300-G2A-Hxxx
 
-  * support max 7 cameras to bring up at the same time
+  * support max 6 cameras to bring up at the same time
 * SG8-OX08BC-5300-GMSL2-Hxxx
 
-  * support max 7 cameras to bring up at the same time
+  * support max 4 cameras to bring up at the same time
 * DMSBBFAN
 
   * support max 8 cameras to bring up at the same time
+* OMSBDAAN-AA
+
+  * support max 8 cameras to bring up at the same time
+* OMSBDAAN-AB
+
+  * support max 4 cameras to bring up at the same time
 
 #### Quick Bring Up
 

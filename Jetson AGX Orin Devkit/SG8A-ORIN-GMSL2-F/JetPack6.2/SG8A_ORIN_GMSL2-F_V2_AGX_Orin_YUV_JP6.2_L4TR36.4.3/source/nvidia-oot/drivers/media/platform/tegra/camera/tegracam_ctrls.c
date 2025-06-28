@@ -206,6 +206,17 @@ static struct v4l2_ctrl_config ctrl_cfg_list[] = {
 	},
 	{
 		.ops = &tegracam_ctrl_ops,
+		.id = TEGRA_CAMERA_CID_GMSL_MODE_ID,
+		.name = "Gmsl Mode",
+		.type = V4L2_CTRL_TYPE_U32,
+		.flags = V4L2_CTRL_FLAG_SLIDER,
+		.min = CTRL_U32_MIN,
+		.max = 3,
+		.def = CTRL_U32_MIN,
+		.step = 1,
+	},
+	{
+		.ops = &tegracam_ctrl_ops,
 		.id = TEGRA_CAMERA_CID_SET_DGAIN_ID,
 		.name = "Dgain",
 		.type = V4L2_CTRL_TYPE_INTEGER64,
@@ -343,10 +354,13 @@ static int tegracam_set_ctrls(struct tegracam_ctrl_handler *handler,
 		return 0;
 	case TEGRA_CAMERA_CID_TRIG_PIN_ID:
 		err = ops->set_trig_pin(tc_dev, *ctrl->p_new.p_u32);
-		break;
+		return err;
 	case TEGRA_CAMERA_CID_TRIG_MODE_ID:
 		err = ops->set_trig_mode(tc_dev, *ctrl->p_new.p_u32);
-		break;
+		return err;
+	case TEGRA_CAMERA_CID_GMSL_MODE_ID:
+		err = ops->set_gmsl_mode(tc_dev, *ctrl->p_new.p_u32);
+		return err;
 	case TEGRA_CAMERA_CID_SET_DGAIN_ID:
 		err = ops->set_dgain(tc_dev, *ctrl->p_new.p_s64);
 		break;
@@ -468,6 +482,9 @@ static int tegracam_set_ctrls_ex(struct tegracam_ctrl_handler *handler,
 	case TEGRA_CAMERA_CID_TRIG_MODE_ID:
 		err = ops->set_trig_mode(tc_dev, *ctrl->p_new.p_u32);
 		break;
+	case TEGRA_CAMERA_CID_GMSL_MODE_ID:
+		err = ops->set_gmsl_mode(tc_dev, *ctrl->p_new.p_u32);
+		return err;
 	case TEGRA_CAMERA_CID_SET_DGAIN_ID:
 		err = ops->set_dgain(tc_dev, *ctrl->p_new.p_s64);
 		break;
@@ -870,6 +887,7 @@ static int tegracam_check_ctrl_ops(
 		/* The below controls are handled by framework */
 		case TEGRA_CAMERA_CID_TRIG_PIN_ID:
 		case TEGRA_CAMERA_CID_TRIG_MODE_ID:
+		case TEGRA_CAMERA_CID_GMSL_MODE_ID:
 		case TEGRA_CAMERA_CID_SENSOR_MODE_ID:
 		case TEGRA_CAMERA_CID_SET_DGAIN_ID:
 		case TEGRA_CAMERA_CID_HDR_EN:
