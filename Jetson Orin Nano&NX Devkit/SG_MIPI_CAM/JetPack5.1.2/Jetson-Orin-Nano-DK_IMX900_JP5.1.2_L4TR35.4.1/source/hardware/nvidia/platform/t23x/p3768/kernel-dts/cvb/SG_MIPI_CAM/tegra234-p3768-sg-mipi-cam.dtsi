@@ -1,0 +1,85 @@
+/*
+ * Copyright (c) 2022, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#if defined(SG2_MIPI_IMX390)
+#include "sg-mipi-imx390.dtsi"
+#elif defined(SG8_MIPI_IMX577)
+#include "sg-mipi-imx577.dtsi"
+#elif defined(SG_EVS_IMX646)
+#include "sg-evs-imx646.dtsi"
+#elif defined(SG8_MIPI_IMX676)
+#include "sg-mipi-imx676-4lane.dtsi"
+#elif defined(SG8_MIPI_IMX678)
+#include "sg-mipi-imx678-4lane.dtsi"
+#elif defined(SG8_MIPI_IMX675)
+#include "sg-mipi-imx675-4lane.dtsi"
+#elif defined(SG2_MIPI_IMX662)
+#include "sg-mipi-imx662-4lane.dtsi"
+#elif defined(SG8_MIPI_IMX585)
+#include "sg-mipi-imx585-4lane.dtsi"
+#elif defined(SG8_MIPI_IMX715)
+#include "sg-mipi-imx715-4lane.dtsi"
+#elif defined(SG8_MIPI_IMX728)
+#include "sg-mipi-imx728-4lane.dtsi"
+#elif defined(SG8_MIPI_IMX283)
+#include "sg-mipi-imx283.dtsi"
+#elif defined(SG8_MIPI_IMX294)
+#include "sg-mipi-imx294-4lane.dtsi"
+#elif defined(SG2_GMSL2_IMX390)
+#include "sg-mipi-imx390-gmsl2.dtsi"
+#elif defined(SG8_GMSL2_IMX728)
+#include "sg-mipi-imx728-4lane.dtsi"
+#elif defined(SG1_MIPI_SC132GS)
+#include "sg-mipi-sc132gs-2lane.dtsi"
+#elif defined(SG3_MIPI_ISX031)
+#include "sg-mipi-isx031-4lane.dtsi"
+#elif defined(SG2_MIPI_AR0231)
+#include "sg-mipi-ar0231-4lane.dtsi"
+#elif defined(SG48_MIPI_IMX586)
+#include "sg-mipi-imx586-4lane.dtsi"
+#elif defined(SG3_MIPI_IMX900)
+#include "sg-mipi-imx900-4lane.dtsi"
+#endif
+
+/ {
+	cam_i2cmux {
+		compatible = "i2c-mux-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		mux-gpios = <&tegra_aon_gpio CAM_I2C_MUX GPIO_ACTIVE_HIGH>;
+		i2c-parent = <&cam_i2c>;
+		i2c@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+		i2c@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+	};
+
+	gpio@6000d000 {
+		camera-control-output-low {
+			gpio-hog;
+			output-low;
+			gpios = < CAM1_PWDN 0  CAM0_PWDN 0>;
+			label = "cam1-pwdn", "cam0-pwdn";
+		};
+	};
+};

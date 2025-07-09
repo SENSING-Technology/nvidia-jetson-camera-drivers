@@ -3,6 +3,7 @@
 #### Supported Jetpack
 
 * Jetpack 6.0
+* Jetpack 6.2
 
 #### Hardware Connect
 

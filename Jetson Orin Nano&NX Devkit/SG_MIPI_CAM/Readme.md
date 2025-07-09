@@ -26,6 +26,7 @@
 | RAW  | SG2-IMX390C-MIPI-Hxxx  | YES           | YES           | \             | \           | \           |
 | RAW  | SG2-IMX662C-MIPI-Hxxx  | YES           | YES           | YES           | YES         | \           |
 | RAW  | SG3-ISX031C-MIPI-HXXX  | YES           | \             | \             | \           | \           |
+| RAW  | SG3-IMX900C-MIPI-HXXX  | \             | YES           | \             | \           | \           |
 | RAW  | SG5-IMX675C-MIPI-HXXX  | YES           | YES           | \             | \           | \           |
 | RAW  | SG8-IMX334C-MIPI-Hxxx  | \             | YES           | \             | \           | \           |
 | RAW  | SG8-IMX515C-MIPI-HXXX  | YES           | \             | \             | \           | \           |
