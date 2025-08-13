@@ -48,12 +48,12 @@ Users of SENSING cameras can refer to these drivers to enable camera functionali
     ![alt text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-ORIN-GMSL2-F%20with%20Jetson%20AGX%20Orin%20Devkit.png)
   * Installation Video
     [Click to Watch](./Video/SG8A-ORIN-GMSL2-F%20Installation%20Video.mp4) 
-* **SG8A-AGON-G2Y-B1**
+* **SG8A-AGON-G2Y-A1**
   * SENSING Deserializer Adapt Board with Maxim GMSL2 Deserializer which can support 8 GMSL2 cameras
-  * [Camera Support List](./Jetson%20AGX%20Orin%20Devkit/SG8A-AGON-G2Y-B1/Readme.md#camera-version-support)
-  * [Camera Driver Package](./Jetson%20AGX%20Orin%20Devkit/SG8A-AGON-G2Y-B1/)
+  * [Camera Support List](./Jetson%20AGX%20Orin%20Devkit/SG8A-AGON-G2Y-A1/Readme.md#camera-version-support)
+  * [Camera Driver Package](./Jetson%20AGX%20Orin%20Devkit/SG8A-AGON-G2Y-A1/)
   * Adapt to use with Jetson AGX Orin Developer Kit
-    ![alt text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-AGON-G2Y-B1.png)    
+    ![alt text](./Picture/SENSING%20Deserializer%20Adapt%20Board/SG8A-AGON-G2Y-A1.png)    
 * **SG8A-ORIN-GMSL3-F**
   * SENSING Deserializer Adapt Board with Maxim GMSL3 Deserializer which can support 8 GMSL3 cameras
   * [Camera Support List](./Jetson%20AGX%20Orin%20Devkit/SG8A-ORIN-GMSL3-F/Readme.md#camera-version-support)
