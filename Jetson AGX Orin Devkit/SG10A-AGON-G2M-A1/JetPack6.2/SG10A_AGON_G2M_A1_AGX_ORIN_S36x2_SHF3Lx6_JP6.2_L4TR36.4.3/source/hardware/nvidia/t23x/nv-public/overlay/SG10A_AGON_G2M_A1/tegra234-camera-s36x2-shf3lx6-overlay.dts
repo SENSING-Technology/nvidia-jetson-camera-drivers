@@ -733,7 +733,7 @@
 									inherent_gain = "1";
 									//mclk_multiplier = "3.01";
 									pix_clk_hz = "300000000";
-									serdes_pix_clk_hz = "300000000";
+									serdes_pix_clk_hz = "500000000";
 
 									gain_factor = "100";
 									min_gain_val = "100"; /* dB */
@@ -990,7 +990,7 @@
 									inherent_gain = "1";
 									mclk_multiplier = "3.01";
 									pix_clk_hz = "300000000";
-									serdes_pix_clk_hz = "300000000";
+									serdes_pix_clk_hz = "500000000";
 
 									gain_factor = "100";
 									min_gain_val = "100"; /* dB */
@@ -2357,7 +2357,7 @@
 									inherent_gain = "1";
 									//mclk_multiplier = "3.01";
 									pix_clk_hz = "300000000";
-									serdes_pix_clk_hz = "400000000";
+									serdes_pix_clk_hz = "575000000";
 
 									gain_factor = "100";
 									min_gain_val = "100"; /* dB */
@@ -2615,7 +2615,7 @@
 									inherent_gain = "1";
 									//mclk_multiplier = "3.01";
 									pix_clk_hz = "300000000";
-									serdes_pix_clk_hz = "400000000";
+									serdes_pix_clk_hz = "575000000";
 
 									gain_factor = "100";
 									min_gain_val = "100"; /* dB */
@@ -2870,7 +2870,7 @@
 									inherent_gain = "1";
 									mclk_multiplier = "3.01";
 									pix_clk_hz = "300000000";
-									serdes_pix_clk_hz = "400000000";
+									serdes_pix_clk_hz = "575000000";
 
 									gain_factor = "100";
 									min_gain_val = "100"; /* dB */
@@ -3127,7 +3127,7 @@
 									inherent_gain = "1";
 									mclk_multiplier = "3.01";
 									pix_clk_hz = "300000000";
-									serdes_pix_clk_hz = "400000000";
+									serdes_pix_clk_hz = "575000000";
 
 									gain_factor = "100";
 									min_gain_val = "100"; /* dB */

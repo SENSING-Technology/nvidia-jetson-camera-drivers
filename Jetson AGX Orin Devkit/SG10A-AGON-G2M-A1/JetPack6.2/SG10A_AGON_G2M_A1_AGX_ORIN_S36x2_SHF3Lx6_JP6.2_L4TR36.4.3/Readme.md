@@ -8,7 +8,11 @@
 
   * support max 2 cameras to bring up at the same time
 * SHF3L/SG3S-ISX031C-GMSL2F
+
   * support max 6 cameras to bring up at the same time
+* SHW3H
+
+  * support max 4 cameras to bring up at the same time
 
 #### Quick Bring Up
 
