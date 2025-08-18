@@ -24,6 +24,7 @@ echo 3:SG3S-ISX031C-GMSL2F
 echo 4:SG3S-OX03JC-GMSL2F
 echo 5:SG5-IMX490C-5300-GMSL2
 echo 6:SG8S-AR0820C-5300-GMSL2
+echo 7:SG8-OX08BC-5300-GMSL2
 read target_cam
 
 green_print "Select the camera port to light up[0-7]:"
@@ -41,7 +42,8 @@ else
 fi
 
 #if you run this script on remote teminal,pls enable this commond
-export DISPLAY=:0
+#export DISPLAY=:0
+sudo ./boost_clock.sh
 
 if [[ ${target_cam} == 0 ]];then
 	v4l2-ctl -d /dev/video${port} -c sensor_mode=0,trig_pin=0xffff0007
@@ -56,6 +58,8 @@ elif [[ ${target_cam} == 4 ]];then
 elif [[ ${target_cam} == 5 ]];then
 	v4l2-ctl -d /dev/video${port} -c sensor_mode=2,trig_mode=1,trig_pin=0xffff0008
 elif [[ ${target_cam} == 6 ]];then
+	v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0007
+elif [[ ${target_cam} == 7 ]];then
 	v4l2-ctl -d /dev/video${port} -c sensor_mode=3,trig_pin=0xffff0007
 fi
 
