@@ -30,11 +30,12 @@ green_print "Select the camera type:"
 echo 0:SG2-IMX390C-5200-G2A-Hxxx
 echo 1:SG2-AR0233C-5200-G2A-Hxxx
 echo 2:SG2-OX03CC-5200-GMSL2F-Hxxx
-echo 3:SG3S-ISX031C-GMSL2-Hxxx
+echo 3:SG3-ISX031C-GMSL2-Hxxx
 echo 4:SG3S-ISX031C-GMSL2F-Hxxx
 echo 5:SG5-IMX490C-5300-GMSL2-Hxxx
 echo 6:SG8S-AR0820C-5300-G2A-Hxxx
 echo 7:SG8-OX08BC-5300-GMSL2-Hxxx
+echo 8:SG8-ISX028C-G2G-Hxxx
 
 read target_cam
 
@@ -52,7 +53,7 @@ else
 fi
 
 #if you run this script on remote teminal,pls enable this commond
-export DISPLAY=:0
+#export DISPLAY=:0
 
 if [[ ${target_cam} == 0 ]];then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=1,trig_pin=0xffff0007
@@ -70,6 +71,8 @@ elif [[ ${target_cam} == 6 ]];then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=4,trig_pin=0xffff0007
 elif [[ ${target_cam} == 7 ]];then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=4,trig_pin=0xffff0008
+elif [[ ${target_cam} == 8 ]];then
+        v4l2-ctl -d /dev/video${port} -c sensor_mode=5,trig_pin=0xffff0007
 fi
 
 gst-launch-1.0 v4l2src device=/dev/video${port} ! xvimagesink -ev

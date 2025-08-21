@@ -60,8 +60,8 @@ if [ -f $PWD/camera_type ]; then
 			echo 2:SG2-OX03CC-5200-GMSL2F
 			echo 3:SG3-ISX031C-GMSL2
 			echo 4:SG3S-ISX031C-GMSL2F
-			echo 5:SG4-IMX490C-5300-GMSL2
-			echo 6:SG8-AR0820C-5300-GMSL2
+			echo 5:SG5-IMX490C-5300-GMSL2
+			echo 6:SG8S-AR0820C-5300-G2A
 			echo 7:SG8-OX08BC-5300-GMSL2	
 			read yuv_cam_type
 			cam_mode=1

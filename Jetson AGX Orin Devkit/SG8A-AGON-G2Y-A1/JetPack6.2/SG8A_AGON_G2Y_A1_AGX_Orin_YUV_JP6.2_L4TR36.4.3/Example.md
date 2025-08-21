@@ -36,7 +36,7 @@ v4l2-ctl -V --set-ctrl bypass_mode=0 --stream-mmap --stream-count=10000000 -d /d
  echo 33333333 > /sys/class/pwm/pwmchip5/pwm0/period
  
  d.Set the duty cycle
- echo 10000000 > /sys/class/pwm/pwmchip5/pwm0/duty_cycle
+ echo 30000000 > /sys/class/pwm/pwmchip5/pwm0/duty_cycle
  
  e.Enable PWM output
  echo 1 > /sys/class/pwm/pwmchip5/pwm0/enable

@@ -16,7 +16,7 @@
 * SG3-ISX031C-GMSL2-Hxxx
 
   * support max 8 cameras to bring up at the same time
-* SG3-ISX031C-GMSL2F-Hxxx
+* SG3S-ISX031C-GMSL2F-Hxxx
 
   * support max 8 cameras to bring up at the same time
 * SG5-IMX490C-5300-GMSL2-Hxxx
@@ -28,6 +28,9 @@
 * SG8-OX08BC-5300-GMSL2-Hxxx
 
   * support max 8 cameras to bring up at the same time
+* SG8-ISX028C-G2G-Hxxx
+
+  * support max 8 cameras to bring up at the same time
 
 #### Quick Bring Up
 
@@ -36,6 +39,7 @@
    ```
    /home/nvidia/SG8A_AGON_G2Y_A1_AGX_Orin_YUV_JP6.2_L4TR36.4.3
    ```
+   
 2. Enter the driver directory,
 
    ```
@@ -43,6 +47,7 @@
    chmod a+x ./install.sh
    ./install.sh
    ```
+   
 3. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select the corresponding device
 
    ```
@@ -54,11 +59,13 @@
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
+   
 4. If step 3 cannot be executed, you can manually modify the extlinux.conf file to apply the device tree.
 
    ```
    sudo vi /boot/extlinux/extlinux.conf
    ```
+   
 5. Modify the file to the following content, then reboot.
 
    ```
@@ -104,7 +111,7 @@
 6. Bring up the camera
 
    ```
-   cd SG8A_AGON_G2Y_A1_AGX_Orin_YUV_JP6.2_L4TR36.4.3
+   cd SG8A_AGON_G2Y_B1_AGX_Orin_YUV_JP6.2_L4TR36.4.3
    chmod +x quick_bring_up.sh
    ./quick_bring_up.sh
    ```
@@ -118,11 +125,12 @@
    0:SG2-IMX390C-5200-G2A-Hxxx
    1:SG2-AR0233C-5200-G2A-Hxxx
    2:SG2-OX03CC-5200-GMSL2F-Hxxx
-   3:SG3S-ISX031C-GMSL2-Hxxx
+   3:SG3-ISX031C-GMSL2-Hxxx
    4:SG3S-ISX031C-GMSL2F-Hxxx
    5:SG5-IMX490C-5300-GMSL2-Hxxx
    6:SG8S-AR0820C-5300-G2A-Hxxx
    7:SG8-OX08BC-5300-GMSL2-Hxxx
+   8:SG8-ISX028C-G2G-Hxxx
    6
    Select the camera port to light up[0-7]:
    0
@@ -142,13 +150,30 @@
    0:02:22.0 / 99:99:99.
    ```
 
+7. Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
+
+   If you wish to use the mixed mode, we have provided the following methods in the driver for your use.
+
+   a.Determine the corresponding mode for each camera channel, where 3G is represented by (1) and 6G by (0).
+
+   b.Load the driver manually according to the actual situation.
+
+   ```
+   sudo insmod ./ko/max96712.ko
+   sudo insmod ./ko/sgx-yuv-gmsl2.ko enable_3G_0=1,1,0,0 enable_3G_1=0,0,1,1
+   ```
+```
+   
+enable_3G_0 represents the first input channel. The value `1,1,0,0` indicates that the first and second cameras operate in 3G mode, while the third and fourth cameras operate in 6G mode.
+   
+   enable_3G_1 represents the second input channel. The value `0,0,1,1` indicates that the first and second cameras operate in 6G mode, while the third and fourth cameras operate in 3G mode.
 
 #### Integration with SENSING Driver Source Code
 
 1. Compile Image & dtb
    Refer to the following command to integrate Dtb and Kernel source code to your kernel
 
-   ```
+```
    cp camera-driver-package/source/hardware Linux_for_Tegra/source/hardware -r
    cp camera-driver-package/source/kernel Linux_for_Tegra/source/kernel -r
    cp camera-driver-package/source/nvidia-oot Linux_for_Tegra/source/nvidia-oot -r
@@ -192,7 +217,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG8A-AGON-G2Y-A1 YUV GMSL2x8"
+   3.select "Jetson Sensing SG8A-AGON-G2Y-B1 YUV GMSL2x8"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
@@ -236,4 +261,6 @@
    ## CAM7
     v4l2-ctl -d /dev/video0 -c sensor_mode=?,trig_pin=?
     gst-launch-1.0 v4l2src device=/dev/video7 ! xvimagesink -ev
+   ```
+
    ```
