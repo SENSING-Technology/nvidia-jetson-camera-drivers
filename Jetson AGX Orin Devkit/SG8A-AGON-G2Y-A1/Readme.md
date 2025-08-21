@@ -31,6 +31,7 @@
 | YUV  | SG5-OX05BC-4000-GMSL2-Hxxx  | \             | \             |
 | YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES           | YES           |
 | YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES           | YES           |
+| YUV  | SG8-ISX028C-G2G-Hxxx        | \             | YES           |
 
 
 #### Camera Mapping
