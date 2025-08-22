@@ -16,21 +16,27 @@
 
 #### Camera Version Support
 
-* Gemini 335Lg
-* SHW3H(3MP/H120UA)
-* SHF3L(3MP/H190XA)
+| Type | Camera                      | Jetpack 6.0 | Jetpack 6.2 |
+| ---- | --------------------------- | ----------- | ----------- |
+| YUV  | Gemini 335Lg                | \           | YES         |
+| YUV  | SHW3H(3MP/H120UA)           | YES         | YES         |
+| YUV  | SHF3L(3MP/H190XA)           | YES         | YES         |
+| YUV  | Astra S36                   | \           | YES         |
+| YUV  | Intel RealSense D457        | \           | YES         |
+| YUV  | SHW3G/SHN3G                 | \           | YES         |
+| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | \           | YES         |
 
 #### Camera Mapping
 
-| FAKRA |      Video      |    Camera    |
-| ----- | --------------- | ------------ |
-|  J21  |      video0     |     SHW3H    |
-|  J22  |      video1     |     SHW3H    |
-|  J27  |      video2     |     SHW3H    |
-|  J28  |      video3     |     SHW3H    |
-|  J29  |      video4     |     SHW3H    |
-|  J30  |      video5     |     SHW3H    |
-|  J25  | video6~video13  | Gemini 335Lg |
-|  J22  | video14~video21 | Gemini 335Lg |
-|  J22  | video22~video29 | Gemini 335Lg |
-|  J22  | video30~video37 | Gemini 335Lg |
+| FAKRA |       Video     |
+| ----- | --------------- |
+|  J25  |      video0     |
+|  J26  |      video1     |
+|  J23  |      video2     |
+|  J24  |      video3     |
+|  J21  |      video4     |
+|  J22  |      video5     |
+|  J27  |      video6     |
+|  J28  |      video7     |
+|  J29  |      video8     |
+|  J30  |      video9     |
