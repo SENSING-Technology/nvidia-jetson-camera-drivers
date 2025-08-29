@@ -2007,6 +2007,9 @@
 								reg = <0x1c>;
 								devnode = "video1";
 
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x32>;
+
 								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
 										<&bpmp TEGRA234_CLK_EXTPERIPH1>;
 								clock-names = "extperiph1", "pllp_grtba";
@@ -2054,7 +2057,7 @@
 									inherent_gain = "1";
 									//mclk_multiplier = "3.01";
 									pix_clk_hz = "200000000";
-									serdes_pix_clk_hz = "400000000";
+									serdes_pix_clk_hz = "500000000";
 
 									gain_factor = "10";
 									min_gain_val = "10"; /* 1.00x */
@@ -2095,6 +2098,9 @@
 								def-addr = <0x36>;
 								reg = <0x1b>;
 								devnode = "video0";
+
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x31>;
 
 								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
 										<&bpmp TEGRA234_CLK_EXTPERIPH1>;
@@ -2142,7 +2148,7 @@
 									line_length = "2800";
 									inherent_gain = "1";
 									pix_clk_hz = "240000000";
-									serdes_pix_clk_hz = "400000000";
+									serdes_pix_clk_hz = "500000000";
 
 									gain_factor = "10";
 									min_gain_val = "10"; /* 1.00x */
@@ -2211,6 +2217,9 @@
 								reg = <0x1e>;
 								devnode = "video5";
 
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x34>;
+
 								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
 										<&bpmp TEGRA234_CLK_EXTPERIPH1>;
 								clock-names = "extperiph1", "pllp_grtba";
@@ -2257,7 +2266,7 @@
 									inherent_gain = "1";
 									//mclk_multiplier = "3.01";
 									pix_clk_hz = "240000000";
-									serdes_pix_clk_hz = "500000000";
+									serdes_pix_clk_hz = "834000000";
 
 									gain_factor = "10";
 									min_gain_val = "10"; /* 1.00x */
@@ -2299,6 +2308,9 @@
 								def-addr = <0x36>;
 								reg = <0x1d>;
 								devnode = "video4";
+
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x33>;
 
 								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
 										<&bpmp TEGRA234_CLK_EXTPERIPH1>;
@@ -2348,7 +2360,7 @@
 									inherent_gain = "1";
 									//mclk_multiplier = "3.01";
 									pix_clk_hz = "240000000";
-									serdes_pix_clk_hz = "500000000";
+									serdes_pix_clk_hz = "834000000";
 
 									gain_factor = "10";
 									min_gain_val = "10"; /* 1.00x */
@@ -2389,6 +2401,9 @@
 								def-addr = <0x36>;
 								reg = <0x1c>;
 								devnode = "video3";
+
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x32>;
 
 								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
 										<&bpmp TEGRA234_CLK_EXTPERIPH1>;
@@ -2435,7 +2450,7 @@
 									line_length = "2800";
 									inherent_gain = "1";
 									pix_clk_hz = "240000000";
-									serdes_pix_clk_hz = "500000000";
+									serdes_pix_clk_hz = "834000000";
 
 									gain_factor = "10";
 									min_gain_val = "10"; /* 1.00x */
@@ -2476,6 +2491,9 @@
 								def-addr = <0x36>;
 								reg = <0x1b>;
 								devnode = "video2";
+
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x31>;
 
 								clocks = <&bpmp TEGRA234_CLK_EXTPERIPH1>,
 										<&bpmp TEGRA234_CLK_EXTPERIPH1>;
@@ -2524,7 +2542,7 @@
 									line_length = "2800";
 									inherent_gain = "1";
 									pix_clk_hz = "240000000";
-									serdes_pix_clk_hz = "500000000";
+									serdes_pix_clk_hz = "834000000";
 
 									gain_factor = "10";
 									min_gain_val = "10"; /* 1.00x */

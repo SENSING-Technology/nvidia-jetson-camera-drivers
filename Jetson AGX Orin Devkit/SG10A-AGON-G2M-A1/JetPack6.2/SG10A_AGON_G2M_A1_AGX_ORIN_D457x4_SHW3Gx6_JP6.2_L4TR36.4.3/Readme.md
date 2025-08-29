@@ -69,12 +69,12 @@ For a single D457 camera, connect it to J26 if using ports J25 and J26.
 
     ```
     PORT                    DEV NODE                    Camera
-    J21                     /dev/video0                 SHW3G
-    J22                     /dev/video1                 SHW3G
-    J27                     /dev/video2                 SHW3G
-    J29                     /dev/video3                 SHW3G
-    J29                     /dev/video4                 SHW3G
-    J30                     /dev/video5                 SHW3G
+    J21                     /dev/video0                 SHW3G(EEPROM_ADDR:0x31)
+    J22                     /dev/video1                 SHW3G(EEPROM_ADDR:0x32)
+    J27                     /dev/video2                 SHW3G(EEPROM_ADDR:0x31)
+    J29                     /dev/video3                 SHW3G(EEPROM_ADDR:0x32)
+    J29                     /dev/video4                 SHW3G(EEPROM_ADDR:0x33)
+    J30                     /dev/video5                 SHW3G(EEPROM_ADDR:0x34)
 
     J23                     /dev/video-rs-color-0       D457
                             /dev/video-rs-color-0
