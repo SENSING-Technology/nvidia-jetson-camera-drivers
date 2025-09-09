@@ -16,7 +16,7 @@
 * SG3-ISX031C-GMSL2-Hxxx
 
   * support max 8 cameras to bring up at the same time
-* SG3S-ISX031C-GMSL2F-Hxxx
+* SG3-ISX031C-GMSL2F-Hxxx
 
   * support max 8 cameras to bring up at the same time
 * SG5-IMX490C-5300-GMSL2-Hxxx
@@ -31,7 +31,12 @@
 * SG8-ISX028C-G2G-Hxxx
 
   * support max 8 cameras to bring up at the same time
+* DMSBBFAN
 
+   * support max 8 cameras to bring up at the same time
+* OMSBDAAN-AA
+
+   * support max 8 cameras to bring up at the same time
 #### Quick Bring Up
 
 1. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
@@ -125,12 +130,14 @@
    0:SG2-IMX390C-5200-G2A-Hxxx
    1:SG2-AR0233C-5200-G2A-Hxxx
    2:SG2-OX03CC-5200-GMSL2F-Hxxx
-   3:SG3-ISX031C-GMSL2-Hxxx
+   3:SG3S-ISX031C-GMSL2-Hxxx
    4:SG3S-ISX031C-GMSL2F-Hxxx
    5:SG5-IMX490C-5300-GMSL2-Hxxx
    6:SG8S-AR0820C-5300-G2A-Hxxx
    7:SG8-OX08BC-5300-GMSL2-Hxxx
    8:SG8-ISX028C-G2G-Hxxx
+   9:DMSBBFAN
+   10:OMSBDAAN
    6
    Select the camera port to light up[0-7]:
    0

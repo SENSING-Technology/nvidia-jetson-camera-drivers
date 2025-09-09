@@ -60,9 +60,10 @@ if [ -f $PWD/camera_type ]; then
 			echo 2:SG2-OX03CC-5200-GMSL2F
 			echo 3:SG3-ISX031C-GMSL2
 			echo 4:SG3S-ISX031C-GMSL2F
-			echo 5:SG5-IMX490C-5300-GMSL2
-			echo 6:SG8S-AR0820C-5300-G2A
-			echo 7:SG8-OX08BC-5300-GMSL2	
+			echo 5:SG4-IMX490C-5300-GMSL2
+			echo 6:SG8-AR0820C-5300-GMSL2
+			echo 7:SG8-OX08BC-5300-GMSL2
+			echo 8:OMSBDAAN-AA
 			read yuv_cam_type
 			cam_mode=1
 		fi
@@ -103,6 +104,8 @@ if [ -f $PWD/camera_type ]; then
 				v4l2-ctl -d /dev/video${port} -c sensor_mode=4,trig_pin=0xffff0008,trig_mode=0
 			elif [ ${yuv_cam_type} == 7 ];then
             	v4l2-ctl -d /dev/video${port} -c sensor_mode=4,trig_pin=0xffff0008,trig_mode=0
+			elif [ ${yuv_cam_type} == 8 ];then
+            	v4l2-ctl -d /dev/video${port} -c sensor_mode=5,trig_pin=0xffff0007,trig_mode=3
 			fi
 			
 			gst-launch-1.0 v4l2src device=/dev/video${port}  ! xvimagesink -ev

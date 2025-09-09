@@ -1,5 +1,5 @@
 
-#### 20250805 #### 
+#### 20250909 #### 
 
 The following camera models are supported:
 
@@ -11,3 +11,4 @@ The following camera models are supported:
     SG5-IMX490C-5300-GMSL2-Hxxx
     SG8S-AR0820C-5300-G2A-Hxxx
     SG8-OX08BC-5300-GMSL2-Hxxx
+    OMSBDAAN-AA
