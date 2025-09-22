@@ -4,7 +4,28 @@
 
 #### Supported SENSING Camera Modules
 
-* s36
+* SG2-IMX390C-5200-G2A-Hxxx
+
+  * support max 8 cameras to bring up at the same time
+* SG2-AR0233-5200-G2A-Hxxx
+
+  * support max 8 cameras to bring up at the same time
+* SG3-ISX031C-GMSL2-Hxxx
+
+  * support max 8 cameras to bring up at the same time
+* SG3-ISX031C-GMSL2F-Hxxx
+
+  * support max 8 cameras to bring up at the same time
+* SG5-IMX490C-5300-GMSL2-Hxxx
+
+  * support max 6 cameras to bring up at the same time
+* SG8S-AR0820C-5300-G2A-Hxxx
+
+  * support max 4 cameras to bring up at the same time
+* SHF3L
+
+  * support max 8 cameras to bring up at the same time
+* SHF3H
 
   * support max 4 cameras to bring up at the same time
 #### Quick Bring Up
@@ -12,13 +33,13 @@
 1. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
-   /home/nvidia/TRD1_G2A_AGX_THOR_S36x4_JP7.0_L4TR38.2
+   /home/nvidia/TRD1_G2A_YUV_JP7.0_L4TR38.2
    ```
    
 2. Enter the driver directory,
 
    ```
-   cd TRD1_G2A_AGX_THOR_S36x4_JP7.0_L4TR38.2
+   cd TRD1_G2A_YUV_JP7.0_L4TR38.2
    chmod a+x ./install.sh
    ./install.sh
    ```
@@ -30,7 +51,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 S36X4"
+   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 YUV GMSL2x8"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
@@ -75,28 +96,37 @@
    #    APPEND ${cbootargs}
 
    LABEL JetsonIO
-           MENU LABEL Custom Header Config: <CSI Jetson Sensing SG8A_AGTH_G2Y_A1 S36X4>
+           MENU LABEL Custom Header Config: <CSI Jetson Sensing SG8A_AGTH_G2Y_A1 YUV GMSL2x4>
            LINUX /boot/Image
            FDT /boot/dtb/kernel_tegra264-p4071-0000+p3834-0008-nv.dtb
            INITRD /boot/initrd
            APPEND ${cbootargs} root=PARTUUID=d2f22c03-8ac9-473f-ba9a-8c8cea392567 rw rootwait rootfstype=ext4 mminit_loglevel=4 earlycon=tegra_utc,mmio32,0xc5a0000 console=ttyUTC0,115200 clk_ignore_unused firmware_class.path=/etc/firmware fbcon=map:0 efi=runtime
-           OVERLAYS /boot/tegra264-camera-s36x4-overlay.dtbo
+           OVERLAYS /boot/tegra264-camera-yuv-gmsl2x8-overlay.dtbo
    ```
 
 6. Bring up the camera
 
    ```
-   cd TRD1_G2A_AGX_THOR_S36x4_JP7.0_L4TR38.2
+   cd TRD1_G2A_AGX_THOR_YUV_JP7.0_L4TR38.2
    chmod +x quick_bring_up.sh
    ./quick_bring_up.sh
    ```
    Select the corresponding camera model and port to bring up the camera.
 
+   The following example demonstrates how to initialize the SG8S-AR0820C-5300-G2A-Hxxx camera.
+
    ```
-This package is use for AGX Thor & Jetson_Linux_R38.2.0
+   This package is use for AGX Thor & Jetson_Linux_R38.2.0
    Select the camera type:
-   0:S36
-   0
+   0:SG2-IMX390C-5200-G2A-Hxxx
+   1:SG2-AR0233C-5200-G2A-Hxxx
+   2:SG3S-ISX031C-GMSL2-Hxxx
+   3:SG3S-ISX031C-GMSL2F-Hxxx
+   4:SG5-IMX490C-5300-GMSL2-Hxxx
+   5:SG8S-AR0820C-5300-G2A-Hxxx
+   6:SHF3L
+   7:SHW3H
+   4
    Select the camera port to light up[0-7]:
    0
    ready bring up camera
@@ -109,13 +139,31 @@ This package is use for AGX Thor & Jetson_Linux_R38.2.0
    Additional debug info:
    ../sys/v4l2/gstv4l2src.c(556): gst_v4l2src_query_preferred_size (): /GstPipeline:pipeline0/GstV4l2Src:v4l2src0:
    No input source was detected - video frames invalid
-   /GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, format=(string)UYVY, width=(int)1920, height=(int)1536, framerate=(fraction)30/1, interlace-mode=(string)progressive, colorimetry=(string)2:4:7:1
-   /GstPipeline:pipeline0/GstXvImageSink:xvimagesink0.GstPad:sink: caps = video/x-raw, format=(string)UYVY, width=(int)1920, height=(int)1536, framerate=(fraction)30/1, interlace-mode=(string)progressive, colorimetry=(string)2:4:7:1
+   /GstPipeline:pipeline0/GstV4l2Src:v4l2src0.GstPad:src: caps = video/x-raw, format=(string)UYVY, width=(int)3840, height=(int)2160, framerate=(fraction)30/1, interlace-mode=(string)progressive, colorimetry=(string)2:4:7:1
+   /GstPipeline:pipeline0/GstXvImageSink:xvimagesink0.GstPad:sink: caps = video/x-raw, format=(string)UYVY, width=(int)3840, height=(int)2160, framerate=(fraction)30/1, interlace-mode=(string)progressive, colorimetry=(string)2:4:7:1
    Redistribute latency...
    0:02:22.0 / 99:99:99.
-   ``` 
+   ```
+   
+7. Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
 
-7. Camera Trigger Sync
+   If you wish to use the mixed mode, we have provided the following methods in the driver for your use.
+
+   a.Determine the corresponding mode for each camera channel, where 3G is represented by (1) and 6G by (0).
+
+   b.Load the driver manually according to the actual situation.
+
+   ```
+   sudo insmod ./ko/max96712.ko
+   sudo insmod ./ko/sgx-yuv-gmsl2.ko enable_3G_0=1,1,0,0 enable_3G_1=0,0,1,1
+   ```
+   
+   
+   enable_3G_0 represents the first input channel. The value `1,1,0,0` indicates that the first and second cameras operate in 3G mode, while the third and fourth cameras operate in 6G mode.
+   
+   enable_3G_1 represents the second input channel. The value `0,0,1,1` indicates that the first and second cameras operate in 6G mode, while the third and fourth cameras operate in 3G mode.
+   
+8. Camera Trigger Sync
 
    Modify quick_bring_up.sh script and re-run it.
 
@@ -130,12 +178,12 @@ This package is use for AGX Thor & Jetson_Linux_R38.2.0
    v4l2-ctl -d /dev/video7 -c trig_pin=0x00020007,trig_mode=2
    ```
 
-   7.1 External Trigger Mode
+   8.1 External Trigger Mode
 
    For Adapter Board CN4, the PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. 
    Connect the corresponding pins of the signal generator to these pins.
 
-   7.2 Internal Trigger Mode
+   8.2 Internal Trigger Mode
 
    ```
    a.load the driver
@@ -207,7 +255,7 @@ sudo /opt/nvidia/jetson-io/jetson-io.py
 
 1.select "Configure Jetson AGX CSI Connector"
 2.select "Configure for compatible hardware"
-3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 S36X4"
+3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 YUV GMSL2x8"
 4.select "Save pin changes"
 5.select "Save and reboot to reconfigure pins"
 ```
@@ -216,7 +264,7 @@ sudo /opt/nvidia/jetson-io/jetson-io.py
 
 ```
 sudo insmod ./ko/max96712.ko
-sudo insmod ./ko/s36-yuv-gmsl2.ko
+sudo insmod ./ko/sgx-yuv-gmsl2.ko
 ```
 
 7. Bring up the camera

@@ -4,24 +4,24 @@
 
 #### Supported Camera Modules
 
-* SG8-OX08DC-G2G
-  * support max 4 cameras to bring up at the same time
+* Astra S56
+  * support max 2 cameras to bring up at the same time
 
 
 #### Quick Bring Up
 
 1. Connect the Camera to the ports on the adapter board.
-   Note: CN1 and CN2 ports support maximum 2 cameras each
-
+   Note: CN1 and CN2 ports support maximum 1 cameras each
+   
 2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
-   /home/nvidia/SG8A_AGTH_G2Y_A1_AGX_THOR_OX08Dx8_JP7.0_L4TR38.2
+   /home/nvidia/TRD1_G2A_S56x2_JP7.0_L4TR38.2
    ```
 3. Enter the driver directory, run the script "install.sh""
 
    ```
-   cd SG8A_AGTH_G2Y_A1_AGX_THOR_OX08Dx8_JP7.0_L4TR38.2
+   cd TRD1_G2A_S56x2_JP7.0_L4TR38.2
    chmod a+x ./install.sh
    ./install.sh
    ```
@@ -32,7 +32,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 OX08Dx8"
+   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 S56x4"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
@@ -50,14 +50,14 @@
 
     ```
     PORT                    DEV NODE                    Camera
-    CN2(COAX4)              /dev/video0                 OX08D
-    CN2(COAX5)              /dev/video1                 OX08D
-    CN2(COAX6)              /dev/video2                 OX08D
-    CN2(COAX7)              /dev/video3                 OX08D
-    CN1(COAX0)              /dev/video4                 OX08D
-    CN1(COAX1)              /dev/video5                 OX08D
-    CN1(COAX2)              /dev/video6                 OX08D
-    CN1(COAX3)              /dev/video7                 OX08D
+    CN2(COAX4)              /dev/video0                 S56
+                            /dev/video1                 
+    CN2(COAX6)              /dev/video2                 S56
+                            /dev/video3                 
+    CN1(COAX0)              /dev/video4                 S56
+                            /dev/video5                 
+    CN1(COAX2)              /dev/video6                 S56
+                            /dev/video7                 
  
     ```
 
@@ -69,7 +69,7 @@
     ```
     After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation /usr/src/jetson_multimedia_api/argus/README.TXT to install argus_camera.
 
-    6.2 Bring up OX08D Modules
+    6.2 Bring up S56 Modules
 
     Start nvargus-daemon in a terminal
     ```
@@ -204,7 +204,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 OX08Dx8"
+   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 S56x4"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
@@ -212,7 +212,7 @@
 
    ```
    sudo insmod ko/max96712.ko
-   sudo insmod ko/sg8-ox08dc-g2g.ko
+   sudo insmod ko/s56.ko
    ```
 7. Bring up the camera
 
@@ -222,23 +222,5 @@
 
     ## Video1
     argus_camera -d 1
-
-    ## Video2
-    argus_camera -d 2
-
-    ## Video3
-    argus_camera -d 3
-
-    ## Video4
-    argus_camera -d 4
-
-    ## Video5
-    argus_camera -d 5
-
-    ## Video6
-    argus_camera -d 6
-
-    ## Video7
-    argus_camera -d 7
-
+    ......
    ```

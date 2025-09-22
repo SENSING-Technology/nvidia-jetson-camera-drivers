@@ -4,24 +4,23 @@
 
 #### Supported Camera Modules
 
-* Astra S56
-  * support max 2 cameras to bring up at the same time
+* SHW3G
+  * support max 8 cameras to bring up at the same time
 
 
 #### Quick Bring Up
 
 1. Connect the Camera to the ports on the adapter board.
-   Note: CN1 and CN2 ports support maximum 1 cameras each
-   
+
 2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
-   /home/nvidia/SG8A_AGTH_G2Y_A1_AGX_THOR_S56x2_JP7.0_L4TR38.2
+   /home/nvidia/TRD1_G2A_SHW3Gx8_JP7.0_L4TR38.2
    ```
 3. Enter the driver directory, run the script "install.sh""
 
    ```
-   cd SG8A_AGTH_G2Y_A1_AGX_THOR_S56x2_JP7.0_L4TR38.2
+   cd TRD1_G2A_SHW3Gx8_JP7.0_L4TR38.2
    chmod a+x ./install.sh
    ./install.sh
    ```
@@ -32,7 +31,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 S56x4"
+   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 SHW3Gx8"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
@@ -50,14 +49,14 @@
 
     ```
     PORT                    DEV NODE                    Camera
-    CN2(COAX4)              /dev/video0                 S56
-                            /dev/video1                 
-    CN2(COAX6)              /dev/video2                 S56
-                            /dev/video3                 
-    CN1(COAX0)              /dev/video4                 S56
-                            /dev/video5                 
-    CN1(COAX2)              /dev/video6                 S56
-                            /dev/video7                 
+    CN2(COAX4)              /dev/video0                 SHW3G
+    CN2(COAX5)              /dev/video1                 SHW3G
+    CN2(COAX6)              /dev/video2                 SHW3G
+    CN2(COAX7)              /dev/video3                 SHW3G
+    CN1(COAX0)              /dev/video4                 SHW3G
+    CN1(COAX1)              /dev/video5                 SHW3G
+    CN1(COAX2)              /dev/video6                 SHW3G
+    CN1(COAX3)              /dev/video7                 SHW3G
  
     ```
 
@@ -69,7 +68,7 @@
     ```
     After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation /usr/src/jetson_multimedia_api/argus/README.TXT to install argus_camera.
 
-    6.2 Bring up S56 Modules
+    6.2 Bring up SHW3G Modules
 
     Start nvargus-daemon in a terminal
     ```
@@ -107,17 +106,37 @@
 
 7. Camera Trigger Sync
 
-   Modify load_modules.sh script and re-run it.
+   7.1 Hardware connection
+
+   External Trigger Port: CN4
 
    ```
-   v4l2-ctl -d /dev/video0 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video1 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video2 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video3 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video4 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video5 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video6 -c trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video7 -c trig_pin=0x00020007,trig_mode=1
+   CAM-FSYNC1 Pin Trigger Signal Parameters:
+   Frequency: 83 kHz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 90%
+
+   CAM-FSYNC2 and CAM-FSYNC4 Pins (Connected Together) Trigger Signal Parameters:
+   Frequency: 30 Hz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 10%
+
+   PIN 6: GND
+   ```
+
+   7.2 Modify load_modules.sh script and re-run it
+
+   ```
+   v4l2-ctl -d /dev/video0 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video1 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video2 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video3 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video4 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video5 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video6 -c trig_pin=0x36723377,trig_mode=1
+   v4l2-ctl -d /dev/video7 -c trig_pin=0x36723377,trig_mode=1
    ```
 
    trig_mode
@@ -127,30 +146,11 @@
 
    trig_pin
    ```
-   0x00020007 (Left to Right):
-   0002: Deserializer trigger pin = mfp2
-   0007: Serializer trigger pin = mfp7
-   ```
-
-   6.1 External Trigger Mode
-
-   For Adapter Board CN4, the PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. 
-   Connect the corresponding pins of the signal generator to these pins.
-
-   6.2 Internal Trigger Mode
-
-   ```
-   # Export PWM channel 0
-   echo 0 > /sys/class/pwm/pwmchip4/export
-
-   # Set the period to 33333333 (corresponding to 30 Hz)
-   echo 33333333 > /sys/class/pwm/pwmchip4/pwm0/period
-
-   # Set the duty cycle
-   echo 3333333 > /sys/class/pwm/pwmchip4/pwm0/duty_cycle
-
-   # Enable PWM output
-   echo 1 > /sys/class/pwm/pwmchip4/pwm0/enable
+   0x36723377 (Left to Right):
+   36: Deserializer first trigger pin = mfp6, tx_id = 3
+   72: Deserializer second trigger pin = mfp2, tx_id = 7
+   33: Serializer first trigger pin = mfp3, rx_id = 3
+   77: Serializer second trigger pin = mfp7, rx_id = 7
    ```
 
 #### Integration with SENSING Driver Source Code
@@ -204,7 +204,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 S56x4"
+   3.select "Jetson Sensing SG8A_AGTH_G2Y_A1 SHW3Gx8"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
@@ -212,7 +212,7 @@
 
    ```
    sudo insmod ko/max96712.ko
-   sudo insmod ko/s56.ko
+   sudo insmod ko/shw3g.ko
    ```
 7. Bring up the camera
 
@@ -222,5 +222,23 @@
 
     ## Video1
     argus_camera -d 1
-    ......
+
+    ## Video2
+    argus_camera -d 2
+
+    ## Video3
+    argus_camera -d 3
+
+    ## Video4
+    argus_camera -d 4
+
+    ## Video5
+    argus_camera -d 5
+
+    ## Video6
+    argus_camera -d 6
+
+    ## Video7
+    argus_camera -d 7
+    
    ```

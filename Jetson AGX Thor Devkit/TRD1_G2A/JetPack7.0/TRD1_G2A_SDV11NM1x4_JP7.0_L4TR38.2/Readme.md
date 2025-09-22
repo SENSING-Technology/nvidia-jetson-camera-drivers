@@ -12,13 +12,13 @@
 1. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
-   /home/nvidia/TRD1_G2A_AGX_THOR_SDV11NM1x4_JP7.0_L4TR38.2
+   /home/nvidia/TRD1_G2A_SDV11NM1x4_JP7.0_L4TR38.2
    ```
    
 2. Enter the driver directory,
 
    ```
-   cd TRD1_G2A_AGX_THOR_SDV11NM1x4_JP7.0_L4TR38.2
+   cd TRD1_G2A_SDV11NM1x4_JP7.0_L4TR38.2
    chmod a+x ./install.sh
    ./install.sh
    ```
@@ -91,26 +91,27 @@
    sudo apt-get install nvidia-l4t-jetson-multimedia-api
    ```
    
+
 After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation /usr/src/jetson_multimedia_api/argus/README.TXT to install argus_camera.
-   
+
 6.2 Bring up SDV11NM1 Modules
-   
+
    ```
    This package is use for AGX Thor & Jetson_Linux_R38.2.0
    sudo insmod ko/max96712.ko
    sudo insmod ko/sdv11nm1.ko
    ```
-   
+
    Start nvargus-daemon in a terminal
-   
+
    ```
    sudo service nvargus-daemon stop
    export NVCAMERA_NITO_PATH=CONFIG
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
    ```
-   
+
    Start argus_camera in another terminal
-   
+
    ```
    ## Video0
    
@@ -144,7 +145,7 @@ After installation, the jetson_multimedia_api folder can be found in the /usr/sr
    
    argus_camera -d 7
    ```
-   
+
 
 7. Camera Trigger Sync
 
