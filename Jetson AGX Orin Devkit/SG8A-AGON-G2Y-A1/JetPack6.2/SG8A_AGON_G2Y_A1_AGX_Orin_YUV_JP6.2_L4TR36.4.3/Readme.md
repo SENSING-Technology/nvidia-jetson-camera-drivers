@@ -182,7 +182,6 @@ enable_3G_0 represents the first input channel. The value `1,1,0,0` indicates th
 
 ```
    cp camera-driver-package/source/hardware Linux_for_Tegra/source/hardware -r
-   cp camera-driver-package/source/kernel Linux_for_Tegra/source/kernel -r
    cp camera-driver-package/source/nvidia-oot Linux_for_Tegra/source/nvidia-oot -r
    ```
 2. Go to the root directory of your source code and recompile
