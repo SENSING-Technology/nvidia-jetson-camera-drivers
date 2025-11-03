@@ -40,6 +40,7 @@
    ```
    sudo apt update
    sudo apt-get install v4l-utils
+   chmod 777 *
    sudo ./load_modules.sh
    ```
    After the module is loaded, the device nodes /dev/video0~video7 will be generated
@@ -48,13 +49,13 @@
 
     ```
     PORT                    DEV NODE                    Camera
-    CN2(COAX4)              /dev/video0                 SDV11NM1
+    CN2                     /dev/video0                 SDV11NM1
                             /dev/video1                 
-    CN2(COAX6)              /dev/video2                 SDV11NM1
+    CN2                     /dev/video2                 SDV11NM1
                             /dev/video3                 
-    CN1(COAX0)              /dev/video4                 SDV11NM1
+    CN1                     /dev/video4                 SDV11NM1
                             /dev/video5                 
-    CN1(COAX2)              /dev/video6                 SDV11NM1
+    CN1                     /dev/video6                 SDV11NM1
                             /dev/video7                 
  
     ```
