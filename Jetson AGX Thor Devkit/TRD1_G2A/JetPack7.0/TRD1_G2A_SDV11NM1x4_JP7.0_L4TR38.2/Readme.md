@@ -35,11 +35,29 @@
    5.select "Save and reboot to reconfigure pins"
    ```
    
-4. If step 3 cannot be executed, you can manually modify the extlinux.conf file to apply the device tree.
+4. After the device reboots, install v4l-utils plugins, then enter the driver directory and run the script "load_module.sh".
 
    ```
-   sudo vi /boot/extlinux/extlinux.conf
+   sudo apt update
+   sudo apt-get install v4l-utils
+   sudo ./load_modules.sh
    ```
+   After the module is loaded, the device nodes /dev/video0~video7 will be generated
+
+   The correspondence between CAM ports and device nodes is as follows
+
+    ```
+    PORT                    DEV NODE                    Camera
+    CN2(COAX4)              /dev/video0                 SDV11NM1
+                            /dev/video1                 
+    CN2(COAX6)              /dev/video2                 SDV11NM1
+                            /dev/video3                 
+    CN1(COAX0)              /dev/video4                 SDV11NM1
+                            /dev/video5                 
+    CN1(COAX2)              /dev/video6                 SDV11NM1
+                            /dev/video7                 
+ 
+    ```
    
 5. Modify the file to the following content, then reboot.
 
