@@ -23,6 +23,7 @@ if ! command -v v4l2-ctl >/dev/null 2>&1; then
         sudo apt install -y v4l-utils
 fi
 
+chmod 777 *
 sudo ./boost_clock.sh >/dev/null 2>&1
 sleep 0.5
 
