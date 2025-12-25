@@ -496,7 +496,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -520,10 +520,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 
@@ -586,7 +586,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -610,10 +610,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 
@@ -676,7 +676,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -700,10 +700,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 
@@ -766,7 +766,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -790,10 +790,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 						
@@ -867,7 +867,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -891,10 +891,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 
@@ -957,7 +957,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -981,10 +981,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 
@@ -1047,7 +1047,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -1071,10 +1071,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 
@@ -1137,7 +1137,7 @@
 							dynamic_pixel_bit_depth = "12";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer";
-							pixel_phase = "grbg";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -1161,10 +1161,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "100"; 
-							max_exp_time = "33333";
+							min_exp_time = "26"; 
+							max_exp_time = "20000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "20000";/* us */
 							embedded_metadata_height = "0";
 						};
 

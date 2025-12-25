@@ -16,12 +16,12 @@
 2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
-   /home/nvidia/TRD1_G2A_OX08Dx4_JP7.0_L4TR38.2
+   /home/nvidia/SG8A_AGTH_G2Y_A1_AGX_THOR_OX08Dx8_JP7.0_L4TR38.2
    ```
 3. Enter the driver directory, run the script "install.sh""
 
    ```
-   cd TRD1_G2A_OX08Dx4_JP7.0_L4TR38.2
+   cd SG8A_AGTH_G2Y_A1_AGX_THOR_OX08Dx8_JP7.0_L4TR38.2
    chmod a+x ./install.sh
    ./install.sh
    ```
