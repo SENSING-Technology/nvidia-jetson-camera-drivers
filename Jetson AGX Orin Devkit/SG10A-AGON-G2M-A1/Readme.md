@@ -23,8 +23,9 @@
 | YUV  | SHF3L(3MP/H190XA)           | YES         | YES         |
 | YUV  | Astra S36                   | \           | YES         |
 | YUV  | Intel RealSense D457        | \           | YES         |
-| YUV  | SHW3G/SHN3G                 | \           | YES         |
 | YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | \           | YES         |
+| RAW  | SHW3G/SHN3G                 | \           | YES         |
+| RAW  | SHW5G                       | \           | YES         |
 
 #### Camera Mapping
 

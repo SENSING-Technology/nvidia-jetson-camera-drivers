@@ -28,7 +28,7 @@
 * SG8-OX08BC-5300-GMSL2-Hxxx
 
   * support max 8 cameras to bring up at the same time
-* SG8-ISX028C-G2G-Hxxx
+* SG8-ISX028C-G2G-Hxxx(ES2/ES3)
 
   * support max 8 cameras to bring up at the same time
 * DMSBBFAN
