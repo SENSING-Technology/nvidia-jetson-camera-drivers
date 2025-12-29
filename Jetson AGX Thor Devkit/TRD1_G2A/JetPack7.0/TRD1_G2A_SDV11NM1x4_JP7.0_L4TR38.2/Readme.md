@@ -34,14 +34,14 @@
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
-   
+
 4. If step 3 cannot be executed, you can manually modify the extlinux.conf file to apply the device tree.
 
    ```
    sudo vi /boot/extlinux/extlinux.conf
    ```
-   
-5. Modify the file to the following content, then reboot.
+
+   Modify the file to the following content, then reboot.
 
    ```
    TIMEOUT 30
@@ -83,6 +83,31 @@
            OVERLAYS /boot/tegra264-camera-sdv11nm1x4-overlay.dtbo
    ```
 
+5. After the device reboots, install v4l-utils plugins, then enter the driver directory and run the script "load_module.sh".
+
+   ```
+   sudo apt update
+   sudo apt-get install v4l-utils
+   chmod 777 *
+   sudo ./load_modules.sh
+   ```
+   After the module is loaded, the device nodes /dev/video0~video7 will be generated
+
+   The correspondence between CAM ports and device nodes is as follows
+
+    ```
+    PORT                    DEV NODE                    Camera
+    CN2                     /dev/video0                 SDV11NM1
+                            /dev/video1                 
+    CN2                     /dev/video2                 SDV11NM1
+                            /dev/video3                 
+    CN1                     /dev/video4                 SDV11NM1
+                            /dev/video5                 
+    CN1                     /dev/video6                 SDV11NM1
+                            /dev/video7                 
+ 
+    ```
+   
 6. Bring up the camera
 
    6.1 Install argus_camera
@@ -92,17 +117,10 @@
    ```
    
 
-After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation /usr/src/jetson_multimedia_api/argus/README.TXT to install argus_camera.
+   After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation /usr/src/jetson_multimedia_api/argus/README.TXT to install argus_camera.
 
-6.2 Bring up SDV11NM1 Modules
-
-   ```
-   This package is use for AGX Thor & Jetson_Linux_R38.2.0
-   sudo insmod ko/max96712.ko
-   sudo insmod ko/sdv11nm1.ko
-   ```
-
-   Start nvargus-daemon in a terminal
+   6.2 Bring up SDV11NM1 Modules
+      Start nvargus-daemon in a terminal
 
    ```
    sudo service nvargus-daemon stop
@@ -110,7 +128,7 @@ After installation, the jetson_multimedia_api folder can be found in the /usr/sr
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
    ```
 
-   Start argus_camera in another terminal
+   ​   Start argus_camera in another terminal
 
    ```
    ## Video0
