@@ -1,3 +1,7 @@
+#### 20251217 #### 
+
+Add compatibility for SG8-ISX028C-G2G ES2 and ES3 modules.
+
 
 #### 20250908 #### 
 
