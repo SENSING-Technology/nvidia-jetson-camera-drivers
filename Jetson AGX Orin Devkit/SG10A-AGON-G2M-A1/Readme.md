@@ -18,7 +18,7 @@
 
 | Type | Camera                      | Jetpack 6.0 | Jetpack 6.2 |
 | ---- | --------------------------- | ----------- | ----------- |
-| YUV  | Gemini 335Lg                | \           | YES         |
+| YUV  | Gemini 335Lg                | YES         | YES         |
 | YUV  | SHW3H(3MP/H120UA)           | YES         | YES         |
 | YUV  | SHF3L(3MP/H190XA)           | YES         | YES         |
 | YUV  | Astra S36                   | \           | YES         |
@@ -26,6 +26,7 @@
 | YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | \           | YES         |
 | RAW  | SHW3G/SHN3G                 | \           | YES         |
 | RAW  | SHW5G                       | \           | YES         |
+| RAW  | Astra S56                   | \           | YES         |
 
 #### Camera Mapping
 
