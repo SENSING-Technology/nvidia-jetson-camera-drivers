@@ -49,7 +49,7 @@
 
    ```
    cd SG8A_AGON_G2Y_A1_AGX_Orin_YUV_JP6.2_L4TR36.4.3
-   chmod a+x ./install.sh
+   chmod a+x *.sh
    ./install.sh
    ```
    

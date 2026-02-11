@@ -20,6 +20,7 @@ if ! command -v busybox >/dev/null 2>&1; then
         sudo apt install -y busybox
 fi
 
+sudo chmod a+x ./boost_clock.sh
 sudo ./boost_clock.sh >/dev/null 2>&1
 sleep 0.5
 
