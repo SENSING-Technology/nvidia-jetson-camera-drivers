@@ -493,10 +493,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -520,11 +520,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
@@ -583,10 +604,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -610,11 +631,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
@@ -673,10 +715,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -700,11 +742,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
@@ -763,10 +826,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -790,11 +853,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 						
 						ports {
@@ -864,10 +948,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -891,11 +975,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
@@ -954,10 +1059,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -981,11 +1086,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
@@ -1044,10 +1170,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -1071,11 +1197,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
@@ -1134,10 +1281,10 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "20";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "grbg";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
 
 							active_w = "3840";
 							active_h = "2160";
@@ -1161,11 +1308,32 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "26"; 
-							max_exp_time = "33333";
+							min_exp_time = "25"; 
+							max_exp_time = "31000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "31000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "9";
+							control_point_x_0 = "0";
+							control_point_x_1 = "1613";
+							control_point_x_2 = "2766";
+							control_point_x_3 = "8137";
+							control_point_x_4 = "13960";
+							control_point_x_5 = "41093";
+							control_point_x_6 = "207573";
+							control_point_x_7 = "611114";
+							control_point_x_8 = "1048576";
+							control_point_y_0 = "0";
+							control_point_y_1 = "1613";
+							control_point_y_2 = "1757";
+							control_point_y_3 = "2026";
+							control_point_y_4 = "2147";
+							control_point_y_5 = "2359";
+							control_point_y_6 = "2914";
+							control_point_y_7 = "3308";
+							control_point_y_8 = "4096";
 						};
 
 						ports {
