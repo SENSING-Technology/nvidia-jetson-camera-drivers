@@ -152,7 +152,7 @@
    dts/tegra264-camera-sgcamx8-overlay.dtbo
 
    
-3. Install Kernel image and camera overly file
+4. Install Kernel image and camera overly file
 
    ```
    cd TRD1_G2A_AGX_THOR_GMSL2x8_JP7.0_L4TR38.2
@@ -160,7 +160,7 @@
    ./install.sh
    ```
 
-4. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
+5. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
 
    ```
    sudo /opt/nvidia/jetson-io/jetson-io.py
@@ -172,19 +172,19 @@
    5.select "Save and reboot to reconfigure pins"
    ```
 
-5. After the device reboot, run the script "load_module.sh".
+6. After the device reboot, run the script "load_module.sh".
 
-   5.1 Modify the script "load_modules.sh"
+   6.1 Modify the script "load_modules.sh"
 
    Follow the "Camera Configuration Instructions.pdf" to modify load_modules.sh for the connected cameras.
 
-   5.2 run the script "load_module.sh".
+   6.2 run the script "load_module.sh".
    ```
    sudo ./load_modules.sh
    ```
    After the module is loaded, the device nodes /dev/video0~video7 will be generated.
    
-   5.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
+   6.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
 
    If you wish to use the mixed mode, we have provided the following methods in the driver for your use.
 
@@ -201,15 +201,15 @@
    
    enable_3G_1 represents the second input channel. The value `0,0,1,1` indicates that the first and second cameras operate in 6G mode, while the third and fourth cameras operate in 3G mode.
 
-6. Bring up the camera
+7. Bring up the camera
 
-   6.1 Install argus_camera
+   7.1 Install argus_camera
    ```
    sudo apt-get install nvidia-l4t-jetson-multimedia-api
    ```
    After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
 
-   6.2 Bring up RAW Camera Modules
+   7.2 Bring up RAW Camera Modules
 
    Start nvargus-daemon in a terminal
    ```
@@ -245,7 +245,7 @@
    argus_camera -d 7
    ```
 
-   6.3 Bring up YUV Camera Modules
+   7.3 Bring up YUV Camera Modules
 
    Run the gst-launch-1.0 in a terminal.
    ```
@@ -274,9 +274,9 @@
    gst-launch-1.0 v4l2src device=/dev/video7 ! xvimagesink -ev
    ```
 
-7. Camera Trigger Sync
+8. Camera Trigger Sync
 
-   7.1 Enable camera slave Mode
+   8.1 Enable camera slave Mode
 
    Follow the "Camera Configuration Instructions.pdf", modify load_modules.sh script to enale slave mode, then re-run it.
 
@@ -313,7 +313,7 @@
    0007: Serializer trigger pin = mfp7
    ```
 
-   7.2 External Trigger Mode
+   8.2 External Trigger Mode
 
    External Trigger Port: CN4
 
@@ -340,7 +340,7 @@
    Duty Cycle: 90%
    ```
 
-   7.2 Internal Trigger Mode
+   8.3 Internal Trigger Mode
 
    Note: Internal trigger mode is not supported for SHW3G modules, but is supported for other modules.
 

@@ -11,6 +11,11 @@
 #### Quick Bring Up
 
 1. Connect the Camera to the ports on the adapter board.
+
+   CN2 (CAM0/CAM1/CAM2/CAM3)
+
+   CN1 (CAM4/CAM5/CAM6/CAM7)
+
    Note: CN1 and CN2 ports support maximum 2 cameras each
 
 2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
@@ -50,14 +55,14 @@
 
     ```
     PORT                    DEV NODE                    Camera
-    CN2(COAX4)              /dev/video0                 OX08D
-    CN2(COAX5)              /dev/video1                 OX08D
-    CN2(COAX6)              /dev/video2                 OX08D
-    CN2(COAX7)              /dev/video3                 OX08D
-    CN1(COAX0)              /dev/video4                 OX08D
-    CN1(COAX1)              /dev/video5                 OX08D
-    CN1(COAX2)              /dev/video6                 OX08D
-    CN1(COAX3)              /dev/video7                 OX08D
+    CN2(CAM0)              /dev/video0                 OX08D
+    CN2(CAM1)              /dev/video1                 OX08D
+    CN2(CAM2)              /dev/video2                 OX08D
+    CN2(CAM3)              /dev/video3                 OX08D
+    CN1(CAM4)              /dev/video4                 OX08D
+    CN1(CAM5)              /dev/video5                 OX08D
+    CN1(CAM6)              /dev/video6                 OX08D
+    CN1(CAM7)              /dev/video7                 OX08D
  
     ```
 
@@ -107,6 +112,8 @@
 
 7. Camera Trigger Sync
 
+   7.1 Enable camera slave Mode
+
    Modify load_modules.sh script and re-run it.
 
    ```
@@ -132,12 +139,24 @@
    0007: Serializer trigger pin = mfp7
    ```
 
-   6.1 External Trigger Mode
+   7.2 External Trigger Mode
 
-   For Adapter Board CN4, the PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. 
+   External Trigger Port: CN4
+
+   The PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. 
    Connect the corresponding pins of the signal generator to these pins.
 
-   6.2 Internal Trigger Mode
+   ```
+   CAM-FSYNC1 Pin Trigger Signal Parameters:
+   Frequency: 30 Hz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 10%
+
+   PIN 6: GND
+   ```
+
+   7.3 Internal Trigger Mode
 
    ```
    # Export PWM channel 0
