@@ -20,7 +20,7 @@
 
 1. Connect the Camera to the ports on the adapter board.
 
-   ![alt text](image-1.png)
+   ![alt text](../../../../Picture/SENSING Thor Developer Kit/TRD1 G2A Camera Interface Definition.jpg)
 
 
    ```
@@ -112,9 +112,9 @@
    
    enable_fpd4_1 represents the second input channel. The value `0,0,1,1` indicates that the cam_4 and cam_5 cameras operate in FPD3 mode, while the cam_6 and cam_7 cameras operate in FPD4 mode.
    
- 
 
-   
+
+
 5. Bring up the camera
 
    If the above steps are properly completed, the next time you reboot the device, you need only run the "sudo ./load_modules.sh" command to load the drivers, and then run the gst - launch - 1.0 in a terminal.
