@@ -20,8 +20,7 @@
 
 1. Connect the Camera to the ports on the adapter board.
 
-   ![alt text](../../../../Picture/SENSING Thor Developer Kit/TRD1 G2A Camera Interface Definition.jpg)
-
+   ![alt text](<../../../../Picture/SENSING Thor Developer Kit/TRD1 G2A Camera Interface Definition.jpg>)
 
    ```
    CN1 (CAM4/CAM5/CAM6/CAM7)
