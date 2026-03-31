@@ -43,6 +43,7 @@
    Power Supply
 
    SG8-AGX-Thor-9724 adapt board need to be powered by 12V.
+
    ![alt text](<../../../../Picture/SENSING Thor Developer Kit/TRD1 G2A Power and Trigger Interface Definition.jpg>)
 
 
