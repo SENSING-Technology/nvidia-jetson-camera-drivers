@@ -40,6 +40,11 @@
     CN2(COAX7)               cam_3                    /dev/video3                 
     ```  
 
+   Power Supply
+
+   SG8-AGX-Thor-9724 adapt board need to be powered by 12V.
+   ![alt text](<../../../../Picture/SENSING Thor Developer Kit/TRD1 G2A Power and Trigger Interface Definition.jpg>)
+
 
 2. Enter the driver directory,
 
@@ -99,9 +104,9 @@
 
    a.Determine the corresponding camera type for each camera channel
 
-   b.Modify the enable_fpd4_0 and enable_fpd4_1 parameter of the following driver loading command , where FPD4 is represented by (1) and FPD3 by (0).
+   b.Modify the enable_fpd4_0 and enable_fpd4_1 parameter of the following driver loading command , where X for FPD4 is represented by (1) and FPD3 is represented by (0).
    
-   sudo insmod ko/sgx-yuv-fpd4.ko enable_fpd4_0=*,*,*,* enable_fpd4_1=*,*,*,*
+   sudo insmod ko/sgx-yuv-fpd4.ko enable_fpd4_0=X,X,X,X enable_fpd4_1=X,X,X,X
    
    In the following example:
    ```
@@ -116,8 +121,6 @@
 
 5. Bring up the camera
 
-   If the above steps are properly completed, the next time you reboot the device, you need only run the "sudo ./load_modules.sh" command to load the drivers, and then run the gst - launch - 1.0 in a terminal.
-   
    5.1 run the script "load_module.sh".
    ```
    sudo ./load_modules.sh
@@ -150,7 +153,9 @@
    ## COAX3
    gst-launch-1.0 v4l2src device=/dev/video7 ! xvimagesink -ev
    ```
-   
+
+    If the above steps are properly completed, the next time you reboot the device, you need only run the "sudo ./load_modules.sh" command to load the drivers, and then run the gst - launch - 1.0 in a terminal.
+
 6. Provide Trigger Sync signal
 
    Modify load_modules.sh script and re-run it.
