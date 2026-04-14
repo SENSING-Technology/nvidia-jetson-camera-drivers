@@ -1,0 +1,10 @@
+20260413:
+1. Supports the following cameras:
+
+    SG8-IMX715C-G3A-HXXX 
+
+    SG12-IMX577C-G3A-HXXX
+
+    SG17-IMX735C-G3A-HXXX
+
+    SG20-AR2020C-G3A-MXXX
