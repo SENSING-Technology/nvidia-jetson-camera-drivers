@@ -1,0 +1,183 @@
+#### Jetpack version
+
+* Jetpack 6.2
+
+#### Supported Camera Modules
+
+* Astra S56
+  * support max 1 cameras to bring up at the same time
+
+* SHF3L/SHF3H
+  * support max 6 cameras to bring up at the same time
+
+#### Quick Bring Up
+
+1. Connect the Camera to the ports on the adapter board.
+
+   SHF3L/SHF3H: J21/J22/J23/J24/J25/J26
+
+   S56: J27 or J29
+
+   Note: Connect pins 2 and 4 of J19 on the adapter board together to enable camera synchronization.
+
+2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
+
+   ```
+   /home/nvidia/SG10A_AGON_G2M_A1_AGX_ORIN_S56x1_SHF3Lx6_JP6.2_L4TR36.4.3
+   ```
+3. Enter the driver directory, run the script "install.sh"
+
+   ```
+   cd SG10A_AGON_G2M_A1_AGX_ORIN_S56x1_SHF3Lx6_JP6.2_L4TR36.4.3
+   chmod a+x ./install.sh
+   ./install.sh
+   ```
+4. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select the corresponding device
+
+   ```
+   sudo /opt/nvidia/jetson-io/jetson-io.py
+
+   1.select "Configure Jetson AGX CSI Connector"
+   2.select Configure for compatible hardware
+   3.select "Jetson Sensing SG10A_AGON_G2M_A1 S56x1 SHF3Lx6"
+   4.select "Save pin changes"
+   5.select "Save and reboot to reconfigure pins"
+
+   ```
+
+5. After the device reboots, then enter the driver directory and run the script "load_modules.sh".
+
+   ```
+   cd /home/nvidia/SG10A_AGON_G2M_A1_AGX_ORIN_S56x1_SHF3Lx6_JP6.2_L4TR36.4.3
+   sudo ./load_modules.sh
+   ```
+   When running the script, you will be prompted to select the trigger pin frequency (frame rate):
+   Select frame rate:
+   1) 10 Hz
+   2) 15 Hz
+   3) 20 Hz
+   4) 30 Hz (default)
+   5) 60 Hz
+
+   
+   Select the desired frequency by entering the corresponding number. The PWM signal for frame synchronization will be configured accordingly.
+   
+   After the module is loaded, the device nodes /dev/video0~video9 will be generated
+
+   The correspondence between CAM ports and device nodes is as follows
+
+    ```
+    PORT                    DEV NODE                    Camera
+    J27                     /dev/video0                 S56
+                            /dev/video1                 S56
+    J29                     /dev/video2                 S56
+                            /dev/video3                 S56
+
+    J25                     /dev/video4                 SHF3L/SHF3H
+    J26                     /dev/video5                 SHF3L/SHF3H
+    J23                     /dev/video6                 SHF3L/SHF3H
+    J24                     /dev/video7                 SHF3L/SHF3H
+    J21                     /dev/video8                 SHF3L/SHF3H
+    J22                     /dev/video9                 SHF3L/SHF3H
+
+    ```
+
+6. Bring up the camera
+
+   6.1 Install argus_camera
+   ```
+   sudo apt-get install nvidia-l4t-jetson-multimedia-api
+   ```
+   After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
+
+   6.2 For Astra S56 Modules
+
+   a. Bring up the camera (Use AGX Orin's trigger signal for camera sync).
+   ```
+   ## video0/1 fo example
+   argus_camera -d 0
+   argus_camera -d 1
+
+   ```
+   b. Test frame rate.
+   ```
+   v4l2-ctl -V --set-fmt-video=width=1920,height=1080 --set-ctrl bypass_mode=0,sensor_mode=0 --stream-mmap -d /dev/video0
+   ```
+   The output will show the current frame rate (e.g., `<<<<<<<<<<<<<<<< 15.00 fps`).
+
+   6.3 For SHF3L/SHF3H Modules
+
+   a. Bring up the camera ( Use AGX Orin's trigger signal for camera sync)
+   ```
+   ## video4 fo example
+   gst-launch-1.0 v4l2src device=/dev/video4 ! xvimagesink -ev
+   ```
+
+   b. Test frame rate.
+   ```
+   v4l2-ctl -V --set-fmt-video=width=1920,height=1536 --set-ctrl bypass_mode=0,sensor_mode=2 --stream-mmap -d /dev/video4
+   ```
+   The output will show the current frame rate (e.g., `<<<<<<<<<<<<<<<< 15.00 fps`).
+
+#### Integration with SENSING Driver Source Code
+
+1. Compile Image & dtb
+   Refer to the following command to integrate Dtb and Kernel source code to your kernel
+
+   ```
+   cp camera-driver-package/source/hardware Linux_for_Tegra/source/public/$YourDir/hardware -r
+   cp camera-driver-package/source/kernel Linux_for_Tegra/source/public/$YourDir/kernel -r
+   ```
+2. Go to the root directory of your source code and recompile
+
+   ```
+   cd  Linux_for_Tegra/source/public/$YourDir/
+   export CROSS_COMPILE_AARCH64_PATH=toolchain-path
+   export CROSS_COMPILE_AARCH64=toolchain-path/bin/aarch64-buildroot-linux-gnu-
+   mkdir kernel_out
+   ./nvbuild.sh -o $PWD/kernel_out
+   ```
+3. Install the newly generated Image and dtb to your nvidia device and reboot to let them take effect
+
+   ```
+   dtbo: kernel-devicetree/generic-dts/dtbs/
+   Image: kernel/kernel-jammy-src/arch/arm64/boot/
+
+   tegra-camera.ko: nvidia-oot/drivers/media/platform/tegra/camera/
+   nvhost-nvcsi-t194.ko: /nvidia-oot/drivers/video/tegra/host/nvcsi/
+   ```
+4. Copy the image,dtb,ko generated by the above compilation to the corresponding location of jetson
+
+   ```
+   sudo cp *.dtbo /boot/
+   sudo cp Image /boot/Image
+   sudo cp ko/tegra-camera.ko /lib/modules/5.15.148-tegra/updates/drivers/media/platform/tegra/camera/
+   sudo cp ko/nvhost-nvcsi-t194.ko /lib/modules/5.15.148-tegra/updates/drivers/video/tegra/host/nvcsi/
+   ```
+5. Select the device tree you installed
+
+   ```
+   sudo /opt/nvidia/jetson-io/jetson-io.py
+
+   1.select "Configure Jetson AGX CSI Connector"
+   2.select "Configure for compatible hardware"
+   3.select "Jetson Sensing SG10A_AGON_G2M_A1 S56x1 SHF3Lx6 "
+   4.select "Save pin changes"
+   5.select "Save and reboot to reconfigure pins"
+
+6. Install camera driver
+
+   ```
+   sudo insmod ./ko/s56-shw3gc.ko
+   sudo insmod ./ko/sgx-yuv-gmsl2.ko
+   ```
+7. Bring up the camera
+   Bring up RAW Camera Modules
+   ```
+   argus_camera -d 0
+   ```
+
+   Bring up YUV Camera Modules
+   ```
+   gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink -ev
+   ```
