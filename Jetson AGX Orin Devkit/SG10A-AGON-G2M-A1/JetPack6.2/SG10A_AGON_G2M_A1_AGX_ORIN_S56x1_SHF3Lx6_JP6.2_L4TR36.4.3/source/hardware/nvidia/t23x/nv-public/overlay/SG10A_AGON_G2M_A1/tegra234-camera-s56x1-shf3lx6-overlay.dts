@@ -9,6 +9,11 @@
 #include <dt-bindings/tegra234-p3737-0000+p3701-0000.h>
 #include <dt-bindings/pinctrl/pinctrl-tegra.h>
 
+#define CAM_INT1		TEGRA234_AON_GPIO(CC, 0)
+#define CAM_INT2		TEGRA234_AON_GPIO(CC, 1)
+#define CAM_INT3		TEGRA234_AON_GPIO(CC, 2)
+#define CAM_INT4		TEGRA234_AON_GPIO(CC, 3)
+
 #define CAM1_PWDN	TEGRA234_MAIN_GPIO(H, 6)
 #define CAM2_PWDN	TEGRA234_MAIN_GPIO(H, 3)
 #define CAM3_PWDN	TEGRA234_MAIN_GPIO(AC, 0)
@@ -2819,14 +2824,24 @@
 								accel_i2c_addr = <0x18>;
 								status = "okay";
 								reg = <0x68>;
-								accel_irq-gpios = <&gpio_aon TEGRA234_AON_GPIO(BB, 0) GPIO_ACTIVE_HIGH>;
-								gyro_irq-gpios = <&gpio_aon TEGRA234_AON_GPIO(BB, 1) GPIO_ACTIVE_HIGH>;
+								accel_irq-gpios = <&gpio_aon CAM_INT4 GPIO_ACTIVE_HIGH>;
+								gyro_irq-gpios = <&gpio_aon CAM_INT2 GPIO_ACTIVE_HIGH>;
 								accel_matrix = [01 00 00 00 01 00 00 00 01];
 								gyro_matrix = [01 00 00 00 01 00 00 00 01];
-								accel_reg_0x53 = <0x0A>;
-								gyro_reg_0x16 = <0x01>;
-								gyro_reg_0x18 = <0x01>;
-								timestamps = <&hte_aon TEGRA234_AON_GPIO(BB, 0)>, <&hte_aon TEGRA234_AON_GPIO(BB, 1)>;
+
+								/* accel: INT1, gyro: INT3 */
+								//accel_reg_0x53 = <0x0A>;
+								//gyro_reg_0x16 = <0x01>;
+								//gyro_reg_0x18 = <0x01>;
+
+								/* accel: INT2, gyro: INT4 */
+								accel_reg_0x53 = <0x00>;  /* disable INT1 default output */
+								accel_reg_0x54 = <0x0A>;  /* INT2 output active high */
+								accel_reg_0x58 = <0x40>;  /* data-ready map to INT2 */
+								gyro_reg_0x16 = <0x04>;   /* INT4 active high output */
+								gyro_reg_0x18 = <0x80>;   /* data-ready map to INT4 */
+								
+								timestamps = <&hte_aon CAM_INT4>, <&hte_aon CAM_INT2>;
 								timestamp-names = "accelerometer", "gyroscope";
 							};
 						};

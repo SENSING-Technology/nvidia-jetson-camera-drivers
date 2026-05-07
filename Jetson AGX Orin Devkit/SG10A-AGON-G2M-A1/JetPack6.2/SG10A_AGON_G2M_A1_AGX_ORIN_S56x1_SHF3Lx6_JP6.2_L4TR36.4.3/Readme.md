@@ -92,18 +92,34 @@
 
    6.2 For Astra S56 Modules
 
-   a. Bring up the camera (Use AGX Orin's trigger signal for camera sync).
+   a. Bring up the camera (Use AGX Orin's trigger signal for camera sync)
    ```
    ## video0/1 fo example
    argus_camera -d 0
    argus_camera -d 1
 
    ```
-   b. Test frame rate.
+   b. Test frame rate
    ```
    v4l2-ctl -V --set-fmt-video=width=1920,height=1080 --set-ctrl bypass_mode=0,sensor_mode=0 --stream-mmap -d /dev/video0
    ```
    The output will show the current frame rate (e.g., `<<<<<<<<<<<<<<<< 15.00 fps`).
+
+   b. Test IMU
+   ```
+   cd sample/bmi088/
+   make clean && make
+   ```
+
+   Accelerometer Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name accelerometer -g
+   ```
+
+   Gyroscope Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name gyroscope -g
+   ```
 
    6.3 For SHF3L/SHF3H Modules
 
@@ -113,7 +129,7 @@
    gst-launch-1.0 v4l2src device=/dev/video4 ! xvimagesink -ev
    ```
 
-   b. Test frame rate.
+   b. Test frame rate
    ```
    v4l2-ctl -V --set-fmt-video=width=1920,height=1536 --set-ctrl bypass_mode=0,sensor_mode=2 --stream-mmap -d /dev/video4
    ```
