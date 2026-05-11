@@ -21,8 +21,8 @@ sudo busybox devmem 0x810c2810a0 w 0x203000
 sudo rmmod sgcam_gmsl2 >/dev/null 2>&1
 sudo rmmod max96712 >/dev/null 2>&1
 sleep 2
-sudo insmod ko/max96712.ko debug_on=1
-#sudo insmod ko/max96712.ko
+#sudo insmod ko/max96712.ko debug_on=1
+sudo insmod ko/max96712.ko
 sudo insmod ko/sgcam-gmsl2.ko enable_3G_0=0,0,0,0 enable_3G_1=0,0,0,0
 sudo insmod ko/pwm-gpio.ko >/dev/null 2>&1
 

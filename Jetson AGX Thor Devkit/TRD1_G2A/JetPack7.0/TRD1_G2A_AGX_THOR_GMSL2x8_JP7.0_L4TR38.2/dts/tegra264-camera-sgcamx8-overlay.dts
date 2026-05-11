@@ -462,7 +462,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -482,7 +482,7 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -492,18 +492,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -519,32 +519,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -573,7 +575,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -593,7 +595,7 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -603,18 +605,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -630,32 +632,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -684,7 +688,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -704,7 +708,7 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -714,18 +718,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -741,32 +745,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -795,7 +801,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -815,7 +821,7 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -825,18 +831,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -852,32 +858,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 						
 						ports {
@@ -917,7 +925,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -937,7 +945,7 @@
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -947,18 +955,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -974,32 +982,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1028,7 +1038,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -1048,7 +1058,7 @@
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -1058,18 +1068,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -1085,32 +1095,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1139,7 +1151,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -1159,7 +1171,7 @@
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -1169,18 +1181,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -1196,32 +1208,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1250,7 +1264,7 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="ox08d";
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -1270,7 +1284,7 @@
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -1280,18 +1294,18 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
 
-							active_w = "3840";
-							active_h = "2160";
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
-							pix_clk_hz = "320000000";
+							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "600000000";
 
 							gain_factor = "100";
@@ -1307,32 +1321,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "25"; 
-							max_exp_time = "31000";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "31000";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {

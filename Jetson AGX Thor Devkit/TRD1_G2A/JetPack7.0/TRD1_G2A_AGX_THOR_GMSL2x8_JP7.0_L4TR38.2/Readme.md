@@ -7,6 +7,9 @@
 * SG8-OX08DC-G2G (Monocular, RAW)
   * support max 4 cameras to bring up at the same time
 
+* SG3-OX03H10C-G2F (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
 * SHW3G (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
 
@@ -96,20 +99,21 @@
    nvidia@nvidia:~/TRD1_G2A_AGX_THOR_GMSL2x8_JP7.0_L4TR38.2$ python3 generate_camera_overlay.py
    Available models:
    0: ox08d (raw12)
-   1: shw3g (raw12)
-   2: shw5g (raw10)
-   3: sgx-yuv-gmsl2 (uyvy)
-   4: s36 (uyvy)
-   5: s56 (raw10)
-   6: sdv11nm1 (raw10)
+   1: ox03h10 (raw12)
+   2: shw3g (raw12)
+   3: shw5g (raw10)
+   4: sgx-yuv-gmsl2 (uyvy)
+   5: s36 (uyvy)
+   6: s56 (raw10)
+   7: sdv11nm1 (raw10)
 
-   Select camera for cam_0 (0-6): 3
-   Select camera for cam_1 (0-6): 3
-   Select camera for cam_2 (0-6): 4
+   Select camera for cam_0 (0-6): 4
+   Select camera for cam_1 (0-6): 4
+   Select camera for cam_2 (0-6): 5
    Placed stereo pair 's36' on cam_2 and cam_3.
-   Select camera for cam_4 (0-6): 5
+   Select camera for cam_4 (0-6): 6
    Placed stereo pair 's56' on cam_4 and cam_5.
-   Select camera for cam_6 (0-6): 6
+   Select camera for cam_6 (0-6): 7
    Placed stereo pair 'sdv11nm1' on cam_6 and cam_7.
 
    Selected configurations:
@@ -152,7 +156,7 @@
    dts/tegra264-camera-sgcamx8-overlay.dtbo
 
    
-4. Install Kernel image and camera overly file
+3. Install Kernel image and camera overly file
 
    ```
    cd TRD1_G2A_AGX_THOR_GMSL2x8_JP7.0_L4TR38.2
@@ -160,7 +164,7 @@
    ./install.sh
    ```
 
-5. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
+4. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
 
    ```
    sudo /opt/nvidia/jetson-io/jetson-io.py
@@ -172,19 +176,19 @@
    5.select "Save and reboot to reconfigure pins"
    ```
 
-6. After the device reboot, run the script "load_module.sh".
+5. After the device reboot, run the script "load_module.sh".
 
-   6.1 Modify the script "load_modules.sh"
+   5.1 Modify the script "load_modules.sh"
 
    Follow the "Camera Configuration Instructions.pdf" to modify load_modules.sh for the connected cameras.
 
-   6.2 run the script "load_module.sh".
+   5.2 run the script "load_module.sh".
    ```
    sudo ./load_modules.sh
    ```
    After the module is loaded, the device nodes /dev/video0~video7 will be generated.
    
-   6.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
+   5.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
 
    If you wish to use the mixed mode, we have provided the following methods in the driver for your use.
 
@@ -201,15 +205,15 @@
    
    enable_3G_1 represents the second input channel. The value `0,0,1,1` indicates that the first and second cameras operate in 6G mode, while the third and fourth cameras operate in 3G mode.
 
-7. Bring up the camera
+6. Bring up the camera
 
-   7.1 Install argus_camera
+   6.1 Install argus_camera
    ```
    sudo apt-get install nvidia-l4t-jetson-multimedia-api
    ```
    After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
 
-   7.2 Bring up RAW Camera Modules
+   6.2 Bring up RAW Camera Modules
 
    Start nvargus-daemon in a terminal
    ```
@@ -245,7 +249,7 @@
    argus_camera -d 7
    ```
 
-   7.3 Bring up YUV Camera Modules
+   6.3 Bring up YUV Camera Modules
 
    Run the gst-launch-1.0 in a terminal.
    ```
@@ -274,9 +278,9 @@
    gst-launch-1.0 v4l2src device=/dev/video7 ! xvimagesink -ev
    ```
 
-8. Camera Trigger Sync
+7. Camera Trigger Sync
 
-   8.1 Enable camera slave Mode
+   7.1 Enable camera slave Mode
 
    Follow the "Camera Configuration Instructions.pdf", modify load_modules.sh script to enale slave mode, then re-run it.
 
@@ -313,7 +317,7 @@
    0007: Serializer trigger pin = mfp7
    ```
 
-   8.2 External Trigger Mode
+   7.2 External Trigger Mode
 
    External Trigger Port: CN4
 
@@ -340,7 +344,7 @@
    Duty Cycle: 90%
    ```
 
-   8.3 Internal Trigger Mode
+   7.2 Internal Trigger Mode
 
    Note: Internal trigger mode is not supported for SHW3G modules, but is supported for other modules.
 

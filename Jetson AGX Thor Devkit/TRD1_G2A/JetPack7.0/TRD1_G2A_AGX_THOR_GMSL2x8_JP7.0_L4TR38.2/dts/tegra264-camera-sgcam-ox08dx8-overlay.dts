@@ -493,7 +493,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -527,25 +527,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -604,7 +606,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -638,25 +640,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -715,7 +719,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -749,25 +753,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -826,7 +832,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -860,25 +866,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 						
 						ports {
@@ -948,7 +956,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -982,25 +990,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1059,7 +1069,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -1093,25 +1103,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1170,7 +1182,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -1204,25 +1216,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1281,7 +1295,7 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "20";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
 							mode_type = "bayer_wdr_pwl";
 							pixel_phase = "bggr";
@@ -1315,25 +1329,27 @@
 							embedded_metadata_height = "0";
 
 							/* WDR related settings */
-							num_control_point = "9";
+							num_control_point = "10";
 							control_point_x_0 = "0";
-							control_point_x_1 = "1613";
-							control_point_x_2 = "2766";
-							control_point_x_3 = "8137";
-							control_point_x_4 = "13960";
-							control_point_x_5 = "41093";
-							control_point_x_6 = "207573";
-							control_point_x_7 = "611114";
-							control_point_x_8 = "1048576";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
 							control_point_y_0 = "0";
-							control_point_y_1 = "1613";
-							control_point_y_2 = "1757";
-							control_point_y_3 = "2026";
-							control_point_y_4 = "2147";
-							control_point_y_5 = "2359";
-							control_point_y_6 = "2914";
-							control_point_y_7 = "3308";
-							control_point_y_8 = "4096";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
