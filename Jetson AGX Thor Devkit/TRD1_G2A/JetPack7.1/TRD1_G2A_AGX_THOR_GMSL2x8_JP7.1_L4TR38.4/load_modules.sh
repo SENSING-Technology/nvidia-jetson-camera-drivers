@@ -29,20 +29,20 @@ sudo insmod ko/max96712.ko debug_on=1
 
 # sudo insmod ko/sg8-ox08dc-g2g.ko
 # sudo insmod ko/sg8-imx728c-g2g.ko
- sudo insmod ko/sgx-yuv-gmsl2.ko enable_3G_0=0,0,0,0 enable_3G_1=0,0,0,0
+sudo insmod ko/sgx-yuv-gmsl2.ko enable_3G_0=0,0,0,0 enable_3G_1=0,0,0,0
 
 sudo insmod ko/pwm-gpio.ko >/dev/null 2>&1
 
 sudo ./boost_clock.sh
 
 # master: trig_mode=0, raw camera slave: trig_mode=1,yuv camera slave: trig_mode=1
-v4l2-ctl -d /dev/video0 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
-v4l2-ctl -d /dev/video1 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
-v4l2-ctl -d /dev/video2 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
-v4l2-ctl -d /dev/video3 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
+v4l2-ctl -d /dev/video0 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=2
+v4l2-ctl -d /dev/video1 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=2
+v4l2-ctl -d /dev/video2 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=0
+v4l2-ctl -d /dev/video3 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video4 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
-v4l2-ctl -d /dev/video5 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
-v4l2-ctl -d /dev/video6 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
-v4l2-ctl -d /dev/video7 -c sensor_mode=3,trig_pin=0x00020007,trig_mode=0
+v4l2-ctl -d /dev/video5 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=0
+v4l2-ctl -d /dev/video6 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=0
+v4l2-ctl -d /dev/video7 -c sensor_mode=5,trig_pin=0x00020007,trig_mode=0
 
 green_print "Load modules done."

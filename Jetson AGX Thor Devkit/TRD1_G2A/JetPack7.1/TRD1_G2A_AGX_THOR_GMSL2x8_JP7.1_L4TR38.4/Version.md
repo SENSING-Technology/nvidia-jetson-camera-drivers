@@ -2,7 +2,7 @@
 
 1. Supports the following cameras:
 
-    SG8-OX08DC-5300-G2G-Hxxx
+    SG8-OX08DC-G2G-Hxxx
 
     SG8-IMX728C-G2G-Hxxx
 
@@ -10,7 +10,7 @@
 
 20260509: 
 
-Add SG8-ISX028C-G2G camera driver and fix SG5-IMX490C-5300-GMSL2-Hxxx bring-up instability.
+1. Add SG8-ISX028C-G2G camera driver and fix SG5-IMX490C-5300-GMSL2-Hxxx bring-up instability.
 
 2. Supports the following cameras:
 
@@ -44,5 +44,7 @@ Add SG8-ISX028C-G2G camera driver and fix SG5-IMX490C-5300-GMSL2-Hxxx bring-up i
     
         SG8-ISX028C-G2G 
 
-    
+20260522:    
+ 
+1. Add SG8-OX08DC-5300-G2G-Hxxx camera driver
 

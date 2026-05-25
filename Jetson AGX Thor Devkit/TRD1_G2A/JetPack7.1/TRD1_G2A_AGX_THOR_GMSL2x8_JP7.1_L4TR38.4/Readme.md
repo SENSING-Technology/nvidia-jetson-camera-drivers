@@ -19,6 +19,7 @@ SG8S-AR0820C-5300-G2A      3840*2160V         YUV422     GMSL2-6G        4      
 SHF3L                      1920*1536V         YUV422     GMSL2-6G        8          MFP7
 SHF3H                      1920*1536V         YUV422     GMSL2-6G        4          MFP7
 SG8-ISX028C-G2G            3840*2160V         YUV422     GMSL2-6G        4          MFP7
+SG8-OX08DC-5300-G2G-Hxxx   3840*2160V         YUV422     GMSL2-6G        4          MFP7
 ```
 Note: If the maximum supported number above is not 8, it indicates that the maximum number of connections per MAX96712 is half of that value.
 
