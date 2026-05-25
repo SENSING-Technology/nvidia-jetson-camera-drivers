@@ -4,10 +4,13 @@
 
 #### Supported Camera Modules
 
-* SG8-OX08DC-G2G (Monocular, RAW)
+* SG8-OX08DC-G2G-Hxxx (Monocular, RAW)
   * support max 4 cameras to bring up at the same time
 
-* SG3-OX03H10C-G2F (Monocular, RAW)
+* SG8-IMX728C-G2G-Hxxx (Monocular, RAW)
+  * support max 4 cameras to bring up at the same time 
+
+* SG3-OX03H10C-G2F-Hxxx (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
 
 * SHW3G (Monocular, RAW)
@@ -33,6 +36,9 @@
    * SG2-AR0233-5200-G2A-Hxxx
       * support max 8 cameras to bring up at the same time
 
+   * SG2S24AFSK
+      * support max 8 cameras to bring up at the same time
+
    * SG3-ISX031C-GMSL2-Hxxx
       * support max 8 cameras to bring up at the same time
 
@@ -43,6 +49,12 @@
       * support max 6 cameras to bring up at the same time
 
    * SG8S-AR0820C-5300-G2A-Hxxx
+      * support max 4 cameras to bring up at the same time
+
+   * SG8-OX08DC-5300-G2G-Hxxx
+      * support max 4 cameras to bring up at the same time   
+
+   * SG8-ISX028C-G2G-Hxxx
       * support max 4 cameras to bring up at the same time
 
    * SHF3L
@@ -98,22 +110,23 @@
    ```   
    nvidia@nvidia:~/TRD1_G2A_AGX_THOR_GMSL2x8_JP7.0_L4TR38.2$ python3 generate_camera_overlay.py
    Available models:
-   0: ox08d (raw12)
-   1: ox03h10 (raw12)
-   2: shw3g (raw12)
-   3: shw5g (raw10)
-   4: sgx-yuv-gmsl2 (uyvy)
-   5: s36 (uyvy)
-   6: s56 (raw10)
-   7: sdv11nm1 (raw10)
+  0: imx728 (raw12)
+  1: ox08d (raw12)
+  2: ox03h10 (raw12)
+  3: shw3g (raw12)
+  4: shw5g (raw10)
+  5: sgx-yuv-gmsl2 (uyvy)
+  6: s36 (uyvy)
+  7: s56 (raw10)
+  8: sdv11nm1 (raw10)
 
-   Select camera for cam_0 (0-6): 4
-   Select camera for cam_1 (0-6): 4
-   Select camera for cam_2 (0-6): 5
+   Select camera for cam_0 (0-8): 4
+   Select camera for cam_0 (0-8): 4
+   Select camera for cam_0 (0-8): 5
    Placed stereo pair 's36' on cam_2 and cam_3.
-   Select camera for cam_4 (0-6): 6
+   Select camera for cam_0 (0-8): 6
    Placed stereo pair 's56' on cam_4 and cam_5.
-   Select camera for cam_6 (0-6): 7
+   Select camera for cam_0 (0-8): 7
    Placed stereo pair 'sdv11nm1' on cam_6 and cam_7.
 
    Selected configurations:
@@ -220,6 +233,15 @@
    sudo service nvargus-daemon stop
    export NVCAMERA_NITO_PATH=CONFIG
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
+
+   #raw相机
+	sensor_mode=0
+   #yuv相机
+	sensor_mode=0 #1920*1080
+	sensor_mode=1 #1920*1536
+	sensor_mode=2 #2880*1860
+	sensor_mode=3 #3840*2160
+	sensor_mode=5 #3840*2160（SG8-ISX028C-G2G-Hxxx）
    ```
 
    Start argus_camera in another terminal
@@ -290,11 +312,14 @@
    # For shw3g module
    v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x36723377,trig_mode=1
 
-   # For SG5-IMX490C-5300-GMSL2 module
+   # For SG5-IMXv490C-5300-GMSL2 module
    v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x00020008,trig_mode=1
 
    # For other camera modules
    v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x00020007,trig_mode=1
+   v4l2-ctl -d /dev/video5 --stream-mmap -V
+
+
    ```
 
    These configurations are interpreted as follows:
@@ -351,6 +376,9 @@
    ```
    # Export PWM channel 0
    echo 0 > /sys/class/pwm/pwmchip4/export
+   echo 33333333 > /sys/class/pwm/pwmchip4/pwm0/period
+   echo 3333333 > /sys/class/pwm/pwmchip4/pwm0/duty_cycle
+   echo 1 > /sys/class/pwm/pwmchip4/pwm0/enable
 
    # Set the period to 33333333 (corresponding to 30 Hz)
    echo 33333333 > /sys/class/pwm/pwmchip4/pwm0/period

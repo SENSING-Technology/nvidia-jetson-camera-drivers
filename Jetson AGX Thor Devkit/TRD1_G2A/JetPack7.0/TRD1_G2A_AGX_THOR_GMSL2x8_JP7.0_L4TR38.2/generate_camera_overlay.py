@@ -5,7 +5,7 @@ import sys
 
 # Configuration
 # Monocular cameras
-MONOCULAR_MODELS = ["ox08d", "ox03h10", "shw3g", "shw5g", "sgx-yuv-gmsl2"]
+MONOCULAR_MODELS = ["imx728","ox08d", "ox03h10", "shw3g", "shw5g", "sgx-yuv-gmsl2"]
 # Stereo cameras (used in pairs)
 STEREO_MODELS = ["s36", "s56", "sdv11nm1"]
 # Combined list for selection
@@ -13,6 +13,7 @@ ALL_MODELS = MONOCULAR_MODELS + STEREO_MODELS
 
 # Map camera model to image format
 SENSOR_FORMAT_MAP = {
+    "imx728": "raw12",
     "ox08d": "raw12",
     "ox03h10": "raw12",
     "shw3g": "raw12",
@@ -24,6 +25,7 @@ SENSOR_FORMAT_MAP = {
 }
 
 MODEL_TO_DTS_FILE = {
+    "imx728": "dts/tegra264-camera-sgcam-imx728x8-overlay.dts",
     "ox08d": "dts/tegra264-camera-sgcam-ox08dx8-overlay.dts",
     "ox03h10": "dts/tegra264-camera-sgcam-ox03h10x8-overlay.dts",
     "s36": "dts/tegra264-camera-sgcam-s36x4-overlay.dts",

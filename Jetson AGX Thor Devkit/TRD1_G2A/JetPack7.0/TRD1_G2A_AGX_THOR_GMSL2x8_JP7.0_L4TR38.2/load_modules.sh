@@ -29,7 +29,7 @@ sudo insmod ko/pwm-gpio.ko >/dev/null 2>&1
 chmod a+x boost_clock.sh
 sudo ./boost_clock.sh
 
-## master: trig_mode=0, slave: trig_mode=0
+## master: trig_mode=0, slave: trig_mode=1
 v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video1 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video2 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
@@ -38,5 +38,14 @@ v4l2-ctl -d /dev/video4 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video5 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video6 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video7 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
+
+##raw相机
+##sensor_mode=0
+##yuv相机
+##sensor_mode=0 #1920*1080
+##sensor_mode=1 #1920*1536
+##sensor_mode=2 #2880*1860
+##sensor_mode=3 #3840*2160
+##sensor_mode=5 #3840*2160（SG8-ISX028C-G2G-Hxxx）
 
 green_print "Load modules done."
