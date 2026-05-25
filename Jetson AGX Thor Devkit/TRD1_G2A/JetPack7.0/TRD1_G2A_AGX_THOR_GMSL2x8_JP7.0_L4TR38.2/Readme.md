@@ -64,6 +64,7 @@
       * support max 4 cameras to bring up at the same time
 
 
+
 #### Quick Bring Up
 
 1. Connect the Camera to the ports on the adapter board.
@@ -110,23 +111,23 @@
    ```   
    nvidia@nvidia:~/TRD1_G2A_AGX_THOR_GMSL2x8_JP7.0_L4TR38.2$ python3 generate_camera_overlay.py
    Available models:
-  0: imx728 (raw12)
-  1: ox08d (raw12)
-  2: ox03h10 (raw12)
-  3: shw3g (raw12)
-  4: shw5g (raw10)
-  5: sgx-yuv-gmsl2 (uyvy)
-  6: s36 (uyvy)
-  7: s56 (raw10)
-  8: sdv11nm1 (raw10)
+   0: imx728 (raw12)
+   1: ox08d (raw12)
+   2: ox03h10 (raw12)
+   3: shw3g (raw12)
+   4: shw5g (raw10)
+   5: sgx-yuv-gmsl2 (uyvy)
+   6: s36 (uyvy)
+   7: s56 (raw10)
+   8: sdv11nm1 (raw10)
 
    Select camera for cam_0 (0-8): 4
-   Select camera for cam_0 (0-8): 4
-   Select camera for cam_0 (0-8): 5
+   Select camera for cam_1 (0-8): 4
+   Select camera for cam_2 (0-8): 5
    Placed stereo pair 's36' on cam_2 and cam_3.
-   Select camera for cam_0 (0-8): 6
+   Select camera for cam_4 (0-8): 6
    Placed stereo pair 's56' on cam_4 and cam_5.
-   Select camera for cam_0 (0-8): 7
+   Select camera for cam_6 (0-8): 7
    Placed stereo pair 'sdv11nm1' on cam_6 and cam_7.
 
    Selected configurations:
@@ -169,7 +170,7 @@
    dts/tegra264-camera-sgcamx8-overlay.dtbo
 
    
-3. Install Kernel image and camera overly file
+4. Install Kernel image and camera overly file
 
    ```
    cd TRD1_G2A_AGX_THOR_GMSL2x8_JP7.0_L4TR38.2
@@ -177,7 +178,7 @@
    ./install.sh
    ```
 
-4. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
+5. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
 
    ```
    sudo /opt/nvidia/jetson-io/jetson-io.py
@@ -189,25 +190,25 @@
    5.select "Save and reboot to reconfigure pins"
    ```
 
-5. After the device reboot, run the script "load_module.sh".
+6. After the device reboot, run the script "load_module.sh".
 
-   5.1 Modify the script "load_modules.sh"
+   6.1 Modify the script "load_modules.sh"
 
    Follow the "Camera Configuration Instructions.pdf" to modify load_modules.sh for the connected cameras.
 
-   5.2 run the script "load_module.sh".
+   6.2 run the script "load_module.sh".
    ```
    sudo ./load_modules.sh
    ```
    After the module is loaded, the device nodes /dev/video0~video7 will be generated.
    
-   5.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
+   6.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
 
    If you wish to use the mixed mode, we have provided the following methods in the driver for your use.
 
-   a.Determine the corresponding mode for each camera channel, where 3G is represented by (1) and 6G by (0).
+   a. Determine the corresponding mode for each camera channel, where 3G is represented by (1) and 6G by (0).
 
-   b.Load the driver manually according to the actual situation.
+   b. Load the driver manually according to the actual situation.
 
    ```
    sudo insmod ./ko/max96712.ko
@@ -218,30 +219,21 @@
    
    enable_3G_1 represents the second input channel. The value `0,0,1,1` indicates that the first and second cameras operate in 6G mode, while the third and fourth cameras operate in 3G mode.
 
-6. Bring up the camera
+7. Bring up the camera
 
-   6.1 Install argus_camera
+   7.1 Install argus_camera
    ```
    sudo apt-get install nvidia-l4t-jetson-multimedia-api
    ```
    After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
 
-   6.2 Bring up RAW Camera Modules
+   7.2 Bring up RAW Camera Modules
 
    Start nvargus-daemon in a terminal
    ```
    sudo service nvargus-daemon stop
    export NVCAMERA_NITO_PATH=CONFIG
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
-
-   #raw相机
-	sensor_mode=0
-   #yuv相机
-	sensor_mode=0 #1920*1080
-	sensor_mode=1 #1920*1536
-	sensor_mode=2 #2880*1860
-	sensor_mode=3 #3840*2160
-	sensor_mode=5 #3840*2160（SG8-ISX028C-G2G-Hxxx）
    ```
 
    Start argus_camera in another terminal
@@ -271,7 +263,7 @@
    argus_camera -d 7
    ```
 
-   6.3 Bring up YUV Camera Modules
+   7.3 Bring up YUV Camera Modules
 
    Run the gst-launch-1.0 in a terminal.
    ```
@@ -300,9 +292,9 @@
    gst-launch-1.0 v4l2src device=/dev/video7 ! xvimagesink -ev
    ```
 
-7. Camera Trigger Sync
+8. Camera Trigger Sync
 
-   7.1 Enable camera slave Mode
+   8.1 Enable camera slave Mode
 
    Follow the "Camera Configuration Instructions.pdf", modify load_modules.sh script to enale slave mode, then re-run it.
 
@@ -312,14 +304,11 @@
    # For shw3g module
    v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x36723377,trig_mode=1
 
-   # For SG5-IMXv490C-5300-GMSL2 module
+   # For SG5-IMX490C-5300-GMSL2 module
    v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x00020008,trig_mode=1
 
    # For other camera modules
    v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x00020007,trig_mode=1
-   v4l2-ctl -d /dev/video5 --stream-mmap -V
-
-
    ```
 
    These configurations are interpreted as follows:
@@ -342,7 +331,7 @@
    0007: Serializer trigger pin = mfp7
    ```
 
-   7.2 External Trigger Mode
+   8.2 External Trigger Mode
 
    External Trigger Port: CN4
 
@@ -369,16 +358,13 @@
    Duty Cycle: 90%
    ```
 
-   7.2 Internal Trigger Mode
+   8.3 Internal Trigger Mode
 
    Note: Internal trigger mode is not supported for SHW3G modules, but is supported for other modules.
 
    ```
    # Export PWM channel 0
    echo 0 > /sys/class/pwm/pwmchip4/export
-   echo 33333333 > /sys/class/pwm/pwmchip4/pwm0/period
-   echo 3333333 > /sys/class/pwm/pwmchip4/pwm0/duty_cycle
-   echo 1 > /sys/class/pwm/pwmchip4/pwm0/enable
 
    # Set the period to 33333333 (corresponding to 30 Hz)
    echo 33333333 > /sys/class/pwm/pwmchip4/pwm0/period

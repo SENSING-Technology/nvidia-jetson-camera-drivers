@@ -7,7 +7,7 @@
 #### Hardware Connect
 
 * Using adapt board connect up to 8 cameras
-  ![alt text](../../Picture/SENSING%20Thor%20Developer%20Kit/TRD1%20G2A%20Camera%20Interface%20Definition.jpg)
+  ![alt text](../../Picture/SENSING%20Thor%20Developer%20Kit/TRD1%20F4B%20Camera%20Interface%20Definition.jpg)
 
 #### Power Supply
 
