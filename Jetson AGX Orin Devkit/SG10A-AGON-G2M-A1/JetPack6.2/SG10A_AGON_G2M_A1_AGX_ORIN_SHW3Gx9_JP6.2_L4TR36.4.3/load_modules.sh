@@ -1,0 +1,73 @@
+#!/bin/bash
+
+red_print(){
+        echo -e "\e[1;31m$1\e[0m"
+}
+green_print(){
+        echo -e "\e[1;32m$1\e[0m"
+}
+
+# Check if v4l2-ctl exists
+if ! command -v v4l2-ctl >/dev/null 2>&1; then
+        red_print "v4l2-ctl not found, installing v4l-utils..."
+        sudo apt update
+        sudo apt install -y v4l-utils
+fi
+
+if ! command -v busybox >/dev/null 2>&1; then
+        red_print "busybox not found, installing busybox..."
+        sudo apt update
+        sudo apt install -y busybox
+fi
+
+chmod a+x boost_clock.sh
+sudo ./boost_clock.sh
+sleep 0.5
+
+sudo busybox devmem 0x02448020 w 0x1008  #PAC.04 ouptput mode for poc_ctrl
+sudo busybox devmem 0x0c302028 w 0x0009  #PCC.02 ouptput mode for trigger
+
+
+# Check if pwm-gpio module is already loaded
+if lsmod | grep -q pwm_gpio; then
+    echo "pwm-gpio module is already loaded"
+else
+    echo "Loading pwm-gpio module..."
+    sudo insmod ./ko/pwm-gpio.ko >/dev/null 2>&1
+fi
+sleep 0.5
+sudo chmod 777 gpio-pwm.sh
+
+# Check if PWM device is available
+if [[ ! -d "/sys/class/pwm/pwmchip5" ]]; then
+    echo "ERROR: PWM chip not found at /sys/class/pwm/pwmchip5" >&2
+    echo "Please ensure pwm-gpio.ko module is loaded correctly" >&2
+    exit 1
+fi
+# Frame rate selection
+if [[ $# -eq 0 ]]; then
+    echo "Select frame rate:"
+    echo "  1) 10 Hz"
+    echo "  2) 15 Hz"
+    echo "  3) 30 Hz (default)"
+    echo -n "Enter choice [1-3]: "
+    read -r choice
+
+    case $choice in
+        1) FRAME_RATE=10 ;;
+        2) FRAME_RATE=15 ;;
+        3) FRAME_RATE=30 ;;
+        *)
+            echo "Invalid choice, using default: 30 Hz"
+            FRAME_RATE=30
+            ;;
+    esac
+else
+    FRAME_RATE=$1
+fi
+
+echo "Starting PWM configuration with frame rate: ${FRAME_RATE} Hz"
+sudo ./gpio-pwm.sh "$FRAME_RATE"
+
+
+sudo insmod ko/shf3g.ko >/dev/null 2>&1
