@@ -449,7 +449,15 @@
 						compatible = "nvidia,max96712_1";
 						reg = <0x29>;
 					};
-
+					bmi088@68{
+								compatible = "bmi,bmi088";
+								accel_i2c_addr = <0x18>;
+								status = "okay";
+								reg = <0x68>;
+								
+								accel_matrix = [01 00 00 00 01 00 00 00 01];
+								gyro_matrix = [01 00 00 00 01 00 00 00 01];
+							};
 					cam_7@23 {
 						compatible = "sensing,sgcam-gmsl2-7";
 						def-addr = <0x10>;
@@ -820,6 +828,15 @@
 						compatible = "nvidia,max96712_0";
 						reg = <0x2d>;
 					};
+					bmi088@68{
+								compatible = "bmi,bmi088";
+								accel_i2c_addr = <0x18>;
+								status = "okay";
+								reg = <0x68>;
+								
+								accel_matrix = [01 00 00 00 01 00 00 00 01];
+								gyro_matrix = [01 00 00 00 01 00 00 00 01];
+							};
 
 					cam_3@23 {
 						compatible = "sensing,sgcam-gmsl2-3";

@@ -1,3 +1,7 @@
+###### 20260608 ######
+
+Add support for the s56 Cameras working in polling mode.
+
 ###### 20260521 ######
 
 Add support for the SG3-OX03H10C-G2F and SG8-IMX728C-G2G camera.
