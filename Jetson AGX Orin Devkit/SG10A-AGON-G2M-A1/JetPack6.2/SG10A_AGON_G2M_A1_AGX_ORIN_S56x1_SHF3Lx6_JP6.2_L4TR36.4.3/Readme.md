@@ -7,7 +7,7 @@
 * Astra S56
   * support max 1 cameras to bring up at the same time
 
-* SHF3L/SHF3H
+* SHF3L/SHW3H
   * support max 6 cameras to bring up at the same time
 
 #### Quick Bring Up

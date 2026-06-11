@@ -1,5 +1,6 @@
-### 20260507
+### 20260604
 Enable IMU support for S56.
+Enable IMU polling mode.
 
 ### 20260430
 Supports the following cameras: 
