@@ -227,7 +227,7 @@
    ```
    After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
 
-   7.2 Bring up RAW Camera Modules
+   7.2.1 Bring up RAW Camera Modules
 
    Start nvargus-daemon in a terminal
    ```
@@ -261,6 +261,21 @@
 
    ## CAM7
    argus_camera -d 7
+   ```
+   7.2.2 Test IMU
+     ```
+   cd sample/bmi088/
+   make clean && make
+   ```
+
+   Accelerometer Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name accelerometer -g
+   ```
+
+   Gyroscope Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name gyroscope -g
    ```
 
    7.3 Bring up YUV Camera Modules

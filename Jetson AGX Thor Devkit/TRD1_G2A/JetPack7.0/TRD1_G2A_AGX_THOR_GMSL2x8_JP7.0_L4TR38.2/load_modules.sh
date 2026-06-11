@@ -25,9 +25,11 @@ sleep 2
 sudo insmod ko/max96712.ko
 sudo insmod ko/sgcam-gmsl2.ko enable_3G_0=0,0,0,0 enable_3G_1=0,0,0,0
 sudo insmod ko/pwm-gpio.ko >/dev/null 2>&1
-
 chmod a+x boost_clock.sh
 sudo ./boost_clock.sh
+
+sudo insmod ko/kfifo_buf.ko
+sudo insmod ko/bmi088.ko
 
 ## master: trig_mode=0, slave: trig_mode=1
 v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
