@@ -14,7 +14,7 @@
 
 2. Supports the following cameras:
 
-    SG8-OX08DC-5300-G2G-Hxxx
+    SG8-OX08DC-G2G-Hxxx
 
     SG8-IMX728C-G2G-Hxxx
 
@@ -48,3 +48,19 @@
  
 1. Add SG8-OX08DC-5300-G2G-Hxxx camera driver
 
+
+20260618:
+
+1. Supports the following cameras:
+
+    SG3-OX03H10C-G2F
+
+    SHW3G
+
+    SHW5G
+
+    SDV11NM1
+
+    Astra S56
+
+    Astra S36

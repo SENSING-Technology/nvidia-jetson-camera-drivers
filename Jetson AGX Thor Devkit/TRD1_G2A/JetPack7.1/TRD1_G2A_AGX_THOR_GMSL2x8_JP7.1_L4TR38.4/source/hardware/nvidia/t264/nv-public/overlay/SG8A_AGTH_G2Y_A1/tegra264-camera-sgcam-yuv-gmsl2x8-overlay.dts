@@ -17,7 +17,7 @@
 #define CAM_SYNC    TEGRA264_MAIN_GPIO(K, 5)
 
 #define CAMERA_I2C_MUX_BUS(x) (0x1E + x)
-#define JETSON_COMPATIBLE	"nvidia,p3971-0089+p3834-0008", "nvidia,p3971-0050+p3834-0005", "nvidia,p3971-0080+p3834-0008"
+#define JETSON_COMPATIBLE	"nvidia,p3971-0089+p3834-0008", "nvidia,p3971-0050+p3834-0005", "nvidia,p3971-0080+p3834-0008", "nvidia,p3834-0008", "nvidia,tegra264"
 
 / {
 	overlay-name = "Jetson Sensing SG8A_AGTH_G2Y_A1 YUV GMSL2x8";
@@ -125,20 +125,12 @@
 			tegra-camera-platform {
 				compatible = "nvidia, tegra-camera-platform";
 
-				//num_csi_lanes = <16>;
-				//max_lane_speed = <2500000>;
-				//min_bits_per_pixel = <16>;
-				//vi_peak_byte_per_pixel = <2>;
-				//vi_bw_margin_pct = <25>;
-				//isp_peak_byte_per_pixel = <5>;
-				//isp_bw_margin_pct = <25>;
-
 				modules {
 					status = "okay";
 					module0 {
 						status = "okay";
-						badge = "cam_position0";
-						position = "position0";
+						badge = "cam_bottomleft";
+						position = "bottomleft";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -148,8 +140,8 @@
 					};
 					module1 {
 						status = "okay";
-						badge = "cam_position1";
-						position = "position1";
+						badge = "cam_centerleft";
+						position = "centerleft";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -159,8 +151,8 @@
 					};
 					module2 {
 						status = "okay";
-						badge = "cam_position2";
-						position = "position2";
+						badge = "cam_centerright";
+						position = "centerright";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -170,8 +162,8 @@
 					};
 					module3 {
 						status = "okay";
-						badge = "cam_position3";
-						position = "position3";
+						badge = "cam_topleft";
+						position = "topleft";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -181,8 +173,8 @@
 					};
 					module4 {
 						status = "okay";
-						badge = "cam_position4";
-						position = "position4";
+						badge = "cam_bottomright";
+						position = "bottomright";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -192,8 +184,8 @@
 					};
 					module5 {
 						status = "okay";
-						badge = "cam_position4";
-						position = "position4";
+						badge = "cam_topright";
+						position = "topright";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -203,8 +195,8 @@
 					};
 					module6 {
 						status = "okay";
-						badge = "cam_position6";
-						position = "position6";
+						badge = "cam_bottomcenter";
+						position = "bottomcenter";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -214,8 +206,8 @@
 					};
 					module7 {
 						status = "okay";
-						badge = "cam_position7";
-						position = "position7";
+						badge = "cam_topcenter";
+						position = "topcenter";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
@@ -230,10 +222,10 @@
 
 				/* set camera gpio direction to output */
 				gpio@810c300000 {
-					camera-control-output-high {
+					camera-control-output-low {
 						gpio-hog;
-						output-high;
-						gpios = <CAM0_RST_L 0 CAM0_PWDN 0 CAM1_RST_L 0 CAM1_PWDN 0>;
+						output-low;
+						gpios = <CAM0_RST_L 1 CAM0_PWDN 1 CAM1_RST_L 1 CAM1_PWDN 1>;
 						label = "cam0-rst", "cam0-pwdn", "cam1-rst", "cam1-pwdn";
 					};
 				};
@@ -355,7 +347,7 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-									jetson_csi_in4: endpoint@8 {
+									jetson_csi_in4: endpoint@08{
 										status = "okay";
 										port-index = <0>;
 										bus-width = <4>;
@@ -453,10 +445,6 @@
 				i2c@810c6d0000 {
 					clock-frequency = <100000>;
 					status = "okay";
-					//reg = <0>;
-					//i2c-mux,deselect-on-exit;
-					//#address-cells = <1>;
-					//#size-cells = <0>;
 
 					max96712_1@29 {
 						compatible = "nvidia,max96712_1";
@@ -464,7 +452,8 @@
 					};
 
 					cam_7@23 {
-						compatible = "sensing,sgx-yuv-gmsl2-7";
+						compatible = "sensing,sgcam-gmsl2-7";
+						def-addr = <0x5d>;
 						reg = <0x23>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x33>;
@@ -494,14 +483,16 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode IMX424_MODE_1920X1080_CROP_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "3";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -512,6 +503,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -534,14 +526,16 @@
 							default_exp_time = "22000";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode1 {/*mode IMX424_MODE_1920X1536_CROP_30FPS*/
+						mode1 {/*mode SENSOR_MODE_1920X1536_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "3";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -552,6 +546,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "500000000";
 
@@ -579,9 +574,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "3";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -592,8 +589,9 @@
 							readout_orientation = "0";
 							line_length = "3200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -614,14 +612,16 @@
 							default_exp_time = "33333";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode3 {/*mode IMX424_MODE_3840X2160_CROP_30FPS*/
+						mode3 {/*mode SENSOR_MODE_3840X2160_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "3";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -632,6 +632,7 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
 							serdes_pix_clk_hz = "800000000";
 
@@ -659,9 +660,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "3";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -672,6 +675,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -694,14 +698,16 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode ISX028_MODE_3840X2160_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "3";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -713,7 +719,7 @@
 							line_length = "4200";
 							inherent_gain = "1";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -750,7 +756,8 @@
 						};
 					};
 					cam_6@22 {
-						compatible = "sensing,sgx-yuv-gmsl2-6";
+						compatible = "sensing,sgcam-gmsl2-6";
+						def-addr = <0x5d>;
 						reg = <0x22>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x32>;
@@ -780,14 +787,16 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode IMX424_MODE_1920X1080_CROP_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "2";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -798,6 +807,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -825,9 +835,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "2";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -838,6 +850,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "500000000";
 
@@ -865,9 +878,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "2";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -878,8 +893,9 @@
 							readout_orientation = "0";
 							line_length = "3200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -900,14 +916,16 @@
 							default_exp_time = "33333";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode3 {/*mode IMX424_MODE_3840X1080_CROP_30FPS*/
+						mode3 {/*mode SENSOR_MODE_3840X1080_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "2";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -918,6 +936,7 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
 							serdes_pix_clk_hz = "800000000";
 
@@ -945,9 +964,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "2";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -958,6 +979,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -980,14 +1002,16 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode IMX424_MODE_3840X1080_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "2";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -999,7 +1023,7 @@
 							line_length = "4200";
 							inherent_gain = "1";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1036,7 +1060,8 @@
 						};
 					};
 					cam_5@21 {
-						compatible = "sensing,sgx-yuv-gmsl2-5";
+						compatible = "sensing,sgcam-gmsl2-5";
+						def-addr = <0x5d>;
 						reg = <0x21>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x31>;
@@ -1066,14 +1091,16 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {/*mode IMX424_MODE_1920X1080_CROP_30FPS*/
+						mode0 {/*mode SENSOR_MODE_1920X1080_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "1";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1084,6 +1111,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -1111,9 +1139,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "1";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1124,6 +1154,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "500000000";
 
@@ -1151,9 +1182,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "1";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1164,8 +1197,9 @@
 							readout_orientation = "0";
 							line_length = "3200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1186,14 +1220,16 @@
 							default_exp_time = "33333";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode3 {/*mode IMX424_MODE_3840X2160_CROP_30FPS*/
+						mode3 {/*mode SENSOR_MODE_3840X2160_CROP_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "1";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1204,6 +1240,7 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
 							serdes_pix_clk_hz = "800000000";
 
@@ -1231,9 +1268,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "1";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1244,6 +1283,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -1266,14 +1306,16 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode IMX424_MODE_3840X2160_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "1";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1285,7 +1327,7 @@
 							line_length = "4200";
 							inherent_gain = "1";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1322,7 +1364,8 @@
 						};
 					};
 					cam_4@20 {
-						compatible = "sensing,sgx-yuv-gmsl2-4";
+						compatible = "sensing,sgcam-gmsl2-4";
+						def-addr = <0x5d>;
 						reg = <0x20>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x30>;
@@ -1357,9 +1400,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "0";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1370,6 +1415,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -1397,9 +1443,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "0";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1410,6 +1458,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "74250000";
 							serdes_pix_clk_hz = "500000000";
 
@@ -1437,9 +1486,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "0";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1450,8 +1501,9 @@
 							readout_orientation = "0";
 							line_length = "3200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1477,9 +1529,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "0";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1490,6 +1544,7 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
 							serdes_pix_clk_hz = "800000000";
 
@@ -1517,9 +1572,11 @@
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "0";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1530,6 +1587,7 @@
 							readout_orientation = "0";
 							line_length = "2200";
 							inherent_gain = "1";
+							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
 							serdes_pix_clk_hz = "400000000";
 
@@ -1552,14 +1610,16 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode ox08b_MODE_3840X2160_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
 							vc_id = "0";
+							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
 							cil_settletime = "0";
+							lane_polarity = "0";
 							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "16";
 							mode_type = "yuv";
@@ -1571,7 +1631,7 @@
 							line_length = "4200";
 							inherent_gain = "1";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1592,6 +1652,7 @@
 							default_exp_time = "22000";/* us */
 							embedded_metadata_height = "0";
 						};
+						
 						ports {
 							#address-cells = <1>;
 							#size-cells = <0>;
@@ -1611,10 +1672,6 @@
 				i2c@810c6a0000 {
 					clock-frequency = <100000>;
 					status = "okay";
-					//reg = <0>;
-					//i2c-mux,deselect-on-exit;
-					//#address-cells = <1>;
-					//#size-cells = <0>;
 
 					max96712_0@2d {
 						compatible = "nvidia,max96712_0";
@@ -1622,7 +1679,8 @@
 					};
 
 					cam_3@23 {
-						compatible = "sensing,sgx-yuv-gmsl2-3";
+						compatible = "sensing,sgcam-gmsl2-3";
+						def-addr = <0x5d>;
 						reg = <0x23>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x33>;
@@ -1760,7 +1818,7 @@
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1867,7 +1925,7 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode SENSOR_MODE_3840X2160_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -1887,9 +1945,8 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
-							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -1910,6 +1967,7 @@
 							default_exp_time = "22000";/* us */
 							embedded_metadata_height = "0";
 						};
+						
 
 						ports {
 							#address-cells = <1>;
@@ -1926,7 +1984,8 @@
 						};
 					};
 					cam_2@22 {
-						compatible = "sensing,sgx-yuv-gmsl2-2";
+						compatible = "sensing,sgcam-gmsl2-2";
+						def-addr = <0x5d>;
 						reg = <0x22>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x32>;
@@ -2064,7 +2123,7 @@
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -2171,7 +2230,7 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode SENSOR_MODE_3840X1080_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -2191,9 +2250,8 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
-							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -2230,7 +2288,8 @@
 						};
 					};
 					cam_1@21 {
-						compatible = "sensing,sgx-yuv-gmsl2-1";
+						compatible = "sensing,sgcam-gmsl2-1";
+						def-addr = <0x5d>;
 						reg = <0x21>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x31>;
@@ -2368,7 +2427,7 @@
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -2475,7 +2534,7 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode SENSOR_MODE_3840X2160_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -2495,9 +2554,8 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
-							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -2534,7 +2592,8 @@
 						};
 					};
 					cam_0@20 {
-						compatible = "sensing,sgx-yuv-gmsl2-0";
+						compatible = "sensing,sgcam-gmsl2-0";
+						def-addr = <0x5d>;
 						reg = <0x20>;
 						eeprom-def = <0x51>;
 						eeprom-addr = <0x30>;
@@ -2672,7 +2731,7 @@
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "297000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "800000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */
@@ -2740,7 +2799,7 @@
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
-							vc_id = "1";
+							vc_id = "0";
 							phy_mode = "DPHY";
 							discontinuous_clk = "no";
 							dpcm_enable = "false";
@@ -2779,7 +2838,7 @@
 							default_exp_time = "33334";/* us */
 							embedded_metadata_height = "0";
 						};
-						mode5 {/*mode ox08b_MODE_3840X2160_CROP_30FPS*/
+						mode5 {/*mode SENSOR_ISX028C_MODE_3840X2160_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -2799,9 +2858,8 @@
 							readout_orientation = "0";
 							line_length = "4200";
 							inherent_gain = "1";
-							mclk_multiplier = "25";
 							pix_clk_hz = "248832000";
-							serdes_pix_clk_hz = "800000000";
+							serdes_pix_clk_hz = "500000000";
 
 							gain_factor = "100";
 							min_gain_val = "100"; /* dB */

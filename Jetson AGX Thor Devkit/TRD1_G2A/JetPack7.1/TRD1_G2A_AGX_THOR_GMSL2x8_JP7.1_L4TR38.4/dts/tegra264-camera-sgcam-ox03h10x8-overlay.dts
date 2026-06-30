@@ -17,12 +17,12 @@
 #define CAM_SYNC    TEGRA264_MAIN_GPIO(K, 5)
 
 #define CAMERA_I2C_MUX_BUS(x) (0x1E + x)
-#define JETSON_COMPATIBLE	"nvidia,p3971-0089+p3834-0008", "nvidia,p3971-0050+p3834-0005", "nvidia,p3971-0080+p3834-0008"
+#define JETSON_COMPATIBLE	"nvidia,p3971-0089+p3834-0008", "nvidia,p3971-0050+p3834-0005", "nvidia,p3971-0080+p3834-0008", "nvidia,p3834-0008", "nvidia,tegra264"
 
 / {
-	overlay-name = "Jetson Sensing SG8A-AGON-G2Y-A1 IMX728x8";
-    jetson-header-name = "Jetson AGX CSI Connector";
-    compatible = JETSON_COMPATIBLE;
+	overlay-name = "Jetson Sensing SG8A_AGTH_G2Y_A1 OX03H10x8";
+	jetson-header-name = "Jetson AGX CSI Connector";
+	compatible = JETSON_COMPATIBLE;
 
 	fragment@0 {
 		target-path = "/";
@@ -34,94 +34,94 @@
 					port@0 {
 						reg = <0>;
 						status = "okay";
-                        jetson_vi_in0: endpoint {
-                            status = "okay";
-                            vc-id = <0>;
+						jetson_vi_in0: endpoint {
+							status = "okay";
+							vc-id = <0>;
 							port-index = <2>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out0>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out0>;
+						};
 					};
 					port@1 {
 						reg = <1>;
 						status = "okay";
-                        jetson_vi_in1: endpoint {
-                            status = "okay";
-                            vc-id = <1>;
+						jetson_vi_in1: endpoint {
+							status = "okay";
+							vc-id = <1>;
 							port-index = <2>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out1>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out1>;
+						};
 					};
 					port@2 {
 						reg = <2>;
 						status = "okay";
-                        jetson_vi_in2: endpoint {
-                            status = "okay";
+						jetson_vi_in2: endpoint {
+							status = "okay";
 							vc-id = <2>;
 							port-index = <2>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out2>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out2>;
+						};
 					};
 					port@3 {
 						reg = <3>;
 						status = "okay";
-                        jetson_vi_in3: endpoint {
-                            status = "okay";
+						jetson_vi_in3: endpoint {
+							status = "okay";
 							vc-id = <3>;
 							port-index = <2>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out3>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out3>;
+						};
 					};
 					port@4 {
 						reg = <4>;
 						status = "okay";
-                        jetson_vi_in4: endpoint {
-                            status = "okay";
-                            vc-id = <0>;
+						jetson_vi_in4: endpoint {
+							status = "okay";
+							vc-id = <0>;
 							port-index = <0>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out4>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out4>;
+						};
 					};
 					port@5 {
 						reg = <5>;
 						status = "okay";
-                        jetson_vi_in5: endpoint {
-                            status = "okay";
-                            vc-id = <1>;
+						jetson_vi_in5: endpoint {
+							status = "okay";
+							vc-id = <1>;
 							port-index = <0>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out5>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out5>;
+						};
 					};
 					port@6 {
 						reg = <6>;
 						status = "okay";
-                        jetson_vi_in6: endpoint {
-                            status = "okay";
+						jetson_vi_in6: endpoint {
+							status = "okay";
 							vc-id = <2>;
 							port-index = <0>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out6>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out6>;
+						};
 					};
 					port@7 {
 						reg = <7>;
 						status = "okay";
-                        jetson_vi_in7: endpoint {
-                            status = "okay";
+						jetson_vi_in7: endpoint {
+							status = "okay";
 							vc-id = <3>;
 							port-index = <0>;
-                            bus-width = <4>;
-                            remote-endpoint = <&jetson_csi_out7>;
-                        };
+							bus-width = <4>;
+							remote-endpoint = <&jetson_csi_out7>;
+						};
 					};
 				};
 			};
-            
+	
 			tegra-camera-platform {
 				compatible = "nvidia, tegra-camera-platform";
 
@@ -130,8 +130,8 @@
 					module0 {
 						status = "okay";
 						badge = "cam_bottomleft";
-                        position = "bottomleft";
-                        orientation = "1";
+						position = "bottomleft";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
@@ -142,7 +142,7 @@
 						status = "okay";
 						badge = "cam_centerleft";
 						position = "centerleft";
-                        orientation = "1";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
@@ -153,7 +153,7 @@
 						status = "okay";
 						badge = "cam_centerright";
 						position = "centerright";
-                        orientation = "1";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
@@ -164,29 +164,29 @@
 						status = "okay";
 						badge = "cam_topleft";
 						position = "topleft";
-                        orientation = "1";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
 							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_3@23";
-					    };
-                    };
-                    module4 {
+						};
+					};
+					module4 {
 						status = "okay";
 						badge = "cam_bottomright";
 						position = "bottomright";
-                        orientation = "1";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
 							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_4@20";
 						};
 					};
-                    module5 {
+					module5 {
 						status = "okay";
 						badge = "cam_topright";
-                        position = "topright";
-                        orientation = "1";
+						position = "topright";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
@@ -197,18 +197,18 @@
 						status = "okay";
 						badge = "cam_bottomcenter";
 						position = "bottomcenter";
-                        orientation = "1";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
 							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_6@22";
 						};
 					};
-                    module7 {
+					module7 {
 						status = "okay";
 						badge = "cam_topcenter";
 						position = "topcenter";
-                        orientation = "1";
+						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
@@ -222,10 +222,10 @@
 
 				/* set camera gpio direction to output */
 				gpio@810c300000 {
-					camera-control-output-high {
+					camera-control-output-low {
 						gpio-hog;
-						output-high;
-						gpios = <CAM0_RST_L 0 CAM0_PWDN 0 CAM1_RST_L 0 CAM1_PWDN 0>;
+						output-low;
+						gpios = <CAM0_RST_L 1 CAM0_PWDN 1 CAM1_RST_L 1 CAM1_PWDN 1>;
 						label = "cam0-rst", "cam0-pwdn", "cam1-rst", "cam1-pwdn";
 					};
 				};
@@ -247,20 +247,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in0: endpoint@0 {
-                                        status = "okay";
+									jetson_csi_in0: endpoint@0 {
+										status = "okay";
 										port-index = <2>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out0>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out0: endpoint@1 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in0>;
-                                    };
+									jetson_csi_out0: endpoint@1 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in0>;
+									};
 								};
 							};
 						};
@@ -272,20 +272,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in1: endpoint@2 {
-                                        status = "okay";
+									jetson_csi_in1: endpoint@2 {
+										status = "okay";
 										port-index = <2>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out1>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out1: endpoint@3 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in1>;
-                                    };
+									jetson_csi_out1: endpoint@3 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in1>;
+									};
 								};
 							};
 						};
@@ -297,20 +297,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in2: endpoint@4 {
-                                        status = "okay";
+									jetson_csi_in2: endpoint@4 {
+										status = "okay";
 										port-index = <2>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out2>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out2: endpoint@5 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in2>;
-                                    };
+									jetson_csi_out2: endpoint@5 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in2>;
+									};
 								};
 							};
 						};
@@ -322,20 +322,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in3: endpoint@6 {
-                                        status = "okay";
+									jetson_csi_in3: endpoint@6 {
+										status = "okay";
 										port-index = <2>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out3>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out3: endpoint@7 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in3>;
-                                    };
+									jetson_csi_out3: endpoint@7 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in3>;
+									};
 								};
 							};
 						};
@@ -348,19 +348,19 @@
 									reg = <0>;
 									status = "okay";
 									jetson_csi_in4: endpoint@08{
-                                        status = "okay";
+										status = "okay";
 										port-index = <0>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out4>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out4: endpoint@9 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in4>;
-                                    };
+									jetson_csi_out4: endpoint@9 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in4>;
+									};
 								};
 							};
 						};
@@ -372,20 +372,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in5: endpoint@10 {
-                                        status = "okay";
+									jetson_csi_in5: endpoint@10 {
+										status = "okay";
 										port-index = <0>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out5>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out5: endpoint@11 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in5>;
-                                    };
+									jetson_csi_out5: endpoint@11 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in5>;
+									};
 								};
 							};
 						};
@@ -397,20 +397,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in6: endpoint@12 {
-                                        status = "okay";
+									jetson_csi_in6: endpoint@12 {
+										status = "okay";
 										port-index = <0>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out6>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out6: endpoint@13 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in6>;
-                                    };
+									jetson_csi_out6: endpoint@13 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in6>;
+									};
 								};
 							};
 						};
@@ -422,20 +422,20 @@
 								port@0 {
 									reg = <0>;
 									status = "okay";
-                                    jetson_csi_in7: endpoint@14 {
-                                        status = "okay";
+									jetson_csi_in7: endpoint@14 {
+										status = "okay";
 										port-index = <0>;
-                                        bus-width = <4>;
+										bus-width = <4>;
 										remote-endpoint = <&cam_csi_out7>;
-                                    };
+									};
 								};
 								port@1 {
 									reg = <1>;
 									status = "okay";
-                                    jetson_csi_out7: endpoint@15 {
-                                        status = "okay";
-                                        remote-endpoint = <&jetson_vi_in7>;
-                                    };
+									jetson_csi_out7: endpoint@15 {
+										status = "okay";
+										remote-endpoint = <&jetson_vi_in7>;
+									};
 								};
 							};
 						};
@@ -444,7 +444,7 @@
 
 				i2c@810c6d0000 {
 					clock-frequency = <100000>;
-						status = "okay";
+					status = "okay";
 
 					max96712_1@29 {
 						compatible = "nvidia,max96712_1";
@@ -452,20 +452,28 @@
 					};
 
 					cam_7@23 {
-						compatible = "sensing,imx728c-7";
+						compatible = "sensing,sgcam-gmsl2-7";
 						def-addr = <0x36>;
 						reg = <0x23>;
-								eeprom-def = <0x50>;
-								eeprom-addr = <0x33>;
+						eeprom-def = <0x50>;
+						eeprom-addr = <0x33>;
 						devnode = "video7";
 
 						/* Physical dimensions of sensor */
 						physical_w = "15.0";
 						physical_h = "12.5";
-						sensor_model ="imx728c";
 
+						sensor_model ="ox03h10";
+
+						/* Defines number of frames to be dropped by driver internally after applying */
+						/* sensor crop settings. Some sensors send corrupt frames after applying */
+						/* crop co-ordinates */
 						post_crop_frame_drop = "0";
-						use_decibel_gain = "true";
+
+						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+						use_decibel_gain = "false";
+
+						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
 
 						clocks = <&bpmp TEGRA264_CLK_EXTPERIPH1>,
@@ -474,8 +482,8 @@
 						mclk = "extperiph1";
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
-											
-						mode0 {
+
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -485,25 +493,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -512,11 +520,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -534,7 +565,7 @@
 						};
 					};
 					cam_6@22 {
-						compatible = "sensing,imx728c-6";
+						compatible = "sensing,sgcam-gmsl2-6";
 						def-addr = <0x36>;
 						reg = <0x22>;
 						eeprom-def = <0x50>;
@@ -545,12 +576,15 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="imx728c";
+						sensor_model ="ox03h10";
 
+						/* Defines number of frames to be dropped by driver internally after applying */
+						/* sensor crop settings. Some sensors send corrupt frames after applying */
+						/* crop co-ordinates */
 						post_crop_frame_drop = "0";
 
 						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
-						use_decibel_gain = "true";
+						use_decibel_gain = "false";
 
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
@@ -562,7 +596,7 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -572,25 +606,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -599,11 +633,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -621,7 +678,7 @@
 						};
 					};
 					cam_5@21 {
-						compatible = "sensing,imx728c-5";
+						compatible = "sensing,sgcam-gmsl2-5";
 						def-addr = <0x36>;
 						reg = <0x21>;
 						eeprom-def = <0x50>;
@@ -632,10 +689,15 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="imx728c";
+						sensor_model ="ox03h10";
 
+						/* Defines number of frames to be dropped by driver internally after applying */
+						/* sensor crop settings. Some sensors send corrupt frames after applying */
+						/* crop co-ordinates */
 						post_crop_frame_drop = "0";
-						use_decibel_gain = "true";
+
+						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+						use_decibel_gain = "false";
 
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
@@ -646,8 +708,8 @@
 						mclk = "extperiph1";
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
-						
-						mode0 {
+
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -657,25 +719,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -684,11 +746,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -706,7 +791,7 @@
 						};
 					};
 					cam_4@20 {
-						compatible = "sensing,imx728c-4";
+						compatible = "sensing,sgcam-gmsl2-4";
 						def-addr = <0x36>;
 						reg = <0x20>;
 						eeprom-def = <0x50>;
@@ -717,10 +802,15 @@
 						physical_w = "15.0";
 						physical_h = "12.5";
 
-						sensor_model ="imx728c";
+						sensor_model ="ox03h10";
 
+						/* Defines number of frames to be dropped by driver internally after applying */
+						/* sensor crop settings. Some sensors send corrupt frames after applying */
+						/* crop co-ordinates */
 						post_crop_frame_drop = "0";
-						use_decibel_gain = "true";
+
+						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
+						use_decibel_gain = "false";
 
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
@@ -732,7 +822,7 @@
 						der_id = <1>;//
 						reset-gpios = <&gpio_main CAM0_PWDN GPIO_ACTIVE_HIGH>;
 
-						mode0 {
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_a";
@@ -742,25 +832,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -769,13 +859,36 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
-						};
 
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
+						};
+						
 						ports {
 							#address-cells = <1>;
 							#size-cells = <0>;
@@ -794,46 +907,46 @@
 
 				i2c@810c6a0000 {
 					clock-frequency = <100000>;
-							status = "okay";
-							
+					status = "okay";
+
 					max96712_0@2d {
 						compatible = "nvidia,max96712_0";
 						reg = <0x2d>;
 					};
 
 					cam_3@23 {
-						compatible = "sensing,imx728c-3";
+						compatible = "sensing,sgcam-gmsl2-3";
 						def-addr = <0x36>;
 						reg = <0x23>;
 						eeprom-def = <0x50>;
 						eeprom-addr = <0x33>;
 						devnode = "video3";
-						
+
 						/* Physical dimensions of sensor */
 						physical_w = "15.0";
 						physical_h = "12.5";
-						
-						sensor_model ="imx728c";
+
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
 						/* crop co-ordinates */
-						post_crop_frame_drop = "0";                               
+						post_crop_frame_drop = "0";
 
 						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
-						use_decibel_gain = "true";
+						use_decibel_gain = "false";
 
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
-						
+
 						clocks = <&bpmp TEGRA264_CLK_EXTPERIPH1>,
-							<&bpmp TEGRA264_CLK_EXTPERIPH1>;
+						<&bpmp TEGRA264_CLK_EXTPERIPH1>;
 						clock-names = "extperiph1", "pllp_grtba";
 						mclk = "extperiph1";
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
-												
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -843,25 +956,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -870,11 +983,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -892,7 +1028,7 @@
 						};
 					};
 					cam_2@22 {
-						compatible = "sensing,imx728c-2";
+						compatible = "sensing,sgcam-gmsl2-2";
 						def-addr = <0x36>;
 						reg = <0x22>;
 						eeprom-def = <0x50>;
@@ -902,8 +1038,8 @@
 						/* Physical dimensions of sensor */
 						physical_w = "15.0";
 						physical_h = "12.5";
-						
-						sensor_model ="imx728c";
+
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -911,19 +1047,19 @@
 						post_crop_frame_drop = "0";
 
 						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
-						use_decibel_gain = "true";
-						
+						use_decibel_gain = "false";
+
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
 
 						clocks = <&bpmp TEGRA264_CLK_EXTPERIPH1>,
-							<&bpmp TEGRA264_CLK_EXTPERIPH1>;
+						<&bpmp TEGRA264_CLK_EXTPERIPH1>;
 						clock-names = "extperiph1", "pllp_grtba";
 						mclk = "extperiph1";
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
-						
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -933,25 +1069,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -960,11 +1096,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -982,7 +1141,7 @@
 						};
 					};
 					cam_1@21 {
-						compatible = "sensing,imx728c-1";
+						compatible = "sensing,sgcam-gmsl2-1";
 						def-addr = <0x36>;
 						reg = <0x21>;
 						eeprom-def = <0x50>;
@@ -992,8 +1151,8 @@
 						/* Physical dimensions of sensor */
 						physical_w = "15.0";
 						physical_h = "12.5";
-						
-						sensor_model ="imx728c";
+
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -1001,19 +1160,19 @@
 						post_crop_frame_drop = "0";
 
 						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
-						use_decibel_gain = "true";
+						use_decibel_gain = "false";
 
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
-						
+
 						clocks = <&bpmp TEGRA264_CLK_EXTPERIPH1>,
-							<&bpmp TEGRA264_CLK_EXTPERIPH1>;
+						<&bpmp TEGRA264_CLK_EXTPERIPH1>;
 						clock-names = "extperiph1", "pllp_grtba";
 						mclk = "extperiph1";
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
-												
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -1023,25 +1182,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -1050,11 +1209,34 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
 
 						ports {
@@ -1072,18 +1254,18 @@
 						};
 					};
 					cam_0@20 {
-						compatible = "sensing,imx728c-0";
+						compatible = "sensing,sgcam-gmsl2-0";
 						def-addr = <0x36>;
 						reg = <0x20>;
 						eeprom-def = <0x50>;
 						eeprom-addr = <0x30>;
 						devnode = "video0";
-						
+
 						/* Physical dimensions of sensor */
 						physical_w = "15.0";
 						physical_h = "12.5";
-						
-						sensor_model ="imx728c";
+
+						sensor_model ="ox03h10";
 
 						/* Defines number of frames to be dropped by driver internally after applying */
 						/* sensor crop settings. Some sensors send corrupt frames after applying */
@@ -1091,19 +1273,19 @@
 						post_crop_frame_drop = "0";
 
 						/* Convert Gain to unit of dB (decibel) befor passing to kernel driver */
-						use_decibel_gain = "true";
+						use_decibel_gain = "false";
 
 						/* enable CID_SENSOR_MODE_ID for sensor modes selection */
 						use_sensor_mode_id = "true";
 
 						clocks = <&bpmp TEGRA264_CLK_EXTPERIPH1>,
-							<&bpmp TEGRA264_CLK_EXTPERIPH1>;
+						<&bpmp TEGRA264_CLK_EXTPERIPH1>;
 						clock-names = "extperiph1", "pllp_grtba";
 						mclk = "extperiph1";
 						der_id = <0>;//
 						reset-gpios = <&gpio_main CAM1_PWDN GPIO_ACTIVE_HIGH>;
-						
-						mode0 {/*mode SENSOR_MODE_3840X2160_30FPS*/
+
+						mode0 {/*mode SENSOR_MODE_1920X1536_30FPS*/
 							mclk_khz = "24000";
 							num_lanes = "4";
 							tegra_sinterface = "serial_c";
@@ -1113,25 +1295,25 @@
 							dpcm_enable = "false";
 							cil_settletime = "0";
 							lane_polarity = "0";
-							dynamic_pixel_bit_depth = "12";
+							dynamic_pixel_bit_depth = "16";
 							csi_pixel_bit_depth = "12";
-							mode_type = "bayer";
-							pixel_phase = "rggb";
-							
-							active_w = "2880";
-							active_h = "1860";
+							mode_type = "bayer_wdr_pwl";
+							pixel_phase = "bggr";
+
+							active_w = "1920";
+							active_h = "1536";
 							readout_orientation = "0";
-							line_length = "4400";
+							line_length = "2200";
 							inherent_gain = "1";
 							mclk_multiplier = "25";
 							pix_clk_hz = "200000000";
-							serdes_pix_clk_hz = "300000000";
+							serdes_pix_clk_hz = "600000000";
 
-							gain_factor = "10";
-							min_gain_val = "10"; /* dB */
-							max_gain_val = "240"; /* dB */
-							step_gain_val = "1"; /* 0.3 */
-							default_gain = "10";
+							gain_factor = "100";
+							min_gain_val = "100"; 
+							max_gain_val = "1550"; 
+							step_gain_val = "1";
+							default_gain = "100"; 
 							min_hdr_ratio = "1";
 							max_hdr_ratio = "1";
 							framerate_factor = "1000000";
@@ -1140,12 +1322,36 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "59"; /*us, 2 lines*/
-							max_exp_time = "33333";
+							min_exp_time = "40"; 
+							max_exp_time = "32000";
 							step_exp_time = "1";
-							default_exp_time = "33333";/* us */
+							default_exp_time = "32000";/* us */
 							embedded_metadata_height = "0";
+
+							/* WDR related settings */
+							num_control_point = "10";
+							control_point_x_0 = "0";
+							control_point_x_1 = "255";
+							control_point_x_2 = "511";
+							control_point_x_3 = "1023";
+							control_point_x_4 = "2047";
+							control_point_x_5 = "4095";
+							control_point_x_6 = "8191";
+							control_point_x_7 = "16383";
+							control_point_x_8 = "32767";
+							control_point_x_9 = "65535";
+							control_point_y_0 = "0";
+							control_point_y_1 = "255";
+							control_point_y_2 = "511";
+							control_point_y_3 = "767";
+							control_point_y_4 = "1023";
+							control_point_y_5 = "1535";
+							control_point_y_6 = "2047";
+							control_point_y_7 = "2559";
+							control_point_y_8 = "3071";
+							control_point_y_9 = "4095";
 						};
+
 						ports {
 							#address-cells = <1>;
 							#size-cells = <0>;

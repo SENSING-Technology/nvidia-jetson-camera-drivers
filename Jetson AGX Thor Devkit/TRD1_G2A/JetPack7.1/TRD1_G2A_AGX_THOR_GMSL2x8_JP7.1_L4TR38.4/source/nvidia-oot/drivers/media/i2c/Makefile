@@ -33,13 +33,9 @@ ifdef CONFIG_MEDIA_SUPPORT
 # obj-m += nv_ar0234.o
 # obj-m += nv_hawk_owl.o
 # obj-m += max929x.o
-# obj-m += max96712_tpg.o
-# obj-m += max96726_tpg.o
 endif
 
 # obj-m += pca9570.o
 # obj-m += virtual_i2c_mux.o
 endif
 endif
-
-

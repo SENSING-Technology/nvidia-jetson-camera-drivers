@@ -3,25 +3,67 @@
 * Jetpack 7.1
 
 #### Supported Camera Modules
-```
-Camera Model               Resolution         Output     Interface   MaxDevices  Frame Sync
-SG8-OX08DC-G2G             3840*2160V         RAW12      GMSL2-6G        4          MFP7          
-SG8-IMX728C-G2G            2880*1860V         RAW12      GMSL2-6G        6          MFP7
-SG2S24AFxK                 1920*1080V         YUV422     GMSL2-3G        8          MFP7
-SG2-AR0233C-5200-G2A       1920*1080V         YUV422     GMSL2-6G        8          MFP7
-SG2-IMX390C-5200-G2A       1920*1080V         YUV422     GMSL2-6G        8          MFP7
-SG2-OX03CC-5200-G2F        1920*1080V         YUV422     GMSL2-3G        8          MFP7
-SG3S11AFLK                 1920*1536V         YUV422     GMSL2-3G        8          MFP7 
-SG3S-ISX031C-GMSL2F        1920*1536V         YUV422     GMSL2-3G        8          MFP7
-SG3S-ISX031C-GMSL2         1920*1536V         YUV422     GMSL2-6G        8          MFP7
-SG5-IMX490C-5300-GMSL2     2880*1860V         YUV422     GMSL2-6G        6          MFP8
-SG8S-AR0820C-5300-G2A      3840*2160V         YUV422     GMSL2-6G        4          MFP7
-SHF3L                      1920*1536V         YUV422     GMSL2-6G        8          MFP7
-SHF3H                      1920*1536V         YUV422     GMSL2-6G        4          MFP7
-SG8-ISX028C-G2G            3840*2160V         YUV422     GMSL2-6G        4          MFP7
-SG8-OX08DC-5300-G2G-Hxxx   3840*2160V         YUV422     GMSL2-6G        4          MFP7
-```
-Note: If the maximum supported number above is not 8, it indicates that the maximum number of connections per MAX96712 is half of that value.
+
+* SG8-OX08DC-G2G-Hxxx (Monocular, RAW)
+  * support max 4 cameras to bring up at the same time
+
+* SG8-IMX728C-G2G-Hxxx (Monocular, RAW)
+  * support max 4 cameras to bring up at the same time 
+
+* SG3-OX03H10C-G2F-Hxxx (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
+* SHW3G (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
+* SHW5G (Monocular, RAW)
+  * support max 6 cameras to bring up at the same time
+
+* SDV11NM1 (Stereo, RAW)
+  * support max 4 cameras to bring up at the same time
+
+* Astra S56 (Stereo, RAW)
+  * support max 2 cameras to bring up at the same time
+ 
+* Astra S36 (Stereo, YUV)
+  * support max 4 cameras to bring up at the same time
+
+* SGX-YUV-GMSL2 (Monocular, YUV)
+
+   * SG2-IMX390C-5200-G2A-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG2-AR0233-5200-G2A-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG2S24AFSK
+      * support max 8 cameras to bring up at the same time
+
+   * SG3-ISX031C-GMSL2-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG3-ISX031C-GMSL2F-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG5-IMX490C-5300-GMSL2-Hxxx
+      * support max 6 cameras to bring up at the same time
+
+   * SG8S-AR0820C-5300-G2A-Hxxx
+      * support max 4 cameras to bring up at the same time
+
+   * SG8-OX08DC-5300-G2G-Hxxx
+      * support max 4 cameras to bring up at the same time   
+
+   * SG8-ISX028C-G2G-Hxxx
+      * support max 4 cameras to bring up at the same time
+
+   * SHF3L
+      * support max 8 cameras to bring up at the same time
+
+   * SHF3H
+      * support max 4 cameras to bring up at the same time
+
+
 
 #### Quick Bring Up
 
@@ -30,6 +72,9 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    CN2 (CAM0/CAM1/CAM2/CAM3)
 
    CN1 (CAM4/CAM5/CAM6/CAM7)
+
+   Note: Stereo camera needs an even port (CAM0/2/4/6) and the next port must be free.
+
 
    The correspondence between CAM ports and device nodes is as follows:
 
@@ -43,6 +88,7 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
     CN1(CAM5)               cam_5                    /dev/video5                 
     CN1(CAM6)               cam_6                    /dev/video6 
     CN1(CAM7)               cam_7                    /dev/video7                 
+ 
     ```  
 
 
@@ -52,25 +98,88 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    /home/nvidia/TRD1_G2A_AGX_THOR_GMSL2x8_JP7.1_L4TR38.4
    ```
 
-3. Enter the driver directory, run the script "install.sh"
+3. Select camera for cam_0~cam_7
+
+   Enter the driver directory, run the script "generate_camera_overlay.py" to select camera.
+
+   ```
+   cd TRD1_G2A_AGX_THOR_GMSL2x8_JP7.1_L4TR38.4
+   python3 generate_camera_overlay.py
+   ```
+
+   for example
+   ```   
+   nvidia@nvidia:~/TRD1_G2A_AGX_THOR_GMSL2x8_JP7.1_L4TR38.4$ python3 generate_camera_overlay.py
+   Available models:
+   0: imx728 (raw12)
+   1: ox08d (raw12)
+   2: ox03h10 (raw12)
+   3: shw3g (raw12)
+   4: shw5g (raw10)
+   5: sgx-yuv-gmsl2 (uyvy)
+   6: s36 (uyvy)
+   7: s56 (raw10)
+   8: sdv11nm1 (raw10)
+
+   Select camera for cam_0 (0-8): 4
+   Select camera for cam_1 (0-8): 4
+   Select camera for cam_2 (0-8): 5
+   Placed stereo pair 's36' on cam_2 and cam_3.
+   Select camera for cam_4 (0-8): 6
+   Placed stereo pair 's56' on cam_4 and cam_5.
+   Select camera for cam_6 (0-8): 7
+   Placed stereo pair 'sdv11nm1' on cam_6 and cam_7.
+
+   Selected configurations:
+   cam_0 -> sgx-yuv-gmsl2
+   cam_1 -> sgx-yuv-gmsl2
+   cam_2 -> s36
+   cam_3 -> s36
+   cam_4 -> s56
+   cam_5 -> s56
+   cam_6 -> sdv11nm1
+   cam_7 -> sdv11nm1
+
+   Found cam_0@20
+   Found cam_1@21
+   Found cam_2@22
+   Found cam_3@23
+   Found cam_4@20
+   Found cam_5@21
+   Found cam_6@22
+   Found cam_7@23
+
+   Generated: dts/tegra264-camera-sgcamx8-overlay.dts
+   Compiling...
+   Generated: dts/tegra264-camera-sgcamx8-overlay.dtbo
+
+   --- Final Port Configuration ---
+   Port 0 (cam_0): sgx-yuv-gmsl2 (uyvy)
+   Port 1 (cam_1): sgx-yuv-gmsl2 (uyvy)
+   Port 2 (cam_2): s36 (uyvy)
+   Port 3 (cam_3): s36 (uyvy)
+   Port 4 (cam_4): s56 (raw10)
+   Port 5 (cam_5): s56 (raw10)
+   Port 6 (cam_6): sdv11nm1 (raw10)
+   Port 7 (cam_7): sdv11nm1 (raw10)
+   --- End of Configuration ---
+   ```
+
+   After execution, a new DTB file is generated:
+
+   dts/tegra264-camera-sgcamx8-overlay.dtbo
+
+   
+4. Install Kernel image and camera overly file
 
    ```
    cd TRD1_G2A_AGX_THOR_GMSL2x8_JP7.1_L4TR38.4
    chmod a+x ./install.sh
-   sudo ./install.sh
+   ./install.sh
    ```
-   
 
-4. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
+5. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
 
-    Based on the type of camera you need to enable, execute the command "sudo /opt/nvidia/jetson-io/jetson-io.py" to select the corresponding device tree, and then modify "load_modules.sh" to load the appropriate camera driver file.
-   ```
-   Camera Model                        Device tree                        camera driver
-   SG8-OX08DC-G2G         Jetson Sensing SG8A_AGTH_G2Y_A1 OX08Dx8          sg8-ox08dc-g2g.ko
-   SG8-IMX728C-G2G        Jetson Sensing SG8A-AGON-G2Y-A1 IMX728x8         sg8-imx728c-g2g.ko
-   YUV-Camera             Jetson Sensing SG8A_AGTH_G2Y_A1 GMSL2x8          sgx-yuv-gmsl2.ko 
-   ```
-   Here is the example for enabling the YUV-Camera:
    ```
    sudo /opt/nvidia/jetson-io/jetson-io.py
 
@@ -80,105 +189,47 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
    ```
-   If you are unable to import the device tree by executing the "sudo /opt/nvidia/jetson-io/jetson-io.py script", please run update_jetsonio.sh to manually modify the configuration.
-   Here is the example for enabling the YUV-Camera:
+
+6. After the device reboot, run the script "load_module.sh".
+
+   6.1 Modify the script "load_modules.sh"
+
+   Follow the "Camera Configuration Instructions.pdf" to modify load_modules.sh for the connected cameras.
+
+   6.2 run the script "load_module.sh".
    ```
-   sudo ./update_jetsonio
-   ==========================================
-   Jetson Camera Configuration Selector
-   ==========================================
-   Please select the camera to enable:
-   0 : SG8-OX08DC-5300-G2G-Hxxx
-   1 : SG8-IMX728C-G2G-Hxxx
-   2 : YUV-Camera
-   ==========================================
-   Enter number [0-2]: 2
+   sudo ./load_modules.sh
+   ```
+   After the module is loaded, the device nodes /dev/video0~video7 will be generated.
+   
+   6.3 Mixed use of 3G mode cameras (with F identifier: XXX-GMSL2F-XXX) and 6G mode cameras (without F identifier)
 
-   Target Configuration: tegra264-camera-yuv-gmsl2x8-overlay.dtbo
-   System reset to default state using backup...
-   New configuration added successfully.
+   If you wish to use the mixed mode, we have provided the following methods in the driver for your use.
 
-   Done. Please reboot the system to apply changes: sudo reboot
+   a. Determine the corresponding mode for each camera channel, where 3G is represented by (1) and 6G by (0).
+
+   b. Load the driver manually according to the actual situation.
+
+   ```
+   sudo insmod ./ko/max96712.ko
+   sudo insmod ko/sgcam-gmsl2.ko enable_3G_0=1,1,0,0 enable_3G_1=0,0,1,1
    ```
    
+   enable_3G_0 represents the first input channel. The value `1,1,0,0` indicates that the first and second cameras operate in 3G mode, while the third and fourth cameras operate in 6G mode.
+   
+   enable_3G_1 represents the second input channel. The value `0,0,1,1` indicates that the first and second cameras operate in 6G mode, while the third and fourth cameras operate in 3G mode.
 
-5. After the device reboots, modify the "load_module.sh" script.
+7. Bring up the camera
 
-   5.1 Select the corresponding driver.
-
-   Use the following commands to select the driver file, choosing the correct ko file according to the connected camera. Please ensure the selected ko file matches the active device tree, or the loading process will fail.
-   ```
-   # sudo insmod ko/sg8-ox08dc-g2g.ko
-   # sudo insmod ko/sg8-imx728c-g2g.ko
-   sudo insmod ko/sgx-yuv-gmsl2.ko enable_3G_0=1,0,0,0 enable_3G_1=0,0,0,0
-   ```
-   5.2 Modify the camera to the corresponding 3G/6G mode
-   ```
-   enable_3G_0=,,, enable_3G_1=,,,
-   The values in enable_3G_0 correspond to video0-3, and enable_3G_1 corresponds to video4-7. A value of 1 enables 3G mode for the channel, while 0 sets it to 6G mode.
-   For example, "sudo insmod ko/sgx-yuv-gmsl2.ko enable_3G_0=1,0,0,0 enable_3G_1=0,0,0,0" indicates that video0 is in 3G mode, while the remaining channels are in 6G mode.
-   ```
-   5.3 Modify the video device configuration command lines.
-
-   The following commands are used to configure the cameras recognized as video0 to video7 in the system. Adjust the sensor_mode parameter according to the camera resolution, and set the trig_pin and trig_mode parameters based on the camera model and connection used.
-
-   ```
-   v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video1 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video2 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video3 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video4 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video5 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video6 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   v4l2-ctl -d /dev/video7 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
-   ```
-   sensor_mode:
-   ```
-   For RAW camera:
-   sensor_mode=0
-
-   For YUV camera:
-   sensor_mode=0:1920*1080
-   sensor_mode=1:1920*1536
-   sensor_mode=2:2880*1860
-   sensor_mode=3:3840*2160
-
-   Note: The SG8-ISX028C-G2G requires sensor_mode=5. All other YUV cameras use the default modes corresponding to the resolutions listed above
-   ```
-   The "trig_mode" and "trig_pin" parameters denote the trigger mode and the corresponding trigger pin to be utilized.
-   ```
-   For  SG5-IMX490C-5300-GMSL2:
-   trig_pin=0x00020008:（DES trigger pin: mfp2; SER trigger pin: mfp8）
-   For all others:
-   trig_pin=0x00020007:（DES trigger pin: mfp2; SER trigger pin: mfp7）
-   ```
-   For YUV cameras,trig_mode:
-   ```
-   Auto-trigger Mode (The cameras are triggered automatically upon camera activation. However, the cameras are not synchronized)trig_mode=0;
-
-   For Jetson Orin Trigger Mode (The cameras are triggered and synchronized through the trigger signal generated from the Jetson Orin):trig_mode=2;
-
-   For External-Trigger mode (The cameras are synchronously triggered via the trigger signal generated by the external signal generator that is connected to the trigger Pin of the Kit):trig_mode=2;
-   ```
-   For  RAW camera(SG8-OX08DC-G2G and SG8-IMX728C-G2G),trig_mode:
-   ```
-   Auto-trigger Mode (The cameras are triggered automatically upon camera activation. However, the cameras are not synchronized)trig_mode=0;
-
-   For Jetson Orin Trigger Mode (The cameras are triggered and synchronized through the trigger signal generated from the Jetson Orin):trig_mode=1;
-
-   For External-Trigger mode (The cameras are synchronously triggered via the trigger signal generated by the external signal generator that is connected to the trigger Pin of the Kit):trig_mode=1;
-   ```
-   Note:For Jetson Orin Trigger Mode and External-Trigger Mode, a trigger signal is required. Please refer to section "7. Camera Trigger Sync" for details.
-
-6. Bring up the camera
-
-   6.1 Install argus_camera
+   7.1 Install argus_camera
    ```
    sudo apt-get install nvidia-l4t-jetson-multimedia-api
    ```
    After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
 
-   6.2 Bring up RAW Camera Modules
+   7.2 Bring up RAW Camera Modules
+
+   7.2.1 Camera Testing
 
    Start nvargus-daemon in a terminal
    ```
@@ -214,13 +265,34 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    argus_camera -d 7
    ```
 
-   6.3 Bring up YUV Camera Modules
+   7.2.2 IMU Testing 
+   
+   Only for S56 Camera.
+
+   Since no interrupt pin is reserved in the hardware, the IMU driver operates in polling mode.
+
+   ```
+   cd sample/bmi088/
+   make clean && make
+   ```
+
+   Accelerometer Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name accelerometer -g
+   ```
+
+   Gyroscope Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name gyroscope -g
+   ```
+
+   7.3 Bring up YUV Camera Modules
 
    Run the gst-launch-1.0 in a terminal.
    ```
    ## CAM0
    gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink -ev
-  
+
    ## CAM1
    gst-launch-1.0 v4l2src device=/dev/video1 ! xvimagesink -ev
 
@@ -228,10 +300,10 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    gst-launch-1.0 v4l2src device=/dev/video2 ! xvimagesink -ev
 
    ## CAM3
-    gst-launch-1.0 v4l2src device=/dev/video3 ! xvimagesink -ev
+   gst-launch-1.0 v4l2src device=/dev/video3 ! xvimagesink -ev
 
    ## CAM4
-    gst-launch-1.0 v4l2src device=/dev/video4 ! xvimagesink -ev
+   gst-launch-1.0 v4l2src device=/dev/video4 ! xvimagesink -ev
 
    ## CAM5
    gst-launch-1.0 v4l2src device=/dev/video5 ! xvimagesink -ev
@@ -242,25 +314,53 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    ## CAM7
    gst-launch-1.0 v4l2src device=/dev/video7 ! xvimagesink -ev
    ```
-7. Camera Trigger Sync
 
-   7.1 Modify load_modules.sh script and re-run it.
-      ```
-      v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video1 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video2 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video3 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video4 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video5 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video6 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      v4l2-ctl -d /dev/video7 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=2
-      ```
+8. Camera Trigger Sync
 
-   7.2 External Trigger Mode
+   8.1 Enable camera slave Mode
+
+   Follow the "Camera Configuration Instructions.pdf", modify load_modules.sh script to enale slave mode, then re-run it.
+
+   Below is a reference configuration to enable camera slave mode:
+
+   ```
+   # For shw3g module
+   v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x36723377,trig_mode=1
+
+   # For SG5-IMX490C-5300-GMSL2 module
+   v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x00020008,trig_mode=1
+
+   # For other camera modules
+   v4l2-ctl -d /dev/video* -c sensor_mode=0,trig_pin=0x00020007,trig_mode=1
+   ```
+
+   These configurations are interpreted as follows:
+
+   trig_mode
+   ```
+   0 = Master mode, 1 = Slave mode
+   ```
+
+   trig_pin
+   ```
+   0x36723377 (Left to Right):
+   36: Deserializer first trigger pin = mfp6, tx_id = 3
+   72: Deserializer second trigger pin = mfp2, tx_id = 7
+   33: Serializer first trigger pin = mfp3, rx_id = 3
+   77: Serializer second trigger pin = mfp7, rx_id = 7
+
+   0x00020007 (Left to Right):
+   0002: Deserializer trigger pin = mfp2
+   0007: Serializer trigger pin = mfp7
+   ```
+
+   8.2 External Trigger Mode
 
    External Trigger Port: CN4
 
-   The PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. Connect the corresponding pins of the signal generator to these pins.
+   The PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. 
+   Connect the corresponding pins of the signal generator to these pins.
+
    ```
    CAM-FSYNC1 Pin Trigger Signal Parameters:
    Frequency: 30 Hz
@@ -271,9 +371,20 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
    PIN 6: GND
    ```
 
-   7.3 Jetson Thor Trigger Mode
+   For the SWH3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0/CAM1/CAM2/CAM3) and PIN2 (CAM-FSYNC2, for CAM4/CAM5/CAM6/CAM7).
+   
+   ```
+   CAM-FSYNC4 pin and CAM-FSYNC2 Pin Trigger Signal Parameters:
+   Frequency: 83 kHz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 90%
+   ```
 
-   When utilize Jetson Thor Trigger Mode,it is required to configurate the trigger signal generated from the Jetson Thor via the following steps.
+   8.3 Internal Trigger Mode
+
+   Note: Internal trigger mode is not supported for SHW3G modules, but is supported for other modules.
+
    ```
    # Export PWM channel 0
    echo 0 > /sys/class/pwm/pwmchip4/export
@@ -347,7 +458,7 @@ Note: If the maximum supported number above is not 8, it indicates that the maxi
 
    ```
    sudo insmod ko/max96712.ko
-   sudo insmod ko/sgx-yuv-gmsl2.ko
+   sudo insmod ko/sgcam-gmsl2.ko
    ```
 7. Bring up the camera
 

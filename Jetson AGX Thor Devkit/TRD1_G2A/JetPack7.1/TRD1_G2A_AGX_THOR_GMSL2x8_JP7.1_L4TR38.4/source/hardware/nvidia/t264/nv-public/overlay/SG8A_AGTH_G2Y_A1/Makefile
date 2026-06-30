@@ -8,18 +8,13 @@ old-dtbo := $(dtbo-y)
 dtb-y :=
 dtbo-y :=
 makefile-path := t264/nv-public/overlay/SG8A_AGTH_G2Y_A1
-
-ifdef SG8A_AGTH_G2Y_A1
-
-ifdef SG8_OX08DC_G2G
-dtbo-y += tegra264-camera-ox08dx8-overlay.dtbo
-else ifdef SGX_YUV_GMSL2
-dtbo-y += tegra264-camera-yuv-gmsl2x8-overlay.dtbo
-else ifdef SG8_IMX728C_G2G
-dtbo-y += tegra264-camera-imx728x8-overlay.dtbo
-endif
-
-endif
+dtbo-y += tegra264-camera-sgcam-ox08dx8-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-s36x4-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-s56x4-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-sdv11nm1x4-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-shw3gx8-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-shw5gx8-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-yuv-gmsl2x8-overlay.dtbo
 
 ifneq ($(dtb-y),)
 dtb-y := $(addprefix $(makefile-path)/,$(dtb-y))
