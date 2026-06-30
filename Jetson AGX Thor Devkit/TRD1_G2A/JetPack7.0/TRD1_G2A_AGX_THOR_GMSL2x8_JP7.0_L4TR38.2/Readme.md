@@ -229,6 +229,8 @@
 
    7.2.1 Bring up RAW Camera Modules
 
+   7.2.1 Camera Testing
+
    Start nvargus-daemon in a terminal
    ```
    sudo service nvargus-daemon stop
@@ -264,6 +266,27 @@
    ```
    7.2.2 Test IMU
      ```
+   cd sample/bmi088/
+   make clean && make
+   ```
+
+   Accelerometer Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name accelerometer -g
+   ```
+
+   Gyroscope Sample Output
+   ```
+   sudo ./iio_generic_buffer -a -c 10 --device-name gyroscope -g
+   ```
+
+   7.2.2 IMU Testing 
+   
+   Only for S56 Camera.
+
+   Since no interrupt pin is reserved in the hardware, the IMU driver operates in polling mode.
+
+   ```
    cd sample/bmi088/
    make clean && make
    ```
@@ -363,7 +386,7 @@
    PIN 6: GND
    ```
 
-   For the SWH3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0~CAM3) and PIN2 (CAM-FSYNC2, for CAM4~CAM5).
+   For the SWH3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0/CAM1/CAM2/CAM3) and PIN2 (CAM-FSYNC2, for CAM4/CAM5/CAM6/CAM7).
    
    ```
    CAM-FSYNC4 pin and CAM-FSYNC2 Pin Trigger Signal Parameters:
