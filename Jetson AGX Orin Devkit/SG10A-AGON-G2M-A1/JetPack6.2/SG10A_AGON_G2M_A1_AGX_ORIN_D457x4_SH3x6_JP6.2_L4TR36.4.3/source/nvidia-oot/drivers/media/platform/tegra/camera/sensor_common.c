@@ -353,7 +353,7 @@ static int sensor_common_parse_image_props(
 				__func__);
 			goto fail;
 		}
-		ret = sprintf(pix_format, "%s_%s%d", mode_str, phase_str, depth);
+		ret = snprintf(pix_format, sizeof(pix_format), "%s_%s%d", mode_str, phase_str, depth);
 		if (ret < 0)
 			return -EINVAL;
 		temp_str = pix_format;
