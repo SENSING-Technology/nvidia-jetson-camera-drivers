@@ -1,0 +1,12 @@
+
+#### 20260528 #### 
+
+The following camera models are supported:
+
+    SG17-IMX735C-G3A-H100MA 
+    SG12-IMX577C-G3A-H90K 
+    SG8-IMX715C-G3A-H90T 
+    SG2-AR0234C-G2F-HXXX（60fps）
+    SG8-ISX028C-G2G-Hxxx 
+    SG3S-ISX031C-G2F-HXXX
+    SG3S-ISX031C-G2G-HXXX（60fps）

@@ -1,0 +1,3094 @@
+/dts-v1/;
+
+/ {
+	overlay-name = "Jetson Sensing SG16A_AGTH_G3Y_A1 IMX577x16";
+	jetson-header-name = "Jetson AGX CSI Connector";
+	compatible = "nvidia,p3971-0089+p3834-0008\0nvidia,p3971-0050+p3834-0005\0nvidia,p3971-0080+p3834-0008\0nvidia,p3834-0008\0nvidia,tegra264";
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+
+			tegra-capture-vi {
+				num-channels = <0x10>;
+
+				ports {
+					status = "okay";
+
+					port@0 {
+						reg = <0x00>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x00>;
+							port-index = <0x00>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x01>;
+							phandle = <0x12>;
+						};
+					};
+
+					port@1 {
+						reg = <0x01>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x01>;
+							port-index = <0x00>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x02>;
+							phandle = <0x14>;
+						};
+					};
+
+					port@2 {
+						reg = <0x02>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x02>;
+							port-index = <0x00>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x03>;
+							phandle = <0x16>;
+						};
+					};
+
+					port@3 {
+						reg = <0x03>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x03>;
+							port-index = <0x00>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x04>;
+							phandle = <0x18>;
+						};
+					};
+
+					port@4 {
+						reg = <0x04>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x00>;
+							port-index = <0x05>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x05>;
+							phandle = <0x1a>;
+						};
+					};
+
+					port@5 {
+						reg = <0x05>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x01>;
+							port-index = <0x05>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x06>;
+							phandle = <0x1c>;
+						};
+					};
+
+					port@6 {
+						reg = <0x06>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x02>;
+							port-index = <0x05>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x07>;
+							phandle = <0x1e>;
+						};
+					};
+
+					port@7 {
+						reg = <0x07>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x03>;
+							port-index = <0x05>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x08>;
+							phandle = <0x20>;
+						};
+					};
+
+					port@8 {
+						reg = <0x08>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x00>;
+							port-index = <0x04>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x09>;
+							phandle = <0x22>;
+						};
+					};
+
+					port@9 {
+						reg = <0x09>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x01>;
+							port-index = <0x04>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x0a>;
+							phandle = <0x24>;
+						};
+					};
+
+					port@10 {
+						reg = <0x0a>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x02>;
+							port-index = <0x04>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x0b>;
+							phandle = <0x26>;
+						};
+					};
+
+					port@11 {
+						reg = <0x0b>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x03>;
+							port-index = <0x04>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x0c>;
+							phandle = <0x28>;
+						};
+					};
+
+					port@12 {
+						reg = <0x0c>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x00>;
+							port-index = <0x02>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x0d>;
+							phandle = <0x2a>;
+						};
+					};
+
+					port@13 {
+						reg = <0x0d>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x01>;
+							port-index = <0x02>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x0e>;
+							phandle = <0x2c>;
+						};
+					};
+
+					port@14 {
+						reg = <0x0e>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x02>;
+							port-index = <0x02>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x0f>;
+							phandle = <0x2e>;
+						};
+					};
+
+					port@15 {
+						reg = <0x0f>;
+						status = "okay";
+
+						endpoint {
+							status = "okay";
+							vc-id = <0x03>;
+							port-index = <0x02>;
+							bus-width = <0x04>;
+							remote-endpoint = <0x10>;
+							phandle = <0x30>;
+						};
+					};
+				};
+			};
+
+			tegra-camera-platform {
+				compatible = "nvidia, tegra-camera-platform";
+
+				modules {
+					status = "okay";
+
+					module00 {
+						status = "okay";
+						badge = "cam_centerright";
+						position = "centerright";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_0@20";
+						};
+					};
+
+					module01 {
+						status = "okay";
+						badge = "cam_topleft";
+						position = "topleft";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_1@21";
+						};
+					};
+
+					module02 {
+						status = "okay";
+						badge = "cam_bottomleft";
+						position = "bottomleft";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_2@22";
+						};
+					};
+
+					module03 {
+						status = "okay";
+						badge = "cam_centerleft";
+						position = "centerleft";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_3@23";
+						};
+					};
+
+					module04 {
+						status = "okay";
+						badge = "cam_bottomright";
+						position = "bottomright";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_4@20";
+						};
+					};
+
+					module05 {
+						status = "okay";
+						badge = "cam_topright";
+						position = "topright";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_5@21";
+						};
+					};
+
+					module06 {
+						status = "okay";
+						badge = "cam_bottomcenter";
+						position = "bottomcenter";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_6@22";
+						};
+					};
+
+					module07 {
+						status = "okay";
+						badge = "cam_topcenter";
+						position = "topcenter";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_7@23";
+						};
+					};
+
+					module08 {
+						status = "okay";
+						badge = "cam_frontcenter";
+						position = "frontcenter";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_8@20";
+						};
+					};
+
+					module09 {
+						status = "okay";
+						badge = "cam_rearcenter";
+						position = "rearcenter";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_9@21";
+						};
+					};
+
+					module10 {
+						status = "okay";
+						badge = "cam_leftcenter";
+						position = "leftcenter";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_10@22";
+						};
+					};
+
+					module11 {
+						status = "okay";
+						badge = "cam_rightcenter";
+						position = "rightcenter";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_11@23";
+						};
+					};
+
+					module12 {
+						status = "okay";
+						badge = "cam_frontleft";
+						position = "frontleft";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_12@20";
+						};
+					};
+
+					module13 {
+						status = "okay";
+						badge = "cam_frontright";
+						position = "frontright";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_13@21";
+						};
+					};
+
+					module14 {
+						status = "okay";
+						badge = "cam_rearleft";
+						position = "rearleft";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_14@22";
+						};
+					};
+
+					module15 {
+						status = "okay";
+						badge = "cam_rearright";
+						position = "rearright";
+						orientation = "1";
+
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_15@23";
+						};
+					};
+				};
+			};
+
+			bus@0 {
+
+				gpio@810c300000 {
+
+					camera-control-output-high {
+						gpio-hog;
+						output-high;
+						gpios = <0x12 0x00 0x11 0x00 0x73 0x00 0x72 0x00>;
+						label = "cam0-rst\0cam0-pwdn\0cam1-rst\0cam1-pwdn";
+					};
+				};
+
+				host1x@8181200000 {
+
+					nvcsi@8188000000 {
+						num-channels = <0x10>;
+
+						channel@0 {
+							reg = <0x00>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@0 {
+										status = "okay";
+										port-index = <0x00>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x11>;
+										phandle = <0x34>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@1 {
+										status = "okay";
+										remote-endpoint = <0x12>;
+										phandle = <0x01>;
+									};
+								};
+							};
+						};
+
+						channel@1 {
+							reg = <0x01>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@2 {
+										status = "okay";
+										port-index = <0x00>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x13>;
+										phandle = <0x33>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@3 {
+										status = "okay";
+										remote-endpoint = <0x14>;
+										phandle = <0x02>;
+									};
+								};
+							};
+						};
+
+						channel@2 {
+							reg = <0x02>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@4 {
+										status = "okay";
+										port-index = <0x00>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x15>;
+										phandle = <0x32>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@5 {
+										status = "okay";
+										remote-endpoint = <0x16>;
+										phandle = <0x03>;
+									};
+								};
+							};
+						};
+
+						channel@3 {
+							reg = <0x03>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@6 {
+										status = "okay";
+										port-index = <0x00>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x17>;
+										phandle = <0x31>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@7 {
+										status = "okay";
+										remote-endpoint = <0x18>;
+										phandle = <0x04>;
+									};
+								};
+							};
+						};
+
+						channel@4 {
+							reg = <0x04>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@08 {
+										status = "okay";
+										port-index = <0x06>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x19>;
+										phandle = <0x38>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@9 {
+										status = "okay";
+										remote-endpoint = <0x1a>;
+										phandle = <0x05>;
+									};
+								};
+							};
+						};
+
+						channel@5 {
+							reg = <0x05>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@10 {
+										status = "okay";
+										port-index = <0x06>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x1b>;
+										phandle = <0x37>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@11 {
+										status = "okay";
+										remote-endpoint = <0x1c>;
+										phandle = <0x06>;
+									};
+								};
+							};
+						};
+
+						channel@6 {
+							reg = <0x06>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@12 {
+										status = "okay";
+										port-index = <0x06>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x1d>;
+										phandle = <0x36>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@13 {
+										status = "okay";
+										remote-endpoint = <0x1e>;
+										phandle = <0x07>;
+									};
+								};
+							};
+						};
+
+						channel@7 {
+							reg = <0x07>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@14 {
+										status = "okay";
+										port-index = <0x06>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x1f>;
+										phandle = <0x35>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@15 {
+										status = "okay";
+										remote-endpoint = <0x20>;
+										phandle = <0x08>;
+									};
+								};
+							};
+						};
+
+						channel@8 {
+							reg = <0x08>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@16 {
+										status = "okay";
+										port-index = <0x04>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x21>;
+										phandle = <0x3c>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@17 {
+										status = "okay";
+										remote-endpoint = <0x22>;
+										phandle = <0x09>;
+									};
+								};
+							};
+						};
+
+						channel@9 {
+							reg = <0x09>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@18 {
+										status = "okay";
+										port-index = <0x04>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x23>;
+										phandle = <0x3b>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@19 {
+										status = "okay";
+										remote-endpoint = <0x24>;
+										phandle = <0x0a>;
+									};
+								};
+							};
+						};
+
+						channel@10 {
+							reg = <0x0a>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@20 {
+										status = "okay";
+										port-index = <0x04>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x25>;
+										phandle = <0x3a>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@21 {
+										status = "okay";
+										remote-endpoint = <0x26>;
+										phandle = <0x0b>;
+									};
+								};
+							};
+						};
+
+						channel@11 {
+							reg = <0x0b>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@22 {
+										status = "okay";
+										port-index = <0x04>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x27>;
+										phandle = <0x39>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@23 {
+										status = "okay";
+										remote-endpoint = <0x28>;
+										phandle = <0x0c>;
+									};
+								};
+							};
+						};
+
+						channel@12 {
+							reg = <0x0c>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@24 {
+										status = "okay";
+										port-index = <0x02>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x29>;
+										phandle = <0x40>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@25 {
+										status = "okay";
+										remote-endpoint = <0x2a>;
+										phandle = <0x0d>;
+									};
+								};
+							};
+						};
+
+						channel@13 {
+							reg = <0x0d>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@26 {
+										status = "okay";
+										port-index = <0x02>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x2b>;
+										phandle = <0x3f>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@27 {
+										status = "okay";
+										remote-endpoint = <0x2c>;
+										phandle = <0x0e>;
+									};
+								};
+							};
+						};
+
+						channel@14 {
+							reg = <0x0e>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@28 {
+										status = "okay";
+										port-index = <0x02>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x2d>;
+										phandle = <0x3e>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@29 {
+										status = "okay";
+										remote-endpoint = <0x2e>;
+										phandle = <0x0f>;
+									};
+								};
+							};
+						};
+
+						channel@15 {
+							reg = <0x0f>;
+							status = "okay";
+
+							ports {
+								status = "okay";
+
+								port@0 {
+									reg = <0x00>;
+									status = "okay";
+
+									endpoint@30 {
+										status = "okay";
+										port-index = <0x02>;
+										bus-width = <0x04>;
+										remote-endpoint = <0x2f>;
+										phandle = <0x3d>;
+									};
+								};
+
+								port@1 {
+									reg = <0x01>;
+									status = "okay";
+
+									endpoint@31 {
+										status = "okay";
+										remote-endpoint = <0x30>;
+										phandle = <0x10>;
+									};
+								};
+							};
+						};
+					};
+				};
+
+				i2c@810c6d0000 {
+					clock-frequency = <0x186a0>;
+
+					tca9546@70 {
+						compatible = "nxp,pca9546";
+						reg = <0x70>;
+						#address-cells = <0x01>;
+						#size-cells = <0x00>;
+						skip_mux_detect = "yes";
+						status = "okay";
+
+						i2c@0 {
+							status = "okay";
+							reg = <0x00>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <0x01>;
+							#size-cells = <0x00>;
+
+							max96726_0@33 {
+								compatible = "nvidia,max96726_0";
+								reg = <0x33>;
+							};
+
+							cam_3@23 {
+								compatible = "sensing,imx577-3";
+								def-addr = <0x1a>;
+								reg = <0x23>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x63>;
+								devnode = "video3";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_
+								l = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x00>;
+								reset-gpios = <0xffffffff 0x11 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_a";
+									vc_id = "3";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x03>;
+											port-index = <0x00>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x31>;
+											phandle = <0x17>;
+										};
+									};
+								};
+							};
+
+							cam_2@22 {
+								compatible = "sensing,imx577-2";
+								def-addr = <0x1a>;
+								reg = <0x22>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x62>;
+								devnode = "video2";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x00>;
+								reset-gpios = <0xffffffff 0x11 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_a";
+									vc_id = "2";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x02>;
+											port-index = <0x00>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x32>;
+											phandle = <0x15>;
+										};
+									};
+								};
+							};
+
+							cam_1@21 {
+								compatible = "sensing,imx577-1";
+								def-addr = <0x1a>;
+								reg = <0x21>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x61>;
+								devnode = "video1";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x00>;
+								reset-gpios = <0xffffffff 0x11 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_a";
+									vc_id = "1";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x01>;
+											port-index = <0x00>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x33>;
+											phandle = <0x13>;
+										};
+									};
+								};
+							};
+
+							cam_0@20 {
+								compatible = "sensing,imx577-0";
+								def-addr = <0x1a>;
+								reg = <0x20>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x60>;
+								devnode = "video0";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x00>;
+								reset-gpios = <0xffffffff 0x11 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_a";
+									vc_id = "0";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x00>;
+											port-index = <0x00>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x34>;
+											phandle = <0x11>;
+										};
+									};
+								};
+							};
+						};
+
+						i2c@1 {
+							status = "okay";
+							reg = <0x01>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <0x01>;
+							#size-cells = <0x00>;
+
+							max96726_1@33 {
+								compatible = "nvidia,max96726_1";
+								reg = <0x33>;
+							};
+
+							cam_7@23 {
+								compatible = "sensing,imx577-7";
+								def-addr = <0x1a>;
+								reg = <0x23>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x63>;
+								devnode = "video7";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x01>;
+								reset-gpios = <0xffffffff 0x12 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_g";
+									vc_id = "3";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x03>;
+											port-index = <0x06>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x35>;
+											phandle = <0x1f>;
+										};
+									};
+								};
+							};
+
+							cam_6@22 {
+								compatible = "sensing,imx577-6";
+								def-addr = <0x1a>;
+								reg = <0x22>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x62>;
+								devnode = "video6";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x01>;
+								reset-gpios = <0xffffffff 0x12 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_g";
+									vc_id = "2";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x02>;
+											port-index = <0x06>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x36>;
+											phandle = <0x1d>;
+										};
+									};
+								};
+							};
+
+							cam_5@21 {
+								compatible = "sensing,imx577-5";
+								def-addr = <0x1a>;
+								reg = <0x21>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x61>;
+								devnode = "video5";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x01>;
+								reset-gpios = <0xffffffff 0x12 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_g";
+									vc_id = "1";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x01>;
+											port-index = <0x06>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x37>;
+											phandle = <0x1b>;
+										};
+									};
+								};
+							};
+
+							cam_4@20 {
+								compatible = "sensing,imx577-4";
+								def-addr = <0x1a>;
+								reg = <0x20>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x60>;
+								devnode = "video4";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x01>;
+								reset-gpios = <0xffffffff 0x12 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_g";
+									vc_id = "0";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x00>;
+											port-index = <0x06>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x38>;
+											phandle = <0x19>;
+										};
+									};
+								};
+							};
+						};
+
+						i2c@2 {
+							status = "okay";
+							reg = <0x02>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <0x01>;
+							#size-cells = <0x00>;
+
+							max96726_2@33 {
+								compatible = "nvidia,max96726_2";
+								reg = <0x33>;
+							};
+
+							cam_11@23 {
+								compatible = "sensing,imx577-11";
+								def-addr = <0x1a>;
+								reg = <0x23>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x63>;
+								devnode = "video11";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x02>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_e";
+									vc_id = "3";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x03>;
+											port-index = <0x04>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x39>;
+											phandle = <0x27>;
+										};
+									};
+								};
+							};
+
+							cam_10@22 {
+								compatible = "sensing,imx577-10";
+								def-addr = <0x1a>;
+								reg = <0x22>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x62>;
+								devnode = "video10";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x02>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_e";
+									vc_id = "2";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x02>;
+											port-index = <0x04>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x3a>;
+											phandle = <0x25>;
+										};
+									};
+								};
+							};
+
+							cam_9@21 {
+								compatible = "sensing,imx577-9";
+								def-addr = <0x1a>;
+								reg = <0x21>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x61>;
+								devnode = "video9";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x02>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_e";
+									vc_id = "1";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x01>;
+											port-index = <0x04>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x3b>;
+											phandle = <0x23>;
+										};
+									};
+								};
+							};
+
+							cam_8@20 {
+								compatible = "sensing,imx577-8";
+								def-addr = <0x1a>;
+								reg = <0x20>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x60>;
+								devnode = "video8";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x02>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_e";
+									vc_id = "0";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x00>;
+											port-index = <0x04>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x3c>;
+											phandle = <0x21>;
+										};
+									};
+								};
+							};
+						};
+
+						i2c@3 {
+							status = "okay";
+							reg = <0x03>;
+							i2c-mux,deselect-on-exit;
+							#address-cells = <0x01>;
+							#size-cells = <0x00>;
+
+							max96726_3@33 {
+								compatible = "nvidia,max96726_3";
+								reg = <0x33>;
+							};
+
+							cam_15@23 {
+								compatible = "sensing,imx577-15";
+								def-addr = <0x1a>;
+								reg = <0x23>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x63>;
+								devnode = "video15";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x03>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_c";
+									vc_id = "3";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x03>;
+											port-index = <0x02>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x3d>;
+											phandle = <0x2f>;
+										};
+									};
+								};
+							};
+
+							cam_14@22 {
+								compatible = "sensing,imx577-14";
+								def-addr = <0x1a>;
+								reg = <0x22>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x62>;
+								devnode = "video14";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x03>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_c";
+									vc_id = "2";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x02>;
+											port-index = <0x02>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x3e>;
+											phandle = <0x2d>;
+										};
+									};
+								};
+							};
+
+							cam_13@21 {
+								compatible = "sensing,imx577-13";
+								def-addr = <0x1a>;
+								reg = <0x21>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x61>;
+								devnode = "video13";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x03>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_c";
+									vc_id = "1";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x01>;
+											port-index = <0x02>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x3f>;
+											phandle = <0x2b>;
+										};
+									};
+								};
+							};
+
+							cam_12@20 {
+								compatible = "sensing,imx577-12";
+								def-addr = <0x1a>;
+								reg = <0x20>;
+								eeprom-def = <0x50>;
+								eeprom-addr = <0x60>;
+								devnode = "video12";
+								physical_w = "15.0";
+								physical_h = "12.5";
+								sensor_model = "imx577";
+								post_crop_frame_drop = "0";
+								use_decibel_gain = "false";
+								use_sensor_mode_id = "true";
+								clocks = <0xffffffff 0x116 0xffffffff 0x116>;
+								clock-names = "extperiph1\0pllp_grtba";
+								mclk = "extperiph1";
+								der_id = <0x03>;
+								reset-gpios = <0xffffffff 0x73 0x00>;
+
+								mode0 {
+									mclk_khz = "24000";
+									num_lanes = "4";
+									tegra_sinterface = "serial_c";
+									vc_id = "0";
+									phy_mode = "CPHY";
+									discontinuous_clk = "no";
+									dpcm_enable = "false";
+									cil_settletime = "0";
+									lane_polarity = "0";
+									dynamic_pixel_bit_depth = "10";
+									csi_pixel_bit_depth = "10";
+									mode_type = "bayer";
+									pixel_phase = "rggb";
+									active_w = "4056";
+									active_h = "3040";
+									readout_orientation = "0";
+									line_length = "4512";
+									inherent_gain = "1";
+									mclk_multiplier = "25";
+									pix_clk_hz = "600000000";
+									serdes_pix_clk_hz = "2280000000";
+									gain_factor = "10";
+									min_gain_val = "10";
+									max_gain_val = "240";
+									step_gain_val = "5";
+									default_gain = "10";
+									min_hdr_ratio = "1";
+									max_hdr_ratio = "1";
+									framerate_factor = "1000000";
+									min_framerate = "40000000";
+									max_framerate = "40000000";
+									step_framerate = "1";
+									default_framerate = "40000000";
+									exposure_factor = "1000000";
+									min_exp_time = "22";
+									max_exp_time = "25000";
+									step_exp_time = "1";
+									default_exp_time = "25000";
+									embedded_metadata_height = "2";
+								};
+
+								ports {
+									#address-cells = <0x01>;
+									#size-cells = <0x00>;
+
+									port@0 {
+										reg = <0x00>;
+
+										endpoint {
+											vc-id = <0x00>;
+											port-index = <0x02>;
+											bus-width = <0x04>;
+											remote-endpoint = <0x40>;
+											phandle = <0x29>;
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+
+	__symbols__ {
+		jetson_vi_in0 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@0/endpoint";
+		jetson_vi_in1 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@1/endpoint";
+		jetson_vi_in2 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@2/endpoint";
+		jetson_vi_in3 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@3/endpoint";
+		jetson_vi_in4 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@4/endpoint";
+		jetson_vi_in5 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@5/endpoint";
+		jetson_vi_in6 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@6/endpoint";
+		jetson_vi_in7 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@7/endpoint";
+		jetson_vi_in8 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@8/endpoint";
+		jetson_vi_in9 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@9/endpoint";
+		jetson_vi_in10 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@10/endpoint";
+		jetson_vi_in11 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@11/endpoint";
+		jetson_vi_in12 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@12/endpoint";
+		jetson_vi_in13 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@13/endpoint";
+		jetson_vi_in14 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@14/endpoint";
+		jetson_vi_in15 = "/fragment@0/__overlay__/tegra-capture-vi/ports/port@15/endpoint";
+		jetson_csi_in0 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@0/ports/port@0/endpoint@0";
+		jetson_csi_out0 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@0/ports/port@1/endpoint@1";
+		jetson_csi_in1 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@1/ports/port@0/endpoint@2";
+		jetson_csi_out1 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@1/ports/port@1/endpoint@3";
+		jetson_csi_in2 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@2/ports/port@0/endpoint@4";
+		jetson_csi_out2 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@2/ports/port@1/endpoint@5";
+		jetson_csi_in3 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@3/ports/port@0/endpoint@6";
+		jetson_csi_out3 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@3/ports/port@1/endpoint@7";
+		jetson_csi_in4 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@4/ports/port@0/endpoint@08";
+		jetson_csi_out4 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@4/ports/port@1/endpoint@9";
+		jetson_csi_in5 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@5/ports/port@0/endpoint@10";
+		jetson_csi_out5 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@5/ports/port@1/endpoint@11";
+		jetson_csi_in6 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@6/ports/port@0/endpoint@12";
+		jetson_csi_out6 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@6/ports/port@1/endpoint@13";
+		jetson_csi_in7 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@7/ports/port@0/endpoint@14";
+		jetson_csi_out7 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@7/ports/port@1/endpoint@15";
+		jetson_csi_in8 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@8/ports/port@0/endpoint@16";
+		jetson_csi_out8 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@8/ports/port@1/endpoint@17";
+		jetson_csi_in9 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@9/ports/port@0/endpoint@18";
+		jetson_csi_out9 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@9/ports/port@1/endpoint@19";
+		jetson_csi_in10 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@10/ports/port@0/endpoint@20";
+		jetson_csi_out10 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@10/ports/port@1/endpoint@21";
+		jetson_csi_in11 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@11/ports/port@0/endpoint@22";
+		jetson_csi_out11 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@11/ports/port@1/endpoint@23";
+		jetson_csi_in12 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@12/ports/port@0/endpoint@24";
+		jetson_csi_out12 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@12/ports/port@1/endpoint@25";
+		jetson_csi_in13 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@13/ports/port@0/endpoint@26";
+		jetson_csi_out13 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@13/ports/port@1/endpoint@27";
+		jetson_csi_in14 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@14/ports/port@0/endpoint@28";
+		jetson_csi_out14 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@14/ports/port@1/endpoint@29";
+		jetson_csi_in15 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@15/ports/port@0/endpoint@30";
+		jetson_csi_out15 = "/fragment@0/__overlay__/bus@0/host1x@8181200000/nvcsi@8188000000/channel@15/ports/port@1/endpoint@31";
+		cam_csi_out3 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_3@23/ports/port@0/endpoint";
+		cam_csi_out2 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_2@22/ports/port@0/endpoint";
+		cam_csi_out1 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_1@21/ports/port@0/endpoint";
+		cam_csi_out0 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_0@20/ports/port@0/endpoint";
+		cam_csi_out7 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_7@23/ports/port@0/endpoint";
+		cam_csi_out6 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_6@22/ports/port@0/endpoint";
+		cam_csi_out5 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_5@21/ports/port@0/endpoint";
+		cam_csi_out4 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_4@20/ports/port@0/endpoint";
+		cam_csi_out11 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_11@23/ports/port@0/endpoint";
+		cam_csi_out10 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_10@22/ports/port@0/endpoint";
+		cam_csi_out9 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_9@21/ports/port@0/endpoint";
+		cam_csi_out8 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_8@20/ports/port@0/endpoint";
+		cam_csi_out15 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_15@23/ports/port@0/endpoint";
+		cam_csi_out14 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_14@22/ports/port@0/endpoint";
+		cam_csi_out13 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_13@21/ports/port@0/endpoint";
+		cam_csi_out12 = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_12@20/ports/port@0/endpoint";
+	};
+
+	__fixups__ {
+		bpmp = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_3@23:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_3@23:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_2@22:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_2@22:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_1@21:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_1@21:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_0@20:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_0@20:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_7@23:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_7@23:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_6@22:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_6@22:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_5@21:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_5@21:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_4@20:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_4@20:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_11@23:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_11@23:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_10@22:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_10@22:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_9@21:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_9@21:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_8@20:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_8@20:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_15@23:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_15@23:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_14@22:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_14@22:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_13@21:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_13@21:clocks:8\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_12@20:clocks:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_12@20:clocks:8";
+		gpio_main = "/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_3@23:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_2@22:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_1@21:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@0/cam_0@20:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_7@23:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_6@22:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_5@21:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@1/cam_4@20:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_11@23:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_10@22:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_9@21:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@2/cam_8@20:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_15@23:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_14@22:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_13@21:reset-gpios:0\0/fragment@0/__overlay__/bus@0/i2c@810c6d0000/tca9546@70/i2c@3/cam_12@20:reset-gpios:0";
+	};
+
+	__local_fixups__ {
+
+		fragment@0 {
+
+			__overlay__ {
+
+				tegra-capture-vi {
+
+					ports {
+
+						port@0 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@1 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@2 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@3 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@4 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@5 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@6 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@7 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@8 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@9 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@10 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@11 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@12 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@13 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@14 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+
+						port@15 {
+
+							endpoint {
+								remote-endpoint = <0x00>;
+							};
+						};
+					};
+				};
+
+				bus@0 {
+
+					host1x@8181200000 {
+
+						nvcsi@8188000000 {
+
+							channel@0 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@0 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@1 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@1 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@2 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@3 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@2 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@4 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@5 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@3 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@6 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@7 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@4 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@08 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@9 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@5 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@10 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@11 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@6 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@12 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@13 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@7 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@14 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@15 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@8 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@16 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@17 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@9 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@18 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@19 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@10 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@20 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@21 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@11 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@22 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@23 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@12 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@24 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@25 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@13 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@26 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@27 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@14 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@28 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@29 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+
+							channel@15 {
+
+								ports {
+
+									port@0 {
+
+										endpoint@30 {
+											remote-endpoint = <0x00>;
+										};
+									};
+
+									port@1 {
+
+										endpoint@31 {
+											remote-endpoint = <0x00>;
+										};
+									};
+								};
+							};
+						};
+					};
+
+					i2c@810c6d0000 {
+
+						tca9546@70 {
+
+							i2c@0 {
+
+								cam_3@23 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_2@22 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_1@21 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_0@20 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+							};
+
+							i2c@1 {
+
+								cam_7@23 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_6@22 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_5@21 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_4@20 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+							};
+
+							i2c@2 {
+
+								cam_11@23 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_10@22 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_9@21 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_8@20 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+							};
+
+							i2c@3 {
+
+								cam_15@23 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_14@22 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_13@21 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+
+								cam_12@20 {
+
+									ports {
+
+										port@0 {
+
+											endpoint {
+												remote-endpoint = <0x00>;
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
