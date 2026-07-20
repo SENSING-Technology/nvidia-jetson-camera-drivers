@@ -49,7 +49,7 @@ fi
 
 sudo rmmod sgcam-gmsl2 >/dev/null 2>&1
 sudo rmmod max96712 >/dev/null 2>&1
-sudo rmmod pwm-gpio >/dev/null 2>&1
+#sudo rmmod pwm-gpio >/dev/null 2>&1
 
 ## Set MIPI_MCLK0 and MIPI_MCLK1 as GPIO mode
 sudo ./boost_clock.sh >/dev/null 2>&1
