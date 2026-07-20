@@ -225,7 +225,7 @@
    PIN 6: GND
    ```
    7.2 Internal Trigger Mode
-
+   Please confirm the differences in the pwm nodes before and after loading the driver. The newly added nodes are the ones that need to be used.
    Note: Internal trigger mode is not supported for SHW3G modules, but is supported for other modules.
    ```
    # Export PWM channel 0
