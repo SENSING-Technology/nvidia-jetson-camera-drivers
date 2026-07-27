@@ -1,0 +1,161 @@
+{
+    "deserializers": [
+        {
+            "name": "MAX96712_Fusa_nv_CD",
+            "description": "Maxim MAX96712 GMSL2 Deserializer - CSI-CD",
+            "i2cAddress": "0x6b"
+        }
+    ],
+    "serializers": [
+        {
+            "name": "MAX96717",
+            "description": "Maxim 96717 Serializer",
+            "i2cAddress": "0x40",
+            "useCDIv2API": true
+        }
+    ],
+    "imageSensors": [
+        {
+            "name": "OX08D10",
+            "description": "OmniVision OX08D10 Sensor",
+            "i2cAddress": "0x36",
+            "virtualChannels": [
+                {
+                    "cfa": "bggr",
+                    "embeddedTopLines": 2,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "raw12",
+                    "width": 3840,
+                    "height": 2160,
+                    "fps": 30.0,
+                    "isEmbeddedDataTypeEnabled": false
+                }
+            ],
+            "isTriggerModeEnabled": true,
+            "isTPGEnabled": false,
+            "useCDIv2API": true
+        }
+    ],
+    "platformTransportSettings": [
+        {
+            "name": "jetson-orin-nano",
+            "description": "Jetson Orin Nano Devkit (p3834)",
+            "boardIdPrefix": "p3834",
+            "enableMasks": ["0x1111"],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-orin-nano_CD",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-CD with external MAX96712",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 2,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x6b"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 9043968
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        }
+    ],
+    "cameraConfigs": [
+        {
+            "name": "SG8_OX08DC_G2G_4CH",
+            "type": "GMSL",
+            "description": "SG8-OX08DC-G2G 4 cameras: 4x CSI-CD",
+            "cameraModules": [
+                {
+                    "name": "SG8_OX08DC_G2G",
+                    "linkIndex": 0,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "SG8_OX08DC_G2G",
+                    "linkIndex": 1,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "SG8_OX08DC_G2G",
+                    "linkIndex": 2,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "SG8_OX08DC_G2G",
+                    "linkIndex": 3,
+                    "transportIndex": 0
+                }
+            ],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-orin-nano_CD",
+                    "type": "GMSL",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 2,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x6b"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 9043968
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        },
+        {
+            "name": "SG8_OX08DC_G2G",
+            "type": "GMSL",
+            "description": "SG8-OX08DC-G2G single module definition",
+            "moduleDriverName": "SG8_OX08DC_G2G",
+            "serInfo": {
+                "name": "MAX96717",
+                "i2cAddress": "0x40"
+            },
+            "linkMode": "LINK_MODE_GMSL2_6GBPS",
+            "fsyncMode": "osc_manual",
+            "mipiSettings": {
+                "dphyRate": 2500000,
+                "phyMode": "dphy"
+            },
+            "sensorInfo": [
+                {
+                    "name": "OX08D10",
+                    "description": "OmniVision OX08D10 RGGB Sensor",
+                    "i2cAddress": "0x36",
+                    "numContext": 1,
+                    "virtualChannels": [
+                        {
+                            "cfa": "bggr",
+                            "embeddedTopLines": 2,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "raw12",
+                            "width": 3840,
+                            "height": 2160,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                }
+            ],
+            "eepromInfo": {
+                "name": "BR24H128",
+                "i2cAddress": "0x50"
+            }
+        }
+    ]
+}

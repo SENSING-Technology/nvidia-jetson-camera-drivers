@@ -1,0 +1,54 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// SPDX-FileCopyrightText: Copyright (c) 2023-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+/dts-v1/;
+/plugin/;
+
+#define CAM_I2C_MUX 	TEGRA234_AON_GPIO(CC, 3)
+
+#include "dt-bindings/tegra234-p3767-0000-common.h"
+
+/ {
+	overlay-name = "Jetson Sensing SG4A_NONX_G2Y_A1 SIPL Camera";
+	jetson-header-name = "Jetson 22pin CSI Connector";
+	compatible = JETSON_COMPATIBLE_P3768;
+	/*IMX477 connected on cam0 port */
+
+	fragment@0 {
+		target-path = "/bus@0";
+		__overlay__ {
+
+			cam_i2cmux {
+				status = "okay";
+				compatible = "i2c-mux-gpio";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				mux-gpios = <&gpio_aon CAM_I2C_MUX GPIO_ACTIVE_HIGH>;
+				i2c-parent = <&cam_i2c>;
+
+				i2c@0 {
+					reg = <0>;
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					rbpcv2_imx219_a@10 {
+						reg = <0x10>;
+						status = "disabled";
+					};
+				};
+
+				i2c@1 {
+					status = "okay";
+					reg = <1>;
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					rbpcv2_imx219_c@10 {
+						reg = <0x10>;
+						status = "disabled";
+					};
+				};
+			};
+		};
+	};
+};

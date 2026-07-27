@@ -5,6 +5,7 @@
 * Jetpack 6.0
 * Jetpack 6.1
 * Jetpack 6.2
+* Jetpack 7.2
 
 #### Hardware Connect
 
@@ -17,18 +18,21 @@
 
 #### Camera Version Support
 
-| Type | Camera                      | Jetpack 6.0 | Jetpack 6.1 | Jetpack 6.2 |
-| ---- | --------------------------- | ----------- | ----------- | ----------- |
-| YUV  | SG1-AR0144C-8310-GMSL-Hxxx  | YES         | YES         | YES         |
-| YUV  | SG2-AR0231C-0202-GMSL-Hxxx  | YES         | YES         | YES         |
-| YUV  | SG2-AR0233C-5200-G2A-Hxxx   | YES         | YES         | YES         |
-| YUV  | SG2-IMX390C-5200-G2A-Hxxx   | YES         | YES         | YES         |
-| YUV  | SG2-OX03CC-5200-GMSL2F-Hxxx | YES         | YES         | YES         |
-| YUV  | SG3S-ISX031C-GMSL2-Hxxx     | YES         | YES         | YES         |
-| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | YES         | YES         | YES         |
-| YUV  | SG5-IMX490C-5300-GMSL2-Hxxx | YES         | YES         | YES         |
-| YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES         | YES         | YES         |
-| YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES         | YES         | YES         |
+| Type | Camera                      | Jetpack 6.0 | Jetpack 6.1 | Jetpack 6.2 | Jetpack 7.2 SIPL |
+| ---- | --------------------------- | ----------- | ----------- | ----------- | ---------------- |
+| YUV  | SG1-AR0144C-8310-GMSL-Hxxx  | YES         | YES         | YES         | NO               |
+| YUV  | SG2-AR0231C-0202-GMSL-Hxxx  | YES         | YES         | YES         | NO               |
+| YUV  | SG2-AR0233C-5200-G2A-Hxxx   | YES         | YES         | YES         | YES              |
+| YUV  | SG2-IMX390C-5200-G2A-Hxxx   | YES         | YES         | YES         | YES              |
+| YUV  | SG2-OX03CC-5200-GMSL2F-Hxxx | YES         | YES         | YES         | YES              |
+| YUV  | SG3S-ISX031C-GMSL2-Hxxx     | YES         | YES         | YES         | YES              |
+| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | YES         | YES         | YES         | YES              |
+| YUV  | SG5-IMX490C-5300-GMSL2-Hxxx | YES         | YES         | YES         | YES              |
+| YUV  | SG8S-AR0820C-5300-G2A-Hxxx  | YES         | YES         | YES         | YES              |
+| YUV  | SG8-OX08BC-5300-GMSL2-Hxxx  | YES         | YES         | YES         | YES              |
+| RAW  | Astra S56C                  | NO          | NO          | NO          | YES              |
+| RAW  | SHW5G                       | NO          | NO          | NO          | YES              |
+| RAW  | SG8-OX08DC-G2G-Hxxx         | NO          | NO          | NO          | YES              |
 
 #### Camera Mapping
 
