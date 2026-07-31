@@ -1,4 +1,4 @@
-## How to bring up SGX-YUV-GMSL2 Camera Module
+## How to bring up SHW5G Camera Module
 
  1. Supported Camera Specifications
 
@@ -7,7 +7,7 @@
     | `SG2-IMX390C-5200-G2A-Hxxx` | 6G | 1920x1080 |
     | `SG2-AR0233-5200-G2A-Hxxx` | 6G | 1920x1080 |
     | `SG3-ISX031C-GMSL2-Hxxx` | 6G | 1920x1536 |
-    | `SG3-ISX031C-GMSL2F-Hxxx` | 3G | 1920x1536 |
+    | `SG3-ISX031C-GMSL2F-Hxxx` | 6G | 1920x1536 |
     | `SG5-IMX490C-5300-GMSL2-Hxxx` | 6G | 2880x1860 |
     | `SG8S-AR0820C-5300-G2A-Hxxx` | 6G | 3840x2160 |
     | `SG8-OX08DC-5300-G2G-Hxxx` | 6G | 3840x2160 |

@@ -7,6 +7,9 @@
 * SG8-OX08DC-G2G-Hxxx (Monocular, RAW)
   * support max 2 cameras to bring up at the same time
 
+* SG3-OX03H10C-G2F-Hxxx (Monocular, RAW)
+  * support max 4 cameras to bring up at the same time
+
 * SHW5G (Monocular, RAW)
   * support max 4 cameras to bring up at the same time
 
@@ -81,7 +84,7 @@
    5.select "Save and reboot to reconfigure pins"
    ```
 
-4. Bring up the camera
+5. Bring up the camera
 
    After the device reboots, switch the Jetson device to maximum performance mode
    ```
@@ -89,22 +92,37 @@
    sudo jetson_clocks
    ```
 
-   4.1 For SG8-OX08DC-G2G-Hxxx Camera Module
+   5.1 For SG8-OX08DC-G2G-Hxxx Camera Module
 
    [How to bring up SG8_OX08DC_G2G Camera Module](docs/sg8_ox08dc_g2g.md)
 
 
-   4.2 For SHW5G Camera Module
+   5.2 For SG3-OX03H10C-G2F-Hxxx Camera Module
+
+   [How to bring up SG3-OX03H10C-G2F Camera Module](docs/sg3_ox03h10c_g2f.md)
+
+
+   5.3 For SHW5G Camera Module
 
    [How to bring up SHW5G Camera Module](docs/shw5g.md)
 
 
-   4.3 For Astra S56C Camera Module
+   5.4 For Astra S56C Camera Module
 
    [How to bring up Astra S56C Camera Module](docs/s56c.md)
 
 
-   4.4 For SGX-YUV-GMSL2 Camera Module
+   5.5 For SGX-YUV-GMSL2 Camera Module
 
    [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
+   
+
+   5.6 For Astra S56Cx1+SHW5Gx2 Camera Module
+
+   [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
+
+
+   5.7 For Astra S56Cx1+SHF3Lx2 Camera Module
+
+   [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
 

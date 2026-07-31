@@ -4,6 +4,7 @@
 cd dts
 cpp -I . -nostdinc -undef -x assembler-with-cpp tegra234-camera-sipl-camera-overlay.dts | \
   dtc -@ -I dts -O dtb -o tegra234-camera-sipl-camera-overlay.dtbo -
+sudo cp tegra234-camera-sipl-camera-overlay.dtbo /boot/
 cd ..
 
 # Install SIPL driver
