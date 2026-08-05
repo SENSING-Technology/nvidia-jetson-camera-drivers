@@ -1,3 +1,7 @@
+### 20260805
+Optimize the S56 camera image quality and improve imaging performance.
+
+![new_left_A](Pictures/s56_left.jpg)
 ### 20260604
 Enable IMU support for S56.
 Enable IMU polling mode.

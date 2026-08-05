@@ -2332,7 +2332,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40";
+									min_exp_time = "74";
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2375,7 +2375,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40"; /*us, 2 lines*/
+									min_exp_time = "74"; /*us, 4 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";/* us */
@@ -2464,7 +2464,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40";
+									min_exp_time = "74";
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2506,7 +2506,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40"; 		/* 4 * 8.992μs = 35.968 μs */
+									min_exp_time = "74"; 		/*us, 4 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";	/* μs */
@@ -2595,7 +2595,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40";
+									min_exp_time = "74";
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2638,7 +2638,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40"; /*us, 2 lines*/
+									min_exp_time = "74"; /*us, 4 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";/* us */
@@ -2728,7 +2728,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40";
+									min_exp_time = "74";
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2770,7 +2770,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "40"; 		/* 4 * 8.992μs = 35.968 μs */
+									min_exp_time = "74"; 		/*us, 4 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";	/* μs */
