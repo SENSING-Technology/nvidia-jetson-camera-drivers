@@ -123,42 +123,42 @@
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 0,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 1,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 2,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 3,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 0,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 1,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 2,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SG3_OX03H10C_G2F",
                     "linkIndex": 3,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 }
             ],
             "transportSettings": [

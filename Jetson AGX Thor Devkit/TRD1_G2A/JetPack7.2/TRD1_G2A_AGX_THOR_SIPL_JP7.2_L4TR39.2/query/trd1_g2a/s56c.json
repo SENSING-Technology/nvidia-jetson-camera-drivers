@@ -144,42 +144,42 @@
                 {
                     "name": "S56C",
                     "linkIndex": 0,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 1,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 2,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 3,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 0,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 1,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 2,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "S56C",
                     "linkIndex": 3,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 }
             ],
             "transportSettings": [

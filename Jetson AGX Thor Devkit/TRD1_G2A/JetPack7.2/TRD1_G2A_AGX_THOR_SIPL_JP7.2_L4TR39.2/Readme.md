@@ -48,7 +48,14 @@
 
 #### Quick Bring Up
 
-1. Connect the Camera to the ports on the adapter board.
+1. Flashing
+
+    Since NVIDIA's official pinmux definitions do not enable the I2C functionality for I2C9, nor do they enable GPIO functionality for CAM0_PWDN and CAM1_PWDN, it is necessary to modify the pinmux definitions and re-flash the device.
+
+    Copy and replace the files in source/Linux_for_Tegra/bootloader/ from the driver package to $work_path/Linux_for_Tegra/bootloader/
+
+
+2. Connect the Camera to the ports on the adapter board.
 
    ![Camera](pictures/camera_connection.jpg)
 
@@ -59,12 +66,12 @@
    Note: Stereo camera needs an even port (CAM0/2/4/6) and the next port must be free.
 
 
-2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
+3. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
 
    ```
    /home/nvidia/TRD1_G2A_AGX_THOR_SIPL_JP7.2_L4TR39.2
    ```
-3. Enter the driver directory, run the script "install.sh""
+4. Enter the driver directory, run the script "install.sh""
 
    ```
    cd TRD1_G2A_AGX_THOR_SIPL_JP7.2_L4TR39.2
@@ -72,7 +79,7 @@
    ./install.sh
    ```
 
-4. Bring up the camera
+5. Bring up the camera
 
    After the device reboots, switch the Jetson device to maximum performance mode
    ```
@@ -80,43 +87,43 @@
    sudo jetson_clocks
    ```
 
-   4.1 For SG8-OX08DC-G2G-Hxxx Camera Module
+   5.1 For SG8-OX08DC-G2G-Hxxx Camera Module
 
    [How to bring up SG8-OX08DC-G2G Camera Module](docs/sg8_ox08dc_g2g.md)
    
-   4.2 For SG3-OX03H10C-G2F-Hxxx Camera Module
+   5.2 For SG3-OX03H10C-G2F-Hxxx Camera Module
 
    [How to bring up SG3-OX03H10C-G2F Camera Module](docs/sg3_ox03h10c_g2f.md)
 
 
-   4.3 For SHW5G Camera Module
+   5.3 For SHW5G Camera Module
 
    [How to bring up SHW5G Camera Module](docs/shw5g.md)
 
 
-   4.4 For Astra S56C Camera Module
+   5.4 For Astra S56C Camera Module
 
    [How to bring up Astra S56C Camera Module](docs/s56c.md)
 
 
-   4.5 For SGX-YUV-GMSL2 Camera Module
+   5.5 For SGX-YUV-GMSL2 Camera Module
 
    [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
 
 
-   4.6 For Astra S56Cx1+SHW5Gx2 Camera Module
+   5.6 For Astra S56Cx1+SHW5Gx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
 
 
-   4.7 For Astra S56Cx1+SHF3Lx2 Camera Module
+   5.7 For Astra S56Cx1+SHF3Lx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
 
 
-5. Camera Trigger Sync
+6. Camera Trigger Sync
 
-   5.1 Set the camera fsync Mode
+   6.1 Set the camera fsync Mode
 
    Modify query/s56c_shf3l_mixed.json
 
@@ -130,7 +137,7 @@
    external: All cameras are synchronized using an external trigger signal.
    ```
 
-   5.2 External Trigger Mode
+   6.2 External Trigger Mode
 
    When fsyncMode is configured as external, an external trigger signal is required.
 

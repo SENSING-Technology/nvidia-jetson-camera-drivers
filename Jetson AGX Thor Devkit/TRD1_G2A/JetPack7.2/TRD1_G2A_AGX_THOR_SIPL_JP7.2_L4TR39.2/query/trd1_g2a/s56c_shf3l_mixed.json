@@ -164,32 +164,32 @@
                 {
                     "name": "S56C_MIX",
                     "linkIndex": 0,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SHF3L_MIX_L2",
                     "linkIndex": 2,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SHF3L_MIX_L3",
                     "linkIndex": 3,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "S56C_MIX",
                     "linkIndex": 0,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SHF3L_MIX_L2",
                     "linkIndex": 2,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SHF3L_MIX_L3",
                     "linkIndex": 3,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 }
             ],
             "transportSettings": [

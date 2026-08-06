@@ -134,42 +134,42 @@
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 0,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 1,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 2,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 3,
-                    "transportIndex": 0
+                    "transportIndex": 1
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 0,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 1,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 2,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 },
                 {
                     "name": "SGX_YUV_GMSL2_2M",
                     "linkIndex": 3,
-                    "transportIndex": 1
+                    "transportIndex": 0
                 }
             ],
             "transportSettings": [
