@@ -40,12 +40,12 @@ SG2-AR0234C-G2G-HXXX       ONsemi AR0234     1920*1080         RAW10         GMS
 
 2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
    ```
-   /home/nvidia/TRD3_G3A_AR0234C-G2G_JP7.0_L4TR38.2.1
+   /home/nvidia/SG16A-AGTH-G3Y-A1_AR0234C-G2G_JP7.0_L4TR38.2.1
    ```
    
 3. Enter the driver directory, run the script "install.sh""
    ```
-   cd TRD3_G3A_AR0234C-G2G_JP7.0_L4TR38.2.1
+   cd SG16A-AGTH-G3Y-A1_AR0234C-G2G_JP7.0_L4TR38.2.1
    chmod a+x ./install.sh
    ./install.sh
    ```
