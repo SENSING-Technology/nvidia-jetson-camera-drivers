@@ -90,7 +90,7 @@
 			"description": "SGX-YUV-GMSL 4 cameras: 4x CSI-CD",
 			"cameraModules": [
 				{
-					"name": "SGX_YUV_GMSL2_8M",
+					"name": "SGX_YUV_GMSL2_2M",
 					"linkIndex": 0,
 					"transportIndex": 0
 				},

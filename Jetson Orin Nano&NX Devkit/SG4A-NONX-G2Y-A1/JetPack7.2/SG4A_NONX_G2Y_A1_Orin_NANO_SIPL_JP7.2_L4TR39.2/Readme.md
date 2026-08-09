@@ -126,3 +126,38 @@
 
    [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
 
+6. Camera Trigger Sync
+
+   6.1 Set the camera fsync Mode
+
+   Update the corresponding JSON configuration file located in the query/sg4a_nonx_g2y_a1 directory.
+
+   ```
+   "fsyncMode": "external"
+   ```
+
+   fsyncMode field description:
+   ```
+   osc_manual: The deserializer generates the synchronization trigger for all cameras connected to the same deserializer. An external trigger signal is not required.
+   external: All cameras are synchronized using an external trigger signal.
+   ```
+
+   6.2 External Trigger Mode
+
+   When fsyncMode is configured as external, an external trigger signal is required.
+
+
+   External Trigger Port: CN4
+
+   The PIN1(CAM-FSYNC1) and PIN2 correspond to the external trigger signal pin and ground pin respectively. Connect the corresponding pins of the signal generator to these pins.
+
+   ```
+   PIN1(CAM-FSYNC1) Trigger Signal Parameters:
+   Frequency: 30 Hz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 10%
+
+   PIN 2: GND
+   ```
+
