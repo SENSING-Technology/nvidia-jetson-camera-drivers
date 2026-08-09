@@ -387,7 +387,7 @@
 				"i2cAddress": "0x40"
 			},
 			"linkMode": "LINK_MODE_GMSL2_6GBPS",
-			"fsyncMode": "external",
+			"fsyncMode": "osc_manual",
 			"mipiSettings": {
 				"dphyRate": 2500000,
 				"phyMode": "dphy"

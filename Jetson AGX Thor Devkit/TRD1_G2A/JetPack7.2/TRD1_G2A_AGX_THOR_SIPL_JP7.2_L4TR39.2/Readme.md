@@ -125,7 +125,7 @@
 
    6.1 Set the camera fsync Mode
 
-   Modify query/s56c_shf3l_mixed.json
+   Update the corresponding JSON configuration file located in the query/trd1_g2a directory.
 
    ```
    "fsyncMode": "external"

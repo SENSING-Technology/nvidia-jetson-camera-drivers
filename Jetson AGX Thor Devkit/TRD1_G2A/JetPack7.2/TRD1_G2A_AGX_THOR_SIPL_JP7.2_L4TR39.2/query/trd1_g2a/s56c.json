@@ -34,8 +34,8 @@
     "imageSensors": [
         {
             "name": "VB1940",
-            "description": "VB1940 Sensor - Left (virtual 0x30 on SoC bus)",
-            "i2cAddress": "0x30",
+            "description": "VB1940 GBRG Sensor - S56C Stereo Left",
+            "i2cAddress": "0x10",
             "virtualChannels": [
                 {
                     "cfa": "gbrg",
@@ -54,8 +54,8 @@
         },
         {
             "name": "VB1940",
-            "description": "VB1940 Sensor - Right (virtual 0x31 on SoC bus)",
-            "i2cAddress": "0x31",
+            "description": "VB1940 GBRG Sensor - S56C Stereo Right",
+            "i2cAddress": "0x11",
             "virtualChannels": [
                 {
                     "cfa": "gbrg",
@@ -245,7 +245,7 @@
                 "i2cAddress": "0x40"
             },
             "linkMode": "LINK_MODE_GMSL2_6GBPS",
-            "fsyncMode": "external",
+            "fsyncMode": "osc_manual",
             "mipiSettings": {
                 "dphyRate": 2500000,
                 "phyMode": "dphy"
@@ -255,7 +255,7 @@
                     "name": "VB1940",
                     "id": 0,
                     "description": "VB1940 GBRG Sensor - S56C Stereo Left",
-                    "i2cAddress": "0x30",
+                    "i2cAddress": "0x10",
                     "numContext": 1,
                     "isTriggerModeEnabled": true,
                     "sensorGroup": 1,
@@ -279,7 +279,7 @@
                     "name": "VB1940",
                     "id": 1,
                     "description": "VB1940 GBRG Sensor - S56C Stereo Right",
-                    "i2cAddress": "0x31",
+                    "i2cAddress": "0x11",
                     "numContext": 1,
                     "isTriggerModeEnabled": true,
                     "sensorGroup": 1,

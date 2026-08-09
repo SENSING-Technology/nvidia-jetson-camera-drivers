@@ -118,7 +118,7 @@
         {
             "name": "SG3_OX03H10C_G2F_8CH",
             "type": "GMSL",
-            "description": "SG3-OX03H10C-G2F 16 cameras: 4x CSI-AB + 4x CSI-CD + 4x CSI-EF + 4x CSI-GH",
+            "description": "SG3-OX03H10C-G2F 8 cameras: 4x CSI-AB + 4x CSI-CD + 4x CSI-EF + 4x CSI-GH",
             "cameraModules": [
                 {
                     "name": "SG3_OX03H10C_G2F",
@@ -223,7 +223,7 @@
                 "i2cAddress": "0x40"
             },
             "linkMode": "LINK_MODE_GMSL2_3GBPS",
-            "fsyncMode": "external",
+            "fsyncMode": "osc_manual",
             "mipiSettings": {
                 "dphyRate": 2500000,
                 "phyMode": "dphy"

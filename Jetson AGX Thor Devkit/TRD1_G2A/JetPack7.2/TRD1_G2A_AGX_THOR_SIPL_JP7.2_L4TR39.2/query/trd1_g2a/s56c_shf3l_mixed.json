@@ -34,8 +34,8 @@
     "imageSensors": [
         {
             "name": "VB1940",
-            "description": "S56C left VB1940 alias 0x30",
-            "i2cAddress": "0x30",
+            "description": "S56C Stereo Left",
+            "i2cAddress": "0x10",
             "virtualChannels": [
                 {
                     "cfa": "gbrg",
@@ -54,8 +54,8 @@
         },
         {
             "name": "VB1940",
-            "description": "S56C right VB1940 alias 0x31",
-            "i2cAddress": "0x31",
+            "description": "S56C Stereo Right",
+            "i2cAddress": "0x11",
             "virtualChannels": [
                 {
                     "cfa": "gbrg",
@@ -75,7 +75,7 @@
         {
             "name": "GW5",
             "description": "SGX-YUV-GMSL2 GW5 YUV422 sensor",
-            "i2cAddress": "0x6D",
+            "i2cAddress": "0x1A",
             "virtualChannels": [
                 {
                     "cfa": "uyvy",
@@ -255,7 +255,7 @@
                 "i2cAddress": "0x40"
             },
             "linkMode": "LINK_MODE_GMSL2_6GBPS",
-            "fsyncMode": "external",
+            "fsyncMode": "osc_manual",
             "mipiSettings": {
                 "dphyRate": 2500000,
                 "phyMode": "dphy"
@@ -265,7 +265,7 @@
                     "name": "VB1940",
                     "id": 0,
                     "description": "S56C stereo left",
-                    "i2cAddress": "0x30",
+                    "i2cAddress": "0x10",
                     "numContext": 1,
                     "isTriggerModeEnabled": true,
                     "sensorGroup": 1,
@@ -289,7 +289,7 @@
                     "name": "VB1940",
                     "id": 1,
                     "description": "S56C stereo right",
-                    "i2cAddress": "0x31",
+                    "i2cAddress": "0x11",
                     "numContext": 1,
                     "isTriggerModeEnabled": true,
                     "sensorGroup": 1,
@@ -325,7 +325,7 @@
                 "i2cAddress": "0x40"
             },
             "linkMode": "LINK_MODE_GMSL2_6GBPS",
-            "fsyncMode": "external",
+            "fsyncMode": "osc_manual",
             "mipiSettings": {
                 "dphyRate": 2500000,
                 "phyMode": "dphy"
@@ -367,7 +367,7 @@
                 "i2cAddress": "0x40"
             },
             "linkMode": "LINK_MODE_GMSL2_6GBPS",
-            "fsyncMode": "external",
+            "fsyncMode": "osc_manual",
             "mipiSettings": {
                 "dphyRate": 2500000,
                 "phyMode": "dphy"
@@ -377,7 +377,7 @@
                     "name": "GW5",
                     "id": 3,
                     "description": "SGX-YUV-GMSL2 link3 GW5 sensor",
-                    "i2cAddress": "0x6D",
+                    "i2cAddress": "0x1A",
                     "numContext": 1,
                     "isTriggerModeEnabled": true,
                     "sensorGroup": 3,
