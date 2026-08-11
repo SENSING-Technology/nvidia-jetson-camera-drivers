@@ -1,7 +1,7 @@
-### 20260805
+### 20260810
 Optimize the S56C camera image quality and improve imaging performance.
 
-![new_left_A](Pictures/s56_left.jpg)
+![s56_left](Pictures/s56_left.jpg)
 
 ### 20260604
 Enable IMU support for S56C.

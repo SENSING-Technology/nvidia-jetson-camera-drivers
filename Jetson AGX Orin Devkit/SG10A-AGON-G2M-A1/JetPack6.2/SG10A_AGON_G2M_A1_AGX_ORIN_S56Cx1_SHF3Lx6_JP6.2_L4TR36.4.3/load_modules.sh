@@ -10,7 +10,7 @@ green_print(){
 sudo rmmod bmi088 2>/dev/null || true
 sudo rmmod kfifo_buf 2>/dev/null || true
 sudo rmmod sgx_yuv_gmsl2 2>/dev/null || true
-sudo rmmod s56_shw3gc 2>/dev/null || true
+sudo rmmod s56c_shw3gc 2>/dev/null || true
 
 # Check if v4l2-ctl exists
 if ! command -v v4l2-ctl >/dev/null 2>&1; then
@@ -86,7 +86,7 @@ fi
 echo "Starting PWM configuration with frame rate: ${FRAME_RATE} Hz"
 sudo ./gpio-pwm.sh "$FRAME_RATE"
 
-sudo insmod ko/s56-shw3gc.ko
+sudo insmod ko/s56c-shw3gc.ko
 sudo insmod ko/sgx-yuv-gmsl2.ko
 
 sudo insmod ko/kfifo_buf.ko

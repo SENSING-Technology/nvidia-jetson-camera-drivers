@@ -31,7 +31,7 @@
 
 /* camera control gpio definitions */
 / {
-	overlay-name = "Jetson Sensing SG10A_AGON_G2M_A1 S56x1 SHF3Lx6";
+	overlay-name = "Jetson Sensing SG10A_AGON_G2M_A1 S56Cx1 SHF3Lx6";
     jetson-header-name = "Jetson AGX CSI Connector";
     compatible = JETSON_COMPATIBLE;
 	
@@ -114,8 +114,10 @@
 					port@6 {
 						reg = <6>;
 						status = "okay";
+						nvidia,video-minor = <0>;
 						jetson_vi_in6: endpoint {
 							status = "okay";
+							nvidia,video-minor = <0>;
 							vc-id = <0>;
 							port-index = <5>; //1
 							bus-width = <4>;
@@ -125,8 +127,10 @@
 					port@7 {
 						reg = <7>;
 						status = "okay";
+						nvidia,video-minor = <1>;
 						jetson_vi_in7: endpoint {
 							status = "okay";
+							nvidia,video-minor = <1>;
 							vc-id = <1>;
 							port-index = <5>; //1
 							bus-width = <4>;
@@ -137,8 +141,10 @@
 					port@8 {
 						reg = <8>;
 						status = "okay";
+						nvidia,video-minor = <2>;
 						jetson_vi_in8: endpoint {
 							status = "okay";
+							nvidia,video-minor = <2>;
 							vc-id = <2>;
 							port-index = <5>; //2
 							bus-width = <4>;
@@ -148,8 +154,10 @@
 					port@9 {
 						reg = <9>;
 						status = "okay";
+						nvidia,video-minor = <3>;
 						jetson_vi_in9: endpoint {
 							status = "okay";
+							nvidia,video-minor = <3>;
 							vc-id = <3>;
 							port-index = <5>; //2
 							bus-width = <4>;
@@ -173,17 +181,6 @@
 					status = "okay";
 					module0 {
 						status = "okay";
-						badge = "cam6_frontleft";
-						position = "frontleft";
-						orientation = "1";
-						drivernode0 {
-							status = "okay";
-							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_6@1b";
-						};
-					};
-					module1 {
-						status = "okay";
 						badge = "cam7_frontright";
 						position = "frontright";
 						orientation = "1";
@@ -193,18 +190,18 @@
 							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_7@1c";
 						};
 					};
-					module2 {
+					module1 {
 						status = "okay";
-						badge = "cam8_bottomcenter";
-						position = "bottomcenter";
+						badge = "cam6_frontleft";
+						position = "frontleft";
 						orientation = "1";
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_8@1d";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_6@1b";
 						};
 					};
-					module3 {
+					module2 {
 						status = "okay";
 						badge = "cam9_topcenter";
 						position = "topcenter";
@@ -213,6 +210,17 @@
 							status = "okay";
 							pcl_id = "v4l2_sensor";
 							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_9@1e";
+						};
+					};
+					module3 {
+						status = "okay";
+						badge = "cam8_bottomcenter";
+						position = "bottomcenter";
+						orientation = "1";
+						drivernode0 {
+							status = "okay";
+							pcl_id = "v4l2_sensor";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@3180000/tca9546@70/i2c@3/cam_8@1d";
 						};
 					};
 					module4 {
@@ -475,7 +483,7 @@
 										status = "okay";
 										port-index = <6>; //1
 										bus-width = <4>;
-										remote-endpoint = <&cam_csi_out6>;
+										remote-endpoint = <&cam_csi_out7>;
 									};
 								};
 								port@1 {
@@ -502,7 +510,7 @@
 										status = "okay";
 										port-index = <6>; //1
 										bus-width = <4>;
-										remote-endpoint = <&cam_csi_out7>;
+										remote-endpoint = <&cam_csi_out6>;
 									};
 								};
 								port@1 {
@@ -530,7 +538,7 @@
 										status = "okay";
 										port-index = <6>; //2
 										bus-width = <4>;
-										remote-endpoint = <&cam_csi_out8>;
+										remote-endpoint = <&cam_csi_out9>;
 									};
 								};
 								port@1 {
@@ -557,7 +565,7 @@
 										status = "okay";
 										port-index = <6>; //2
 										bus-width = <4>;
-										remote-endpoint = <&cam_csi_out9>;
+										remote-endpoint = <&cam_csi_out8>;
 									};
 								};
 								port@1 {
@@ -2301,7 +2309,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "3";
+									vc_id = "2";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2332,7 +2340,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74";
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2343,7 +2351,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "3";
+									vc_id = "2";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2375,7 +2383,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74"; /*us, 4 lines*/
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";/* us */
@@ -2387,10 +2395,10 @@
 									port@0 {
 										reg = <0>;
 										cam_csi_out9: endpoint {
-											vc-id = <3>;
+											vc-id = <2>;
 											port-index = <5>;
 											bus-width = <4>;
-											remote-endpoint = <&jetson_csi_in9>;
+											remote-endpoint = <&jetson_csi_in8>;
 										};
 									};
 								};
@@ -2433,7 +2441,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "2";
+									vc_id = "3";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2464,7 +2472,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74";
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2475,7 +2483,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "2";
+									vc_id = "3";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2506,7 +2514,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74"; 		/*us, 4 lines*/
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";	/* μs */
@@ -2518,10 +2526,10 @@
 									port@0 {
 										reg = <0>;
 										cam_csi_out8: endpoint {
-											vc-id = <2>;
+											vc-id = <3>;
 											port-index = <5>;
 											bus-width = <4>;
-											remote-endpoint = <&jetson_csi_in8>;
+											remote-endpoint = <&jetson_csi_in9>;
 										};
 									};
 								};
@@ -2564,7 +2572,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "1";
+									vc_id = "0";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2595,7 +2603,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74";
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2606,7 +2614,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "1";
+									vc_id = "0";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2638,7 +2646,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74"; /*us, 4 lines*/
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";/* us */
@@ -2650,10 +2658,10 @@
 									port@0 {
 										reg = <0>;
 										cam_csi_out7: endpoint {
-											vc-id = <1>;
+											vc-id = <0>;
 											port-index = <5>;
 											bus-width = <4>;
-											remote-endpoint = <&jetson_csi_in7>;
+											remote-endpoint = <&jetson_csi_in6>;
 										};
 									};
 								};
@@ -2697,7 +2705,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "0";
+									vc_id = "1";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2728,7 +2736,7 @@
 									step_framerate = "1";
 									default_framerate = "60000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74";
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";
@@ -2739,7 +2747,7 @@
 									num_lanes = "4";
 									tegra_sinterface = "serial_g";
 									phy_mode = "DPHY";
-									vc_id = "0";
+									vc_id = "1";
 									discontinuous_clk = "no";
 									dpcm_enable = "false";
 									cil_settletime = "0";
@@ -2770,7 +2778,7 @@
 									step_framerate = "1";
 									default_framerate = "30000000";
 									exposure_factor = "1000000";
-									min_exp_time = "74"; 		/*us, 4 lines*/
+									min_exp_time = "148"; /*us, 8 lines*/
 									max_exp_time = "10000";
 									step_exp_time = "1";
 									default_exp_time = "10000";	/* μs */
@@ -2782,10 +2790,10 @@
 									port@0 {
 										reg = <0>;
 										cam_csi_out6: endpoint {
-											vc-id = <0>;
+											vc-id = <1>;
 											port-index = <5>;
 											bus-width = <4>;
-											remote-endpoint = <&jetson_csi_in6>;
+											remote-endpoint = <&jetson_csi_in7>;
 										};
 									};
 								};

@@ -39,7 +39,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select Configure for compatible hardware
-   3.select "Jetson Sensing SG10A_AGON_G2M_A1 S56x1 SHF3Lx6"
+   3.select "Jetson Sensing SG10A_AGON_G2M_A1 S56Cx1 SHF3Lx6"
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
 
@@ -177,7 +177,7 @@
 
    1.select "Configure Jetson AGX CSI Connector"
    2.select "Configure for compatible hardware"
-   3.select "Jetson Sensing SG10A_AGON_G2M_A1 S56x1 SHF3Lx6 "
+   3.select "Jetson Sensing SG10A_AGON_G2M_A1 S56Cx1 SHF3Lx6 "
    4.select "Save pin changes"
    5.select "Save and reboot to reconfigure pins"
 

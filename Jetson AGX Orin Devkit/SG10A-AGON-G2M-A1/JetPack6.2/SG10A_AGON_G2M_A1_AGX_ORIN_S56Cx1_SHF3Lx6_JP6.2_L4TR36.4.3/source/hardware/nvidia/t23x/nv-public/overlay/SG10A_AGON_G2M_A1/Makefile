@@ -9,7 +9,7 @@ dtb-y :=
 dtbo-y :=
 makefile-path := t23x/nv-public/overlay/SG10A_AGON_G2M_A1
 
-dtbo-y += tegra234-camera-s56x1-shf3lx6-overlay.dtbo
+dtbo-y += tegra234-camera-s56cx1-shf3lx6-overlay.dtbo
 
 ifneq ($(dtb-y),)
 dtb-y := $(addprefix $(makefile-path)/,$(dtb-y))

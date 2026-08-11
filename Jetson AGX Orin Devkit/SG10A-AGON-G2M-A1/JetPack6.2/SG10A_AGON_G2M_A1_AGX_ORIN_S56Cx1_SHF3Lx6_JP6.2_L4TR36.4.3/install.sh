@@ -8,7 +8,7 @@ sudo rm -rf /lib/modules/5.15.148-tegra/updates/drivers/media/i2c/max9295.ko
 sudo rm -rf /lib/modules/5.15.148-tegra/updates/drivers/media/i2c/max9296.ko
 
 # add dtbo
-sudo cp dtb/S56_SHF3L/tegra234-camera-s56x1-shf3lx6-overlay.dtbo /boot
+sudo cp dtb/S56_SHF3L/tegra234-camera-s56cx1-shf3lx6-overlay.dtbo /boot
 
 # upgrade Image
 sudo cp boot/Image /boot/Image
