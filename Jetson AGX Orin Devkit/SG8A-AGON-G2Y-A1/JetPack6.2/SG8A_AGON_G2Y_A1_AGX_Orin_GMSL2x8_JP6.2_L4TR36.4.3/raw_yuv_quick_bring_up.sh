@@ -187,7 +187,7 @@ elif [[ ${target_cam} == 10 ]]; then
 elif [[ ${target_cam} == 11 ]]; then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=5,trig_mode=0,trig_pin=0x00020007
 elif [[ ${target_cam} == 12 ]]; then
-        v4l2-ctl -d /dev/video${port} -c sensor_mode=4,trig_mode=0,trig_pin=0x00020008
+        v4l2-ctl -d /dev/video${port} -c sensor_mode=5,trig_mode=0,trig_pin=0x00020008
 elif [[ ${target_cam} == 13 ]]; then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=6,trig_mode=0,trig_pin=0x00020007
 elif [[ ${target_cam} == 14 ]]; then
