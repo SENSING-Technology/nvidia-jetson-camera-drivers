@@ -148,9 +148,10 @@ echo "10:SG5-IMX490C-5300-GMSL2"
 echo "11:SG8S-AR0820C-5300-GMSL2"
 echo "12:SG8-OX08BC-5300-GMSL2-Hxxx"
 echo "13:SG8-ISX028-G2G-Hxxx"
-echo "14:SHW3G(raw)"
-echo "15:SDV11NM1(raw)"
-green_print "Press select your yuv camera type [0-15]:" 
+echo "14:SG8-OX08DC-5300-G2G-Hxxx"
+echo "15:SHW3G(raw)"
+echo "16:SDV11NM1(raw)"
+green_print "Press select your yuv camera type [0-16]:" 
 read target_cam
 
 green_print "Press select your camera port [0-7]:" 
@@ -190,8 +191,10 @@ elif [[ ${target_cam} == 12 ]]; then
 elif [[ ${target_cam} == 13 ]]; then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=6,trig_mode=0,trig_pin=0x00020007
 elif [[ ${target_cam} == 14 ]]; then
-        v4l2-ctl -d /dev/video${port} -c sensor_mode=0,trig_mode=0,trig_pin=0x00020007
+        v4l2-ctl -d /dev/video${port} -c sensor_mode=5,trig_mode=0,trig_pin=0x00020007
 elif [[ ${target_cam} == 15 ]]; then
+        v4l2-ctl -d /dev/video${port} -c sensor_mode=0,trig_mode=0,trig_pin=0x00020007
+elif [[ ${target_cam} == 16 ]]; then
         v4l2-ctl -d /dev/video${port} -c sensor_mode=0,trig_mode=0,trig_pin=0x00020007
 else
         red_print "Warning: No specific config for camera type ${target_cam}, using defaults."
@@ -199,7 +202,7 @@ fi
 
 # Start GStreamer pipeline
 green_print "Launching GStreamer pipeline on /dev/video${port}..."
-if [[ ${target_cam} -ge 14 && ${target_cam} -le 15 ]];then
+if [[ ${target_cam} -ge 15 && ${target_cam} -le 16 ]];then
        argus_camera -d ${port}
 else
         gst-launch-1.0 v4l2src device=/dev/video${port} ! xvimagesink -ev

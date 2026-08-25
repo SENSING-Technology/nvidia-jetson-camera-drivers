@@ -46,11 +46,15 @@
    * SG8-OX08BC-5300-GMSL2-Hxxx
       * support max 7 cameras to bring up at the same time,CAM4 and CAM5 can each connect to at most one camera
 
+   * SG8-OX08DC-5300-G2G-Hxxx
+      * support max 7 cameras to bring up at the same time,CAM4 and CAM5 can each connect to at most one camera
+
    * DMSBBFAN
       * support max 8 cameras to bring up at the same time
 
    * OMSBDAAN-AA
       * support max 8 cameras to bring up at the same time
+      
 
 
 
@@ -216,9 +220,10 @@
    11:SG8S-AR0820C-5300-GMSL2
    12:SG8-OX08BC-5300-GMSL2-Hxxx
    13:SG8-ISX028-G2G-Hxxx
-   14:SHW3G(raw)
-   15:SDV11NM1(raw)
-   Press select your yuv camera type [0-15]:
+   14:SG8-OX08DC-5300-G2G-Hxxx
+   15:SHW3G(raw)
+   16:SDV11NM1(raw)
+   Press select your yuv camera type [0-16]:
    2
    Press select your camera port [0-7]:
    1
