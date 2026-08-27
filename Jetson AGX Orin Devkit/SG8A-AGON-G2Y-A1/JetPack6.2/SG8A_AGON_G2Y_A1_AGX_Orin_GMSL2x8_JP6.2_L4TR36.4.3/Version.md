@@ -39,6 +39,8 @@
         SG8-ISX028-G2G-Hxxx
         SHW3G
         SDV11NM1
+        SG8-OX08DC-5300-G2G-Hxxx
+        SG3S11AFxK
         
 
 

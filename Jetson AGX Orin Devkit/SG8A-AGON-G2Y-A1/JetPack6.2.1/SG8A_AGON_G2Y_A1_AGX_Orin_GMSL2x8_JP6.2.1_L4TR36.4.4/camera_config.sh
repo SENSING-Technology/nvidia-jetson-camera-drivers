@@ -13,7 +13,8 @@
 #   10: SG8S-AR0820C-5300-G2A-Hxxx   (3840x2160, YUV422, Serializer: MAX9295  )
 #   11: SG8-ISX028C-G2G-Hxxx         (3840x2160, YUV422, Serializer: MAX96717 )
 #   12: SG8-OX08BC-5300-GMSL2-Hxxx   (3840x2160, YUV422, Serializer: MAX9295  )
-#   13: SG8-IMX728C-G2G-Hxxx         (3840x2160, RAW12 , Serializer: MAX96717 )
+#   13: SG8-OX08DC-5300-GMSL2-Hxxx   (3840x2160, YUV422, Serializer: MAX96717  )
+#   14: SG8-IMX728C-G2G-Hxxx         (3840x2160, RAW12 , Serializer: MAX96717 )
 
 # 3G enable:
 #     If Serializer is set to 1 in MAX96717F

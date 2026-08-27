@@ -19,6 +19,7 @@
     - SG8S-AR0820C-5300-G2A-Hxxx
     - SG8-ISX028C-G2G-Hxxx
     - SG8-OX08BC-5300-GMSL2-Hxxx
+    - SG8-OX08DC-5300-GMSL2-Hxxx
   - RAW
     - SG8-IMX728C-G2G-Hxxx
 
@@ -130,7 +131,7 @@
    ```
 6. After the device reboot, run the script "load\_module.sh".
 
-   5.1 Modify the script "load\_modules.sh"
+   6.1 Modify the script "load\_modules.sh"
    If you have already created the file "camera\_config.sh", then there is no need to make any modifications.
 
    If you want to modify the trigger mode, please refer to the following steps.
@@ -150,20 +151,20 @@
    v4l2-ctl -d /dev/video6 -c sensor_mode=4,trig_pin=0x00020007,trig_mode=1
    v4l2-ctl -d /dev/video7 -c sensor_mode=4,trig_pin=0x00020007,trig_mode=1
    ```
-   5.2 run the script "load\_module.sh".
+   6.2 run the script "load\_module.sh".
    ```
    sudo ./load_modules.sh
    ```
    After the module is loaded, the device nodes /dev/video0\~video7 will be generated.
 7. Bring up the camera
 
-   6.1 Install argus\_camera
+   7.1 Install argus\_camera
    ```
    sudo apt-get install nvidia-l4t-jetson-multimedia-api
    ```
    After installation, the jetson\_multimedia\_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson\_multimedia\_api/argus/README.TXT" to install argus\_camera.
 
-   6.2 Bring up YUV Camera Modules
+   7.2 Bring up YUV Camera Modules
 
    Run the gst-launch-1.0 in a terminal.
    ```
@@ -193,7 +194,7 @@
    ```
 8. Camera Trigger Sync
 
-   7.1 Enable camera slave Mode
+   8.1 Enable camera slave Mode
 
    Follow the "Camera Configuration Instructions.pdf", modify load\_modules.sh script to enale slave mode, then re-run it.
 
@@ -209,7 +210,7 @@
    ```
    0 = Master mode, 1 = Slave mode
    ```
-   7.2 External Trigger Mode
+   8.2 External Trigger Mode
 
    External Trigger Port: CN4
 
@@ -224,7 +225,7 @@
 
    PIN 6: GND
    ```
-   7.2 Internal Trigger Mode
+   8.3 Internal Trigger Mode
    Please confirm the differences in the pwm nodes before and after loading the driver. The newly added nodes are the ones that need to be used.
    Note: Internal trigger mode is not supported for SHW3G modules, but is supported for other modules.
    ```
@@ -240,8 +241,7 @@
    # Enable PWM output
    echo 1 > /sys/class/pwm/pwmchip4/pwm0/enable
    ```
-v4l2-ctl --stream-mmap --stream-count=0 -d /dev/video6
-v4l2-ctl --stream-mmap --stream-count=0 -d /dev/video6 --verbose
+
 
 #### Integration with SENSING Driver Source Code
 

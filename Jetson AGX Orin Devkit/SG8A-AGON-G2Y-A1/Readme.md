@@ -38,6 +38,8 @@
 | YUV  | SH3-S11A60-G2A-Hxxx         | \             | YES           | \             |
 | YUV  | SN2M4EFGD                   | \             | YES           | \             |
 | YUV  | SG1Z2AESH                   | \             | YES           | \             |
+| YUV  | SG8-OX08DC-5300-GMSL2-Hxxx  | \             | YES           | YES           |
+| YUV  | SG3S11AFSK                  | \             | YES           | YES           |
 | RAW  | SG8-IMX728C-G2G-Hxxx        | \             | \             | YES           |
 | RAW  | SDV11NM1                    | \             | YES           | \             |
 | RAW  | SHW3G                       | \             | YES           | \             |

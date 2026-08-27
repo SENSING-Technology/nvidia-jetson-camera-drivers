@@ -33,6 +33,9 @@
 
    * SG3-ISX031C-GMSL2-Hxxx
       * support max 8 cameras to bring up at the same time
+
+   * SG3S11AFxK
+      * support max 8 cameras to bring up at the same time
    
    * SG3-ISX031C-GMSL2F-Hxxx
       * support max 8 cameras to bring up at the same time
@@ -221,9 +224,10 @@
    12:SG8-OX08BC-5300-GMSL2-Hxxx
    13:SG8-ISX028-G2G-Hxxx
    14:SG8-OX08DC-5300-G2G-Hxxx
-   15:SHW3G(raw)
-   16:SDV11NM1(raw)
-   Press select your yuv camera type [0-16]:
+   15:SG3S11AFxK(3G)
+   16:SHW3G(raw)
+   17:SDV11NM1(raw)
+   Press select your yuv camera type [0-17]:
    2
    Press select your camera port [0-7]:
    1
