@@ -15,3 +15,7 @@
 *** 20260901 ***
 
 Improve AR2020 GRR mode driver; this AR2020 version supports trigger mode (trig_mode=1) only.
+
+*** 20260902 ***
+
+Improve VB1940 driver: update exposure interface and add FSYNC_IN_DELAY control to v4l2-ctl.
