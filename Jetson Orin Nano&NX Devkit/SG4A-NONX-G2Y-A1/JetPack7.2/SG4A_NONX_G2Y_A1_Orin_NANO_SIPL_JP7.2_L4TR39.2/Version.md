@@ -1,3 +1,6 @@
+###### 20260907  ######
+1. Improve the image quality of S56C and SHW5G cameras.
+
 ###### 20260727  ######
 1. Support up to SG8-OX08DC-G2G * 4 modules.
 2. Support up to SG3-OX03H10C-G2F * 4 modules.
