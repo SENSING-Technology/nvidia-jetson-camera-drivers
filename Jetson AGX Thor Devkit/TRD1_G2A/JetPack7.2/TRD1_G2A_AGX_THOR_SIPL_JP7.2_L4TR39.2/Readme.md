@@ -10,10 +10,13 @@
 * SG3-OX03H10C-G2F-Hxxx (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
 
+* SHW3G (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
 * SHW5G (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
 
-* Astra S56C (Stereo, RAW)
+* Astra S56C/S56 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
 
 * SGX-YUV-GMSL2 (Monocular, YUV)
@@ -95,28 +98,36 @@
 
    [How to bring up SG3-OX03H10C-G2F Camera Module](docs/sg3_ox03h10c_g2f.md)
 
+   5.3 For SHW3G Camera Module
 
-   5.3 For SHW5G Camera Module
+   [How to bring up SHW3G Camera Module](docs/shw3g.md)
+
+   5.4 For SHW5G Camera Module
 
    [How to bring up SHW5G Camera Module](docs/shw5g.md)
 
 
-   5.4 For Astra S56C Camera Module
+   5.5 For Astra S56C Camera Module
 
    [How to bring up Astra S56C Camera Module](docs/s56c.md)
 
 
-   5.5 For SGX-YUV-GMSL2 Camera Module
+   5.6 For Astra S56 Camera Module
+
+   [How to bring up Astra S56 Camera Module](docs/s56.md)
+
+
+   5.7 For SGX-YUV-GMSL2 Camera Module
 
    [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
 
 
-   5.6 For Astra S56Cx1+SHW5Gx2 Camera Module
+   5.8 For Astra S56Cx1+SHW5Gx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
 
 
-   5.7 For Astra S56Cx1+SHF3Lx2 Camera Module
+   5.9 For Astra S56Cx1+SHF3Lx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
 
@@ -136,6 +147,7 @@
    osc_manual: The deserializer generates the synchronization trigger for all cameras connected to the same deserializer. An external trigger signal is not required.
    external: All cameras are synchronized using an external trigger signal.
    ```
+   Note: The SHW3G module does not support the deserializer's internal trigger. When configured to osc_manual, the sensor operates in Master mode.
 
    6.2 External Trigger Mode
 
@@ -155,4 +167,15 @@
 
    PIN 6: GND
    ```
+
+   For the SWH3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0~CAM3) and PIN2 (CAM-FSYNC2, for CAM4~CAM5).
+
+   ```
+   CAM-FSYNC4 pin and CAM-FSYNC2 Pin Trigger Signal Parameters:
+   Frequency: 81kHz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 90%
+   ```
+
 

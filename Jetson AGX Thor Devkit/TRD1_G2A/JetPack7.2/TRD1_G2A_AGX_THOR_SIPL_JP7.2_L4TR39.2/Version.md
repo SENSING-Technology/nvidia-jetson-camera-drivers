@@ -1,5 +1,9 @@
-###### 20260907  ######
-1. Improve the image quality of S56C and SHW5G cameras.
+###### 20260911  ######
+1. Support up to SHW3G * 8 modules.
+
+###### 20260909  ######
+1. Support up to Astra S56 * 4 modules.
+2. Improve the image quality of S56C/S56 and SHW5G cameras.
 
 ###### 20260730  ######
 1. Support up to SG8-OX08DC-G2G * 8 modules.
