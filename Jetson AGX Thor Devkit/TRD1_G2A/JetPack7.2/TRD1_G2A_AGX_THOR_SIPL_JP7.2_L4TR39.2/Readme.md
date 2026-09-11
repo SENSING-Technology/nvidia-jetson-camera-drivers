@@ -168,7 +168,7 @@
    PIN 6: GND
    ```
 
-   For the SWH3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0~CAM3) and PIN2 (CAM-FSYNC2, for CAM4~CAM5).
+   For the SWH3G module, an additional 81kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0 to CAM3) and PIN2 (CAM-FSYNC2, for CAM4 to CAM7).
 
    ```
    CAM-FSYNC4 pin and CAM-FSYNC2 Pin Trigger Signal Parameters:
