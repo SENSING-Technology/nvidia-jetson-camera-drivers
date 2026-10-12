@@ -30,14 +30,14 @@ sudo busybox devmem 0x02448020 w 0x1008
 sudo insmod ko/shw5g.ko
 ## Manual Triger
 # trig_mode: 0:master 1:slave
-v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video1 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video2 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video3 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video4 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video5 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video6 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video7 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video8 -c sensor_mode=0,trig_mode=1
-v4l2-ctl -d /dev/video9 -c sensor_mode=0,trig_mode=1
+v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video1 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video2 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video3 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video4 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video5 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video6 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video7 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video8 -c sensor_mode=0,trig_mode=0
+v4l2-ctl -d /dev/video9 -c sensor_mode=0,trig_mode=0
 

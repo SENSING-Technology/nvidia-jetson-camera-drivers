@@ -451,16 +451,6 @@
 						reg = <0x29>;
 					};
 
-					bmi088@68 {
-								compatible = "bmi,bmi088";
-								accel_i2c_addr = <0x18>;
-								status = "okay";
-								reg = <0x68>;
-								
-								accel_matrix = [01 00 00 00 01 00 00 00 01];
-								gyro_matrix = [01 00 00 00 01 00 00 00 01];
-							};
-
 					cam_7@23 {
 						compatible = "sensing,sgcam-gmsl2-7";
 						def-addr = <0x11>;
@@ -530,10 +520,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 
@@ -620,10 +610,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 
@@ -710,10 +700,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 
@@ -800,10 +790,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 						
@@ -831,16 +821,6 @@
 						compatible = "nvidia,max96712_0";
 						reg = <0x2d>;
 					};
-
-					bmi088@68 {
-								compatible = "bmi,bmi088";
-								accel_i2c_addr = <0x18>;
-								status = "okay";
-								reg = <0x68>;
-								
-								accel_matrix = [01 00 00 00 01 00 00 00 01];
-								gyro_matrix = [01 00 00 00 01 00 00 00 01];
-							};
 
 					cam_3@23 {
 						compatible = "sensing,sgcam-gmsl2-3";
@@ -911,10 +891,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 
@@ -1001,10 +981,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 
@@ -1091,10 +1071,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 
@@ -1181,10 +1161,10 @@
 							step_framerate = "1";
 							default_framerate = "30000000";
 							exposure_factor = "1000000";
-							min_exp_time = "40"; /* 4 * 8.992μs = 35.968 μs */
-							max_exp_time = "30000";
+							min_exp_time = "148"; /* 8 * 18.501μs =148.008μs */
+							max_exp_time = "16000";
 							step_exp_time = "1";
-							default_exp_time = "30000"; /* μs */
+							default_exp_time = "10000"; /* μs */
 							embedded_metadata_height = "0";
 						};
 

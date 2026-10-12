@@ -7,7 +7,7 @@ import sys
 # Monocular cameras
 MONOCULAR_MODELS = ["imx728","ox08d", "ox03h10", "shw3g", "shw5g", "sgx-yuv-gmsl2"]
 # Stereo cameras (used in pairs)
-STEREO_MODELS = ["s36", "s56", "sdv11nm1", "s56c"]
+STEREO_MODELS = ["s36", "s56", "s56c", "sdv11nm1"]
 # Combined list for selection
 ALL_MODELS = MONOCULAR_MODELS + STEREO_MODELS
 

@@ -22,7 +22,10 @@
 * SDV11NM1 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
 
-* Astra S56/S56C (Stereo, RAW)
+* Astra S56 (Stereo, RAW)
+  * support max 2 cameras to bring up at the same time
+
+* Astra S56C (Stereo, RAW)
   * support max 2 cameras to bring up at the same time
  
 * Astra S36 (Stereo, YUV)
