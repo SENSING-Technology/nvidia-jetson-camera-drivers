@@ -20,7 +20,8 @@ SHF3L                                Monocular       1920*1536U    30fps        
 Astra S36                            Stereo          1920*1536U    30fps           UYVY            6Gbps          mfp7              4
 SHW5G                                Monocular       2064*1552U    30fps           RAW10           6Gbps          mfp7              6
 SG8-IMX728C-G2G-Hxxx                 Monocular       2880*1860U    30fps           RAW12           6Gbps          mfp7              4
-Astra  S56C                          Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
+Astra S56                            Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
+Astra S56C                           Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
 SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7、mfp3           6
 SDV11NM1                             Stereo          2592*1944U    30fps           RAW10           6Gbps          mfp7              4
  ```               
@@ -86,16 +87,17 @@ SDV11NM1                             Stereo          2592*1944U    30fps        
       3: shw5g (raw10)
       4: s36 (uyvy)
       5: s56 (raw10)
-      6: sdv11nm1 (raw10)
+      6: s56C (raw10)
+      7: sdv11nm1 (raw10)
    
-   Select camera for cam_0 (0-6): 6
+   Select camera for cam_0 (0-7): 7
    Placed stereo pair 'sdv11nm1' on cam_0 and cam_1.
-   Select camera for cam_2 (0-6): 1
-   Select camera for cam_3 (0-6): 1
-   Select camera for cam_4 (0-6): 1
-   Select camera for cam_5 (0-6): 1
-   Select camera for cam_6 (0-6): 1
-   Select camera for cam_7 (0-6): 1
+   Select camera for cam_2 (0-7): 1
+   Select camera for cam_3 (0-7): 1
+   Select camera for cam_4 (0-7): 1
+   Select camera for cam_5 (0-7): 1
+   Select camera for cam_6 (0-7): 1
+   Select camera for cam_7 (0-7): 1
    
    Selected configurations:
    cam_0 -> sdv11nm1
@@ -207,7 +209,7 @@ SDV11NM1                             Stereo          2592*1944U    30fps        
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/imx728.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
 
-   #for S56C、SHW5G
+   #for S56/S56C、SHW5G
    sudo service nvargus-daemon stop
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/shw5g.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon

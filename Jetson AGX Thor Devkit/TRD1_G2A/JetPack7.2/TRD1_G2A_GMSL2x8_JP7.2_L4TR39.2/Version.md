@@ -1,3 +1,6 @@
+#### 20261012
+Add support for Astra S56 Camera module.
+
 #### 20260721
 
 1.Supports the following cameras:
@@ -9,7 +12,7 @@ SGX-YUV-GMSL2
 Astra S36                 
 SHW5G                     
 SG8-IMX728C-G2G-Hxxx      
-Astra  S56C                                    
+Astra S56C                                    
 SDV11NM1                  
 
 ```

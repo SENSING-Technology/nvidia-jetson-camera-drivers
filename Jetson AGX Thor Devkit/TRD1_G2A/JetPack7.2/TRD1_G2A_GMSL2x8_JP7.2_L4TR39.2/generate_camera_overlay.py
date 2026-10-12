@@ -7,7 +7,7 @@ import sys
 # Monocular cameras
 MONOCULAR_MODELS = ["shw3g", "sgx-yuv-gmsl2","imx728", "shw5g"]
 # Stereo cameras (used in pairs)
-STEREO_MODELS = ["s36", "s56", "sdv11nm1"]
+STEREO_MODELS = ["s36", "s56", "s56c",  "sdv11nm1"]
 # Combined list for selection
 ALL_MODELS = MONOCULAR_MODELS + STEREO_MODELS
 
@@ -17,6 +17,7 @@ SENSOR_FORMAT_MAP = {
     "sgx-yuv-gmsl2": "uyvy",
     "s36": "uyvy",
     "s56": "raw10",
+    "s56c": "raw10",
     "imx728": "raw12",
     "shw5g": "raw10",
     "sdv11nm1": "raw10",
@@ -26,6 +27,7 @@ SENSOR_FORMAT_MAP = {
 MODEL_TO_DTS_FILE = {
     "s36": "dts/tegra264-camera-sgcam-s36x4-overlay.dts",
     "s56": "dts/tegra264-camera-sgcam-s56x4-overlay.dts",
+    "s56c": "dts/tegra264-camera-sgcam-s56cx4-overlay.dts",
     "shw3g": "dts/tegra264-camera-sgcam-shw3gx8-overlay.dts",
     "sgx-yuv-gmsl2": "dts/tegra264-camera-sgcam-yuv-gmsl2x8-overlay.dts",
     "imx728": "dts/tegra264-camera-sgcam-imx728x8-overlay.dts",
@@ -106,6 +108,18 @@ def main():
                 break
             i += 1
 
+    # Match the S56 overlay's module order for each selected stereo pair.
+    # Keep other models' module paths unchanged in mixed configurations.
+    for pair_start in range(0, 8, 2):
+        if cameras[pair_start:pair_start + 2] != ['s56', 's56']:
+            continue
+        addr = 0x20 + pair_start % 4
+        first = f'/cam_{pair_start}@{addr:02x}"'
+        second = f'/cam_{pair_start + 1}@{addr + 1:02x}"'
+        if content.count(first) != 1 or content.count(second) != 1:
+            raise ValueError(f"Expected one module path for each S56 node: {first}, {second}")
+        placeholder = f'/__S56_MODULE_SWAP_{pair_start}__"'
+        content = content.replace(first, placeholder).replace(second, first).replace(placeholder, second)
     with open(OUT_DTS, 'w') as f: f.write(content)
     print(f"\nGenerated: {OUT_DTS}")
 
