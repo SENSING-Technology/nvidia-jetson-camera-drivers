@@ -22,7 +22,7 @@
 * SDV11NM1 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
 
-* Astra S56 (Stereo, RAW)
+* Astra S56/S56C (Stereo, RAW)
   * support max 2 cameras to bring up at the same time
  
 * Astra S36 (Stereo, YUV)
@@ -119,7 +119,8 @@
    5: sgx-yuv-gmsl2 (uyvy)
    6: s36 (uyvy)
    7: s56 (raw10)
-   8: sdv11nm1 (raw10)
+   8: s56C (raw10)
+   9: sdv11nm1 (raw10)
 
    Select camera for cam_0 (0-8): 4
    Select camera for cam_1 (0-8): 4
@@ -282,7 +283,7 @@
 
    7.2.2 IMU Testing 
    
-   Only for S56 Camera.
+   Only for S56C Camera.
 
    Since no interrupt pin is reserved in the hardware, the IMU driver operates in polling mode.
 

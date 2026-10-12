@@ -135,7 +135,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_0@20";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_1@21";
 						};
 					};
 					module1 {
@@ -146,7 +146,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_1@21";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_0@20";
 						};
 					};
 					module2 {
@@ -157,7 +157,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_2@22";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_3@23";
 						};
 					};
 					module3 {
@@ -168,7 +168,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_3@23";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6a0000/cam_2@22";
 						};
 					};
 					module4 {
@@ -179,7 +179,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_4@20";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_5@21";
 						};
 					};
 					module5 {
@@ -190,7 +190,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_5@21";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_4@20";
 						};
 					};
 					module6 {
@@ -201,7 +201,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_6@22";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_7@23";
 						};
 					};
 					module7 {
@@ -212,7 +212,7 @@
 						drivernode0 {
 							status = "okay";
 							pcl_id = "v4l2_sensor";
-							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_7@23";
+							sysfs-device-tree = "/sys/firmware/devicetree/base/bus@0/i2c@810c6d0000/cam_6@22";
 						};
 					};
 				};

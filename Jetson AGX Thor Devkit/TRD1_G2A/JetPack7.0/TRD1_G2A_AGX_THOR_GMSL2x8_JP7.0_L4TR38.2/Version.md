@@ -1,3 +1,7 @@
+#### 20261012
+
+Add support for Astra S56C Camera module.
+
 ###### 20260608 ######
 
 Add support for the s56 Cameras working in polling mode.

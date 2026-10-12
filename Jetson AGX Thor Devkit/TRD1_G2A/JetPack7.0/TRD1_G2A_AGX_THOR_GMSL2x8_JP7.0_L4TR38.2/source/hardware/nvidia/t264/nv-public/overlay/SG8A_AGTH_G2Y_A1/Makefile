@@ -11,6 +11,7 @@ makefile-path := t264/nv-public/overlay/SG8A_AGTH_G2Y_A1
 dtbo-y += tegra264-camera-sgcam-ox08dx8-overlay.dtbo
 dtbo-y += tegra264-camera-sgcam-s36x4-overlay.dtbo
 dtbo-y += tegra264-camera-sgcam-s56x4-overlay.dtbo
+dtbo-y += tegra264-camera-sgcam-s56cx4-overlay.dtbo
 dtbo-y += tegra264-camera-sgcam-sdv11nm1x4-overlay.dtbo
 dtbo-y += tegra264-camera-sgcam-shw3gx8-overlay.dtbo
 dtbo-y += tegra264-camera-sgcam-shw5gx8-overlay.dtbo
