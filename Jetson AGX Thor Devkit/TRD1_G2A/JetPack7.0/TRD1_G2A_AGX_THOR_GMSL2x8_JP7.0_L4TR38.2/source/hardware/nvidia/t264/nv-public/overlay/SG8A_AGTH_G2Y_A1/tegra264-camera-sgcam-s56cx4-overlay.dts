@@ -452,13 +452,13 @@
 					};
 
 					bmi088@68 {
-								compatible = "bmi,bmi088";
-								accel_i2c_addr = <0x18>;
-								status = "okay";
-								reg = <0x68>;
-								
-								accel_matrix = [01 00 00 00 01 00 00 00 01];
-								gyro_matrix = [01 00 00 00 01 00 00 00 01];
+						compatible = "bmi,bmi088";
+						accel_i2c_addr = <0x18>;
+						status = "okay";
+						reg = <0x68>;
+						
+						accel_matrix = [01 00 00 00 01 00 00 00 01];
+						gyro_matrix = [01 00 00 00 01 00 00 00 01];
 					};
 
 					cam_7@23 {
@@ -833,13 +833,13 @@
 					};
 
 					bmi088@68 {
-								compatible = "bmi,bmi088";
-								accel_i2c_addr = <0x18>;
-								status = "okay";
-								reg = <0x68>;
-								
-								accel_matrix = [01 00 00 00 01 00 00 00 01];
-								gyro_matrix = [01 00 00 00 01 00 00 00 01];
+						compatible = "bmi,bmi088";
+						accel_i2c_addr = <0x18>;
+						status = "okay";
+						reg = <0x68>;
+						
+						accel_matrix = [01 00 00 00 01 00 00 00 01];
+						gyro_matrix = [01 00 00 00 01 00 00 00 01];
 					};
 
 					cam_3@23 {

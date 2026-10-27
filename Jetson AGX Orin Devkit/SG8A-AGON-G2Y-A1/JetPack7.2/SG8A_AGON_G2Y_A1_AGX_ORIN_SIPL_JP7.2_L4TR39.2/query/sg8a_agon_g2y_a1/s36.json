@@ -1,0 +1,455 @@
+{
+    "deserializers": [
+        {
+            "name": "MAX96712_Fusa_nv_AB",
+            "description": "Maxim MAX96712 GMSL2 Deserializer - CSI-AB",
+            "i2cAddress": "0x29"
+        },
+        {
+            "name": "MAX96712_Fusa_nv_CD",
+            "description": "Maxim MAX96712 GMSL2 Deserializer - CSI-CD",
+            "i2cAddress": "0x2d"
+        }
+    ],
+    "serializers": [
+        {
+            "name": "MAX9295",
+            "description": "Maxim MAX9295D Serializer",
+            "i2cAddress": "0x40",
+            "useCDIv2API": true
+        },
+        {
+            "name": "MAX96717F",
+            "description": "Maxim MAX96717F Serializer",
+            "i2cAddress": "0x40",
+            "useCDIv2API": true
+        },
+        {
+            "name": "MAX96717",
+            "description": "Maxim MAX96717 Serializer",
+            "i2cAddress": "0x40",
+            "useCDIv2API": true
+        }
+    ],
+    "imageSensors": [
+        {
+            "name": "ISX031",
+            "description": "ISX031 YUV 422 Sensor - S36 Stereo Left",
+            "i2cAddress": "0x1A",
+            "virtualChannels": [
+                {
+                    "cfa": "uyvy",
+                    "embeddedTopLines": 0,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "yuv422",
+                    "width": 1920,
+                    "height": 1536,
+                    "fps": 30.0,
+                    "isEmbeddedDataTypeEnabled": false
+                }
+            ],
+            "isTriggerModeEnabled": true,
+            "isTPGEnabled": false,
+            "useCDIv2API": true
+        },
+        {
+            "name": "ISX031",
+            "description": "ISX031 YUV 422 Sensor - S36 Stereo Right",
+            "i2cAddress": "0x1B",
+            "virtualChannels": [
+                {
+                    "cfa": "uyvy",
+                    "embeddedTopLines": 0,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "yuv422",
+                    "width": 1920,
+                    "height": 1536,
+                    "fps": 30.0,
+                    "isEmbeddedDataTypeEnabled": false
+                }
+            ],
+            "isTriggerModeEnabled": true,
+            "isTPGEnabled": false,
+            "useCDIv2API": true
+        }
+    ],
+    "platformTransportSettings": [
+        {
+            "name": "jetson-orin",
+            "description": "Orin - Jetson AGX Orin Devkit (p3701)",
+            "boardIdPrefix": "p3701",
+            "enableMasks": [
+                "0x0101",
+                "0x0101"
+            ],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-orin_GH",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-GH with external MAX96712",
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x2d"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 9043968
+                        }
+                    },
+                    "i2cDevice": 10,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                },
+                {
+                    "name": "transportSettings_jetson-orin_CD",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-CD with external MAX96712",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x29"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 3211264
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        }
+    ],
+    "cameraConfigs": [
+        {
+            "name": "S36_2CH_1920X1536_30FPS",
+            "type": "GMSL",
+            "description": "S36-ISX031-G2G stereo: 2 sensors on 1 link, 1920x1536@30fps",
+            "cameraModules": [
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 0,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 1,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 2,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 3,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 0,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 1,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 2,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "S36_1920X1536_30FPS",
+                    "linkIndex": 3,
+                    "transportIndex": 0
+                }
+            ],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-orin_GH",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-GH with external MAX96712",
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x2d"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 9043968
+                        }
+                    },
+                    "i2cDevice": 10,
+                    "desI2CPort": 0,
+                    "groupInitProg": false
+                },
+                {
+                    "name": "transportSettings_jetson-orin_CD",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-CD with external MAX96712",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x29"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 3211264
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        },
+        {
+            "name": "S36_1920X1536_30FPS",
+            "type": "GMSL",
+            "description": "S36-ISX031-G2G stereo module 1920x1536@30fps (2x ISX031 + MAX9295D)",
+            "moduleDriverName": "S36",
+            "serInfo": {
+                "name": "MAX9295",
+                "i2cAddress": "0x40"
+            },
+            "linkMode": "LINK_MODE_GMSL2_6GBPS",
+            "fsyncMode": "osc_manual",
+            "mipiSettings": {
+                "dphyRate": 2500000,
+                "phyMode": "dphy"
+            },
+            "sensorInfo": [
+                {
+                    "name": "ISX031",
+                    "id": 0,
+                    "description": "ISX031 YUV 422 Sensor - S36 Stereo Left",
+                    "i2cAddress": "0x1A",
+                    "numContext": 1,
+                    "isTriggerModeEnabled": true,
+                    "sensorGroup": 1,
+                    "deviceIndex": 0,
+                    "virtualChannels": [
+                        {
+                            "vcIdSrc": 0,
+                            "vcIdDst": 0,
+                            "cfa": "uyvy",
+                            "embeddedTopLines": 0,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "yuv422",
+                            "width": 1920,
+                            "height": 1536,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                },
+                {
+                    "name": "ISX031",
+                    "id": 1,
+                    "description": "ISX031 YUV 422 Sensor - S36 Stereo Right",
+                    "i2cAddress": "0x1B",
+                    "numContext": 1,
+                    "isTriggerModeEnabled": true,
+                    "sensorGroup": 1,
+                    "deviceIndex": 1,
+                    "virtualChannels": [
+                        {
+                            "vcIdSrc": 1,
+                            "vcIdDst": 1,
+                            "cfa": "uyvy",
+                            "embeddedTopLines": 0,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "yuv422",
+                            "width": 1920,
+                            "height": 1536,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                }
+            ],
+            "eepromInfo": {
+                "name": "BR24H128",
+                "i2cAddress": "0x50"
+            }
+        },
+        {
+            "name": "S36_1920X1080_30FPS",
+            "type": "GMSL",
+            "description": "S36-ISX031-G2G stereo module 1920x1080@30fps (2x ISX031 + MAX9295D)",
+            "moduleDriverName": "S36",
+            "serInfo": {
+                "name": "MAX9295",
+                "i2cAddress": "0x40"
+            },
+            "linkMode": "LINK_MODE_GMSL2_6GBPS",
+            "fsyncMode": "osc_manual",
+            "mipiSettings": {
+                "dphyRate": 2500000,
+                "phyMode": "dphy"
+            },
+            "sensorInfo": [
+                {
+                    "name": "ISX031",
+                    "id": 0,
+                    "description": "ISX031 YUV 422 Sensor - S36 Stereo Left",
+                    "i2cAddress": "0x1A",
+                    "numContext": 1,
+                    "isTriggerModeEnabled": true,
+                    "sensorGroup": 1,
+                    "deviceIndex": 0,
+                    "virtualChannels": [
+                        {
+                            "vcIdSrc": 0,
+                            "vcIdDst": 0,
+                            "cfa": "uyvy",
+                            "embeddedTopLines": 0,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "yuv422",
+                            "width": 1920,
+                            "height": 1080,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                },
+                {
+                    "name": "ISX031",
+                    "id": 1,
+                    "description": "ISX031 YUV 422 Sensor - S36 Stereo Right",
+                    "i2cAddress": "0x1B",
+                    "numContext": 1,
+                    "isTriggerModeEnabled": true,
+                    "sensorGroup": 1,
+                    "deviceIndex": 1,
+                    "virtualChannels": [
+                        {
+                            "vcIdSrc": 1,
+                            "vcIdDst": 1,
+                            "cfa": "uyvy",
+                            "embeddedTopLines": 0,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "yuv422",
+                            "width": 1920,
+                            "height": 1080,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                }
+            ],
+            "eepromInfo": {
+                "name": "BR24H128",
+                "i2cAddress": "0x50"
+            }
+        },
+        {
+            "name": "S36_2CH_1920X1080_30FPS",
+            "type": "GMSL",
+            "description": "S36-ISX031-G2G stereo: 2 sensors on 1 link, 1920x1080@30fps",
+            "cameraModules": [
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 0,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 1,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 2,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 3,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 0,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 1,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 2,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "S36_1920X1080_30FPS",
+                    "linkIndex": 3,
+                    "transportIndex": 0
+                }
+            ],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-orin_GH",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-GH with external MAX96712",
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x2d"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 9043968
+                        }
+                    },
+                    "i2cDevice": 10,
+                    "desI2CPort": 0,
+                    "groupInitProg": false
+                },
+                {
+                    "name": "transportSettings_jetson-orin_CD",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-CD with external MAX96712",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x29"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 3211264
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+#### Jetpack version
+
+* Jetpack 7.2
+
+#### Supported Camera Modules
+
+* SG8-OX08DC-G2G-Hxxx (Monocular, RAW)
+  * support max 4 cameras to bring up at the same time
+
+* SG3-OX03H10C-G2F-Hxxx (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
+* SHW3G (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+ 
+* SHW5G (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
+* Astra S56C/S56 (Stereo, RAW)
+  * support max 4 cameras to bring up at the same time
+
+* Astra S36 (Stereo, YUV)
+
+   * Astra S36 (1920x1536 @ 30fps)
+      * support max 4 cameras to bring up at the same time
+
+   * Astra S36 (1920x1080 @ 30fps)
+      * support max 4 cameras to bring up at the same time
+
+* SGX-YUV-GMSL2 (Monocular, YUV)
+
+   * SG2-IMX390C-5200-G2A-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG2-AR0233-5200-G2A-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG3-ISX031C-GMSL2-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG3-ISX031C-GMSL2F-Hxxx
+      * support max 8 cameras to bring up at the same time
+
+   * SG5-IMX490C-5300-GMSL2-Hxxx
+      * support max 6 cameras to bring up at the same time
+
+   * SG8S-AR0820C-5300-G2A-Hxxx
+      * support max 4 cameras to bring up at the same time
+
+   * SG8-OX08DC-5300-G2G-Hxxx
+      * support max 4 cameras to bring up at the same time   
+
+   * SHF3L
+      * support max 8 cameras to bring up at the same time
+
+   * SHF3H
+      * support max 8 cameras to bring up at the same time
+
+   * SHF2GY
+      * support max 8 cameras to bring up at the same time
+
+
+#### Quick Bring Up
+
+1. Flashing
+
+    Flash the Jetson AGX Orin Devkit with JetPack 7.2 / Jetson Linux L4T 39.2.0.
+
+    This Orin package uses the camera overlay in dts/. Install the package and select the overlay with Jetson-IO in step 4.
+
+
+2. Connect the Camera to the ports on the adapter board.
+
+   ![Camera](pictures/camera_connection.jpg)
+
+   CN1 (CAM0/CAM1/CAM2/CAM3)
+
+   CN2 (CAM4/CAM5/CAM6/CAM7)
+
+   Note: Stereo camera needs an even port (CAM0/2/4/6) and the next port must be free.
+
+
+3. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
+
+   ```
+   /home/nvidia/SG8A_AGON_G2Y_A1_AGX_ORIN_SIPL_JP7.2_L4TR39.2
+   ```
+4. Enter the driver directory, run the script "install.sh"
+
+   ```
+   cd SG8A_AGON_G2Y_A1_AGX_ORIN_SIPL_JP7.2_L4TR39.2
+   chmod a+x ./install.sh
+   ./install.sh
+   ```
+
+   After installation, select the camera overlay with Jetson-IO:
+
+   ```
+   sudo /opt/nvidia/jetson-io/jetson-io.py
+   ```
+
+   Select "Configure Jetson AGX CSI Connector" → "Configure for compatible hardware" → "Jetson Sensing SG8A-AGON-G2Y-A1 SIPL GMSL2x8" → "Save pin changes" → "Save and reboot to reconfigure pins".
+
+5. Bring up the camera
+
+   After the device reboots, switch the Jetson device to maximum performance mode
+   ```
+   sudo nvpmodel -m 0
+   sudo jetson_clocks
+   ```
+
+   5.1 For SG8-OX08DC-G2G-Hxxx Camera Module
+
+   [How to bring up SG8-OX08DC-G2G Camera Module](docs/sg8_ox08dc_g2g.md)
+
+   
+   5.2 For SG3-OX03H10C-G2F-Hxxx Camera Module
+
+   [How to bring up SG3-OX03H10C-G2F Camera Module](docs/sg3_ox03h10c_g2f.md)
+
+
+   5.3 For SHW3G Camera Module
+
+   [How to bring up SHW3G Camera Module](docs/shw3g.md)
+
+
+   5.4 For SHW5G Camera Module
+
+   [How to bring up SHW5G Camera Module](docs/shw5g.md)
+
+
+   5.5 For Astra S56C Camera Module
+
+   [How to bring up Astra S56C Camera Module](docs/s56c.md)
+
+
+   5.6 For Astra S56 Camera Module
+
+   [How to bring up Astra S56 Camera Module](docs/s56.md)
+
+   5.7 For S36 Camera Module
+
+   [How to bring up S36 Camera Module](docs/s36.md)
+
+
+   5.8 For SGX-YUV-GMSL2 Camera Module
+
+   [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
+
+
+   5.9 For Astra S56Cx1+SHW5Gx2 Camera Module
+
+   [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
+
+
+   5.10 For Astra S56Cx1+SHF3Lx2 Camera Module
+
+   [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
+
+
+6. Camera Trigger Sync
+
+   6.1 Set the camera fsync Mode
+
+   Update the corresponding JSON configuration file located in the query/sg8a_agon_g2y_a1 directory.
+
+   ```
+   "fsyncMode": "external"
+   ```
+
+   fsyncMode field description:
+   ```
+   osc_manual: The deserializer generates the synchronization trigger for all cameras connected to the same deserializer. An external trigger signal is not required.
+   external: All cameras are synchronized using an external trigger signal.
+   ```
+   Note: The SHW3G module does not support the deserializer's internal trigger. When configured to osc_manual, the sensor operates in Master mode.
+
+   6.2 External Trigger Mode
+
+   When fsyncMode is configured as external, an external trigger signal is required.
+
+
+   External Trigger Port: CN4
+
+   The PIN1(CAM-FSYNC1) and PIN6 correspond to the external trigger signal pin and ground pin respectively. Connect the corresponding pins of the signal generator to these pins.
+
+   ```
+   PIN1(CAM-FSYNC1) Trigger Signal Parameters:
+   Frequency: 30 Hz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 10%
+
+   PIN 6: GND
+   ```
+
+   For the SWH3G module, an additional 81kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0 to CAM3) and PIN2 (CAM-FSYNC2, for CAM4 to CAM7).
+
+   ```
+   CAM-FSYNC4 pin and CAM-FSYNC2 Pin Trigger Signal Parameters:
+   Frequency: 81kHz
+   Amplitude: 3.3V
+   Bias: 1.6V
+   Duty Cycle: 90%
+   ```
