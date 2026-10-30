@@ -226,6 +226,17 @@ static struct v4l2_ctrl_config ctrl_cfg_list[] = {
 		.def = CTRL_U64_MIN,
 		.step = 1,
 	},
+	{
+		.ops = &tegracam_ctrl_ops,
+		.id = TEGRA_CAMERA_CID_FSYNC_IN_DELAY,
+		.name = "FSYNC_IN_DELAY",
+		.type = V4L2_CTRL_TYPE_U32,
+		.flags = V4L2_CTRL_FLAG_SLIDER,
+		.min = CTRL_U32_MIN,
+		.max = 0xffff,
+		.def = 0x0000,
+		.step = 1,
+	},
 };
 
 static int tegracam_get_ctrl_index(u32 cid)
@@ -361,6 +372,9 @@ static int tegracam_set_ctrls(struct tegracam_ctrl_handler *handler,
 	case TEGRA_CAMERA_CID_GMSL_MODE_ID:
 		err = ops->set_gmsl_mode(tc_dev, *ctrl->p_new.p_u32);
 		return err;
+	case TEGRA_CAMERA_CID_FSYNC_IN_DELAY:
+		err = ops->set_fsync_in_delay(tc_dev, *ctrl->p_new.p_u32);
+		return err;
 	case TEGRA_CAMERA_CID_SET_DGAIN_ID:
 		err = ops->set_dgain(tc_dev, *ctrl->p_new.p_s64);
 		break;
@@ -484,6 +498,9 @@ static int tegracam_set_ctrls_ex(struct tegracam_ctrl_handler *handler,
 		break;
 	case TEGRA_CAMERA_CID_GMSL_MODE_ID:
 		err = ops->set_gmsl_mode(tc_dev, *ctrl->p_new.p_u32);
+		return err;
+	case TEGRA_CAMERA_CID_FSYNC_IN_DELAY:
+		err = ops->set_fsync_in_delay(tc_dev, *ctrl->p_new.p_u32);
 		return err;
 	case TEGRA_CAMERA_CID_SET_DGAIN_ID:
 		err = ops->set_dgain(tc_dev, *ctrl->p_new.p_s64);
@@ -890,6 +907,7 @@ static int tegracam_check_ctrl_ops(
 		case TEGRA_CAMERA_CID_GMSL_MODE_ID:
 		case TEGRA_CAMERA_CID_SENSOR_MODE_ID:
 		case TEGRA_CAMERA_CID_SET_DGAIN_ID:
+		case TEGRA_CAMERA_CID_FSYNC_IN_DELAY:
 		case TEGRA_CAMERA_CID_HDR_EN:
 			mode_ops++;
 			break;

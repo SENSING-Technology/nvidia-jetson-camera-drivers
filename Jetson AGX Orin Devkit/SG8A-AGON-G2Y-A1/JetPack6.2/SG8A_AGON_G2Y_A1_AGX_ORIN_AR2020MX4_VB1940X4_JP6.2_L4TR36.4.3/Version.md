@@ -19,3 +19,7 @@ Improve AR2020 GRR mode driver; this AR2020 version supports trigger mode (trig_
 *** 20260902 ***
 
 Improve VB1940 driver: update exposure interface and add FSYNC_IN_DELAY control to v4l2-ctl.
+
+*** 20261022 ***
+
+Improve AR2020 driver: Set the AR2020 image sensor to 20 fps. The AR2020 driver now only supports trigger mode (trig_mode=1). A trigger signal via PWM.sh or an external signal generator is required before enabling the sensor.

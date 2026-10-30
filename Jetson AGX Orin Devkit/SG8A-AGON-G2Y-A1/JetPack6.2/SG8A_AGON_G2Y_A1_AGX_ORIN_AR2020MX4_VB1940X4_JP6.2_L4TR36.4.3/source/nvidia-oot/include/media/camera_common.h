@@ -206,6 +206,7 @@ struct tegracam_ctrl_ops {
 	int (*set_gmsl_mode)(struct tegracam_device *tc_dev, u32 val);
 	int (*set_mirror)(struct tegracam_device *tc_dev, u32 val);
 	int (*set_flip)(struct tegracam_device *tc_dev, u32 val);
+	int (*set_fsync_in_delay)(struct tegracam_device *tc_dev, u32 val);
 };
 
 struct tegracam_ctrl_handler {

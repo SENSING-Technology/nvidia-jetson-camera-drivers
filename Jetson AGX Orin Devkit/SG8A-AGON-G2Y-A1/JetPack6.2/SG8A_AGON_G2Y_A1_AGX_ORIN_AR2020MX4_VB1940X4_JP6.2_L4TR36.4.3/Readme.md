@@ -5,11 +5,11 @@
 #### Supported Camera
 
 ```
-Camera Model                         Sensor      Resolution        Output      Interface      frame_rate
-SI20-AR2020M-G2G-HxxM           ONSEMI AR2020     5120*3840         RAW10       GMSL2-6G         15
-SG5-VB1940-G2G-HxxM               ST VB1940       2560*1984         RAW10       GMSL2-6G         30
+Camera Model                         Sensor               Resolution        Output      Interface      frame_rate
+SI20-AR2020M-G2G-HxxM              ONSEMI AR2020     5120*3840              RAW10       GMSL2-6G         20
+SHW5G(SG5-VB1940-G2G-HxxM)         ST VB1940         2560*1984              RAW10       GMSL2-6G         30
 ```
- Note:The SI20-AR2020M-G2G-HxxM camera can only stably reach a maximum trigger rate of 14 fps in Orin Trigger Mode / External Trigger Mode.
+ Note:The SI20-AR2020M-G2G-HxxM camera can only stably reach a maximum trigger rate of 20 fps in Orin Trigger Mode / External Trigger Mode.The AR2020 driver now only supports trigger mode (trig_mode=1). A trigger signal via PWM.sh or an external signal generator is required before enabling the sensor.
 #### Quick Bring Up
 
 1. Connect the Camera to the ports on the adapter board.
@@ -68,7 +68,21 @@ SG5-VB1940-G2G-HxxM               ST VB1940       2560*1984         RAW10       
 
 5. Bring up the camera
 
-   5.1 After reboot,enter the driver directory,run the script "load_module.sh".
+   5.1 After reboot,enter the driver directory,modify the script "load_module.sh".
+   ```
+   # trig_mode:
+   For Auto-trigger Mode (The cameras are triggered automatically upon camera activation. However, the cameras are not synchronized):trig_mode=0
+
+   For External Trigger Mode (Camera triggering and synchronization are achieved via signals from an external signal generator):trig_mode=1
+
+   For Jetson Orin Trigger Mode (The cameras are triggered and synchronized through the trigger signal generated from the Jetson Orin):trig_mode=1
+
+   # fsync_in_delay(for VB1940 only):
+   Delay applied on the rising edge of the FSYNC_IN signal (external synchronization)
+   ```
+   Note:The AR2020 driver now only supports trigger mode (trig_mode=1).
+   
+   5.2 Run the script "load_module.sh".
    ```
    sudo ./load_module.sh
    ```
@@ -122,15 +136,6 @@ SG5-VB1940-G2G-HxxM               ST VB1940       2560*1984         RAW10       
     v4l2-ctl -d /dev/video7 -c sensor_mode=0,trig_mode=1
    ```
    
-   ```
-   For Auto-trigger Mode (The cameras are triggered automatically upon camera activation. However, the cameras are not synchronized):trig_mode=0
-
-    For External Trigger Mode (Camera triggering and synchronization are achieved via signals from an external signal generator):trig_mode=1
-
-   For Jetson Orin Trigger Mode (The cameras are triggered and synchronized through the trigger signal generated from the Jetson Orin):trig_mode=1
-   ```
-   Note:The SI20-AR2020M-G2G-HxxM camera can only stably reach a maximum trigger rate of 14 fps in Orin Trigger Mode / External Trigger Mode.
-
    6.2 External Trigger Mode
 
    External Trigger Port: CN4
