@@ -1,0 +1,304 @@
+{
+    "deserializers": [
+        {
+            "name": "MAX96712_Fusa_nv_AB",
+            "description": "Maxim MAX96712 GMSL2 Deserializer - CSI-AB",
+            "i2cAddress": "0x29"
+        },
+        {
+            "name": "MAX96712_Fusa_nv_CD",
+            "description": "Maxim MAX96712 GMSL2 Deserializer - CSI-CD",
+            "i2cAddress": "0x2d"
+        }
+    ],
+    "serializers": [
+        {
+            "name": "MAX9295",
+            "description": "Maxim MAX9295D Serializer",
+            "i2cAddress": "0x40",
+            "useCDIv2API": true
+        }
+    ],
+    "imageSensors": [
+        {
+            "name": "SDT2BC01",
+            "description": "SDT2BC01 native VC0 preset image source",
+            "i2cAddress": "0x10",
+            "virtualChannels": [
+                {
+                    "vcIdSrc": 0,
+                    "vcIdDst": 0,
+                    "cfa": "uyvy",
+                    "embeddedTopLines": 0,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "yuv422",
+                    "width": 2400,
+                    "height": 1800,
+                    "fps": 30.0,
+                    "isEmbeddedDataTypeEnabled": false
+                }
+            ],
+            "isTriggerModeEnabled": true,
+            "isTPGEnabled": false,
+            "useCDIv2API": true
+        },
+        {
+            "name": "SDT2BC01",
+            "description": "SDT2BC01 native VC1 preset image source",
+            "i2cAddress": "0x12",
+            "virtualChannels": [
+                {
+                    "vcIdSrc": 1,
+                    "vcIdDst": 1,
+                    "cfa": "uyvy",
+                    "embeddedTopLines": 0,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "yuv422",
+                    "width": 2400,
+                    "height": 1800,
+                    "fps": 30.0,
+                    "isEmbeddedDataTypeEnabled": false
+                }
+            ],
+            "isTriggerModeEnabled": true,
+            "isTPGEnabled": false,
+            "useCDIv2API": true
+        }
+    ],
+    "platformTransportSettings": [
+        {
+            "name": "jetson-thor",
+            "description": "Thor - Jetson AGX Thor Devkit (p3834)",
+            "boardIdPrefix": "p3834",
+            "enableMasks": [
+                "0x0000",
+                "0x0001"
+            ],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-thor_AB",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-AB with external MAX96712",
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x29"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 2097154
+                        },
+                        "moduleInfo": {
+                            "name": "MAX20087",
+                            "i2cAddress": "0x28",
+                            "linkMask": "0x0f"
+                        }
+                    },
+                    "i2cDevice": 12,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                },
+                {
+                    "name": "transportSettings_jetson-thor_CD",
+                    "type": "GMSL",
+                    "description": "GMSL CSI-CD with external MAX96712",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x2d"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 6815746
+                        },
+                        "moduleInfo": {
+                            "name": "MAX20087",
+                            "i2cAddress": "0x29",
+                            "linkMask": "0x0f"
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        }
+    ],
+    "cameraConfigs": [
+        {
+            "name": "SDT2BC01_2400X1800_30FPS",
+            "type": "GMSL",
+            "description": "SDT2BC01 stereo 2400x1800 UYVY 30 fps on CSI-CD Link0",
+            "cameraModules": [
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 0,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 1,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 2,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 3,
+                    "transportIndex": 1
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 0,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 1,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 2,
+                    "transportIndex": 0
+                },
+                {
+                    "name": "SDT2BC01_STEREO",
+                    "linkIndex": 3,
+                    "transportIndex": 0
+                }
+            ],
+            "transportSettings": [
+                {
+                    "name": "transportSettings_jetson-thor_AB",
+                    "type": "GMSL",
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x29"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 2097154
+                        },
+                        "moduleInfo": {
+                            "name": "MAX20087",
+                            "i2cAddress": "0x28",
+                            "linkMask": "0x0f"
+                        }
+                    },
+                    "i2cDevice": 12,
+                    "desI2CPort": 0,
+                    "groupInitProg": false
+                },
+                {
+                    "name": "transportSettings_jetson-thor_CD",
+                    "type": "GMSL",
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "desTxPort": 1,
+                    "deserInfo": {
+                        "name": "Max96712GmslDeserializer",
+                        "i2cAddress": "0x2d"
+                    },
+                    "powerControlInfo": {
+                        "deserializerInfo": {
+                            "name": "TegraDeserPowerDriver",
+                            "gpioPinIndex": 6815746
+                        },
+                        "moduleInfo": {
+                            "name": "MAX20087",
+                            "i2cAddress": "0x29",
+                            "linkMask": "0x0f"
+                        }
+                    },
+                    "i2cDevice": 9,
+                    "desI2CPort": 0,
+                    "groupInitProg": true
+                }
+            ]
+        },
+        {
+            "name": "SDT2BC01_STEREO",
+            "type": "GMSL",
+            "description": "SDT2BC01 dual 2400x1800 UYVY 30 fps, MAX96712 internal FSYNC",
+            "moduleDriverName": "SDT2BC01",
+            "serInfo": {
+                "name": "MAX9295",
+                "i2cAddress": "0x40"
+            },
+            "linkMode": "LINK_MODE_GMSL2_6GBPS",
+            "fsyncMode": "osc_manual",
+            "mipiSettings": {
+                "dphyRate": 2500000,
+                "phyMode": "dphy"
+            },
+            "sensorInfo": [
+                {
+                    "name": "SDT2BC01",
+                    "id": 0,
+                    "description": "SDT2BC01 native VC0 preset image source",
+                    "i2cAddress": "0x10",
+                    "numContext": 1,
+                    "isTriggerModeEnabled": true,
+                    "sensorGroup": 1,
+                    "deviceIndex": 0,
+                    "virtualChannels": [
+                        {
+                            "vcIdSrc": 0,
+                            "vcIdDst": 0,
+                            "cfa": "uyvy",
+                            "embeddedTopLines": 0,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "yuv422",
+                            "width": 2400,
+                            "height": 1800,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                },
+                {
+                    "name": "SDT2BC01",
+                    "id": 1,
+                    "description": "SDT2BC01 native VC1 preset image source",
+                    "i2cAddress": "0x12",
+                    "numContext": 1,
+                    "isTriggerModeEnabled": true,
+                    "sensorGroup": 1,
+                    "deviceIndex": 1,
+                    "virtualChannels": [
+                        {
+                            "vcIdSrc": 1,
+                            "vcIdDst": 1,
+                            "cfa": "uyvy",
+                            "embeddedTopLines": 0,
+                            "embeddedBottomLines": 0,
+                            "inputFormat": "yuv422",
+                            "width": 2400,
+                            "height": 1800,
+                            "fps": 30.0,
+                            "isEmbeddedDataTypeEnabled": false
+                        }
+                    ]
+                }
+            ],
+            "eepromInfo": {
+                "name": "BR24H128",
+                "i2cAddress": "0x50"
+            }
+        }
+    ]
+}

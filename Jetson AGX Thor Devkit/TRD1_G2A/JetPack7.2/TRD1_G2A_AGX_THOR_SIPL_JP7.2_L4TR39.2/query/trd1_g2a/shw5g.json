@@ -58,7 +58,7 @@
             "name": "jetson-thor",
             "description": "Thor - Jetson AGX Thor Devkit (p3834)",
             "boardIdPrefix": "p3834",
-            "enableMasks": ["0x0101", "0x0101"],
+            "enableMasks": ["0x1111", "0x1111"],
             "transportSettings": [
                 {
                     "name": "transportSettings_jetson-thor_AB",

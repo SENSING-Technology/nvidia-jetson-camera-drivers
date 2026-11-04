@@ -19,6 +19,17 @@
 * Astra S56C/S56 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
 
+* SDT2BC01 (Stereo, UYVY)
+   * support max 2 cameras to bring up at the same time
+
+* S36 (Stereo, YUV)
+
+   * S36-ISX031-G2G (1920x1536 @ 30fps)
+      * support max 4 cameras to bring up at the same time
+
+   * S36-ISX031-G2G (1920x1080 @ 30fps)
+      * support max 4 cameras to bring up at the same time
+
 * SGX-YUV-GMSL2 (Monocular, YUV)
 
    * SG2-IMX390C-5200-G2A-Hxxx
@@ -27,10 +38,22 @@
    * SG2-AR0233-5200-G2A-Hxxx
       * support max 8 cameras to bring up at the same time
 
+   * SHF2GY
+      * support max 8 cameras to bring up at the same time
+
+   * SHF3L
+      * support max 8 cameras to bring up at the same time
+
+   * SHF3H
+      * support max 4 cameras to bring up at the same time
+
    * SG3-ISX031C-GMSL2-Hxxx
       * support max 8 cameras to bring up at the same time
 
    * SG3-ISX031C-GMSL2F-Hxxx
+      * support max 8 cameras to bring up at the same time
+      
+   * SG3S11AFxK
       * support max 8 cameras to bring up at the same time
 
    * SG5-IMX490C-5300-GMSL2-Hxxx
@@ -40,13 +63,10 @@
       * support max 4 cameras to bring up at the same time
 
    * SG8-OX08DC-5300-G2G-Hxxx
-      * support max 4 cameras to bring up at the same time   
+      * support max 4 cameras to bring up at the same time  
 
-   * SHF3L
-      * support max 8 cameras to bring up at the same time
-
-   * SHF3H
-      * support max 8 cameras to bring up at the same time
+   * SG8-ISX028C-G2G-Hxxx
+      * support max 2 cameras to bring up at the same time
 
 
 #### Quick Bring Up
@@ -74,6 +94,7 @@
    ```
    /home/nvidia/TRD1_G2A_AGX_THOR_SIPL_JP7.2_L4TR39.2
    ```
+
 4. Enter the driver directory, run the script "install.sh""
 
    ```
@@ -116,18 +137,27 @@
 
    [How to bring up Astra S56 Camera Module](docs/s56.md)
 
+   5.7 For SDT2BC01 Camera Module
 
-   5.7 For SGX-YUV-GMSL2 Camera Module
+   [How to bring up SDT2BC01 Camera Module](docs/sdt2bc01.md)
+
+
+   5.8 For S36 Camera Module
+
+   [How to bring up S36 Camera Module](docs/s36.md)
+
+
+   5.9 For SGX-YUV-GMSL2 Camera Module
 
    [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
 
 
-   5.8 For Astra S56Cx1+SHW5Gx2 Camera Module
+   5.10 For Astra S56Cx1+SHW5Gx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
 
 
-   5.9 For Astra S56Cx1+SHF3Lx2 Camera Module
+   5.11 For Astra S56Cx1+SHF3Lx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
 

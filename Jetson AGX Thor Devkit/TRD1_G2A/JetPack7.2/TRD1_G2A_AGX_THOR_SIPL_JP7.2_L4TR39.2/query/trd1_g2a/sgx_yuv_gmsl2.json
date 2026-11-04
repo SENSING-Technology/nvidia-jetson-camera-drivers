@@ -61,6 +61,26 @@
 			"isTriggerModeEnabled": true,
 			"isTPGEnabled": false,
 			"useCDIv2API": true
+		},
+		{
+			"name": "ISX028C",
+			"description": "ISX028C Flash image preset 3840x2160 UYVY 30 fps; host internal sync; RGGB array; rolling shutter",
+			"i2cAddress": "0x1a",
+			"virtualChannels": [
+				{
+					"cfa": "uyvy",
+					"embeddedTopLines": 0,
+					"embeddedBottomLines": 0,
+					"inputFormat": "yuv422",
+					"width": 3840,
+					"height": 2160,
+					"fps": 30.0,
+					"isEmbeddedDataTypeEnabled": false
+				}
+			],
+			"isTriggerModeEnabled": false,
+			"isTPGEnabled": false,
+			"useCDIv2API": true
 		}
 	],
     "platformTransportSettings": [
@@ -415,6 +435,123 @@
 			"eepromInfo": {
 				"name": "BR24H128",
 				"i2cAddress": "0x51"
+			}
+		},
+		{
+			"name": "SGX_YUV_GMSL2_1M_3G",
+			"type": "GMSL",
+			"description": "SGX-YUV-GMSL single module definition (GW5 YUV sensor 1280x960)",
+			"moduleDriverName": "SGX_YUV_GMSL2",
+			"serInfo": {
+				"name": "MAX96717F",
+				"i2cAddress": "0x40"
+			},
+			"linkMode": "LINK_MODE_GMSL2_3GBPS",
+			"fsyncMode": "osc_manual",
+			"mipiSettings": {
+				"dphyRate": 2500000,
+				"phyMode": "dphy"
+			},
+			"sensorInfo": [
+				{
+					"name": "GW5",
+					"description": "GW5 YUV Sensor (UYVY 1280x960 @ 30fps)",
+					"i2cAddress": "0x36",
+					"numContext": 1,
+					"virtualChannels": [
+						{
+							"cfa": "uyvy",
+							"embeddedTopLines": 0,
+							"embeddedBottomLines": 0,
+							"inputFormat": "yuv422",
+							"width": 1280,
+							"height": 960,
+							"fps": 30.0,
+							"isEmbeddedDataTypeEnabled": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "SGX_YUV_GMSL2_1920x1200",
+			"type": "GMSL",
+			"description": "SGX-YUV-GMSL single module definition (GW5 YUV sensor 1920x1200)",
+			"moduleDriverName": "SGX_YUV_GMSL2",
+			"serInfo": {
+				"name": "MAX96717",
+				"i2cAddress": "0x40"
+			},
+			"linkMode": "LINK_MODE_GMSL2_6GBPS",
+			"fsyncMode": "osc_manual",
+			"mipiSettings": {
+				"dphyRate": 2500000,
+				"phyMode": "dphy"
+			},
+			"sensorInfo": [
+				{
+					"name": "GW5",
+					"description": "GW5 YUV Sensor (UYVY 1920x1200 @ 30fps)",
+					"i2cAddress": "0x1A",
+					"numContext": 1,
+					"virtualChannels": [
+						{
+							"cfa": "uyvy",
+							"embeddedTopLines": 0,
+							"embeddedBottomLines": 0,
+							"inputFormat": "yuv422",
+							"width": 1920,
+							"height": 1200,
+							"fps": 30.0,
+							"isEmbeddedDataTypeEnabled": false
+						}
+					]
+				}
+			],
+			"eepromInfo": {
+				"name": "BR24H128",
+				"i2cAddress": "0x51"
+			}
+		},
+		{
+			"name": "SGX_YUV_GMSL2_ISX028C",
+			"type": "GMSL",
+			"description": "Preset-mode ISX028C + MAX96717; 30x30x22.57 mm; lens HFOV options 30/60/120 degrees",
+			"moduleDriverName": "ISX028C",
+			"serInfo": {
+				"name": "MAX96717",
+				"i2cAddress": "0x40"
+			},
+			"linkMode": "LINK_MODE_GMSL2_6GBPS",
+			"fsyncMode": "osc_manual",
+			"mipiSettings": {
+				"dphyRate": 2500000,
+				"phyMode": "dphy"
+			},
+			"sensorInfo": [
+				{
+					"name": "ISX028C",
+					"description": "Flash preset UYVY output; SlaveSingle receives MAX96712 internal FSYNC or external passthrough triggers",
+					"i2cAddress": "0x1a",
+					"numContext": 1,
+					"isTriggerModeEnabled": true,
+					"virtualChannels": [
+						{
+							"cfa": "uyvy",
+							"embeddedTopLines": 0,
+							"embeddedBottomLines": 0,
+							"inputFormat": "yuv422",
+							"width": 3840,
+							"height": 2160,
+							"fps": 30.0,
+							"isEmbeddedDataTypeEnabled": false
+						}
+					]
+				}
+			],
+			"eepromInfo": {
+				"name": "BR24H128",
+				"i2cAddress": "0x50"
 			}
 		}
 	]
