@@ -12,12 +12,15 @@
 
 * SHW3G (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
- 
+
 * SHW5G (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
 
 * Astra S56C/S56 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
+
+* SDT2BC01 (Stereo, UYVY)
+   * support max 2 cameras to bring up at the same time
 
 * Astra S36 (Stereo, YUV)
 
@@ -35,10 +38,22 @@
    * SG2-AR0233-5200-G2A-Hxxx
       * support max 8 cameras to bring up at the same time
 
+   * SHF2GY
+      * support max 8 cameras to bring up at the same time
+
+   * SHF3L
+      * support max 8 cameras to bring up at the same time
+
+   * SHF3H
+      * support max 4 cameras to bring up at the same time
+
    * SG3-ISX031C-GMSL2-Hxxx
       * support max 8 cameras to bring up at the same time
 
    * SG3-ISX031C-GMSL2F-Hxxx
+      * support max 8 cameras to bring up at the same time
+      
+   * SG3S11AFxK
       * support max 8 cameras to bring up at the same time
 
    * SG5-IMX490C-5300-GMSL2-Hxxx
@@ -50,14 +65,8 @@
    * SG8-OX08DC-5300-G2G-Hxxx
       * support max 4 cameras to bring up at the same time   
 
-   * SHF3L
-      * support max 8 cameras to bring up at the same time
-
-   * SHF3H
-      * support max 8 cameras to bring up at the same time
-
-   * SHF2GY
-      * support max 8 cameras to bring up at the same time
+   * SG8-ISX028C-G2G-Hxxx
+      * support max 2 cameras to bring up at the same time
 
 
 #### Quick Bring Up
@@ -66,7 +75,9 @@
 
     Flash the Jetson AGX Orin Devkit with JetPack 7.2 / Jetson Linux L4T 39.2.0.
 
-    This Orin package uses the camera overlay in dts/. Install the package and select the overlay with Jetson-IO in step 4.
+    This Orin package uses the camera overlay in dts/. 
+
+    Install the package and select the overlay with Jetson-IO in step 4.
 
 
 2. Connect the Camera to the ports on the adapter board.
@@ -112,17 +123,14 @@
    5.1 For SG8-OX08DC-G2G-Hxxx Camera Module
 
    [How to bring up SG8-OX08DC-G2G Camera Module](docs/sg8_ox08dc_g2g.md)
-
    
    5.2 For SG3-OX03H10C-G2F-Hxxx Camera Module
 
    [How to bring up SG3-OX03H10C-G2F Camera Module](docs/sg3_ox03h10c_g2f.md)
 
-
    5.3 For SHW3G Camera Module
 
    [How to bring up SHW3G Camera Module](docs/shw3g.md)
-
 
    5.4 For SHW5G Camera Module
 
@@ -138,22 +146,27 @@
 
    [How to bring up Astra S56 Camera Module](docs/s56.md)
 
-   5.7 For S36 Camera Module
+   5.7 For SDT2BC01 Camera Module
+
+   [How to bring up SDT2BC01 Camera Module](docs/sdt2bc01.md)
+
+
+   5.8 For S36 Camera Module
 
    [How to bring up S36 Camera Module](docs/s36.md)
 
 
-   5.8 For SGX-YUV-GMSL2 Camera Module
+   5.9 For SGX-YUV-GMSL2 Camera Module
 
    [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
 
 
-   5.9 For Astra S56Cx1+SHW5Gx2 Camera Module
+   5.10 For Astra S56Cx1+SHW5Gx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
 
 
-   5.10 For Astra S56Cx1+SHF3Lx2 Camera Module
+   5.11 For Astra S56Cx1+SHF3Lx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
 
