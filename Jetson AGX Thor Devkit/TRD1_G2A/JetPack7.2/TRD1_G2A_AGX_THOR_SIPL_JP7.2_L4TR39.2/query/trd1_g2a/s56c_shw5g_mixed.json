@@ -35,7 +35,7 @@
         {
             "name": "VB1940",
             "description": "S56C Stereo Left",
-            "i2cAddress": "0x10",
+            "i2cAddress": "0x11",
             "virtualChannels": [
                 {
                     "cfa": "gbrg",
@@ -55,7 +55,7 @@
         {
             "name": "VB1940",
             "description": "S56C Stereo Right",
-            "i2cAddress": "0x11",
+            "i2cAddress": "0x10",
             "virtualChannels": [
                 {
                     "cfa": "gbrg",
@@ -98,7 +98,7 @@
             "name": "jetson-thor",
             "description": "Thor - Jetson AGX Thor Devkit (p3834)",
             "boardIdPrefix": "p3834",
-            "enableMasks": ["0x0101", "0x0101"],
+            "enableMasks": ["0x1101", "0x1101"],
             "transportSettings": [
                 {
                     "name": "transportSettings_jetson-thor_AB",
@@ -263,7 +263,7 @@
             "sensorInfo": [
                 {
                     "name": "VB1940",
-                    "id": 0,
+                    "id": 1,
                     "description": "S56C stereo left",
                     "i2cAddress": "0x10",
                     "numContext": 1,
@@ -287,7 +287,7 @@
                 },
                 {
                     "name": "VB1940",
-                    "id": 1,
+                    "id": 0,
                     "description": "S56C stereo right",
                     "i2cAddress": "0x11",
                     "numContext": 1,
@@ -333,7 +333,7 @@
             "sensorInfo": [
                 {
                     "name": "VB1940",
-                    "id": 1,
+                    "id": 2,
                     "description": "SHW5G link2 sensor",
                     "i2cAddress": "0x10",
                     "numContext": 1,
@@ -379,7 +379,7 @@
             "sensorInfo": [
                 {
                     "name": "VB1940",
-                    "id": 2,
+                    "id": 3,
                     "description": "SHW5G link3 sensor",
                     "i2cAddress": "0x10",
                     "numContext": 1,

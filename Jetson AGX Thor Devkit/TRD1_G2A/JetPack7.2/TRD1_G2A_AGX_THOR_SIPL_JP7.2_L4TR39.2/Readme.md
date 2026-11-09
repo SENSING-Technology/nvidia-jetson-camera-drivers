@@ -16,6 +16,9 @@
 * SHW5G (Monocular, RAW)
   * support max 8 cameras to bring up at the same time
 
+* SHF5G (Monocular, RAW)
+  * support max 8 cameras to bring up at the same time
+
 * Astra S56C/S56 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
 
@@ -127,39 +130,63 @@
 
    [How to bring up SHW5G Camera Module](docs/shw5g.md)
 
+   5.5 For SHF5G Camera Module
 
-   5.5 For Astra S56C Camera Module
+   [How to bring up SHF5G Camera Module](docs/shf5g.md)
+
+
+   5.6 For Astra S56C Camera Module
 
    [How to bring up Astra S56C Camera Module](docs/s56c.md)
 
 
-   5.6 For Astra S56 Camera Module
+   5.7 For Astra S56 Camera Module
 
    [How to bring up Astra S56 Camera Module](docs/s56.md)
 
-   5.7 For SDT2BC01 Camera Module
+   5.8 For SDT2BC01 Camera Module
 
    [How to bring up SDT2BC01 Camera Module](docs/sdt2bc01.md)
 
 
-   5.8 For S36 Camera Module
+   5.9 For S36 Camera Module
 
    [How to bring up S36 Camera Module](docs/s36.md)
 
 
-   5.9 For SGX-YUV-GMSL2 Camera Module
+   5.10 For SGX-YUV-GMSL2 Camera Module
 
    [How to bring up SGX-YUV-GMSL2 Camera Module](docs/sgx_yuv_gmsl2.md)
 
 
-   5.10 For Astra S56Cx1+SHW5Gx2 Camera Module
+   5.11 For Astra S56Cx1+SHW5Gx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHW5Gx2 Camera Module](docs/s56c_shw5g_mixed.md)
 
 
-   5.11 For Astra S56Cx1+SHF3Lx2 Camera Module
+   5.12 For Astra S56Cx1+SHF3Lx2 Camera Module
 
    [How to bring up Astra S56Cx1+SHF3Lx2 Camera Module](docs/s56c_shf3l_mixed.md)
+
+
+   5.13 For Astra S56Cx1+SHW3Gx2 Camera Module
+
+   [How to bring up Astra S56Cx1+SHW3Gx2 Camera Module](docs/s56c_shw3g_mixed.md)
+
+
+   5.14 For Astra S36x1+SHW3Gx2 Camera Module
+
+   [How to bring up Astra S36x1+SHW3Gx2 Camera Module](docs/s36_shw3g_mixed.md)
+
+
+   5.15 For Astra S36x1+SHW5Gx2 Camera Module
+
+   [How to bring up Astra S36x1+SHW5Gx2 Camera Module](docs/s36_shw5g_mixed.md)
+
+
+   5.16 For Astra S36x1+SHF3Lx2 Camera Module
+
+   [How to bring up Astra S36x1+SHF3Lx2 Camera Module](docs/s36_shf3l_mixed.md)
 
 
 6. Camera Trigger Sync

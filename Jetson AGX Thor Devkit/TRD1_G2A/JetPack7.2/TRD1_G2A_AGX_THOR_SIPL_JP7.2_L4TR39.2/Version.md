@@ -1,4 +1,13 @@
+###### 20261109 ######
+
+1. Added support for SHF5G * 8 camera modules.
+2. Added support for S56C * 1 + SHW3G * 2 camera modules.
+3. Added support for S36 * 1 + SHW3G * 2 camera modules.
+4. Added support for S36 * 1 + SHW5G * 2 camera modules.
+5. Added support for S36 * 1  + SHF3L * 2 camera modules.
+
 ###### 20261102 ######
+
 1. Added support for SDT2BC01 camera modules.
 2. Added support for ISX028C camera modules.
 3. Added 1920×1200 resolution support for SHF2GY (SGX-YUV-GMSL2).
