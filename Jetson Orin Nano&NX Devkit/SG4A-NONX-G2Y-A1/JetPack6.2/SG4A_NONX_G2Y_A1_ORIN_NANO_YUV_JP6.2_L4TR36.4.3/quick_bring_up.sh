@@ -26,7 +26,9 @@ camera_array=([0]=1920x1080
 		[2]=2880x1860
 		[3]=3840x2160
 		[4]=1280x720
-		[5]=3840x2160-ISX028)
+		[5]=3840x2160-ISX028
+		[6]=1600x1300
+		[7]=1920x1200)
 		
 
 cd $PWD/ko
@@ -60,6 +62,8 @@ echo 2:${camera_array[2]}
 echo 3:${camera_array[3]}
 echo 4:${camera_array[4]}
 echo 5:${camera_array[5]}
+echo 6:${camera_array[6]}
+echo 7:${camera_array[7]}
 read index
 
 string=(`echo ${camera_array[index]} | sed 's/-.*//' | tr 'x' ' '`)

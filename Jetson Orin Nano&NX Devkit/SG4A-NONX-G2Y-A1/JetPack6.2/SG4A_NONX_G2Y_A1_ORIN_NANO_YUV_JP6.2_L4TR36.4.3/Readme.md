@@ -37,6 +37,10 @@
 * SG8-ISX028C-G2G-Hxxx
 
   * support max 1 cameras to light up at the same time
+  
+* SG2-AR0234C-5200-G2G-Hxxx
+  * support max 4 cameras to light up at the same time
+
 #### Quick Bring Up
 
 1. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
@@ -139,14 +143,17 @@
    2:2880x1860
    3:3840x2160
    4:1280x720
+   5:3840x2160-ISX028
+   6:1600x1300
+   7:1920x1200
    0
    ```
 9. If you want to use the external trigger synchronization mode, you need to run the "camera_fsync_set.sh" script after starting the camera.  
 
    ```
    ./camera_fsync_set.sh
-   ```  
-10. The external trigger signal is input through the "CN2" port on the adapter board.   
+   ```
+10. The external trigger signal is input through the "CN2" port on the adapter board.
 
 #### Integration with SENSING Driver Source Code
 
