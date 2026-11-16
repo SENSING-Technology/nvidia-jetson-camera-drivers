@@ -20,10 +20,12 @@ SHF3L                                Monocular       1920*1536U    30fps        
 Astra S36                            Stereo          1920*1536U    30fps           UYVY            6Gbps          mfp7              4
 SHW5G                                Monocular       2064*1552U    30fps           RAW10           6Gbps          mfp7              6
 SG8-IMX728C-G2G-Hxxx                 Monocular       2880*1860U    30fps           RAW12           6Gbps          mfp7              4
-Astra S56                            Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
-Astra S56C                           Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
+Astra  S56C                          Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
+Astra  S56                           Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
 SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7、mfp3           6
 SDV11NM1                             Stereo          2592*1944U    30fps           RAW10           6Gbps          mfp7              4
+SDT2BCO1                             Stereo          2400*1800U    30fps           UYVY            6Gbps          mfp7              4
+SHW2GY                               Monocular       1920*1200U    30fps           UYVY            6Gbps          mfp7              8
  ```               
 
 #### Quick Bring Up
@@ -43,6 +45,7 @@ SDV11NM1                             Stereo          2592*1944U    30fps        
    CN2 (CAM4/CAM5/CAM6/CAM7)
 
    Note: Stereo camera needs an even port (CAM0/2/4/6) and the next port must be free.
+   Due to the EEPROM address remapping introduced in this version, only one stereo camera is supported per port group. Specifically, for CAM0–CAM3, either CAM0 or CAM2 can be used, but they cannot be used at the same time; the same restriction applies to CAM4–CAM7.
    ```
    ![alt text](picture/cam.png)
 
@@ -89,15 +92,16 @@ SDV11NM1                             Stereo          2592*1944U    30fps        
       5: s56 (raw10)
       6: s56C (raw10)
       7: sdv11nm1 (raw10)
+      8: sdt2bco1 (uyvy)
    
-   Select camera for cam_0 (0-7): 7
+   Select camera for cam_0 (0-8): 7
    Placed stereo pair 'sdv11nm1' on cam_0 and cam_1.
-   Select camera for cam_2 (0-7): 1
-   Select camera for cam_3 (0-7): 1
-   Select camera for cam_4 (0-7): 1
-   Select camera for cam_5 (0-7): 1
-   Select camera for cam_6 (0-7): 1
-   Select camera for cam_7 (0-7): 1
+   Select camera for cam_2 (0-8): 1
+   Select camera for cam_3 (0-8): 1
+   Select camera for cam_4 (0-8): 1
+   Select camera for cam_5 (0-8): 1
+   Select camera for cam_6 (0-8): 1
+   Select camera for cam_7 (0-8): 1
    
    Selected configurations:
    cam_0 -> sdv11nm1
@@ -209,7 +213,7 @@ SDV11NM1                             Stereo          2592*1944U    30fps        
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/imx728.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
 
-   #for S56/S56C、SHW5G
+   #for S56C、S56、SHW5G
    sudo service nvargus-daemon stop
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/shw5g.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
@@ -262,13 +266,17 @@ SDV11NM1                             Stereo          2592*1944U    30fps        
 
    SG2-AR0233-5200-G2A-Hxxx、SG2-IMX390C-5200-G2A-Hxxx、SG2-ISX021C-G2F-H120KA：sensor_mode=0
 
-   SG3S-ISX031C-GMSL2F-Hxxx、SG3S-ISX031C-GMSL2-Hxxx、SG3S11AFLK 、SHF3L、SHW3H： sensor_mode=1
+   SG3S-ISX031C-GMSL2F-Hxxx、SG3S-ISX031C-GMSL2-Hxxx、SG3S11AFLK 、SHF3L、SHW3H： sensor_mode=1 (If you need to parse the EMB, sensor-mode=2 is required)
 
-   SG5-IMX490C-5300-GMSL2-Hxxx ：sensor_mode=2
+   SG5-IMX490C-5300-GMSL2-Hxxx ：sensor_mode=3
 
-   SG8S-AR0820-5200-G2A-Hxxx、SG8-OX08DC-5300-G2G-Hxxx： sensor_mode=3
+   SG8S-AR0820-5200-G2A-Hxxx、SG8-OX08DC-5300-G2G-Hxxx： sensor_mode=4
 
-   SG8-ISX028C-G2G-Hxxx：sensor_mode=5
+   SG8-ISX028C-G2G-Hxxx：sensor_mode=6
+   
+   SHW2GY：sensor_mode=7
+
+   s36: Do not output EMB setting sensor-mode=0, output EMB sensor-mode=1
 
    **trig_pin、trig_mode**：The trigger mode will be used. Now, it will be set to the default settings.
 

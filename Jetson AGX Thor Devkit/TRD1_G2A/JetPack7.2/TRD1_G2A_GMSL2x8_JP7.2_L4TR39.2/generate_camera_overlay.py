@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
 import os
+import re
+import shutil
+import subprocess
 import sys
+import tempfile
 
 # Configuration
 # Monocular cameras
 MONOCULAR_MODELS = ["shw3g", "sgx-yuv-gmsl2","imx728", "shw5g"]
 # Stereo cameras (used in pairs)
-STEREO_MODELS = ["s36", "s56", "s56c",  "sdv11nm1"]
+STEREO_MODELS = ["s36", "s56", "s56c", "sdv11nm1", "sdt2bco1"]
 # Combined list for selection
 ALL_MODELS = MONOCULAR_MODELS + STEREO_MODELS
 
@@ -21,6 +25,7 @@ SENSOR_FORMAT_MAP = {
     "imx728": "raw12",
     "shw5g": "raw10",
     "sdv11nm1": "raw10",
+    "sdt2bco1": "uyvy",
 
 }
 
@@ -33,6 +38,7 @@ MODEL_TO_DTS_FILE = {
     "imx728": "dts/tegra264-camera-sgcam-imx728x8-overlay.dts",
     "shw5g": "dts/tegra264-camera-sgcam-shw5gx8-overlay.dts",
     "sdv11nm1": "dts/tegra264-camera-sgcam-sdv11nm1x4-overlay.dts",
+    "sdt2bco1": "dts/tegra264-camera-sgcam-sdt2bco1x4-overlay.dts",
 }
 
 TPL_FILE, OUT_DTS, OUT_DTBO = "dts/tegra264-camera-sgcam-template-overlay.dts", "dts/tegra264-camera-sgcamx8-overlay.dts", "dts/tegra264-camera-sgcamx8-overlay.dtbo"
@@ -93,12 +99,13 @@ def main():
             replacements[node_name] = node_content
             print(f"  Found {node_name}")
         else: 
-            print(f"  Warning: {node_name} not found in {MODEL_TO_DTS_FILE[model]}", file=sys.stderr)
+            raise ValueError(f"{node_name} not found in {MODEL_TO_DTS_FILE[model]}")
 
     with open(TPL_FILE, 'r') as f: content = f.read()
     for old_node, new_def in replacements.items():
         start_pos = content.find(f"{old_node} {{")
-        if start_pos == -1: continue
+        if start_pos == -1:
+            raise ValueError(f"{old_node} not found in {TPL_FILE}")
         level, i = 0, start_pos + len(old_node) + 1
         while i < len(content):
             if content[i] == '{': level += 1
@@ -123,14 +130,32 @@ def main():
     with open(OUT_DTS, 'w') as f: f.write(content)
     print(f"\nGenerated: {OUT_DTS}")
 
-    if os.system("which cpp dtc > /dev/null 2>&1") != 0:
+    if any(shutil.which(tool) is None for tool in ("cpp", "dtc")):
         print("Error: 'cpp' or 'dtc' not found.", file=sys.stderr)
-        return
+        sys.exit(1)
 
     print("Compiling...")
-    if os.system(f"cpp -nostdinc -I ./dts/include -undef -x assembler-with-cpp {OUT_DTS} | dtc -@ -I dts -O dtb -o {OUT_DTBO}") != 0:
+    # Check preprocessing separately and publish the DTBO only after compilation.
+    with tempfile.NamedTemporaryFile(dir="dts", suffix=".dtbo", delete=False) as output:
+        temporary_dtbo = output.name
+    try:
+        preprocessed = subprocess.run(
+            ["cpp", "-nostdinc", "-I", "./dts/include", "-undef",
+             "-x", "assembler-with-cpp", OUT_DTS],
+            check=True, stdout=subprocess.PIPE,
+        ).stdout
+        subprocess.run(
+            ["dtc", "-@", "-I", "dts", "-O", "dtb", "-o", temporary_dtbo],
+            input=preprocessed, check=True,
+        )
+        os.chmod(temporary_dtbo, 0o644)
+        os.replace(temporary_dtbo, OUT_DTBO)
+    except subprocess.CalledProcessError:
         print(f"Error compiling DTBO. Check {OUT_DTS}.", file=sys.stderr)
-        return
+        sys.exit(1)
+    finally:
+        if os.path.exists(temporary_dtbo):
+            os.unlink(temporary_dtbo)
 
     print(f"Generated: {OUT_DTBO}")
     print("\n--- Final Port Configuration ---")
@@ -145,5 +170,4 @@ def main():
     print("--- End of Configuration ---\n")
 
 if __name__ == "__main__":
-    import re # Import re here as it's used inside main
     main()

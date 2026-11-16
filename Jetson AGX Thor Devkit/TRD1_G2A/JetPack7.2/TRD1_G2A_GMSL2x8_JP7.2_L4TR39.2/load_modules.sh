@@ -39,8 +39,8 @@ sudo ./boost_clock.sh
 # sudo insmod ko/bmi088.ko
 
 ## master: trig_mode=0, slave: trig_mode=1
-#sensor_mode=0:1920x1080,sensor_mode=1:1920x1536,sensor_mode=2:2880x1860,sensor_mode=3:3840x2160,sensor_mode=4:1600x1300
-#sensor_mode=5:3840x2160(For SG8-ISX028C-G2G-Hxxx)
+#sensor_mode=0:1920x1080,sensor_mode=1:1920x1536,sensor_mode=2:1920x1537(1 line EMB),sensor_mode=3:2880x1860,sensor_mode=4:3840x2160
+#sensor_mode=5:1600x1300 sensor_mode=6:3840x2160(For SG8-ISX028C-G2G-Hxxx) sensor_mode=7:1920x1200
 v4l2-ctl -d /dev/video0 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video1 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0
 v4l2-ctl -d /dev/video2 -c sensor_mode=0,trig_pin=0x00020007,trig_mode=0

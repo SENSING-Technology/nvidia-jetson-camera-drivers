@@ -13,7 +13,7 @@ echo $PWMNUM > $PWMCHIP/export
 
 # # set up parameters
 echo 33333333 > $PWMPATH/period      # 30 Hz 
-echo 3000000 > $PWMPATH/duty_cycle  
+echo 30000000 > $PWMPATH/duty_cycle  
 
 # echo 40000000 > $PWMPATH/period      # 25 Hz
 # echo 30000000 > $PWMPATH/duty_cycle  
