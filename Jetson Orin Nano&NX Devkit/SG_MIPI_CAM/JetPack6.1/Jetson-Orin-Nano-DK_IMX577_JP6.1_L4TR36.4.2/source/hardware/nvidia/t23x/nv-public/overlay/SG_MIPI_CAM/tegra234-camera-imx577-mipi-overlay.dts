@@ -509,6 +509,47 @@
 								num_of_right_margin_pixels = "0";
 							};
 
+							mode7 { /* 4056x3040_4lane_raw10_20fps_linear */
+								mclk_khz = "24000";
+								num_lanes = "4";
+								tegra_sinterface = "serial_c";
+								phy_mode = "DPHY";
+								discontinuous_clk = "no";
+								dpcm_enable = "false";
+								cil_settletime = "0";
+
+								active_w = "4056";
+								active_h = "3040";
+								mode_type = "bayer";
+								pixel_phase = "rggb";
+								csi_pixel_bit_depth = "10";
+								dynamic_pixel_bit_depth = "10";
+								readout_orientation = "90";
+								line_length = "8532";
+								inherent_gain = "1";
+								mclk_multiplier = "27";
+								pix_clk_hz = "638400000";
+
+								gain_factor = "10";
+								min_gain_val = "10"; /* 1.00x */
+								max_gain_val = "220"; /* 22x */
+								step_gain_val = "5";
+								default_gain = "10"; /* 1.00x */
+								min_hdr_ratio = "1";
+								max_hdr_ratio = "1";
+								framerate_factor = "1000000";
+								min_framerate = "20000000";
+								max_framerate = "20000000";
+								step_framerate = "1";
+								default_framerate = "20000000";
+								exposure_factor = "1000000";
+								min_exp_time = "14"; /*us, 2 lines*/
+								max_exp_time = "49863";
+								step_exp_time = "1";
+								default_exp_time = "49703";/* us */
+								embedded_metadata_height = "2";
+							};
+
 							ports {
 								#address-cells = <1>;
 								#size-cells = <0>;
