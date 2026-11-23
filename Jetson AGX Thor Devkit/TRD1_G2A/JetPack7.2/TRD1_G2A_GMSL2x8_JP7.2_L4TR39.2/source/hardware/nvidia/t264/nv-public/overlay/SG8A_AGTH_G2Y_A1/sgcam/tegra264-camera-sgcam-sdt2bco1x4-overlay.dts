@@ -455,8 +455,8 @@
 						compatible = "sensing,sgcam-gmsl2-7";
 						def-addr = <0x1b>;
 						reg = <0x23>;
-						eeprom-def = <0x51>;
-						eeprom-addr = <0x33>;
+						eeprom-def = <0x50>;
+						eeprom-addr = <0x34>;
 						devnode = "video7";
 
 						/* Physical dimensions of sensor */
@@ -545,8 +545,8 @@
 						compatible = "sensing,sgcam-gmsl2-6";
 						def-addr = <0x1a>;
 						reg = <0x22>;
-						eeprom-def = <0x51>;
-						eeprom-addr = <0x32>;
+						eeprom-def = <0x50>;
+						eeprom-addr = <0x33>;
 						devnode = "video6";
 
 						/* Physical dimensions of sensor */
@@ -635,7 +635,7 @@
 						compatible = "sensing,sgcam-gmsl2-5";
 						def-addr = <0x1b>;
 						reg = <0x21>;
-						eeprom-def = <0x51>;
+						eeprom-def = <0x50>;
 						eeprom-addr = <0x31>;
 						devnode = "video5";
 
@@ -725,7 +725,7 @@
 						compatible = "sensing,sgcam-gmsl2-4";
 						def-addr = <0x1a>;
 						reg = <0x20>;
-						eeprom-def = <0x51>;
+						eeprom-def = <0x50>;
 						eeprom-addr = <0x30>;
 						devnode = "video4";
 
@@ -826,8 +826,8 @@
 						compatible = "sensing,sgcam-gmsl2-3";
 						def-addr = <0x1b>;
 						reg = <0x23>;
-						eeprom-def = <0x51>;
-						eeprom-addr = <0x33>;
+						eeprom-def = <0x50>;
+						eeprom-addr = <0x34>;
 						devnode = "video3";
 
 						/* Physical dimensions of sensor */
@@ -916,8 +916,8 @@
 						compatible = "sensing,sgcam-gmsl2-2";
 						def-addr = <0x1a>;
 						reg = <0x22>;
-						eeprom-def = <0x51>;
-						eeprom-addr = <0x32>;
+						eeprom-def = <0x50>;
+						eeprom-addr = <0x33>;
 						devnode = "video2";
 
 						/* Physical dimensions of sensor */
@@ -1006,7 +1006,7 @@
 						compatible = "sensing,sgcam-gmsl2-1";
 						def-addr = <0x1b>;
 						reg = <0x21>;
-						eeprom-def = <0x51>;
+						eeprom-def = <0x50>;
 						eeprom-addr = <0x31>;
 						devnode = "video1";
 
@@ -1096,7 +1096,7 @@
 						compatible = "sensing,sgcam-gmsl2-0";
 						def-addr = <0x1a>;
 						reg = <0x20>;
-						eeprom-def = <0x51>;
+						eeprom-def = <0x50>;
 						eeprom-addr = <0x30>;
 						devnode = "video0";
 
