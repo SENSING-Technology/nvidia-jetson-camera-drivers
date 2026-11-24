@@ -4,6 +4,7 @@
 
 * Jetpack 6.0
 * Jetpack 6.2
+* Jetpack 7.2
 
 #### Hardware Connect
 
@@ -16,17 +17,20 @@
 
 #### Camera Version Support
 
-| Type | Camera                      | Jetpack 6.0 | Jetpack 6.2 |
-| ---- | --------------------------- | ----------- | ----------- |
-| YUV  | Gemini 335Lg                | YES         | YES         |
-| YUV  | SHW3H(3MP/H120UA)           | YES         | YES         |
-| YUV  | SHF3L(3MP/H190XA)           | YES         | YES         |
-| YUV  | Astra S36                   | \           | YES         |
-| YUV  | Intel RealSense D457        | \           | YES         |
-| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | \           | YES         |
-| RAW  | SHW3G/SHN3G                 | \           | YES         |
-| RAW  | SHW5G                       | \           | YES         |
-| RAW  | Astra S56                   | \           | YES         |
+| Type | Camera                      | Jetpack 6.0 | Jetpack 6.2 | Jetpack 7.2 |
+| ---- | --------------------------- | ----------- | ----------- | ----------- |
+| YUV  | Gemini 335Lg                | YES         | YES         | \           |
+| YUV  | SHW3H(3MP/H120UA)           | YES         | YES         | YES         |
+| YUV  | SHF3L(3MP/H190XA)           | YES         | YES         | YES         |
+| YUV  | Astra S36                   | \           | YES         | YES         |
+| YUV  | Intel RealSense D457        | \           | YES         | \           |
+| YUV  | SG3S-ISX031C-GMSL2F-Hxxx    | \           | YES         | YES         |
+| YUV  | SG3S11AFSK                  | \           | \           | YES         |
+| YUV  | SG8-OX08DC-5300-G2G-Hxxx    | \           | \           | YES         |
+| RAW  | SHW3G/SHN3G                 | \           | YES         | YES         |
+| RAW  | SHW5G                       | \           | YES         | YES         |
+| RAW  | Astra S56                   | \           | YES         | YES         |
+| RAW  | Astra S56C                  | \           | \           | YES         |
 
 #### Camera Mapping
 
