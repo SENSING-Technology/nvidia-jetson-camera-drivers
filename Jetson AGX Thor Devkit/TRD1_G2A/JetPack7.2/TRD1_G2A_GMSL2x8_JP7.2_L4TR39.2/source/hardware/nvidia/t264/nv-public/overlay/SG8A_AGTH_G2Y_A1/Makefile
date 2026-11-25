@@ -17,6 +17,7 @@ dtbo-y += sgcam/tegra264-camera-sgcam-shw3gx8-overlay.dtbo
 dtbo-y += sgcam/tegra264-camera-sgcam-shw5gx8-overlay.dtbo
 dtbo-y += sgcam/tegra264-camera-sgcam-yuv-gmsl2x8-overlay.dtbo
 dtbo-y += sgcam/tegra264-camera-sgcam-sdt2bco1x4-overlay.dtbo
+dtbo-y += sgcam/tegra264-camera-sgcam-s56yx4-overlay.dtbo
 
 ifneq ($(dtb-y),)
 dtb-y := $(addprefix $(makefile-path)/,$(dtb-y))

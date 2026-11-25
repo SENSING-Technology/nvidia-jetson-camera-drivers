@@ -11,7 +11,7 @@ import tempfile
 # Monocular cameras
 MONOCULAR_MODELS = ["shw3g", "sgx-yuv-gmsl2","imx728", "shw5g"]
 # Stereo cameras (used in pairs)
-STEREO_MODELS = ["s36", "s56", "s56c", "sdv11nm1", "sdt2bco1"]
+STEREO_MODELS = ["s36", "s56", "s56c", "sdv11nm1", "sdt2bco1", "s56y"]
 # Combined list for selection
 ALL_MODELS = MONOCULAR_MODELS + STEREO_MODELS
 
@@ -26,6 +26,7 @@ SENSOR_FORMAT_MAP = {
     "shw5g": "raw10",
     "sdv11nm1": "raw10",
     "sdt2bco1": "uyvy",
+    "s56y": "uyvy",
 
 }
 
@@ -39,6 +40,7 @@ MODEL_TO_DTS_FILE = {
     "shw5g": "dts/tegra264-camera-sgcam-shw5gx8-overlay.dts",
     "sdv11nm1": "dts/tegra264-camera-sgcam-sdv11nm1x4-overlay.dts",
     "sdt2bco1": "dts/tegra264-camera-sgcam-sdt2bco1x4-overlay.dts",
+    "s56y": "dts/tegra264-camera-sgcam-s56yx4-overlay.dts",
 }
 
 TPL_FILE, OUT_DTS, OUT_DTBO = "dts/tegra264-camera-sgcam-template-overlay.dts", "dts/tegra264-camera-sgcamx8-overlay.dts", "dts/tegra264-camera-sgcamx8-overlay.dtbo"

@@ -22,9 +22,10 @@ SHW5G                                Monocular       2064*1552U    30fps        
 SG8-IMX728C-G2G-Hxxx                 Monocular       2880*1860U    30fps           RAW12           6Gbps          mfp7              4
 Astra  S56C                          Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
 Astra  S56                           Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
-SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7、mfp3           6
+SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7、mfp3          6
 SDV11NM1                             Stereo          2592*1944U    30fps           RAW10           6Gbps          mfp7              4
 SDT2BCO1                             Stereo          2400*1800U    30fps           UYVY            6Gbps          mfp7              4
+S56Y                                 Stereo          2400*1800U    30fps           UYVY            6Gbps          mfp7              4
 SHW2GY                               Monocular       1920*1200U    30fps           UYVY            6Gbps          mfp7              8
  ```               
 
@@ -93,15 +94,16 @@ SHW2GY                               Monocular       1920*1200U    30fps        
       6: s56C (raw10)
       7: sdv11nm1 (raw10)
       8: sdt2bco1 (uyvy)
+      9: s56y (uyvy)
    
-   Select camera for cam_0 (0-8): 7
+   Select camera for cam_0 (0-9): 7
    Placed stereo pair 'sdv11nm1' on cam_0 and cam_1.
-   Select camera for cam_2 (0-8): 1
-   Select camera for cam_3 (0-8): 1
-   Select camera for cam_4 (0-8): 1
-   Select camera for cam_5 (0-8): 1
-   Select camera for cam_6 (0-8): 1
-   Select camera for cam_7 (0-8): 1
+   Select camera for cam_2 (0-9): 1
+   Select camera for cam_3 (0-9): 1
+   Select camera for cam_4 (0-9): 1
+   Select camera for cam_5 (0-9): 1
+   Select camera for cam_6 (0-9): 1
+   Select camera for cam_7 (0-9): 1
    
    Selected configurations:
    cam_0 -> sdv11nm1
@@ -264,7 +266,7 @@ SHW2GY                               Monocular       1920*1200U    30fps        
 
    **sensor_mode**：Different YUV camera resolutions
 
-   SG2-AR0233-5200-G2A-Hxxx、SG2-IMX390C-5200-G2A-Hxxx、SG2-ISX021C-G2F-H120KA：sensor_mode=0
+   SG2-AR0233-5200-G2A-Hxxx、SG2-IMX390C-5200-G2A-Hxxx、SG2-ISX021C-G2F-H120KA、S56Y：sensor_mode=0
 
    SG3S-ISX031C-GMSL2F-Hxxx、SG3S-ISX031C-GMSL2-Hxxx、SG3S11AFLK 、SHF3L、SHW3H： sensor_mode=1 (If you need to parse the EMB, sensor-mode=2 is required)
 

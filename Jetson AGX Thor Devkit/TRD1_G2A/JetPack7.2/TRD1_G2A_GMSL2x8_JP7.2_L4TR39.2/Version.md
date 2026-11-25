@@ -1,3 +1,6 @@
+#### 20261125
+Add support for S56Y stereo Camera module.
+
 #### 20261113
 Add support for SDT2BCO1 and SHW2GY Camera module.
 
