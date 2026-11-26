@@ -1,3 +1,7 @@
+###### 20261125 ######
+
+1. Added support for S56Y * 4 camera modules.
+
 ###### 20261109 ######
 
 1. Added support for SHF5G * 8 camera modules.
@@ -29,3 +33,6 @@
 6. Support (S56C * 1 + SHW5G * 2) * 2 modules.
 7. Support (S56C * 1 + SHF3L * 2) * 2 modules.
 8. Support external trigger sync.
+
+
+

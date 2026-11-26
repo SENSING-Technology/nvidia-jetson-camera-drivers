@@ -22,6 +22,9 @@
 * Astra S56C/S56 (Stereo, RAW)
   * support max 4 cameras to bring up at the same time
 
+* S56Y (Stereo, UYVY)
+   * support max 4 cameras to bring up at the same time
+
 * SDT2BC01 (Stereo, UYVY)
    * support max 2 cameras to bring up at the same time
 
@@ -187,6 +190,11 @@
    5.16 For Astra S36x1+SHF3Lx2 Camera Module
 
    [How to bring up Astra S36x1+SHF3Lx2 Camera Module](docs/s36_shf3l_mixed.md)
+
+
+   5.17 For S56Y Camera Module
+
+   [How to bring up S56Y Camera Module](docs/s56y.md)
 
 
 6. Camera Trigger Sync
