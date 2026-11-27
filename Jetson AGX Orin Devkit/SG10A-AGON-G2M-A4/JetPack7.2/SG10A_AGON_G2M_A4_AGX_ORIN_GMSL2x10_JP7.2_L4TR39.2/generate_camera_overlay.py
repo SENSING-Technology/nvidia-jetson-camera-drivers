@@ -12,6 +12,11 @@ STEREO_MODELS = ["s56c"]
 # Combined list for selection
 ALL_MODELS = MONOCULAR_MODELS + STEREO_MODELS
 
+# User-facing names for models sharing one driver
+MODEL_DISPLAY_NAME = {
+    "s56c": "S56C or S56D",
+}
+
 # Map camera model to image format
 SENSOR_FORMAT_MAP = {
     "shw3g": "raw12",
@@ -54,6 +59,9 @@ def parse_sensor_model(node_content):
     match = re.search(r'sensor_model\s*=\s*"([^"]+)"', node_content, re.DOTALL)
     return match.group(1) if match else "Unknown"
 
+def model_label(model):
+    return MODEL_DISPLAY_NAME.get(model, model)
+
 def get_node_info(port_idx):
     """根据端口索引计算节点名(带下划线)与地址"""
     if port_idx < 8:
@@ -67,7 +75,7 @@ def main():
     print("Available models:")
     for i, m in enumerate(ALL_MODELS):
         fmt = SENSOR_FORMAT_MAP.get(m, "unknown")
-        print(f"  {i}: {m} ({fmt})")
+        print(f"  {i}: {model_label(m)} ({fmt})")
     print()
 
     cameras = [None] * 10
@@ -83,11 +91,11 @@ def main():
                     model = ALL_MODELS[sel]
                     if model in STEREO_MODELS:
                         if i % 2 != 0 or i == 9 or cameras[i + 1] is not None:
-                            print(f"Error: Stereo camera '{model}' needs an even port (0,2,4,6,8).")
+                            print(f"Error: Stereo camera '{model_label(model)}' needs an even port (0,2,4,6,8).")
                             continue
                         cameras[i] = model
                         cameras[i + 1] = model
-                        print(f"  Placed stereo pair '{model}' on cam_{i} and cam_{i+1}.")
+                        print(f"  Placed stereo pair '{model_label(model)}' on cam_{i} and cam_{i+1}.")
                         i += 2
                         break
                     else:
@@ -102,7 +110,7 @@ def main():
     print("\nSelected configurations:")
     for idx, model in enumerate(cameras):
         node_name, _ = get_node_info(idx)
-        print(f"  {node_name} -> {model}")
+        print(f"  {node_name} -> {model_label(model)}")
     print()
 
     replacements = {}
@@ -156,7 +164,7 @@ def main():
         node_content = extract_node(content, node_name)
         sensor_model = parse_sensor_model(node_content) if node_content else "EMPTY"
         fmt = SENSOR_FORMAT_MAP.get(sensor_model, "unknown")
-        print(f"Port {port_idx} ({node_name}): {sensor_model} ({fmt})")
+        print(f"Port {port_idx} ({node_name}): {model_label(sensor_model)} ({fmt})")
     print("--- End of Configuration ---\n")
 
 if __name__ == "__main__":

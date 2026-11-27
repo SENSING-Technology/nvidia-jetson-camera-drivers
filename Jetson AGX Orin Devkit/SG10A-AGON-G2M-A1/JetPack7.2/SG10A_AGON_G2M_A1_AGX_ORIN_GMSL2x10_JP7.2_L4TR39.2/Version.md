@@ -1,4 +1,12 @@
 
+#### 20261126
+
+Added camera model configurations:
+
+- S56D
+- S36A
+- SYF3L
+
 #### 20261123
 
 Added camera model configurations:

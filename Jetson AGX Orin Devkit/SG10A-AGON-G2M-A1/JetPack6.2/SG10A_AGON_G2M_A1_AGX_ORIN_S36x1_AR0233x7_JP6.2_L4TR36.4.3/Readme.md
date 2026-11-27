@@ -4,14 +4,14 @@
 
 #### Supported SENSING Camera Modules
 
-* Astra S36(2M 60fps,3M 30fps)
+* Astra S36 or S36A(2M 60fps,3M 30fps)
 
   * support max 1 cameras to bring up at the same time
 * SG2-AR0233C-5200-G2A(2M 60fps)
 
   * support max 7 cameras to bring up at the same time,J27-J30 can connect to at most three SG2-AR0233C-5200-G2A cameras.
 
-Note: After loading the drivers, during the initial power-on sequence of all cameras, all SG2-AR0233C-5200-G2A cameras must be initialized first. The Astra S36 cameras (corresponding to video4 and video5) must be initialized last.
+Note: After loading the drivers, during the initial power-on sequence of all cameras, all SG2-AR0233C-5200-G2A cameras must be initialized first. The Astra S36 or S36A cameras (corresponding to video4 and video5) must be initialized last.
 
 #### Quick Bring Up
 
@@ -19,9 +19,9 @@ Note: After loading the drivers, during the initial power-on sequence of all cam
 
    SG2-AR0233C-5200-G2A: J23/J24/J25/J26/J27/J28/J29
 
-   Astra S36: J21
+   Astra S36 or S36A: J21
 
-2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
+2. Copy the driver package to the working directory of the Jetson device, such as "/home/nvidia"
 
    ```
    /home/nvidia/SG10A_AGON_G2M_A1_AGX_ORIN_S36x1_AR0233x7_JP6.2_L4TR36.4.3
@@ -47,7 +47,7 @@ Note: After loading the drivers, during the initial power-on sequence of all cam
 
 5. After the device reboots, modify load_module.sh file
 
-   for AR0233 + S36(3M 30fps) Module
+   for AR0233 + S36(or S36A) (3M 30fps) Module
    ```
    v4l2-ctl -d /dev/video0 -c sensor_mode=1,gmsl_mode=0,trig_mode=0
    v4l2-ctl -d /dev/video1 -c sensor_mode=1,gmsl_mode=0,trig_mode=0
@@ -61,7 +61,7 @@ Note: After loading the drivers, during the initial power-on sequence of all cam
    v4l2-ctl -d /dev/video9 -c sensor_mode=1,gmsl_mode=0,trig_mode=0
    ```
 
-   for AR0233 + S36(2M 60fps) Module
+   for AR0233 + S36(or S36A)(2M 60fps) Module
    ```
    v4l2-ctl -d /dev/video0 -c sensor_mode=1,gmsl_mode=0,trig_mode=0
    v4l2-ctl -d /dev/video1 -c sensor_mode=1,gmsl_mode=0,trig_mode=0
@@ -92,8 +92,8 @@ Note: After loading the drivers, during the initial power-on sequence of all cam
     J26                     /dev/video1                 SG2-AR0233C-5200-G2A
     J23                     /dev/video2                 SG2-AR0233C-5200-G2A
     J24                     /dev/video3                 SG2-AR0233C-5200-G2A
-    J21                     /dev/video4                 S36(Sensor 0)
-                            /dev/video5                 S36(Sensor 1)
+    J21                     /dev/video4                 S36 or S36A(Sensor 0)
+                            /dev/video5                 S36 or S36A(Sensor 1)
     J27                     /dev/video6                 SG2-AR0233C-5200-G2A
     J28                     /dev/video7                 SG2-AR0233C-5200-G2A
     J29                     /dev/video8                 SG2-AR0233C-5200-G2A
@@ -102,7 +102,7 @@ Note: After loading the drivers, during the initial power-on sequence of all cam
 
 6. Bring up the camera
 
-   Note: After loading the drivers, during the initial power-on sequence of all cameras, all SG2-AR0233C-5200-G2A cameras must be initialized first. The Astra S36 cameras (corresponding to video4 and video5) must be initialized last.
+   Note: After loading the drivers, during the initial power-on sequence of all cameras, all SG2-AR0233C-5200-G2A cameras must be initialized first. The Astra S36 or S36A cameras (corresponding to video4 and video5) must be initialized last.
    ```
     ## Video0
     gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink -ev

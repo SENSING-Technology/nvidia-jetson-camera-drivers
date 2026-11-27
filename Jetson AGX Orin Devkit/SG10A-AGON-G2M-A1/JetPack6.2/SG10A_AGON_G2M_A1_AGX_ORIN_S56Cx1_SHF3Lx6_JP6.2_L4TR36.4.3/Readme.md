@@ -4,7 +4,7 @@
 
 #### Supported Camera Modules
 
-* Astra S56C
+* Astra S56C or S56D
   * support max 1 cameras to bring up at the same time
 
 * SHF3L/SHW3H
@@ -16,7 +16,7 @@
 
    SHF3L/SHF3H: J21/J22/J23/J24/J25/J26
 
-   S56C: J27 or J29
+   S56C or S56D: either J27 or J29
 
    Note: Connect pins 2 and 4 of J19 on the adapter board together to enable camera synchronization.
 
@@ -68,10 +68,10 @@
 
     ```
     PORT                    DEV NODE                    Camera
-    J27                     /dev/video0                 S56C
-                            /dev/video1                 S56C
-    J29                     /dev/video2                 S56C
-                            /dev/video3                 S56C
+    J27                     /dev/video0                 S56C or S56D
+                            /dev/video1                 S56C or S56D
+    J29                     /dev/video2                 S56C or S56D
+                            /dev/video3                 S56C or S56D
 
     J25                     /dev/video4                 SHF3L/SHF3H
     J26                     /dev/video5                 SHF3L/SHF3H
@@ -90,7 +90,7 @@
    ```
    After installation, the jetson_multimedia_api folder can be found in the /usr/src directory. Then refer to the documentation "/usr/src/jetson_multimedia_api/argus/README.TXT" to install argus_camera.
 
-   6.2 For Astra S56C Modules
+   6.2 For Astra S56C or S56D Modules
 
    a. Bring up the camera (Use AGX Orin's trigger signal for camera sync)
    ```

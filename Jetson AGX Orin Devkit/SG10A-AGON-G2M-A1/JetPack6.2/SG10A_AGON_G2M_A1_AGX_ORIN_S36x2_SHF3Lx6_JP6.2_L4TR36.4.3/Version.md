@@ -1,3 +1,7 @@
+20261126:
+
+Add support for Astra S36A camera module.
+
 20250807: 
 
 The following camera models are supported:

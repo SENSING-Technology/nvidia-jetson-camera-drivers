@@ -1,3 +1,6 @@
+### 20261126
+Add support for Astra S56D camera module.
+
 ### 20260810
 Optimize the S56C camera image quality and improve imaging performance.
 

@@ -4,7 +4,7 @@
 
 #### Supported SENSING Camera Modules
 
-* Astra S36
+* Astra S36 or S36A
 
   * support max 2 cameras to bring up at the same time
 * SHF3L/SG3S-ISX031C-GMSL2F
@@ -18,9 +18,9 @@
 
 1. Connect the Camera to the ports on the adapter board.
 SHF3L/SG3S-ISX031C-GMSL2F: J25/J26/J27/J28/J29/J30
-Astra S36: J21/J23
+Astra S36 or S36A: J21/J23
 
-2. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
+2. Copy the driver package to the working directory of the Jetson device, such as "/home/nvidia"
 
    ```
    /home/nvidia/SG10A_AGON_G2M_A1_AGX_ORIN_S36_SHF3L_JP6.2_L4TR36.4.3
@@ -45,7 +45,7 @@ Astra S36: J21/J23
    ```
 
 5. After the device reboots, modify load_module.sh file
-for SHF3L + S36 Module
+for SHF3L + S36(or S36A)  Module
    ```
    v4l2-ctl -d /dev/video0 -c sensor_mode=2,gmsl_mode=0,trig_mode=0
    v4l2-ctl -d /dev/video1 -c sensor_mode=2,gmsl_mode=0,trig_mode=0
@@ -59,7 +59,7 @@ for SHF3L + S36 Module
    v4l2-ctl -d /dev/video9 -c sensor_mode=2,gmsl_mode=0,trig_mode=0
    ```
 
-for SG3S-ISX031C-GMSL2F + S36 Module
+for SG3S-ISX031C-GMSL2F + S36(or S36A)Module
    ```
    v4l2-ctl -d /dev/video0 -c sensor_mode=2,gmsl_mode=1,trig_mode=0
    v4l2-ctl -d /dev/video1 -c sensor_mode=2,gmsl_mode=1,trig_mode=0
@@ -88,10 +88,10 @@ for SG3S-ISX031C-GMSL2F + S36 Module
     PORT                    DEV NODE                    Camera
     J25                     /dev/video0                 SHF3L
     J26                     /dev/video1                 SHF3L
-    J23                     /dev/video2                 S36(Sensor 0)
-                            /dev/video3                 S36(Sensor 1)
-    J21                     /dev/video4                 S36(Sensor 0)
-                            /dev/video5                 S36(Sensor 1)
+    J23                     /dev/video2                 S36 or S36A(Sensor 0)
+                            /dev/video3                 S36 or S36A(Sensor 1)
+    J21                     /dev/video4                 S36 or S36A(Sensor 0)
+                            /dev/video5                 S36 or S36A(Sensor 1)
     J27                     /dev/video6                 SHF3L
     J28                     /dev/video7                 SHF3L
     J29                     /dev/video8                 SHF3L

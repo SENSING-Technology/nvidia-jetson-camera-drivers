@@ -64,3 +64,11 @@
     Astra S56
 
     Astra S36
+
+20261126:
+
+1. Supports the following cameras:
+
+    S36A
+
+    SYF3L

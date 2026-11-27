@@ -1,3 +1,12 @@
+#### 20261126
+
+1. Supports the following cameras:
+   ```
+   SYF3L
+   S36A
+   S56D
+   ```
+
 #### 20261012
 
 Add support for Astra S56C Camera module.

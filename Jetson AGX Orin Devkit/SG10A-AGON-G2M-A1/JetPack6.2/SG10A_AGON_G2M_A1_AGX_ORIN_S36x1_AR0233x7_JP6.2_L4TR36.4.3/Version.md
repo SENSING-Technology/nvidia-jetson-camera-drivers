@@ -1,4 +1,8 @@
-20260320：
+20261126:
+
+Add support for Astra S36A camera module.
+
+20260320:
 
 The following camera models are supported:
    ```

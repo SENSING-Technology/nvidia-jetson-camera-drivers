@@ -15,18 +15,21 @@ SG8-ISX028C-G2G-Hxxx                 Monocular       3840*2160U    30fps        
 SG8-OX08DC-5300-G2G-Hxxx             Monocular       3840*2160U    30fps           UYVY            6Gbps          mfp8              4
 SG2-ISX021C-G2F-H120KA               Monocular       1920*1080U    30fps           UYVY            3Gbps          mfp7              8
 SG3S11AFLK                           Monocular       1920*1536U    30fps           UYVY            3Gbps          mfp7              8
+SYF3L                                Monocular       1920*1536U    30fps           UYVY            3Gbps          mfp7              8
 SHW3H                                Monocular       1920*1536U    60fps           UYVY            6Gbps          mfp7              4
 SHF3L                                Monocular       1920*1536U    30fps           UYVY            6Gbps          mfp7              8
-Astra S36                            Stereo          1920*1536U    30fps           UYVY            6Gbps          mfp7              4
+Astra  S36 or S36A                   Stereo          1920*1536U    30fps           UYVY            6Gbps          mfp7              4
 SHW5G                                Monocular       2064*1552U    30fps           RAW10           6Gbps          mfp7              6
 SG8-IMX728C-G2G-Hxxx                 Monocular       2880*1860U    30fps           RAW12           6Gbps          mfp7              4
-Astra  S56C                          Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
+Astra  S56C or S56D                  Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
 Astra  S56                           Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
-SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7、mfp3          6
+SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7, mfp3          6
 SDV11NM1                             Stereo          2592*1944U    30fps           RAW10           6Gbps          mfp7              4
 SDT2BCO1                             Stereo          2400*1800U    30fps           UYVY            6Gbps          mfp7              4
 S56Y                                 Stereo          2400*1800U    30fps           UYVY            6Gbps          mfp7              4
 SHW2GY                               Monocular       1920*1200U    30fps           UYVY            6Gbps          mfp7              8
+SYW2G                                Monocular       1920*1200U    30fps           UYVY            6Gbps          mfp7              8
+SYF2G                                Monocular       1920*1200U    30fps           UYVY            6Gbps          mfp7              8
  ```               
 
 #### Quick Bring Up
@@ -46,7 +49,7 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    CN2 (CAM4/CAM5/CAM6/CAM7)
 
    Note: Stereo camera needs an even port (CAM0/2/4/6) and the next port must be free.
-   Due to the EEPROM address remapping introduced in this version, only one stereo camera is supported per port group. Specifically, for CAM0–CAM3, either CAM0 or CAM2 can be used, but they cannot be used at the same time; the same restriction applies to CAM4–CAM7.
+   Due to the EEPROM address remapping introduced in this version, only one stereo camera is supported per port group. Specifically, for CAM0-CAM3, either CAM0 or CAM2 can be used, but they cannot be used at the same time; the same restriction applies to CAM4-CAM7.
    ```
    ![alt text](picture/cam.png)
 
@@ -65,8 +68,8 @@ SHW2GY                               Monocular       1920*1200U    30fps        
     ```  
    ![alt text](picture/image-cn.jpg)
 
-   SG8A-AGON-G2Y-A1 adapt board need to be powered by 12V.
-3. Copy the driver package to the working directory of the Jetson device, such as “/home/nvidia”
+   SG8A-AGON-G2Y-A1 adapt board needs to be powered by 12V.
+3. Copy the driver package to the working directory of the Jetson device, such as "/home/nvidia"
 
    ```
    /home/nvidia/TRD1_G2A_GMSL2x8_JP7.2_L4TR39.2
@@ -74,14 +77,14 @@ SHW2GY                               Monocular       1920*1200U    30fps        
 
 4. Select camera for cam_0~cam_7
 
-   Enter the driver directory, run the script "generate_camera_overlay.py" to select camera.
+   Enter the driver directory and run the script "generate_camera_overlay.py" to select the camera.
 
    ```
    cd TRD1_G2A_GMSL2x8_JP7.2_L4TR39.2
    python3 generate_camera_overlay.py
    ```
 
-   for example
+   For example:
    ```   
    nvidia@nvidia:~/TRD1_G2A_GMSL2x8_JP7.2_L4TR39.2$ python3 generate_camera_overlay.py
    Available models:
@@ -89,9 +92,9 @@ SHW2GY                               Monocular       1920*1200U    30fps        
       1: sgx-yuv-gmsl2 (uyvy)
       2: imx728 (raw12)
       3: shw5g (raw10)
-      4: s36 (uyvy)
+      4: S36 or S36A (uyvy)
       5: s56 (raw10)
-      6: s56C (raw10)
+      6: S56C or S56D (raw10)
       7: sdv11nm1 (raw10)
       8: sdt2bco1 (uyvy)
       9: s56y (uyvy)
@@ -140,12 +143,12 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    --- End of Configuration ---
    ```
    
-   After execution, a new DTB file is generated:
+   After execution, a new DTBO file is generated:
    
 
    dts/tegra264-camera-sgcamx8-overlay.dtbo
 
-5. Install Kernel image and camera overly file
+5. Install the kernel image and camera overlay file
 
    ```
    cd TRD1_G2A_GMSL2x8_JP7.2_L4TR39.2
@@ -153,7 +156,7 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    ./install.sh
    ```
 
-6. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select camera overly file
+6. Use the "sudo /opt/nvidia/jetson-io/jetson-io.py" command to select the camera overlay file
 
    ```
    sudo /opt/nvidia/jetson-io/jetson-io.py
@@ -165,9 +168,9 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    5.select "Save and reboot to reconfigure pins"
    ```
 
-7. After the device reboot, run the script "load_module.sh".
+7. After the device reboot, run the script "load_modules.sh".
 
-   7.1 run the script "load_module.sh".
+   7.1 Run the script "load_modules.sh".
 
    ```
    sudo ./load_modules.sh
@@ -215,7 +218,7 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/imx728.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
 
-   #for S56C、S56、SHW5G
+   #for S56C, S56D, S56, SHW5G
    sudo service nvargus-daemon stop
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/shw5g.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
@@ -225,7 +228,7 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    export NVCAMERA_NITO_PATH=/var/nvidia/nvcam/settings/sdv11nm1.nito
    sudo -E enableCamInfiniteTimeout=1 nvargus-daemon
    ```
-   Note:This version does not support mixing different RAW cameras, with the exception of mixing Astra S56C and SHW5G.
+   Note:This version does not support mixing different RAW cameras, with the exception of S56C, S56D and SHW5G. S56C and S56D belong to the same camera module type, so they can be mixed.
 
    Start argus_camera in another terminal
    ```
@@ -262,27 +265,27 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    v4l2-ctl -d /dev/video* -c sensor_mode=1,trig_pin=0x00020007,trig_mode=0
    ```
 
-   **/dev/video*** ： For the corresponding video node
+   **/dev/video***: For the corresponding video node
 
-   **sensor_mode**：Different YUV camera resolutions
+   **sensor_mode**: Different YUV camera resolutions
 
-   SG2-AR0233-5200-G2A-Hxxx、SG2-IMX390C-5200-G2A-Hxxx、SG2-ISX021C-G2F-H120KA、S56Y：sensor_mode=0
+   SG2-AR0233-5200-G2A-Hxxx, SG2-IMX390C-5200-G2A-Hxxx, SG2-ISX021C-G2F-H120KA, S56Y: sensor_mode=0
 
-   SG3S-ISX031C-GMSL2F-Hxxx、SG3S-ISX031C-GMSL2-Hxxx、SG3S11AFLK 、SHF3L、SHW3H： sensor_mode=1 (If you need to parse the EMB, sensor-mode=2 is required)
+   SG3S-ISX031C-GMSL2F-Hxxx, SG3S-ISX031C-GMSL2-Hxxx, SG3S11AFLK, SYF3L, SHF3L, SHW3H: sensor_mode=1 (If you need to parse the EMB, sensor-mode=2 is required)
 
-   SG5-IMX490C-5300-GMSL2-Hxxx ：sensor_mode=3
+   SG5-IMX490C-5300-GMSL2-Hxxx: sensor_mode=3
 
-   SG8S-AR0820-5200-G2A-Hxxx、SG8-OX08DC-5300-G2G-Hxxx： sensor_mode=4
+   SG8S-AR0820-5200-G2A-Hxxx, SG8-OX08DC-5300-G2G-Hxxx: sensor_mode=4
 
-   SG8-ISX028C-G2G-Hxxx：sensor_mode=6
+   SG8-ISX028C-G2G-Hxxx: sensor_mode=6
    
-   SHW2GY：sensor_mode=7
+   SHW2GY, SYW2G, SYF2G: sensor_mode=7
 
-   s36: Do not output EMB setting sensor-mode=0, output EMB sensor-mode=1
+   S36 or S36A: Do not output EMB setting sensor-mode=0, output EMB sensor-mode=1
 
-   **trig_pin、trig_mode**：The trigger mode will be used. Now, it will be set to the default settings.
+   **trig_pin, trig_mode**: The trigger mode will be used. Now, it will be set to the default settings.
 
-   Run the gst-launch-1.0 in a terminal.
+   Run gst-launch-1.0 in a terminal.
 
    ```
    ## CAM0
@@ -370,7 +373,7 @@ SHW2GY                               Monocular       1920*1200U    30fps        
    ```
 
 
-   For the SWH3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0~CAM3) and PIN2 (CAM-FSYNC2, for CAM4~CAM5).
+   For the SHW3G module, an additional 83kHz PWM signal is required on PIN4 (CAM-FSYNC4, for CAM0~CAM3) and PIN2 (CAM-FSYNC2, for CAM4~CAM5).
 
    ```
    CAM-FSYNC4 pin and CAM-FSYNC2 Pin Trigger Signal Parameters:

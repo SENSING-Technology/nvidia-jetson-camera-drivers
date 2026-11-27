@@ -1,3 +1,12 @@
+#### 20261126
+
+1.Supports the following cameras:
+
+```
+S56D
+SYF3L
+```
+
 #### 20261012
 
 1.Supports the following cameras:

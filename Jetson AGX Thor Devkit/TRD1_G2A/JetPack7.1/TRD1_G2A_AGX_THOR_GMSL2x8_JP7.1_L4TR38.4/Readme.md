@@ -2,67 +2,32 @@
 
 * Jetpack 7.1
 
+
 #### Supported Camera Modules
 
-* SG8-OX08DC-G2G-Hxxx (Monocular, RAW)
-  * support max 4 cameras to bring up at the same time
-
-* SG8-IMX728C-G2G-Hxxx (Monocular, RAW)
-  * support max 4 cameras to bring up at the same time 
-
-* SG3-OX03H10C-G2F-Hxxx (Monocular, RAW)
-  * support max 8 cameras to bring up at the same time
-
-* SHW3G (Monocular, RAW)
-  * support max 8 cameras to bring up at the same time
-
-* SHW5G (Monocular, RAW)
-  * support max 6 cameras to bring up at the same time
-
-* SDV11NM1 (Stereo, RAW)
-  * support max 4 cameras to bring up at the same time
-
-* Astra S56 (Stereo, RAW)
-  * support max 2 cameras to bring up at the same time
- 
-* Astra S36 (Stereo, YUV)
-  * support max 4 cameras to bring up at the same time
-
-* SGX-YUV-GMSL2 (Monocular, YUV)
-
-   * SG2-IMX390C-5200-G2A-Hxxx
-      * support max 8 cameras to bring up at the same time
-
-   * SG2-AR0233-5200-G2A-Hxxx
-      * support max 8 cameras to bring up at the same time
-
-   * SG2S24AFSK
-      * support max 8 cameras to bring up at the same time
-
-   * SG3-ISX031C-GMSL2-Hxxx
-      * support max 8 cameras to bring up at the same time
-
-   * SG3-ISX031C-GMSL2F-Hxxx
-      * support max 8 cameras to bring up at the same time
-
-   * SG5-IMX490C-5300-GMSL2-Hxxx
-      * support max 6 cameras to bring up at the same time
-
-   * SG8S-AR0820C-5300-G2A-Hxxx
-      * support max 4 cameras to bring up at the same time
-
-   * SG8-OX08DC-5300-G2G-Hxxx
-      * support max 4 cameras to bring up at the same time   
-
-   * SG8-ISX028C-G2G-Hxxx
-      * support max 4 cameras to bring up at the same time
-
-   * SHF3L
-      * support max 8 cameras to bring up at the same time
-
-   * SHF3H
-      * support max 4 cameras to bring up at the same time
-
+```
+Camera Model                        Camera Type      Resolution   Frame Rate     Data Format      GMSL2 Rate   Trigger Pin     MaxDevices
+SG2-AR0233C-5200-G2A-Hxxx            Monocular       1920*1080U    30fps           UYVY            6Gbps          mfp7              8
+SG2-IMX390C-5200-G2A-Hxxx            Monocular       1920*1080U    30fps           UYVY            6Gbps          mfp7              8
+SG3S-ISX031C-GMSL2F-Hxxx             Monocular       1920*1536U    30fps           UYVY            3Gbps          mfp7              8
+SG3S-ISX031C-GMSL2-Hxxx              Monocular       1920*1536U    30fps           UYVY            6Gbps          mfp7              8
+SG5-IMX490C-5300-GMSL2-Hxxx          Monocular       2880*1860U    30fps           UYVY            6Gbps          mfp8              6
+SG8S-AR0820C-5300-G2A-Hxxx           Monocular       3840*2160U    30fps           UYVY            6Gbps          mfp7              4
+SG8-ISX028C-G2G-Hxxx                 Monocular       3840*2160U    30fps           UYVY            6Gbps          mfp7              4
+SG8-OX08DC-5300-G2G-Hxxx             Monocular       3840*2160U    30fps           UYVY            6Gbps          mfp7              4
+SG2S24AFSK                           Monocular       1920*1536U    30fps           UYVY            3Gbps          mfp7              8
+SYF3L                                Monocular       1920*1536U    30fps           UYVY            3Gbps          mfp7              8
+SHW3H                                Monocular       1920*1536U    60fps           UYVY            6Gbps          mfp7              4
+SHF3L                                Monocular       1920*1536U    30fps           UYVY            6Gbps          mfp7              8
+Astra  S36 or S36A                   Stereo          1920*1536U    30fps           UYVY            6Gbps          mfp7              4
+SHW5G                                Monocular       2064*1552U    30fps           RAW10           6Gbps          mfp7              6
+SG8-OX08DC-G2G-Hxxx                  Monocular       3840*2160U    30fps           RAW12           6Gbps          mfp7              4
+SG3-OX03H10C-G2F-Hxxx                Monocular       1920*1536U    30fps           RAW12           3Gbps          mfp7              8
+SG8-IMX728C-G2G-Hxxx                 Monocular       2880*1860U    30fps           RAW12           6Gbps          mfp7              4
+Astra  S56                           Stereo          2560*1984U    30fps           RAW10           6Gbps          mfp7              4
+SHW3G                                Monocular       2064*1552U    30fps           RAW12           6Gbps        mfp7, mfp3          6
+SDV11NM1                             Stereo          2592*1944U    30fps           RAW10           6Gbps          mfp7              4
+ ``` 
 
 
 #### Quick Bring Up
@@ -117,14 +82,14 @@
    3: shw3g (raw12)
    4: shw5g (raw10)
    5: sgx-yuv-gmsl2 (uyvy)
-   6: s36 (uyvy)
+   6: S36 or S36A (uyvy)
    7: s56 (raw10)
    8: sdv11nm1 (raw10)
 
    Select camera for cam_0 (0-8): 4
    Select camera for cam_1 (0-8): 4
    Select camera for cam_2 (0-8): 5
-   Placed stereo pair 's36' on cam_2 and cam_3.
+   Placed stereo pair 'S36 or S36A' on cam_2 and cam_3.
    Select camera for cam_4 (0-8): 6
    Placed stereo pair 's56' on cam_4 and cam_5.
    Select camera for cam_6 (0-8): 7
@@ -133,8 +98,8 @@
    Selected configurations:
    cam_0 -> sgx-yuv-gmsl2
    cam_1 -> sgx-yuv-gmsl2
-   cam_2 -> s36
-   cam_3 -> s36
+   cam_2 -> S36 or S36A
+   cam_3 -> S36 or S36A
    cam_4 -> s56
    cam_5 -> s56
    cam_6 -> sdv11nm1
@@ -156,8 +121,8 @@
    --- Final Port Configuration ---
    Port 0 (cam_0): sgx-yuv-gmsl2 (uyvy)
    Port 1 (cam_1): sgx-yuv-gmsl2 (uyvy)
-   Port 2 (cam_2): s36 (uyvy)
-   Port 3 (cam_3): s36 (uyvy)
+   Port 2 (cam_2): S36 or S36A (uyvy)
+   Port 3 (cam_3): S36 or S36A (uyvy)
    Port 4 (cam_4): s56 (raw10)
    Port 5 (cam_5): s56 (raw10)
    Port 6 (cam_6): sdv11nm1 (raw10)
